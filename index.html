@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Accessbility runner</title>
+
+    <script type="module" src="./src/index.ts"></script>
+  </head>
+  <body>
+    <details>
+      <summary>
+        Active &lt;area&gt; elements must have alternate text
+      </summary>
+      <img src="https://via.placeholder.com/100x100" alt="Solar System" width="100" height="100" usemap="#Map"/>
+      <map name="Map">
+        <area shape="rect" coords="115,158,276,192" href="http://en.wikipedia.org/wiki/Mercury_%28planet%29" alt="Mercury">
+        <area shape="rect" coords="115,193,276,234" href="http://en.wikipedia.org/wiki/Venus" alt="Venus">
+        <area shape="rect" coords="115,193,276,234" href="http://en.wikipedia.org/wiki/Uranus">
+      </map>
+    </details>
+  </body>
+</html>
