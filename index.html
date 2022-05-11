@@ -3,9 +3,9 @@
   <head>
     <title>Accessbility runner</title>
 
-    <script type="module" src="./src/index.ts"></script>
+    <script type="module" src="./src/app.ts"></script>
   </head>
-  <body>
+  <body aria-hidden="true">
     <details>
       <summary>
         Active &lt;area&gt; elements must have alternate text
@@ -16,6 +16,19 @@
         <area shape="rect" coords="115,193,276,234" href="http://en.wikipedia.org/wiki/Venus" alt="Venus">
         <area shape="rect" coords="115,193,276,234" href="http://en.wikipedia.org/wiki/Uranus">
       </map>
+    </details>
+    <details>
+      <summary>
+        Elements must only use allowed ARIA attributes
+      </summary>
+      <i>foobar</i>
+    </details>
+    <details>
+      <summary>
+        ARIA roles used must conform to valid values
+      </summary>
+
+      <li role="foo"></li>
     </details>
   </body>
 </html>

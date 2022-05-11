@@ -13,12 +13,17 @@ async function ready(): Promise<void> {
 
 (async function() {
   await ready()
-  document.body.addEventListener('accessbility-error', error => {
-    console.log(error.element)
-    console.log(error)
+  document.addEventListener('accessbility-error', error => {
+    for (const accessbilityError of error.detail.errors) {
+      accessbilityError.element.setAttribute('style', 'border: 5px solid red;')
+      console.log(accessbilityError.text, accessbilityError.element, accessbilityError.url)
+    }
   })
 
+  const startTime = performance.now()
   await scan(document.body)
+  const endTime = performance.now()
+  console.log(`Took ${(endTime - startTime).toPrecision(2)}ms to execute accessbility scans`)
 })()
 
 interface CustomEventMap {

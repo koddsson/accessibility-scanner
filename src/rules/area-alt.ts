@@ -1,12 +1,15 @@
-import {AccessibilityError} from './scanner'
+import {AccessibilityError} from '../scanner'
 
-export function activeAreaElementMustHaveAlternativeText(el: HTMLElement): AccessibilityError[] {
+const text = 'Elements must only use allowed ARIA attributes'
+const url = 'https://dequeuniversity.com/rules/axe/4.4/area-alt?application=RuleDescription'
+
+export function areaAlt(el: HTMLElement): AccessibilityError[] {
   const errors = []
-  for (const badEl of el.querySelectorAll('map area:not([alt])')) {
+  for (const element of el.querySelectorAll<HTMLElement>('map area:not([alt])')) {
     errors.push({
-      element: badEl,
-      text: 'Active <area> elements must have alternate text',
-      url: 'https://example.com'
+      element,
+      text,
+      url,
     })   
   }
   return errors
