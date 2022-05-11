@@ -1,5 +1,5 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { scan } from "../../../../src/scanner";
+import { scan } from "../src/scanner";
 
 describe("meta-viewport", function () {
   it("maximum-scale=2 has no errors", async () => {

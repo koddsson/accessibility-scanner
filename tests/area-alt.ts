@@ -1,5 +1,5 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { scan } from "../../../../src/scanner";
+import { scan } from "../src/scanner";
 
 describe("area-alt", function () {
   it("empty alt attribute fails", async () => {
