@@ -13,7 +13,7 @@ const url = 'https://dequeuniversity.com/rules/axe/4.4/aria-roles?application=Ru
 
 const validRoles = ['article', 'banner', 'complementary', 'main', 'navigation', 'region', 'search', 'contentinfo']
 
-export default function(el: HTMLElement): AccessibilityError[] {
+export default function(el: Element): AccessibilityError[] {
   const errors = []
   for (const element of el.querySelectorAll<HTMLElement>('[role]')) {
     const role = element.getAttribute('role')

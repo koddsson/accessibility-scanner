@@ -9,7 +9,7 @@ const ariaMappings: Record<string, string | undefined> = {
   'I': undefined,
 }
 
-export function ariaAllowedAttr(el: HTMLElement): AccessibilityError[] {
+export function ariaAllowedAttr(el: Element): AccessibilityError[] {
   const errors = []
   const selector = Object.keys(ariaMappings).join(',')
   for (const element of el.querySelectorAll<HTMLElement>(selector)) {

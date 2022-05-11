@@ -7,7 +7,7 @@ const url = 'https://dequeuniversity.com/rules/axe/4.4/aria-hidden-body?applicat
 // https://github.com/dequelabs/axe-core/blob/develop/lib/standards/aria-roles.js
 // rule definition: https://github.com/dequelabs/axe-core/blob/develop/lib/commons/aria/required-attr.js
 
-export default function(el: HTMLElement): AccessibilityError[] {
+export default function(el: Element): AccessibilityError[] {
   // TODO
   return []
 }
