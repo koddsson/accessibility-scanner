@@ -13,6 +13,7 @@ import metaViewport from './rules/meta-viewport'
 import scopeAttrValid from './rules/scope-attr-valid'
 import videoCaptions from './rules/video-caption'
 import selectName from './rules/select-name'
+import metaRefresh from './rules/meta-refresh'
 
 type Rule = (el: Element) => AccessibilityError[]
 
@@ -25,7 +26,8 @@ const allRules: Rule[]  = [
   metaViewport,
   scopeAttrValid,
   videoCaptions,
-  selectName
+  selectName,
+  metaRefresh
 ]
 
 export async function scan(element: Element, enabledRules?: Rule[]): Promise<AccessibilityError[]> {
