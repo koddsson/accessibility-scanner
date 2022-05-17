@@ -17,7 +17,6 @@ export default function(el: Element): AccessibilityError[] {
         text,
         url,
       })
-      return errors
     }
 
     for (const track of tracks) {
