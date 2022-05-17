@@ -11,7 +11,7 @@ import ariaRequiredAttr from './rules/aria-required-attr'
 import ariaRoles from './rules/aria-roles'
 import metaViewport from './rules/meta-viewport'
 import scopeAttrValid from './rules/scope-attr-valid'
-import videoCaptions from './rules/video-captions'
+import videoCaptions from './rules/video-caption'
 
 type Rule = (el: Element) => AccessibilityError[]
 
@@ -22,7 +22,8 @@ const rules: Rule[]  = [
   ariaRequiredAttr,
   ariaRoles,
   metaViewport,
-  scopeAttrValid
+  scopeAttrValid,
+  videoCaptions
 ]
 
 export async function scan(element: Element): Promise<AccessibilityError[]> {
