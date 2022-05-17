@@ -14,6 +14,7 @@ import scopeAttrValid from './rules/scope-attr-valid'
 import videoCaptions from './rules/video-caption'
 import selectName from './rules/select-name'
 import metaRefresh from './rules/meta-refresh'
+import imageAlt from './rules/image-alt'
 
 type Rule = (el: Element) => AccessibilityError[]
 
@@ -27,7 +28,8 @@ const allRules: Rule[]  = [
   scopeAttrValid,
   videoCaptions,
   selectName,
-  metaRefresh
+  metaRefresh,
+  imageAlt
 ]
 
 export async function scan(element: Element, enabledRules?: Rule[]): Promise<AccessibilityError[]> {
