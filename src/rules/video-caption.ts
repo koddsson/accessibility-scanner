@@ -5,19 +5,23 @@ const url = 'https://dequeuniversity.com/rules/axe/4.4/video-caption?application
 
 export default function(el: Element): AccessibilityError[] {
   const errors = []
-  for (const element of el.querySelectorAll<HTMLElement>('video')) {
-    const tracks = element.querySelectorAll('track')
+  const elements = Array.from(el.querySelectorAll<HTMLElement>('video'))
+  if (el.matches('video')) {
+    elements.push(el as HTMLElement)
+  }
+  for (const element of elements) {
+    const tracks = element.querySelectorAll<HTMLTrackElement>('track')
     if (tracks.length === 0) {
       errors.push({
         element,
         text,
         url,
       })
-      return
+      return errors
     }
 
     for (const track of tracks) {
-      if (tracks.getAttribute('kind') !== 'captions') {
+      if (track.kind !== 'captions') {
         errors.push({
           element,
           text,
