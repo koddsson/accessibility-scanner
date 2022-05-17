@@ -1,16 +1,8 @@
 import {AccessibilityError} from '../scanner'
+import {labelledByIsValid} from '../utils'
 
 const text = 'select element must have an accessible name'
 const url = 'https://dequeuniversity.com/rules/axe/4.4/select-name?application=RuleDescription'
-
-function labelledbyIsValid(el: Element): boolean {
-  const id = el.getAttribute('aria-labelledby')
-  if (!id) return false
-  const otherElement = el.ownerDocument.getElementById(id)
-  if (!otherElement) return false
-
-  return otherElement.innerText.trim() != ''
-}
 
 function labelReadableText(label: HTMLElement): boolean {
   if (!label?.innerText?.trim()) return false
@@ -38,7 +30,7 @@ export default function(el: Element): AccessibilityError[] {
     if (parentElement instanceof HTMLLabelElement && labelReadableText(parentElement)) continue
 
     if (element.getAttribute("aria-label")) continue
-    if (labelledbyIsValid(element)) continue
+    if (labelledByIsValid(element)) continue
     if (element.getAttribute("title")) continue
     if (element.disabled) continue
 
