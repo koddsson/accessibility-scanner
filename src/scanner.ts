@@ -5,7 +5,7 @@ export interface AccessibilityError {
 }
 
 import {areaAlt} from './rules/area-alt'
-import {ariaAllowedAttr} from './rules/aria-allowed-attr'
+//import {ariaAllowedAttr} from './rules/aria-allowed-attr'
 import {ariaHiddenBody} from './rules/aria-hidden-body'
 import ariaRequiredAttr from './rules/aria-required-attr'
 //import ariaRoles from './rules/aria-roles'
@@ -21,7 +21,7 @@ type Rule = (el: Element) => AccessibilityError[]
 
 const allRules: Rule[]  = [
   areaAlt,
-  ariaAllowedAttr,
+  //ariaAllowedAttr,
   ariaHiddenBody,
   ariaRequiredAttr,
   //ariaRoles,
