@@ -6,6 +6,7 @@
   "module": "./dist/src/scanner.js",
   "main": "./dist/src/scanner.js",
   "scripts": {
+    "prepublish": "npm run build",
     "build": "tsc",
     "test": "web-test-runner",
     "start": "web-dev-server"
