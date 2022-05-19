@@ -13,7 +13,8 @@ export default function (el: Element): AccessibilityError[] {
   }
   for (const element of elements) {
     if (element.innerText.trim() !== "") continue;
-    if (element.ariaLabel && element.ariaLabel?.trim() !== "") continue;
+    const label = element.getAttribute('aria-label')
+    if (label && label.trim() !== "") continue;
     if (labelledByIsValid(element)) continue;
     if (element.title.trim() !== "") continue;
     if (['presentation', 'none'].includes(element.getAttribute('role')!) && element.disabled) continue;

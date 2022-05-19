@@ -12,13 +12,14 @@ export default function(el: Element): AccessibilityError[] {
   }
   for (const element of elements) {
     if (element.hasAttribute('alt') && element.alt === element.alt.trim()) continue
-    if (element.ariaLabel?.trim()) continue
+    const label = element.getAttribute('aria-label')
+    if (label && label.trim() !== '') continue
     if (labelledByIsValid(element)) continue
     if (element.title) continue
 
     const role = element.getAttribute('role')
     const hasValidRole = (role === 'presentation' || role === 'none')
-    if (hasValidRole && element.tabIndex !== 0 && !element.ariaLive) continue
+    if (hasValidRole && element.tabIndex !== 0 && !element.hasAttribute('aria-live')) continue
 
     errors.push({
       element,
