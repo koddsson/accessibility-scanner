@@ -1,0 +1,19 @@
+{
+  "format": "document_id"
+}
+
+{
+  "name": "area-alt",
+  "selector": "map area[href]",
+  "oneOf": [
+    {"required": ["href", "alt"]}
+    {"required": ["href", "aria-label"]}
+    {"required": ["href", "aria-labelledby"]}
+  ],
+  "attributes": {
+    "href": { "type": "string"},
+    "alt": {"type": "string", "minLength": 1},
+    "aria-label": {"type": "string", "minLength": 1},
+    "aria-labelledby": {"type": "string", "minLength": 1, "format": "document_id"},
+  }
+}
