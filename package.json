@@ -1,19 +1,26 @@
 {
-  "name": "accessbility-runner",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "@koddsson/accessbility-scanner",
+  "version": "0.0.1",
+  "description": "A accessbility scanner",
+  "type": "module",
+  "module": "./dist/src/scanner.js",
+  "main": "./dist/src/scanner.js",
   "scripts": {
+    "build": "tsc",
     "test": "web-test-runner",
-    "start": "web-dev-server --node-resolve --open --esbuild-target auto"
+    "start": "web-dev-server"
   },
+  "files": [
+    "dist/src/*"
+  ],
   "keywords": [],
-  "author": "",
+  "author": "Kristján Oddsson",
   "license": "ISC",
   "devDependencies": {
     "@open-wc/testing": "^3.1.4",
     "@web/dev-server": "^0.1.31",
     "@web/dev-server-esbuild": "^0.3.0",
-    "@web/test-runner": "^0.13.27"
+    "@web/test-runner": "^0.13.27",
+    "typescript": "^4.6.4"
   }
 }

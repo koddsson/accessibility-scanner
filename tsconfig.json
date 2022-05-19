@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "noEmit": true,
+    "outDir": "dist",
     "module": "esnext",
     "target": "esnext",
     "lib": ["esnext", "dom", "dom.iterable"],
