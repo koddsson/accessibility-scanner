@@ -16,6 +16,7 @@ import selectName from './rules/select-name'
 import metaRefresh from './rules/meta-refresh'
 import imageAlt from './rules/image-alt'
 import buttonName from './rules/button-name'
+import label from './rules/label'
 
 type Rule = (el: Element) => AccessibilityError[]
 
@@ -31,7 +32,8 @@ const allRules: Rule[]  = [
   selectName,
   metaRefresh,
   imageAlt,
-  buttonName
+  buttonName,
+  label
 ]
 
 export async function scan(element: Element, enabledRules?: Rule[]): Promise<AccessibilityError[]> {
