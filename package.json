@@ -1,6 +1,6 @@
 {
   "name": "@koddsson/accessbility-scanner",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A accessbility scanner",
   "type": "module",
   "module": "./dist/src/scanner.js",
