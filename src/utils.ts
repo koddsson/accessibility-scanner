@@ -8,6 +8,8 @@ export function labelledByIsValid(el: Element): boolean {
   const otherElement = document.querySelector<HTMLElement>(`#${id}`)
   if (!otherElement) return false
 
+  if (otherElement instanceof HTMLSelectElement) return false
+
   return otherElement.innerText.trim() != ''
 }
 
