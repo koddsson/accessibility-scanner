@@ -11,3 +11,19 @@ export function labelledByIsValid(el: Element): boolean {
   return otherElement.innerText.trim() != ''
 }
 
+/**
+  * TODO
+**/
+export function labelReadableText(label: HTMLElement): boolean {
+  if (!label?.innerText?.trim()) return false
+  
+  const isVisible = !!(label.offsetWidth || label.offsetHeight || label.getClientRects().length)
+  if (!isVisible) return false
+
+  const copiedNode = label.cloneNode(true) as HTMLElement
+  for (const select of copiedNode.querySelectorAll('select')) {
+    select.remove()
+  }
+
+  return copiedNode.innerText.trim() !== ''
+}

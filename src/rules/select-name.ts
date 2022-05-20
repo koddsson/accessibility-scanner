@@ -1,19 +1,8 @@
 import {AccessibilityError} from '../scanner'
-import {labelledByIsValid} from '../utils'
+import {labelledByIsValid, labelReadableText} from '../utils'
 
 const text = 'select element must have an accessible name'
 const url = 'https://dequeuniversity.com/rules/axe/4.4/select-name?application=RuleDescription'
-
-function labelReadableText(label: HTMLElement): boolean {
-  if (!label?.innerText?.trim()) return false
-  const copiedNode = label.cloneNode(true) as HTMLElement
-
-  for (const select of copiedNode.querySelectorAll('select')) {
-    select.remove()
-  }
-
-  return copiedNode.innerText.trim() !== ''
-}
 
 export default function(el: Element): AccessibilityError[] {
   const errors = []
