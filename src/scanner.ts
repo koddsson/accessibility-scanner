@@ -20,7 +20,7 @@ import label from './rules/label'
 
 type Rule = (el: Element) => AccessibilityError[]
 
-const allRules: Rule[]  = [
+export const allRules: Rule[]  = [
   areaAlt,
   //ariaAllowedAttr,
   ariaHiddenBody,
