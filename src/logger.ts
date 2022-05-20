@@ -8,10 +8,10 @@ enum LogLevel {
 }
 
 export class Logger {
-  #loglevel: LogLevel
+  #loglevel: LogLevel;
 
   constructor(loglevel: LogLevel = LogLevel.DEBUG) {
-    this.#loglevel = loglevel
+    this.#loglevel = loglevel;
   }
 
   log(...data: unknown[]) {
@@ -20,9 +20,13 @@ export class Logger {
     );
     if (userSetting === LogLevel.OFF) return;
     if (userSetting >= this.#loglevel) {
-      const key = LogLevel[this.#loglevel];
-      // @ts-ignore
-      console[key](data);
+      const key = LogLevel[this.#loglevel].toLowerCase();
+      if (key in console) {
+        // @ts-ignore
+        console[key](data);
+      } else {
+        console.log(data);
+      }
     }
   }
 }
