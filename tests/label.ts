@@ -162,6 +162,8 @@ describe("select-name", function () {
 
         <div id="hiddenlabel" aria-hidden="true">Hidden label</div>
         <input type="text" id="pass18" aria-labelledby="hiddenlabel" />
+
+        <input type="hidden" />
       </form>
     `);
 

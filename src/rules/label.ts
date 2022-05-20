@@ -12,6 +12,7 @@ export default function(el: Element): AccessibilityError[] {
     elements.push(el as HTMLInputElement)
   }
   for (const element of elements) {
+    if (element.type === 'hidden') continue
     const labelId = element.getAttribute('id')
     const label = element.ownerDocument.querySelector<HTMLElement>(`[for="${labelId}"]`)
     if (label && labelReadableText(label)) continue
