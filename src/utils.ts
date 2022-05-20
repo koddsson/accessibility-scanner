@@ -19,6 +19,7 @@ export function labelledByIsValid(el: Element): boolean {
 export function labelReadableText(label: HTMLElement): boolean {
   if (!label?.innerText?.trim()) return false
   
+  // NOTE: This is expensive and we should look into ways to not do this any more.
   const hasDisplayNone = window.getComputedStyle(label, null).display === 'none'
   if (hasDisplayNone) return false
 
