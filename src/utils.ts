@@ -19,8 +19,8 @@ export function labelledByIsValid(el: Element): boolean {
 export function labelReadableText(label: HTMLElement): boolean {
   if (!label?.innerText?.trim()) return false
   
-  const isVisible = !!(label.offsetWidth || label.offsetHeight || label.getClientRects().length)
-  if (!isVisible) return false
+  const hasDisplayNone = window.getComputedStyle(label, null).display === 'none'
+  if (hasDisplayNone) return false
 
   const copiedNode = label.cloneNode(true) as HTMLElement
   for (const select of copiedNode.querySelectorAll('select')) {
