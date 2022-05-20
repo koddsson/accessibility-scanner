@@ -156,4 +156,38 @@ describe("button-name", function () {
 
     expect(results).to.be.empty;
   });
+
+  it("has a child that has a valid text", async function () {
+    const container = await fixture(html`
+      <div>
+        <button>
+          <span> Hello! </span>
+        </button>
+      </div>
+    `);
+
+    const results = (await scanner.scan(container)).map(({ text, url }) => {
+      return { text, url };
+    });
+
+    expect(results).to.be.empty;
+  });
+
+  it("has a child that has a valid aria-label", async function () {
+    const container = await fixture(html`
+      <div>
+        <button>
+          <span>
+            <img aria-label="foobar" />
+          </span>
+        </button>
+      </div>
+    `);
+
+    const results = (await scanner.scan(container)).map(({ text, url }) => {
+      return { text, url };
+    });
+
+    expect(results).to.be.empty;
+  });
 });
