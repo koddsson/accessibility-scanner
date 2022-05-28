@@ -9,7 +9,7 @@ on:
 jobs:
   test-node:
     name: Run tests
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
     - name: Checkout the project
       uses: actions/checkout@v3
