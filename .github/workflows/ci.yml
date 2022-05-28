@@ -11,20 +11,10 @@ jobs:
     name: Run tests
     runs-on: macos-latest
     steps:
-    - name: Checkout the project
-      uses: actions/checkout@v3
-    - name: Cache node modules
-      uses: actions/cache@v3
-      with:
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - name: Use Node.js 18
-      uses: actions/setup-node@v3
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
       with:
         node-version: 18
-    - name: Install dependencies
-      run: npm install
-    - name: Run Node.js Tests
-      run: npm run test
+        cache: 'npm'
+    - run: npm ci
+    - run: npm test
