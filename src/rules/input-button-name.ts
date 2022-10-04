@@ -7,9 +7,9 @@ const url = 'https://dequeuniversity.com/rules/axe/4.4/input-button-name'
 export default function(el: Element): AccessibilityError[] {
   const selector = 'input[type="button"],input[type="submit"],input[type="reset"]'
   const errors = []
-  const elements = Array.from(el.querySelectorAll<HTMLImageElement>(selector))
+  const elements = Array.from(el.querySelectorAll<HTMLButtonElement>(selector))
   if (el.matches(selector)) {
-    elements.push(el as HTMLInputElement)
+    elements.push(el as HTMLButtonElement)
   }
   for (const element of elements) {
     if (element.hasAttribute('value')) {

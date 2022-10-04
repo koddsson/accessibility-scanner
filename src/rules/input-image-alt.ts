@@ -9,7 +9,7 @@ export default function(el: Element): AccessibilityError[] {
   const errors = []
   const elements = Array.from(el.querySelectorAll<HTMLImageElement>(selector))
   if (el.matches(selector)) {
-    elements.push(el as HTMLInputElement)
+    elements.push(el as HTMLImageElement)
   }
   for (const element of elements) {
     if (element.hasAttribute('alt') && element.alt === element.alt.trim()) continue
