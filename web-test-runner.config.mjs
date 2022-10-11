@@ -8,7 +8,7 @@ const browsers = [
 if (process.env.CI) {
   browsers.push(
     playwrightLauncher({ product: 'firefox' }),
-    playwrightLauncher({ product: 'webkit' }),
+    // playwrightLauncher({ product: 'webkit' }),
   )
 }
 
