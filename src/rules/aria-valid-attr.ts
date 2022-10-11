@@ -8,8 +8,8 @@ const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`
 // TODO: Maybe use https://github.com/A11yance/aria-query for this?
 
 export default function(el: Element): AccessibilityError[] {
-  const selector = '*'
   const errors = []
+  const selector = '*'
   const elements = el.querySelectorAll<HTMLElement>(selector)
   for (const element of [el, ...elements]) {
     for (const attribute of element.attributes) {
