@@ -8,7 +8,8 @@
   "scripts": {
     "prepublish": "npm run build",
     "build": "tsc",
-    "test": "web-test-runner",
+    "lint": "eslint src/",
+    "test": "npm run lint && web-test-runner",
     "start": "web-dev-server"
   },
   "files": [
@@ -23,6 +24,8 @@
     "@web/dev-server-esbuild": "^0.3.0",
     "@web/test-runner": "^0.13.27",
     "@web/test-runner-playwright": "^0.8.8",
+    "eslint": "^8.25.0",
+    "eslint-plugin-github": "^4.4.0",
     "typescript": "^4.6.4"
   }
 }
