@@ -6,6 +6,8 @@
     "plugin:github/typescript"
   ],
   "rules": {
-    "i18n-text/no-en": "off"
+    "no-console": "off",
+    "i18n-text/no-en": "off",
+    "import/no-anonymous-default-export": "off"
   }
 }

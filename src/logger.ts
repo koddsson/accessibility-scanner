@@ -22,6 +22,7 @@ export class Logger {
     if (userSetting >= this.#loglevel) {
       const key = LogLevel[this.#loglevel].toLowerCase();
       if (key in console) {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         console[key](data);
       } else {
