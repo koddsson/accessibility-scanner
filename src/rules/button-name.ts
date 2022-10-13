@@ -25,7 +25,7 @@ export default function (el: Element): AccessibilityError[] {
     elements.push(el as HTMLButtonElement);
   }
   for (const element of elements) {
-    if (element.innerText.trim() !== "") continue;
+    if (element.textContent.trim() !== "") continue;
     if (getElementText(element) !== "") continue;
     if (labelledByIsValid(element)) continue;
     if (element.title.trim() !== "") continue;

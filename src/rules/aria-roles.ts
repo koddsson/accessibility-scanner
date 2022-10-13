@@ -6,23 +6,33 @@
 // presentation (to cancel the native role of the element)
 // math, definition, note, directory
 // command, composite, input, landmark, range, section, sectionhead, select, structure, widget
-import {AccessibilityError} from '../scanner'
+import { AccessibilityError } from "../scanner";
 
-const text = 'ARIA roles used must conform to valid values'
-const url = 'https://dequeuniversity.com/rules/axe/4.4/aria-roles?application=RuleDescription'
+const text = "ARIA roles used must conform to valid values";
+const url =
+  "https://dequeuniversity.com/rules/axe/4.4/aria-roles?application=RuleDescription";
 
-const validRoles = ['article', 'banner', 'complementary', 'main', 'navigation', 'region', 'search', 'contentinfo']
+const validRoles = [
+  "article",
+  "banner",
+  "complementary",
+  "main",
+  "navigation",
+  "region",
+  "search",
+  "contentinfo",
+];
 
-export default function(el: Element): AccessibilityError[] {
-  const errors = []
-  for (const element of el.querySelectorAll<HTMLElement>('[role]')) {
-    const role = element.getAttribute('role')
-    if (role && validRoles.includes(role)) continue
+export default function (el: Element): AccessibilityError[] {
+  const errors = [];
+  for (const element of el.querySelectorAll<HTMLElement>("[role]")) {
+    const role = element.getAttribute("role");
+    if (role && validRoles.includes(role)) continue;
     errors.push({
       element,
       text,
-      url
-    })
+      url,
+    });
   }
-  return errors
+  return errors;
 }
