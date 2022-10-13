@@ -29,7 +29,7 @@ export function labelReadableText(label: HTMLElement): boolean {
     select.remove();
   }
 
-  return copiedNode.textContent.trim() !== "";
+  return copiedNode.textContent?.trim() !== "";
 }
 
 export const validAriaAttributes = [
