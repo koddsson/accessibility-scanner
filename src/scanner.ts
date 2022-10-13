@@ -1,8 +1,5 @@
 import { areaAlt } from "./rules/area-alt";
-//import {ariaAllowedAttr} from './rules/aria-allowed-attr'
 import { ariaHiddenBody } from "./rules/aria-hidden-body";
-import ariaRequiredAttr from "./rules/aria-required-attr";
-//import ariaRoles from './rules/aria-roles'
 import metaViewport from "./rules/meta-viewport";
 import scopeAttrValid from "./rules/scope-attr-valid";
 import videoCaptions from "./rules/video-caption";
@@ -26,10 +23,7 @@ type Rule = (el: Element) => AccessibilityError[];
 
 export const allRules: Rule[] = [
   areaAlt,
-  //ariaAllowedAttr,
   ariaHiddenBody,
-  ariaRequiredAttr,
-  //ariaRoles,
   metaViewport,
   scopeAttrValid,
   videoCaptions,

@@ -1,9 +1,5 @@
 import { AccessibilityError } from "../scanner";
-import {
-  labelledByIsValid,
-  validAriaAttributes,
-  validAriaAttributesWithRole,
-} from "../utils";
+import { validAriaAttributes, validAriaAttributesWithRole } from "../utils";
 
 const id = "aria-valid-attr";
 const text = "ARIA attributes must conform to valid names";

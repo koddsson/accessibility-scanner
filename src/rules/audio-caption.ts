@@ -1,8 +1,7 @@
 import { AccessibilityError } from "../scanner";
-import { labelledByIsValid } from "../utils";
 
 const id = "audio-caption";
-const text = "<audio> elements must have a captions <track>";
+const text = "&lt;audio&gt; elements must have a captions &lt;track&gt;";
 const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 export default function (el: Element): AccessibilityError[] {
