@@ -1,9 +1,3 @@
-export interface AccessibilityError {
-  text: string;
-  url: string;
-  element: Element;
-}
-
 import { areaAlt } from "./rules/area-alt";
 //import {ariaAllowedAttr} from './rules/aria-allowed-attr'
 import { ariaHiddenBody } from "./rules/aria-hidden-body";
@@ -18,9 +12,15 @@ import imageAlt from "./rules/image-alt";
 import buttonName from "./rules/button-name";
 import label from "./rules/label";
 
-import {Logger} from './logger'
+import { Logger } from "./logger";
 
-const logger = new Logger()
+export interface AccessibilityError {
+  text: string;
+  url: string;
+  element: Element;
+}
+
+const logger = new Logger();
 
 type Rule = (el: Element) => AccessibilityError[];
 
@@ -53,14 +53,14 @@ export async function requestIdleScan(
         (deadline.timeRemaining() > 0 || deadline.didTimeout) &&
         rules.length
       ) {
-        logger.log(deadline.timeRemaining(), deadline.didTimeout)
+        logger.log(deadline.timeRemaining(), deadline.didTimeout);
         const rule = rules.shift()!;
-        logger.log(`Executing ${rule.name}`)
+        logger.log(`Executing ${rule.name}`);
         errors.push(...rule(element));
       }
 
       if (rules.length) {
-        console.log(`exited with ${allRules.length} left`)
+        console.log(`exited with ${allRules.length} left`);
         requestIdleCallback(executeScan);
       } else {
         resolve(errors);

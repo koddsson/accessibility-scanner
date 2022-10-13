@@ -1,9 +1,9 @@
 import { AccessibilityError } from "../scanner";
 import { labelledByIsValid } from "../utils";
 
-const id = 'audio-caption'
+const id = "audio-caption";
 const text = "<audio> elements must have a captions <track>";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 export default function (el: Element): AccessibilityError[] {
   const errors = [];
@@ -12,7 +12,7 @@ export default function (el: Element): AccessibilityError[] {
     elements.push(el as HTMLAudioElement);
   }
   for (const element of elements) {
-    if (element.querySelector('track[kind="captions"]')) continue
+    if (element.querySelector('track[kind="captions"]')) continue;
     errors.push({
       element,
       text,
