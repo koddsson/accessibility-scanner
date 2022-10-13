@@ -1,6 +1,6 @@
 import { AccessibilityError } from "../scanner";
 
-const text = "&lt;videogt&; elements must have a &lt;track&gt; for captions";
+const text = "<video> elements must have a <track> for captions";
 const url =
   "https://dequeuniversity.com/rules/axe/4.4/video-caption?application=RuleDescription";
 
