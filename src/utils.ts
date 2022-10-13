@@ -10,7 +10,7 @@ export function labelledByIsValid(el: Element): boolean {
 
   if (otherElement instanceof HTMLSelectElement) return false;
 
-  return otherElement.textContent.trim() != "";
+  return otherElement.textContent?.trim() !== "";
 }
 
 /**
