@@ -8,6 +8,7 @@
   "rules": {
     "no-console": "off",
     "i18n-text/no-en": "off",
-    "import/no-anonymous-default-export": "off"
+    "import/no-anonymous-default-export": "off",
+    "github/unescaped-html-literal": "off"
   }
 }
