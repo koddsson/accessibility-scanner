@@ -42,14 +42,48 @@ const testCasesThatRedirect = [
   "ffa9d5785ba84df4dfacbafc5fdb8b82a365f5b4",
 ];
 
+const rulesToIgnore = [
+  "59br37",
+  "9e45ec",
+  "2ee8b8",
+  "1ec09b",
+  "1a02b0",
+  "ee13b5",
+  "d7ba54",
+  "c3232f",
+  "f51b46",
+  "1ea59c",
+  "c5a4ea",
+  "eac66b",
+  "09o5cg",
+  "afw4f7",
+  "a25f45",
+  "d0f69e",
+  "oj04fd",
+  "0ssw9k",
+  "4e8ab6",
+  "674b10",
+  "ffbc54",
+  "307n5z",
+  "8fc3b6",
+  "9bd38c",
+  "b4f0c3",
+  "m6b1q3",
+  "fd3a94",
+  "b20e66",
+  "c487ae",
+  "5effbb",
+];
+
 describe("ACT Rules", function () {
   for (const rule of applicableRules) {
-    const { ruleName, testcaseId, testcaseTitle, expected } = rule;
+    const { ruleId, ruleName, testcaseId, testcaseTitle, expected } = rule;
 
     if (testCasesThatRedirect.includes(testcaseId)) continue;
     if (ruleName.includes("DEPRECATED")) continue;
+    if (rulesToIgnore.includes(ruleId)) continue;
 
-    it(`${testcaseTitle} - ${ruleName}`, async () => {
+    it(`[${ruleId}] ${ruleName} - ${testcaseTitle}`, async () => {
       const testResponse = await fetch(
         `/tests/act/fixtures/${testcaseId}.html`
       );
