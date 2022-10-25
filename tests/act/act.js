@@ -117,42 +117,74 @@ const rulesToIgnore = [
   "m6b1q3",
   "off6ek",
   "oj04fd",
-  "qt1vmo",
   "ucwvc8",
   "ye5d6e",
 ];
 
+const ignoredExamples = [
+  // Can't implement these yet
+  "https://act-rules.github.io/testcases/qt1vmo/530266c6116fcfad12561e9e1a407fa0a0da3435.html",
+  "https://act-rules.github.io/testcases/qt1vmo/a4b5c0fab27d0ca16b93e8c374c96ad13172e94e.html",
+  "https://act-rules.github.io/testcases/qt1vmo/0ef4f516db9ed70cb25f39c99637272808b8e60f.html",
+];
+
 describe("ACT Rules", function () {
   for (const rule of applicableRules) {
-    const { ruleId, ruleName, testcaseId, testcaseTitle, expected } = rule;
+    const {
+      ruleId,
+      ruleName,
+      testcaseId,
+      testcaseTitle,
+      expected,
+      url: exampleURL,
+      ruleAccessibilityRequirements,
+    } = rule;
 
     if (testCasesThatRedirect.includes(testcaseId)) continue;
     if (ruleName.includes("DEPRECATED")) continue;
     if (rulesToIgnore.includes(ruleId)) continue;
+    if (ignoredExamples.includes(exampleURL)) continue;
 
-    it(`[${ruleId}] ${ruleName} - ${testcaseTitle}`, async () => {
-      const testResponse = await fetch(
-        `/tests/act/fixtures/${testcaseId}.html`
-      );
-      if (testResponse.status !== 200) {
-        throw new Error("Couldn't find testcase HTML");
-      }
-      const testHTML = await testResponse.text();
-      const container = await fixture(testHTML);
+    if (
+      Object.keys(ruleAccessibilityRequirements).every(
+        (x) => !x.startsWith("wcag")
+      )
+    )
+      continue;
 
-      const results = (await scan(container)).map(({ text, url }) => {
-        return { text, url };
+    describe(`[${ruleId}] ${ruleName}`, function () {
+      it(`${testcaseTitle} (${exampleURL})`, async () => {
+        const testResponse = await fetch(
+          `/tests/act/fixtures/${testcaseId}.html`
+        );
+        if (testResponse.status !== 200) {
+          throw new Error("Couldn't find testcase HTML");
+        }
+        const testHTML = await testResponse.text();
+        await fixture(testHTML);
+
+        const results = (await scan(document.body)).map(({ text, url }) => {
+          return { text, url };
+        });
+
+        try {
+          if (expected === "passed") {
+            expect(results).to.be.empty;
+          } else if (expected === "failed") {
+            expect(results).to.not.be.empty;
+          } else if (expected === "inapplicable") {
+            // Ignore inapplicable results
+          } else {
+            throw new Error(`Unknown expected state: ${expected}`);
+          }
+        } catch (error) {
+          // console.log("=======");
+          // console.log(`${testcaseId}.html`);
+          // console.log(testcaseTitle);
+          // console.log(testHTML);
+          throw error;
+        }
       });
-
-      if (expected === "passed") {
-        expect(results).to.be.empty;
-      } else if (expected === "failed") {
-        expect(results).to.not.be.empty;
-      } else if (expected === "inapplicable") {
-        expect(results).to.be.empty;
-      } else {
-        throw new Error(`Unknown expected state: ${expected}`);
-      }
     });
   }
 });
