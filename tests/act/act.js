@@ -177,10 +177,14 @@ describe("ACT Rules", function () {
             throw new Error(`Unknown expected state: ${expected}`);
           }
         } catch (error) {
-          // console.log("=======");
-          // console.log(`${testcaseId}.html`);
-          // console.log(testcaseTitle);
-          // console.log(testHTML);
+          console.log("=======");
+          console.log(testcaseTitle);
+          console.log(ruleName);
+          console.log(`${testcaseId}.html`);
+          console.log(Object.keys(ruleAccessibilityRequirements));
+          console.log("-------");
+          console.log(testHTML);
+          console.log("\n");
           throw error;
         }
       });
