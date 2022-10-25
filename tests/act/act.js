@@ -93,7 +93,6 @@ const rulesToIgnore = [
   "bf051a",
   "c249d5",
   "c3232f",
-  "c487ae",
   "c4a8a4",
   "c5a4ea",
   "cae760",
