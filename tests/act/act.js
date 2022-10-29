@@ -178,8 +178,8 @@ describe("ACT Rules", function () {
           }
         } catch (error) {
           console.log("=======");
+          console.log(`[${ruleId}] ${ruleName}`);
           console.log(testcaseTitle);
-          console.log(ruleName);
           console.log(`${testcaseId}.html`);
           console.log(Object.keys(ruleAccessibilityRequirements));
           console.log("-------");
