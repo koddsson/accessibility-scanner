@@ -43,10 +43,10 @@ const testCasesThatRedirect = [
 ];
 
 const rulesToIgnore = [
-  "047fe0",
-  "09o5cg",
-  "0ssw9k",
-  "0va7u6",
+  "047fe0", // Document Heading     - https://act-rules.github.io/rules/047fe0
+  "09o5cg", // Text Contrast        - https://act-rules.github.io/rules/09o5cg
+  "0ssw9k", // Scrollable element   - https://act-rules.github.io/rules/0ssw9k
+  "0va7u6", // Image contains text  - https://act-rules.github.io/rules/0va7u6
   "1a02b0",
   "1ea59c",
   "1ec09b",
