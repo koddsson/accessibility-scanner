@@ -17,7 +17,7 @@ export default function (el: Element): AccessibilityError[] {
       if (
         attribute.name === "aria-errormessage" &&
         validAriaAttributesWithRole["aria-errormessage"].includes(
-          element.getAttribute("role") || ""
+          element.getAttribute("role") || "",
         )
       ) {
         continue;

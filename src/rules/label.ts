@@ -20,7 +20,7 @@ export default function (el: Element): AccessibilityError[] {
     const labelId = element.getAttribute("id");
     const label = querySelector(
       `[for="${labelId}"]`,
-      element.ownerDocument
+      element.ownerDocument,
     ) as HTMLLabelElement;
     if (label && labelReadableText(label)) continue;
 

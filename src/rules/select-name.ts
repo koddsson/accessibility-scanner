@@ -14,7 +14,10 @@ export default function (el: Element): AccessibilityError[] {
   }
   for (const element of elements) {
     const labelId = element.getAttribute("id");
-    const label = querySelector(`[for="${labelId}"]`, element.ownerDocument) as HTMLLabelElement;
+    const label = querySelector(
+      `[for="${labelId}"]`,
+      element.ownerDocument,
+    ) as HTMLLabelElement;
     if (label && labelReadableText(label)) continue;
 
     const parentElement = element.parentElement;

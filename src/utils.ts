@@ -1,7 +1,4 @@
-import {
-  querySelector,
-  querySelectorAll,
-} from "kagekiri";
+import { querySelector, querySelectorAll } from "kagekiri";
 
 export function isVisible(el: HTMLElement): boolean {
   //console.log(el.style.display === "none");
