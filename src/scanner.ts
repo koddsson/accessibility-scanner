@@ -38,7 +38,7 @@ export const allRules: Rule[] = [
 
 export async function requestIdleScan(
   element: Element,
-  enabledRules: Rule[]
+  enabledRules: Rule[],
 ): Promise<AccessibilityError[]> {
   const errors: AccessibilityError[] = [];
   const rules = enabledRules || allRules;
@@ -67,7 +67,7 @@ export async function requestIdleScan(
 
 export async function scan(
   element: Element,
-  enabledRules?: Rule[]
+  enabledRules?: Rule[],
 ): Promise<AccessibilityError[]> {
   const errors: AccessibilityError[] = [];
   const rules = enabledRules || allRules;
@@ -84,7 +84,7 @@ export class Scanner {
   async scan(element?: Element): Promise<AccessibilityError[]> {
     return scan(
       element ?? document.documentElement,
-      this.enabledRules ?? allRules
+      this.enabledRules ?? allRules,
     );
   }
 }
