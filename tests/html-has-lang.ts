@@ -6,10 +6,11 @@ import htmlHasLang from "../src/rules/html-has-lang";
  * Create a `<html></html>` in a iframe so that we aren't using the `<html>` element of the test runner.
  */
 async function createHTMLElement(htmlString: string): Promise<HTMLElement> {
-  return (
-    await fixture(html`<iframe srcdoc="<!DOCTYPE html>${htmlString}"></iframe>`)
-  ).contentDocument // @ts-expect-error Just trust me bro
-    .querySelector("html")!;
+  const iframe = (await fixture(
+    html`<iframe srcdoc="<!DOCTYPE html>${htmlString}"></iframe>`,
+  )) as HTMLIFrameElement;
+
+  return iframe.contentDocument!.querySelector("html")!;
 }
 
 describe("html-has-lang", function () {
