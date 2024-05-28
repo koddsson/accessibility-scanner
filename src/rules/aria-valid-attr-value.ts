@@ -32,7 +32,7 @@ function valid(el: Element, attribute: string, info: Info) {
         el.id,
         value,
         referencedValue,
-        document.querySelectorAll("div")
+        document.querySelectorAll("div"),
       );
     if (!referencedValue) return false;
     if (
