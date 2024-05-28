@@ -8,9 +8,7 @@ const url =
 
 export default function (el: Element): AccessibilityError[] {
   const errors = [];
-  const elements = Array.from(
-    querySelectorAll("img", el)
-  ) as HTMLImageElement[];
+  const elements = querySelectorAll("img", el) as HTMLImageElement[];
   if (el.matches("img")) {
     elements.push(el as HTMLImageElement);
   }
