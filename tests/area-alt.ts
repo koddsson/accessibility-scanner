@@ -150,13 +150,7 @@ describe("area-alt", function () {
     }
     customElements.define("my-el", MyEl);
 
-    const container = await fixture(html`
-      <div>
-        <map>
-          <my-el></my-el>
-        </map>
-      </div>
-    `);
+    const container = await fixture(html`<my-el></my-el>`);
 
     const results = (await scan(container)).map(({text, url}) => {
       return {text, url}
