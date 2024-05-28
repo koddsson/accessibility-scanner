@@ -1,3 +1,4 @@
+import { querySelectorAll } from "kagekiri";
 import { AccessibilityError } from "../scanner";
 import { validAriaAttributes, validAriaAttributesWithRole } from "../utils";
 
@@ -10,13 +11,13 @@ const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 export default function (el: Element): AccessibilityError[] {
   const errors = [];
   const selector = "*";
-  const elements = el.querySelectorAll<HTMLElement>(selector);
+  const elements = querySelectorAll(selector, el);
   for (const element of [el, ...elements]) {
     for (const attribute of element.attributes) {
       if (
         attribute.name === "aria-errormessage" &&
         validAriaAttributesWithRole["aria-errormessage"].includes(
-          element.getAttribute("role") || "",
+          element.getAttribute("role") || ""
         )
       ) {
         continue;

@@ -25,12 +25,12 @@ async function ready(): Promise<void> {
     console.log(
       accessbilityError.text,
       accessbilityError.element,
-      accessbilityError.url,
+      accessbilityError.url
     );
   }
   console.log(
     `Took ${(endTime - startTime).toPrecision(
-      2,
-    )}ms to execute accessbility scans`,
+      2
+    )}ms to execute accessbility scans`
   );
 })();

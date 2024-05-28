@@ -1,3 +1,4 @@
+import { querySelectorAll } from "kagekiri";
 import { AccessibilityError } from "../scanner";
 import { labelledByIsValid } from "../utils";
 
@@ -8,7 +9,9 @@ export default function (el: Element): AccessibilityError[] {
   const selector =
     'input[type="button"],input[type="submit"],input[type="reset"]';
   const errors = [];
-  const elements = Array.from(el.querySelectorAll<HTMLButtonElement>(selector));
+  const elements = Array.from(
+    querySelectorAll(selector, el)
+  ) as HTMLButtonElement[];
   if (el.matches(selector)) {
     elements.push(el as HTMLButtonElement);
   }

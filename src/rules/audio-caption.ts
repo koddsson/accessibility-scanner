@@ -1,3 +1,4 @@
+import { querySelectorAll, querySelector } from "kagekiri";
 import { AccessibilityError } from "../scanner";
 
 const id = "audio-caption";
@@ -6,12 +7,12 @@ const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 export default function (el: Element): AccessibilityError[] {
   const errors = [];
-  const elements = Array.from(el.querySelectorAll<HTMLAudioElement>("audio"));
+  const elements = querySelectorAll("audio", el);
   if (el.matches("audio")) {
     elements.push(el as HTMLAudioElement);
   }
   for (const element of elements) {
-    if (element.querySelector('track[kind="captions"]')) continue;
+    if (querySelector('track[kind="captions"]', element)) continue;
     errors.push({
       element,
       text,

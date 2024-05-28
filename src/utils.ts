@@ -1,3 +1,8 @@
+import {
+  querySelector,
+  querySelectorAll,
+} from "kagekiri";
+
 export function isVisible(el: HTMLElement): boolean {
   //console.log(el.style.display === "none");
   return el.style.display !== "none";
@@ -10,7 +15,7 @@ export function isVisible(el: HTMLElement): boolean {
 export function labelledByIsValid(el: Element): boolean {
   const id = el.getAttribute("aria-labelledby");
   if (!id) return false;
-  const otherElement = document.querySelector<HTMLElement>(`#${id}`);
+  const otherElement = querySelector(`#${id}`, document);
   if (!otherElement) return false;
 
   if (otherElement instanceof HTMLSelectElement) return false;
@@ -30,7 +35,7 @@ export function labelReadableText(label: HTMLElement): boolean {
   if (hasDisplayNone) return false;
 
   const copiedNode = label.cloneNode(true) as HTMLElement;
-  for (const select of copiedNode.querySelectorAll("select")) {
+  for (const select of querySelectorAll("select", copiedNode)) {
     select.remove();
   }
 

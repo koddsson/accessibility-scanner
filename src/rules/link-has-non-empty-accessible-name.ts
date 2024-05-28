@@ -1,3 +1,4 @@
+import { querySelector, querySelectorAll } from "kagekiri";
 import { AccessibilityError } from "../scanner";
 import { isVisible, labelledByIsValid } from "../utils";
 
@@ -7,7 +8,7 @@ const text = "This rule checks that each link has a non-empty accessible name.";
 
 export default function (el: Element): AccessibilityError[] {
   const errors = [];
-  const elements = Array.from(el.querySelectorAll<HTMLAnchorElement>("a"));
+  const elements = querySelectorAll("a", el) as HTMLAnchorElement[];
   if (el.matches("a")) {
     elements.push(el as HTMLAnchorElement);
   }
@@ -16,7 +17,7 @@ export default function (el: Element): AccessibilityError[] {
     if (element.hasAttribute("title")) continue;
     const textContent = element.textContent?.trim();
     if (textContent === "") {
-      const image = element.querySelector("img, svg");
+      const image = querySelector("img, svg", element);
       const alt = image && image.getAttribute("alt");
       if (alt) continue;
       const ariaLabel = image && image.getAttribute("aria-label");

@@ -1,3 +1,4 @@
+import { querySelectorAll } from "kagekiri";
 import { AccessibilityError } from "../scanner";
 import { labelledByIsValid } from "../utils";
 
@@ -7,7 +8,7 @@ const url =
 
 export function areaAlt(el: Element): AccessibilityError[] {
   const errors = [];
-  for (const element of el.querySelectorAll<HTMLElement>("map area[href]")) {
+  for (const element of querySelectorAll("map area[href]", el)) {
     if (element.getAttribute("alt")) continue;
     if (element.getAttribute("aria-label")) continue;
     if (labelledByIsValid(element)) continue;

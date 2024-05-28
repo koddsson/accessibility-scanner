@@ -16,7 +16,7 @@ export class Logger {
 
   log(...data: unknown[]) {
     const userSetting: LogLevel = Number(
-      localStorage.getItem("@koddsson/accessibility-runner:loglevel"),
+      localStorage.getItem("@koddsson/accessibility-runner:loglevel")
     );
     if (userSetting === LogLevel.OFF) return;
     if (userSetting >= this.#loglevel) {

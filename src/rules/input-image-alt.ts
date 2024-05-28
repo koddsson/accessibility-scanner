@@ -1,3 +1,4 @@
+import { querySelectorAll } from "kagekiri";
 import { AccessibilityError } from "../scanner";
 import { labelledByIsValid } from "../utils";
 
@@ -8,7 +9,9 @@ const url =
 export default function (el: Element): AccessibilityError[] {
   const selector = "input[type=image]";
   const errors = [];
-  const elements = Array.from(el.querySelectorAll<HTMLImageElement>(selector));
+  const elements = Array.from(
+    querySelectorAll(selector, el)
+  ) as HTMLImageElement[];
   if (el.matches(selector)) {
     elements.push(el as HTMLImageElement);
   }

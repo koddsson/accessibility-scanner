@@ -1,3 +1,4 @@
+import { querySelectorAll } from "kagekiri";
 import { AccessibilityError } from "../scanner";
 
 const text = "Elements must only use allowed ARIA attributes";
@@ -13,7 +14,7 @@ const ariaMappings: Record<string, string | undefined> = {
 export function ariaAllowedAttr(el: Element): AccessibilityError[] {
   const errors = [];
   const selector = Object.keys(ariaMappings).join(",");
-  for (const element of el.querySelectorAll<HTMLElement>(selector)) {
+  for (const element of querySelectorAll(selector, el)) {
     if (element.getAttribute("role") === ariaMappings[element.tagName])
       continue;
     errors.push({
