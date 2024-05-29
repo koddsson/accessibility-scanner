@@ -1,6 +1,10 @@
-import { querySelector, querySelectorAll } from "kagekiri";
 import { AccessibilityError } from "../scanner";
-import { labelledByIsValid, labelReadableText } from "../utils";
+import {
+  querySelector,
+  querySelectorAll,
+  labelledByIsValid,
+  labelReadableText,
+} from "../utils";
 
 const text = "select element must have an accessible name";
 const url =

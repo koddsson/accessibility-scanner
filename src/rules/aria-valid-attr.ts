@@ -1,6 +1,9 @@
-import { querySelectorAll } from "kagekiri";
 import { AccessibilityError } from "../scanner";
-import { validAriaAttributes, validAriaAttributesWithRole } from "../utils";
+import {
+  querySelectorAll,
+  validAriaAttributes,
+  validAriaAttributesWithRole,
+} from "../utils";
 
 const id = "aria-valid-attr";
 const text = "ARIA attributes must conform to valid names";

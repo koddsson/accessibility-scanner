@@ -6,7 +6,7 @@
 // presentation (to cancel the native role of the element)
 // math, definition, note, directory
 // command, composite, input, landmark, range, section, sectionhead, select, structure, widget
-import { querySelectorAll } from "kagekiri";
+import { querySelectorAll } from "../utils";
 import { AccessibilityError } from "../scanner";
 
 const text = "ARIA roles used must conform to valid values";

@@ -32,6 +32,6 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "kagekiri": "^1.4.3"
+    "shadow-dom-utils": "^0.6.0"
   }
 }

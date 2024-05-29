@@ -1,6 +1,5 @@
-import { querySelectorAll } from "kagekiri";
 import { AccessibilityError } from "../scanner";
-import { labelledByIsValid } from "../utils";
+import { querySelectorAll, labelledByIsValid } from "../utils";
 
 const text = "Input buttons must have discernible text";
 const url = "https://dequeuniversity.com/rules/axe/4.4/input-button-name";

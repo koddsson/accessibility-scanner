@@ -1,4 +1,4 @@
-import { querySelectorAll } from "kagekiri";
+import { querySelectorAll } from "../utils";
 import { AccessibilityError } from "../scanner";
 
 const text = "Elements must only use allowed ARIA attributes";

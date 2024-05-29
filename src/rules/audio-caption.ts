@@ -1,4 +1,4 @@
-import { querySelectorAll, querySelector } from "kagekiri";
+import { querySelectorAll, querySelector } from "../utils";
 import { AccessibilityError } from "../scanner";
 
 const id = "audio-caption";

@@ -1,7 +1,10 @@
-import { querySelector, querySelectorAll } from "kagekiri";
-
 import { AccessibilityError } from "../scanner";
-import { labelledByIsValid, labelReadableText } from "../utils";
+import {
+  querySelector,
+  querySelectorAll,
+  labelledByIsValid,
+  labelReadableText,
+} from "../utils";
 
 const text = "Form <input> elements must have labels";
 const url =

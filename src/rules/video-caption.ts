@@ -1,4 +1,4 @@
-import { querySelectorAll } from "kagekiri";
+import { querySelectorAll } from "../utils";
 import { AccessibilityError } from "../scanner";
 
 const text = "<video> elements must have a <track> for captions";

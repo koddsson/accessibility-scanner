@@ -1,5 +1,5 @@
 // https://www.w3.org/TR/WCAG20-TECHS/H63.html
-import { querySelectorAll } from "kagekiri";
+import { querySelectorAll } from "../utils";
 
 const text = "Scope attribute should be used correctly on tables";
 const url =
@@ -9,7 +9,7 @@ function checkScopeElements(el: Element) {
   const errors = [];
   const selector = "[scope]";
   const elements = querySelectorAll(selector, el);
-  if (el.matches(selector)) elements.push(el);
+  if (el.matches(selector)) elements.push(el as HTMLElement);
   for (const element of elements) {
     if (element.tagName !== "TH") {
       errors.push({
@@ -38,7 +38,7 @@ function checkTableHeaderElements(el: Element) {
   const errors = [];
   const selector = "th:not([scope])";
   const elements = querySelectorAll(selector, el);
-  if (el.matches(selector)) elements.push(el);
+  if (el.matches(selector)) elements.push(el as HTMLElement);
   for (const element of elements) {
     errors.push({
       element,

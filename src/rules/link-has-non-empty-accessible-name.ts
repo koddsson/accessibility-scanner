@@ -1,6 +1,10 @@
-import { querySelector, querySelectorAll } from "kagekiri";
 import { AccessibilityError } from "../scanner";
-import { isVisible, labelledByIsValid } from "../utils";
+import {
+  querySelector,
+  querySelectorAll,
+  isVisible,
+  labelledByIsValid,
+} from "../utils";
 
 const id = "c487ae";
 const url = `https://act-rules.github.io/rules/${id}`;

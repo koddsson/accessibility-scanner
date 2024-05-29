@@ -1,6 +1,5 @@
-import { querySelectorAll } from "kagekiri";
 import { AccessibilityError } from "../scanner";
-import { labelledByIsValid } from "../utils";
+import { querySelectorAll, labelledByIsValid } from "../utils";
 
 const text = "Buttons must have discernible text";
 const url =
