@@ -30,8 +30,5 @@
     "eslint": "^8.25.0",
     "eslint-plugin-github": "^4.4.0",
     "typescript": "^5.4.5"
-  },
-  "dependencies": {
-    "shadow-dom-utils": "^0.6.0"
   }
 }
