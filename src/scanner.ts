@@ -9,6 +9,7 @@ import imageAlt from "./rules/image-alt";
 import buttonName from "./rules/button-name";
 import label from "./rules/label";
 import linkHasNonEmptyAccessibleName from "./rules/link-has-non-empty-accessible-name";
+import nestedInteractive from "./rules/nested-interactive";
 
 import { Logger } from "./logger";
 
@@ -34,6 +35,7 @@ export const allRules: Rule[] = [
   buttonName,
   label,
   linkHasNonEmptyAccessibleName,
+  nestedInteractive,
 ];
 
 export async function requestIdleScan(
