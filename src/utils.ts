@@ -80,10 +80,6 @@ export function querySelectorAll<T = HTMLElement>(
 
 // This could probably get really slow and memory intensive in large DOMs,
 // maybe an infinite generator in the future?
-/**
- * @param {*} container
- * @param {ShadowOptions} [options={ depth: Infinity }]
- */
 export function getAllElementsAndShadowRoots(
   container: Container,
   options = { depth: Infinity },
@@ -92,14 +88,6 @@ export function getAllElementsAndShadowRoots(
   return recurse(container, selector, options);
 }
 
-/**
- * @param {Container} container
- * @param {string} selector
- * @param {ShadowOptions} [options={ depth: Infinity }]
- * @param {(Element | ShadowRoot | Document)[]} [elementsToProcess=[]]
- * @param {(Element | ShadowRoot | Document)[]} [elements=[]]
- * @param {number} [currentDepth=1]
- */
 function recurse(
   container: Container,
   selector: string,
