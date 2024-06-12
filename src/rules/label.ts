@@ -1,5 +1,10 @@
 import { AccessibilityError } from "../scanner";
-import { labelledByIsValid, labelReadableText } from "../utils";
+import {
+  querySelector,
+  querySelectorAll,
+  labelledByIsValid,
+  labelReadableText,
+} from "../utils";
 
 const text = "Form <input> elements must have labels";
 const url =
@@ -8,16 +13,18 @@ const url =
 export default function (el: Element): AccessibilityError[] {
   const errors = [];
   const selector = ["input", "textarea"].map((x) => `form ${x}`).join(", ");
-  const elements = Array.from(el.querySelectorAll<HTMLInputElement>(selector));
+  const elements = querySelectorAll(selector, el) as HTMLInputElement[];
+
   if (el.matches(selector)) {
     elements.push(el as HTMLInputElement);
   }
   for (const element of elements) {
     if (element.type === "hidden") continue;
     const labelId = element.getAttribute("id");
-    const label = element.ownerDocument.querySelector<HTMLElement>(
+    const label = querySelector(
       `[for="${labelId}"]`,
-    );
+      element.ownerDocument,
+    ) as HTMLLabelElement;
     if (label && labelReadableText(label)) continue;
 
     const parentElement = element.parentElement;

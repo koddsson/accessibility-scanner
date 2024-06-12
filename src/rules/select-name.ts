@@ -1,5 +1,10 @@
 import { AccessibilityError } from "../scanner";
-import { labelledByIsValid, labelReadableText } from "../utils";
+import {
+  querySelector,
+  querySelectorAll,
+  labelledByIsValid,
+  labelReadableText,
+} from "../utils";
 
 const text = "select element must have an accessible name";
 const url =
@@ -7,15 +12,16 @@ const url =
 
 export default function (el: Element): AccessibilityError[] {
   const errors = [];
-  const elements = Array.from(el.querySelectorAll<HTMLSelectElement>("select"));
+  const elements = querySelectorAll("select", el) as HTMLSelectElement[];
   if (el.matches("select")) {
     elements.push(el as HTMLSelectElement);
   }
   for (const element of elements) {
     const labelId = element.getAttribute("id");
-    const label = element.ownerDocument.querySelector<HTMLElement>(
+    const label = querySelector(
       `[for="${labelId}"]`,
-    );
+      element.ownerDocument,
+    ) as HTMLLabelElement;
     if (label && labelReadableText(label)) continue;
 
     const parentElement = element.parentElement;

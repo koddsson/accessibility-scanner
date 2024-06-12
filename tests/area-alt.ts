@@ -137,4 +137,30 @@ describe("area-alt", function () {
 
     expect(await scan(container)).to.be.empty
   });
+
+  it("works with shadow dom", async () => {
+    class MyEl extends HTMLElement {
+      constructor() {
+        super();
+        this.attachShadow({mode: "open"});
+        this.shadowRoot!.innerHTML = `<map>
+          <area href="#" alt="" />
+        </map>`;
+      }
+    }
+    customElements.define("my-el", MyEl);
+
+    const container = await fixture(html`<my-el></my-el>`);
+
+    const results = (await scan(container)).map(({text, url}) => {
+      return {text, url}
+    })
+
+    expect(results).to.eql([
+      {
+        text: "Elements must only use allowed ARIA attributes",
+        url: "https://dequeuniversity.com/rules/axe/4.4/area-alt?application=RuleDescription",
+      },
+    ]);
+  });
 });

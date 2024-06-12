@@ -9,7 +9,9 @@
     "prepublish": "npm run build",
     "build": "tsc",
     "lint": "eslint src/",
-    "test": "npm run lint && web-test-runner",
+    "format": "npm run lint -- --fix",
+    "test": "npm run format && web-test-runner",
+    "test:watch": "npm run format && web-test-runner --watch",
     "start": "web-dev-server"
   },
   "files": [

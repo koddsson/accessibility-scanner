@@ -1,5 +1,5 @@
 import { AccessibilityError } from "../scanner";
-import { labelledByIsValid } from "../utils";
+import { querySelectorAll, labelledByIsValid } from "../utils";
 
 const text = "Buttons must have discernible text";
 const url =
@@ -10,7 +10,7 @@ function getElementText(element: Element): string {
   if (label) return label;
 
   label = "";
-  const labels = element.querySelectorAll("[aria-label]");
+  const labels = querySelectorAll("[aria-label]", element);
   for (const childLabel of labels) {
     label += `${childLabel.getAttribute("aria-label")} `;
   }
@@ -20,7 +20,7 @@ function getElementText(element: Element): string {
 
 export default function (el: Element): AccessibilityError[] {
   const errors = [];
-  const elements = Array.from(el.querySelectorAll<HTMLButtonElement>("button"));
+  const elements = querySelectorAll("button", el);
   if (el.matches("button")) {
     elements.push(el as HTMLButtonElement);
   }
@@ -28,10 +28,10 @@ export default function (el: Element): AccessibilityError[] {
     if (element.textContent?.trim() !== "") continue;
     if (getElementText(element) !== "") continue;
     if (labelledByIsValid(element)) continue;
-    if (element.title.trim() !== "") continue;
+    if ((element as HTMLButtonElement).title.trim() !== "") continue;
     if (
       ["presentation", "none"].includes(element.getAttribute("role")!) &&
-      element.disabled
+      (element as HTMLButtonElement).disabled
     )
       continue;
 

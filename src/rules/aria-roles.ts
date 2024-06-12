@@ -6,6 +6,7 @@
 // presentation (to cancel the native role of the element)
 // math, definition, note, directory
 // command, composite, input, landmark, range, section, sectionhead, select, structure, widget
+import { querySelectorAll } from "../utils";
 import { AccessibilityError } from "../scanner";
 
 const text = "ARIA roles used must conform to valid values";
@@ -25,7 +26,7 @@ const validRoles = [
 
 export default function (el: Element): AccessibilityError[] {
   const errors = [];
-  for (const element of el.querySelectorAll<HTMLElement>("[role]")) {
+  for (const element of querySelectorAll("[role]", el)) {
     const role = element.getAttribute("role");
     if (role && validRoles.includes(role)) continue;
     errors.push({

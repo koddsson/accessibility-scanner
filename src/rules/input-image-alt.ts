@@ -1,5 +1,5 @@
 import { AccessibilityError } from "../scanner";
-import { labelledByIsValid } from "../utils";
+import { querySelectorAll, labelledByIsValid } from "../utils";
 
 const text = "Image buttons must have alternate text";
 const url =
@@ -8,7 +8,7 @@ const url =
 export default function (el: Element): AccessibilityError[] {
   const selector = "input[type=image]";
   const errors = [];
-  const elements = Array.from(el.querySelectorAll<HTMLImageElement>(selector));
+  const elements = querySelectorAll(selector, el) as HTMLImageElement[];
   if (el.matches(selector)) {
     elements.push(el as HTMLImageElement);
   }
