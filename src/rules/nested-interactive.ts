@@ -1,4 +1,5 @@
 import { AccessibilityError } from "../scanner";
+import { querySelectorAll } from "../utils";
 
 const id = "nested-interactive";
 const text = "Interactive controls must not be nested";
@@ -16,14 +17,16 @@ const interactiveSelector = [
 
 export default function (el: Element): AccessibilityError[] {
   const errors = [];
-  const elements = Array.from(el.querySelectorAll(interactiveSelector));
+  const elements = Array.from(querySelectorAll(interactiveSelector, el));
   if (el.matches(interactiveSelector)) {
     elements.push(el as HTMLImageElement);
   }
 
   for (const element of elements) {
-    const nestedInteractiveElements =
-      element.querySelectorAll(interactiveSelector);
+    const nestedInteractiveElements = querySelectorAll(
+      interactiveSelector,
+      element,
+    );
     for (const nestedInteractiveElement of nestedInteractiveElements) {
       errors.push({
         element: nestedInteractiveElement,
