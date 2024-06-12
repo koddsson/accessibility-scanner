@@ -39,12 +39,12 @@ export function labelReadableText(label: HTMLElement): boolean {
 
 type Container = HTMLElement | Element | Document | ShadowRoot;
 
-export function querySelector<T = HTMLElement>(
+export function querySelector<T extends Element>(
   selector: string,
   container: Container,
   options = { depth: Infinity },
 ): T | null {
-  const els = querySelectorAll(selector, container, options);
+  const els = querySelectorAll<T>(selector, container, options);
 
   if (Array.isArray(els) && els.length > 0) {
     return els[0];
