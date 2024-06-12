@@ -43,7 +43,10 @@ export default function (el: Element): AccessibilityError[] {
     if (element.hasAttribute("title")) continue;
     const textContent = element.textContent?.trim();
     if (textContent === "") {
-      const image = querySelector("img, svg", element);
+      const image = querySelector(
+        "[alt], [title], [aria-label], [aria-labelledby]",
+        element,
+      );
       const alt = image && image.getAttribute("alt");
       if (alt) continue;
       const ariaLabel = image && image.getAttribute("aria-label");
