@@ -8,7 +8,7 @@ import {
 
 const id = "c487ae";
 const url = `https://act-rules.github.io/rules/${id}`;
-const text = "This rule checks that each link has a non-empty accessible name.";
+const text = "Link has non-empty accessible name";
 
 export default function (el: Element): AccessibilityError[] {
   const errors = [];
@@ -18,6 +18,28 @@ export default function (el: Element): AccessibilityError[] {
   }
   for (const element of elements) {
     if (!isVisible(element)) continue;
+
+    if (
+      element.hasAttribute("aria-label") &&
+      element.getAttribute("aria-label")?.trim() !== ""
+    )
+      continue;
+
+    if (
+      element.hasAttribute("aria-labelledby") &&
+      element.getAttribute("aria-labelledby")?.trim() === ""
+    ) {
+      const labelledby = element.getAttribute("aria-labelledby")?.trim();
+      const x = el.querySelector(`#${labelledby}`);
+      if (x && x.textContent && x?.textContent?.trim() === "") {
+        errors.push({
+          element,
+          text,
+          url,
+        });
+      }
+    }
+
     if (element.hasAttribute("title")) continue;
     const textContent = element.textContent?.trim();
     if (textContent === "") {
