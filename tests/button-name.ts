@@ -22,7 +22,7 @@ describe("button-name", function () {
 
     it("just has a value but no discernible text", async () => {
       const container = await fixture(
-        html`<button id="val" value="Button Name"></button>`
+        html`<button id="val" value="Button Name"></button>`,
       );
       const results = (await scanner.scan(container)).map(({ text, url }) => {
         return { text, url };
@@ -38,7 +38,7 @@ describe("button-name", function () {
 
     it("has a empty aria-label", async () => {
       const container = await fixture(
-        html`<button id="alempty" aria-label=""></button>`
+        html`<button id="alempty" aria-label=""></button>`,
       );
       const results = (await scanner.scan(container)).map(({ text, url }) => {
         return { text, url };
@@ -54,7 +54,7 @@ describe("button-name", function () {
 
     it("has a invalid aria-labelledby attribute", async () => {
       const container = await fixture(
-        html`<button id="albmissing" aria-labelledby="nonexistent"></button>`
+        html`<button id="albmissing" aria-labelledby="nonexistent"></button>`,
       );
       const results = (await scanner.scan(container)).map(({ text, url }) => {
         return { text, url };
@@ -69,10 +69,12 @@ describe("button-name", function () {
     });
 
     it("has a empty aria-labelledby element", async () => {
-      const container = await fixture(html`<div>
-        <button id="albempty" aria-labelledby="emptydiv"></button>
-        <div id="emptydiv"></div>
-      </div>`);
+      const container = await fixture(
+        html`<div>
+          <button id="albempty" aria-labelledby="emptydiv"></button>
+          <div id="emptydiv"></div>
+        </div>`,
+      );
 
       const results = (await scanner.scan(container)).map(({ text, url }) => {
         return { text, url };
@@ -182,6 +184,22 @@ describe("button-name", function () {
           </span>
         </button>
       </div>
+    `);
+
+    const results = (await scanner.scan(container)).map(({ text, url }) => {
+      return { text, url };
+    });
+
+    expect(results).to.be.empty;
+  });
+
+  // "If an interactive element cannot be seen or interacted with, then you can apply
+  // aria-hidden, as long as it's not focusable. For example:"
+  //
+  // See https://www.w3.org/TR/using-aria/#4thrule
+  it("hidden, non focusable buttons don't need to have discerable text", async function () {
+    const container = await fixture(html`
+      <button aria-hidden="true" tabindex="-1"></button>
     `);
 
     const results = (await scanner.scan(container)).map(({ text, url }) => {

@@ -34,6 +34,11 @@ export default function (el: Element): AccessibilityError[] {
       (element as HTMLButtonElement).disabled
     )
       continue;
+    if (
+      element.getAttribute("aria-hidden") === "true" &&
+      element.getAttribute("tabindex") === "-1"
+    )
+      continue;
 
     errors.push({
       element,
