@@ -30,7 +30,7 @@ export default function (el: Element): AccessibilityError[] {
       element.getAttribute("aria-labelledby")?.trim() === ""
     ) {
       const labelledby = element.getAttribute("aria-labelledby")?.trim();
-      const x = el.querySelector(`#${labelledby}`);
+      const x = querySelector(`#${labelledby}`, el);
       if (x && x.textContent && x?.textContent?.trim() === "") {
         errors.push({
           element,

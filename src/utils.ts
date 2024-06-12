@@ -29,7 +29,7 @@ export function labelReadableText(label: HTMLElement): boolean {
     window.getComputedStyle(label, null).display === "none";
   if (hasDisplayNone) return false;
 
-  const copiedNode = label.cloneNode(true) as HTMLElement;
+  const copiedNode = label.cloneNode(true) as Element;
   for (const select of querySelectorAll("select", copiedNode)) {
     select.remove();
   }
@@ -39,15 +39,15 @@ export function labelReadableText(label: HTMLElement): boolean {
 
 type Container = HTMLElement | Element | Document | ShadowRoot;
 
-export function querySelector<T = HTMLElement>(
+export function querySelector<T extends Element>(
   selector: string,
   container: Container,
   options = { depth: Infinity },
 ): T | null {
-  const els = querySelectorAll(selector, container, options);
+  const els = querySelectorAll<T>(selector, container, options);
 
   if (Array.isArray(els) && els.length > 0) {
-    return els[0] as T | null;
+    return els[0];
   }
 
   return null;
@@ -65,7 +65,7 @@ export function querySelector<T = HTMLElement>(
  *   deepQuerySelectorAll(myElement, "*") // => [slot, div]
  *   deepQuerySelectorAll(myElement, "slot[name='blah']") // => [slot]
  */
-export function querySelectorAll<T = HTMLElement>(
+export function querySelectorAll<T extends Element>(
   selector: string,
   container: Container,
   options = { depth: Infinity },
@@ -73,17 +73,13 @@ export function querySelectorAll<T = HTMLElement>(
   const elements = getAllElementsAndShadowRoots(container, options);
 
   const queriedElements = elements
-    .map((el: Container) => Array.from(el.querySelectorAll(selector)))
-    .flat(Infinity);
-  return [...new Set(queriedElements)] as T[];
+    .map((el) => Array.from(el.querySelectorAll<T>(selector)))
+    .flat();
+  return [...new Set(queriedElements)];
 }
 
 // This could probably get really slow and memory intensive in large DOMs,
 // maybe an infinite generator in the future?
-/**
- * @param {*} container
- * @param {ShadowOptions} [options={ depth: Infinity }]
- */
 export function getAllElementsAndShadowRoots(
   container: Container,
   options = { depth: Infinity },
@@ -92,14 +88,6 @@ export function getAllElementsAndShadowRoots(
   return recurse(container, selector, options);
 }
 
-/**
- * @param {Container} container
- * @param {string} selector
- * @param {ShadowOptions} [options={ depth: Infinity }]
- * @param {(Element | ShadowRoot | Document)[]} [elementsToProcess=[]]
- * @param {(Element | ShadowRoot | Document)[]} [elements=[]]
- * @param {number} [currentDepth=1]
- */
 function recurse(
   container: Container,
   selector: string,
