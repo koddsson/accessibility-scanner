@@ -1,5 +1,8 @@
-[
-    {
+{
+  "WCAG 2.0 Level A & AA Rules": {
+    "description": "",
+    "rules": [
+      {
         "Implemented": "✅",
         "Rule ID": "[area-alt](https://dequeuniversity.com/rules/axe/4.4/area-alt?application=RuleDescription)",
         "Description": "Ensures &lt;area&gt; elements of image maps have alternate text",
@@ -7,8 +10,8 @@
         "Tags": "cat.text-alternatives, wcag2a, wcag244, wcag412, section508, section508.22.a, ACT",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": "[c487ae](https://act-rules.github.io/rules/c487ae)"
-    },
-    {
+      },
+      {
         "Implemented": "✅",
         "Rule ID": "[aria-allowed-attr](https://dequeuniversity.com/rules/axe/4.4/aria-allowed-attr?application=RuleDescription)",
         "Description": "Ensures ARIA attributes are allowed for an element&apos;s role",
@@ -16,8 +19,8 @@
         "Tags": "cat.aria, wcag2a, wcag412",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": "[5c01ea](https://act-rules.github.io/rules/5c01ea)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[aria-command-name](https://dequeuniversity.com/rules/axe/4.4/aria-command-name?application=RuleDescription)",
         "Description": "Ensures every ARIA button, link and menuitem has an accessible name",
@@ -25,8 +28,8 @@
         "Tags": "cat.aria, wcag2a, wcag412, ACT",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": "[97a4e1](https://act-rules.github.io/rules/97a4e1)"
-    },
-    {
+      },
+      {
         "Implemented": "✅",
         "Rule ID": "[aria-hidden-body](https://dequeuniversity.com/rules/axe/4.4/aria-hidden-body?application=RuleDescription)",
         "Description": "Ensures aria-hidden=&apos;true&apos; is not present on the document body.",
@@ -34,8 +37,8 @@
         "Tags": "cat.aria, wcag2a, wcag412",
         "Issue Type": "failure",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[aria-hidden-focus](https://dequeuniversity.com/rules/axe/4.4/aria-hidden-focus?application=RuleDescription)",
         "Description": "Ensures aria-hidden elements are not focusable nor contain focusable elements",
@@ -43,8 +46,8 @@
         "Tags": "cat.name-role-value, wcag2a, wcag412",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": "[6cfa84](https://act-rules.github.io/rules/6cfa84)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[aria-input-field-name](https://dequeuniversity.com/rules/axe/4.4/aria-input-field-name?application=RuleDescription)",
         "Description": "Ensures every ARIA input field has an accessible name",
@@ -52,8 +55,8 @@
         "Tags": "cat.aria, wcag2a, wcag412, ACT",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": "[e086e5](https://act-rules.github.io/rules/e086e5)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[aria-meter-name](https://dequeuniversity.com/rules/axe/4.4/aria-meter-name?application=RuleDescription)",
         "Description": "Ensures every ARIA meter node has an accessible name",
@@ -61,8 +64,8 @@
         "Tags": "cat.aria, wcag2a, wcag111",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[aria-progressbar-name](https://dequeuniversity.com/rules/axe/4.4/aria-progressbar-name?application=RuleDescription)",
         "Description": "Ensures every ARIA progressbar node has an accessible name",
@@ -70,8 +73,8 @@
         "Tags": "cat.aria, wcag2a, wcag111",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "✅",
         "Rule ID": "[aria-required-attr](https://dequeuniversity.com/rules/axe/4.4/aria-required-attr?application=RuleDescription)",
         "Description": "Ensures elements with ARIA roles have all required ARIA attributes",
@@ -79,8 +82,8 @@
         "Tags": "cat.aria, wcag2a, wcag412",
         "Issue Type": "failure",
         "ACT Rules": "[4e8ab6](https://act-rules.github.io/rules/4e8ab6)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[aria-required-children](https://dequeuniversity.com/rules/axe/4.4/aria-required-children?application=RuleDescription)",
         "Description": "Ensures elements with an ARIA role that require child roles contain them",
@@ -88,8 +91,8 @@
         "Tags": "cat.aria, wcag2a, wcag131",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": "[bc4a75](https://act-rules.github.io/rules/bc4a75)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[aria-required-parent](https://dequeuniversity.com/rules/axe/4.4/aria-required-parent?application=RuleDescription)",
         "Description": "Ensures elements with an ARIA role that require parent roles are contained by them",
@@ -97,8 +100,8 @@
         "Tags": "cat.aria, wcag2a, wcag131",
         "Issue Type": "failure",
         "ACT Rules": "[ff89c9](https://act-rules.github.io/rules/ff89c9)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[aria-roledescription](https://dequeuniversity.com/rules/axe/4.4/aria-roledescription?application=RuleDescription)",
         "Description": "Ensure aria-roledescription is only used on elements with an implicit or explicit role",
@@ -106,8 +109,8 @@
         "Tags": "cat.aria, wcag2a, wcag412",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "✅",
         "Rule ID": "[aria-roles](https://dequeuniversity.com/rules/axe/4.4/aria-roles?application=RuleDescription)",
         "Description": "Ensures all elements with a role attribute use a valid value",
@@ -115,8 +118,8 @@
         "Tags": "cat.aria, wcag2a, wcag412",
         "Issue Type": "failure",
         "ACT Rules": "[674b10](https://act-rules.github.io/rules/674b10)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[aria-toggle-field-name](https://dequeuniversity.com/rules/axe/4.4/aria-toggle-field-name?application=RuleDescription)",
         "Description": "Ensures every ARIA toggle field has an accessible name",
@@ -124,8 +127,8 @@
         "Tags": "cat.aria, wcag2a, wcag412, ACT",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": "[e086e5](https://act-rules.github.io/rules/e086e5)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[aria-tooltip-name](https://dequeuniversity.com/rules/axe/4.4/aria-tooltip-name?application=RuleDescription)",
         "Description": "Ensures every ARIA tooltip node has an accessible name",
@@ -133,8 +136,8 @@
         "Tags": "cat.aria, wcag2a, wcag412",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "✅",
         "Rule ID": "[aria-valid-attr-value](https://dequeuniversity.com/rules/axe/4.4/aria-valid-attr-value?application=RuleDescription)",
         "Description": "Ensures all ARIA attributes have valid values",
@@ -142,8 +145,8 @@
         "Tags": "cat.aria, wcag2a, wcag412",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": "[6a7281](https://act-rules.github.io/rules/6a7281)"
-    },
-    {
+      },
+      {
         "Implemented": "✅",
         "Rule ID": "[aria-valid-attr](https://dequeuniversity.com/rules/axe/4.4/aria-valid-attr?application=RuleDescription)",
         "Description": "Ensures attributes that begin with aria- are valid ARIA attributes",
@@ -151,8 +154,8 @@
         "Tags": "cat.aria, wcag2a, wcag412",
         "Issue Type": "failure",
         "ACT Rules": "[5f99a7](https://act-rules.github.io/rules/5f99a7)"
-    },
-    {
+      },
+      {
         "Implemented": "✅",
         "Rule ID": "[audio-caption](https://dequeuniversity.com/rules/axe/4.4/audio-caption?application=RuleDescription)",
         "Description": "Ensures &lt;audio&gt; elements have captions",
@@ -160,8 +163,8 @@
         "Tags": "cat.time-and-media, wcag2a, wcag121, section508, section508.22.a",
         "Issue Type": "needs&nbsp;review",
         "ACT Rules": "[2eb176](https://act-rules.github.io/rules/2eb176), [afb423](https://act-rules.github.io/rules/afb423)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[blink](https://dequeuniversity.com/rules/axe/4.4/blink?application=RuleDescription)",
         "Description": "Ensures &lt;blink&gt; elements are not used",
@@ -169,8 +172,8 @@
         "Tags": "cat.time-and-media, wcag2a, wcag222, section508, section508.22.j",
         "Issue Type": "failure",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "✅",
         "Rule ID": "[button-name](https://dequeuniversity.com/rules/axe/4.4/button-name?application=RuleDescription)",
         "Description": "Ensures buttons have discernible text",
@@ -178,8 +181,8 @@
         "Tags": "cat.name-role-value, wcag2a, wcag412, section508, section508.22.a, ACT",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": "[97a4e1](https://act-rules.github.io/rules/97a4e1), [m6b1q3](https://act-rules.github.io/rules/m6b1q3)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[bypass](https://dequeuniversity.com/rules/axe/4.4/bypass?application=RuleDescription)",
         "Description": "Ensures each page has at least one mechanism for a user to bypass navigation and jump straight to the content",
@@ -187,8 +190,8 @@
         "Tags": "cat.keyboard, wcag2a, wcag241, section508, section508.22.o",
         "Issue Type": "needs&nbsp;review",
         "ACT Rules": "[cf77f2](https://act-rules.github.io/rules/cf77f2), [047fe0](https://act-rules.github.io/rules/047fe0), [b40fd1](https://act-rules.github.io/rules/b40fd1), [3e12e1](https://act-rules.github.io/rules/3e12e1), [ye5d6e](https://act-rules.github.io/rules/ye5d6e)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[color-contrast](https://dequeuniversity.com/rules/axe/4.4/color-contrast?application=RuleDescription)",
         "Description": "Ensures the contrast between foreground and background colors meets WCAG 2 AA contrast ratio thresholds",
@@ -196,8 +199,8 @@
         "Tags": "cat.color, wcag2aa, wcag143, ACT",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": "[afw4f7](https://act-rules.github.io/rules/afw4f7)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[definition-list](https://dequeuniversity.com/rules/axe/4.4/definition-list?application=RuleDescription)",
         "Description": "Ensures &lt;dl&gt; elements are structured correctly",
@@ -205,8 +208,8 @@
         "Tags": "cat.structure, wcag2a, wcag131",
         "Issue Type": "failure",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[dlitem](https://dequeuniversity.com/rules/axe/4.4/dlitem?application=RuleDescription)",
         "Description": "Ensures &lt;dt&gt; and &lt;dd&gt; elements are contained by a &lt;dl&gt;",
@@ -214,8 +217,8 @@
         "Tags": "cat.structure, wcag2a, wcag131",
         "Issue Type": "failure",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[document-title](https://dequeuniversity.com/rules/axe/4.4/document-title?application=RuleDescription)",
         "Description": "Ensures each HTML document contains a non-empty &lt;title&gt; element",
@@ -223,8 +226,8 @@
         "Tags": "cat.text-alternatives, wcag2a, wcag242, ACT",
         "Issue Type": "failure",
         "ACT Rules": "[2779a5](https://act-rules.github.io/rules/2779a5)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[duplicate-id-active](https://dequeuniversity.com/rules/axe/4.4/duplicate-id-active?application=RuleDescription)",
         "Description": "Ensures every id attribute value of active elements is unique",
@@ -232,8 +235,8 @@
         "Tags": "cat.parsing, wcag2a, wcag411",
         "Issue Type": "failure",
         "ACT Rules": "[3ea0c8](https://act-rules.github.io/rules/3ea0c8)"
-    },
-    {
+      },
+      {
         "Implemented": "✅",
         "Rule ID": "[duplicate-id-aria](https://dequeuniversity.com/rules/axe/4.4/duplicate-id-aria?application=RuleDescription)",
         "Description": "Ensures every id attribute value used in ARIA and in labels is unique",
@@ -241,8 +244,8 @@
         "Tags": "cat.parsing, wcag2a, wcag411",
         "Issue Type": "failure",
         "ACT Rules": "[3ea0c8](https://act-rules.github.io/rules/3ea0c8)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[duplicate-id](https://dequeuniversity.com/rules/axe/4.4/duplicate-id?application=RuleDescription)",
         "Description": "Ensures every id attribute value is unique",
@@ -250,8 +253,8 @@
         "Tags": "cat.parsing, wcag2a, wcag411",
         "Issue Type": "failure",
         "ACT Rules": "[3ea0c8](https://act-rules.github.io/rules/3ea0c8)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[form-field-multiple-labels](https://dequeuniversity.com/rules/axe/4.4/form-field-multiple-labels?application=RuleDescription)",
         "Description": "Ensures form field does not have multiple label elements",
@@ -259,8 +262,8 @@
         "Tags": "cat.forms, wcag2a, wcag332",
         "Issue Type": "needs&nbsp;review",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[frame-focusable-content](https://dequeuniversity.com/rules/axe/4.4/frame-focusable-content?application=RuleDescription)",
         "Description": "Ensures &lt;frame&gt; and &lt;iframe&gt; elements with focusable content do not have tabindex=-1",
@@ -268,8 +271,8 @@
         "Tags": "cat.keyboard, wcag2a, wcag211",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": "[akn7bn](https://act-rules.github.io/rules/akn7bn)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[frame-title-unique](https://dequeuniversity.com/rules/axe/4.4/frame-title-unique?application=RuleDescription)",
         "Description": "Ensures &lt;iframe&gt; and &lt;frame&gt; elements contain a unique title attribute",
@@ -277,8 +280,8 @@
         "Tags": "cat.text-alternatives, wcag412, wcag2a",
         "Issue Type": "needs&nbsp;review",
         "ACT Rules": "[4b1c6c](https://act-rules.github.io/rules/4b1c6c)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[frame-title](https://dequeuniversity.com/rules/axe/4.4/frame-title?application=RuleDescription)",
         "Description": "Ensures &lt;iframe&gt; and &lt;frame&gt; elements have an accessible name",
@@ -286,8 +289,8 @@
         "Tags": "cat.text-alternatives, wcag2a, wcag412, section508, section508.22.i",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": "[cae760](https://act-rules.github.io/rules/cae760)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[html-has-lang](https://dequeuniversity.com/rules/axe/4.4/html-has-lang?application=RuleDescription)",
         "Description": "Ensures every HTML document has a lang attribute",
@@ -295,8 +298,8 @@
         "Tags": "cat.language, wcag2a, wcag311, ACT",
         "Issue Type": "failure",
         "ACT Rules": "[b5c3f8](https://act-rules.github.io/rules/b5c3f8)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[html-lang-valid](https://dequeuniversity.com/rules/axe/4.4/html-lang-valid?application=RuleDescription)",
         "Description": "Ensures the lang attribute of the &lt;html&gt; element has a valid value",
@@ -304,8 +307,8 @@
         "Tags": "cat.language, wcag2a, wcag311, ACT",
         "Issue Type": "failure",
         "ACT Rules": "[bf051a](https://act-rules.github.io/rules/bf051a)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[html-xml-lang-mismatch](https://dequeuniversity.com/rules/axe/4.4/html-xml-lang-mismatch?application=RuleDescription)",
         "Description": "Ensure that HTML elements with both valid lang and xml:lang attributes agree on the base language of the page",
@@ -313,8 +316,8 @@
         "Tags": "cat.language, wcag2a, wcag311, ACT",
         "Issue Type": "failure",
         "ACT Rules": "[5b7ae0](https://act-rules.github.io/rules/5b7ae0)"
-    },
-    {
+      },
+      {
         "Implemented": "✅",
         "Rule ID": "[image-alt](https://dequeuniversity.com/rules/axe/4.4/image-alt?application=RuleDescription)",
         "Description": "Ensures &lt;img&gt; elements have alternate text or a role of none or presentation",
@@ -322,8 +325,8 @@
         "Tags": "cat.text-alternatives, wcag2a, wcag111, section508, section508.22.a, ACT",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": "[23a2a8](https://act-rules.github.io/rules/23a2a8)"
-    },
-    {
+      },
+      {
         "Implemented": "✅",
         "Rule ID": "[input-button-name](https://dequeuniversity.com/rules/axe/4.4/input-button-name?application=RuleDescription)",
         "Description": "Ensures input buttons have discernible text",
@@ -331,8 +334,8 @@
         "Tags": "cat.name-role-value, wcag2a, wcag412, section508, section508.22.a, ACT",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": "[97a4e1](https://act-rules.github.io/rules/97a4e1)"
-    },
-    {
+      },
+      {
         "Implemented": "✅",
         "Rule ID": "[input-image-alt](https://dequeuniversity.com/rules/axe/4.4/input-image-alt?application=RuleDescription)",
         "Description": "Ensures &lt;input type=&quot;image&quot;&gt; elements have alternate text",
@@ -340,8 +343,8 @@
         "Tags": "cat.text-alternatives, wcag2a, wcag111, wcag412, section508, section508.22.a, ACT",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": "[59796f](https://act-rules.github.io/rules/59796f)"
-    },
-    {
+      },
+      {
         "Implemented": "✅",
         "Rule ID": "[label](https://dequeuniversity.com/rules/axe/4.4/label?application=RuleDescription)",
         "Description": "Ensures every form element has a label",
@@ -349,8 +352,8 @@
         "Tags": "cat.forms, wcag2a, wcag412, section508, section508.22.n, ACT",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": "[e086e5](https://act-rules.github.io/rules/e086e5)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[link-name](https://dequeuniversity.com/rules/axe/4.4/link-name?application=RuleDescription)",
         "Description": "Ensures links have discernible text",
@@ -358,8 +361,8 @@
         "Tags": "cat.name-role-value, wcag2a, wcag412, wcag244, section508, section508.22.a, ACT",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": "[c487ae](https://act-rules.github.io/rules/c487ae)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[list](https://dequeuniversity.com/rules/axe/4.4/list?application=RuleDescription)",
         "Description": "Ensures that lists are structured correctly",
@@ -367,8 +370,8 @@
         "Tags": "cat.structure, wcag2a, wcag131",
         "Issue Type": "failure",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[listitem](https://dequeuniversity.com/rules/axe/4.4/listitem?application=RuleDescription)",
         "Description": "Ensures &lt;li&gt; elements are used semantically",
@@ -376,8 +379,8 @@
         "Tags": "cat.structure, wcag2a, wcag131",
         "Issue Type": "failure",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[marquee](https://dequeuniversity.com/rules/axe/4.4/marquee?application=RuleDescription)",
         "Description": "Ensures &lt;marquee&gt; elements are not used",
@@ -385,8 +388,8 @@
         "Tags": "cat.parsing, wcag2a, wcag222",
         "Issue Type": "failure",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "✅",
         "Rule ID": "[meta-refresh](https://dequeuniversity.com/rules/axe/4.4/meta-refresh?application=RuleDescription)",
         "Description": "Ensures &lt;meta http-equiv=&quot;refresh&quot;&gt; is not used for delayed refresh",
@@ -394,8 +397,8 @@
         "Tags": "cat.time-and-media, wcag2a, wcag221",
         "Issue Type": "failure",
         "ACT Rules": "[bc659a](https://act-rules.github.io/rules/bc659a)"
-    },
-    {
+      },
+      {
         "Implemented": "✅",
         "Rule ID": "[nested-interactive](https://dequeuniversity.com/rules/axe/4.4/nested-interactive?application=RuleDescription)",
         "Description": "Ensures interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
@@ -403,8 +406,8 @@
         "Tags": "cat.keyboard, wcag2a, wcag412",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": "[307n5z](https://act-rules.github.io/rules/307n5z)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[no-autoplay-audio](https://dequeuniversity.com/rules/axe/4.4/no-autoplay-audio?application=RuleDescription)",
         "Description": "Ensures &lt;video&gt; or &lt;audio&gt; elements do not autoplay audio for more than 3 seconds without a control mechanism to stop or mute the audio",
@@ -412,8 +415,8 @@
         "Tags": "cat.time-and-media, wcag2a, wcag142, ACT",
         "Issue Type": "needs&nbsp;review",
         "ACT Rules": "[80f0bf](https://act-rules.github.io/rules/80f0bf)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[object-alt](https://dequeuniversity.com/rules/axe/4.4/object-alt?application=RuleDescription)",
         "Description": "Ensures &lt;object&gt; elements have alternate text",
@@ -421,8 +424,8 @@
         "Tags": "cat.text-alternatives, wcag2a, wcag111, section508, section508.22.a",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": "[8fc3b6](https://act-rules.github.io/rules/8fc3b6)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[role-img-alt](https://dequeuniversity.com/rules/axe/4.4/role-img-alt?application=RuleDescription)",
         "Description": "Ensures [role=&apos;img&apos;] elements have alternate text",
@@ -430,8 +433,8 @@
         "Tags": "cat.text-alternatives, wcag2a, wcag111, section508, section508.22.a, ACT",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": "[23a2a8](https://act-rules.github.io/rules/23a2a8)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[scrollable-region-focusable](https://dequeuniversity.com/rules/axe/4.4/scrollable-region-focusable?application=RuleDescription)",
         "Description": "Ensure elements that have scrollable content are accessible by keyboard",
@@ -439,8 +442,8 @@
         "Tags": "cat.keyboard, wcag2a, wcag211",
         "Issue Type": "failure",
         "ACT Rules": "[0ssw9k](https://act-rules.github.io/rules/0ssw9k)"
-    },
-    {
+      },
+      {
         "Implemented": "✅",
         "Rule ID": "[select-name](https://dequeuniversity.com/rules/axe/4.4/select-name?application=RuleDescription)",
         "Description": "Ensures select element has an accessible name",
@@ -448,8 +451,8 @@
         "Tags": "cat.forms, wcag2a, wcag412, section508, section508.22.n, ACT",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": "[e086e5](https://act-rules.github.io/rules/e086e5)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[server-side-image-map](https://dequeuniversity.com/rules/axe/4.4/server-side-image-map?application=RuleDescription)",
         "Description": "Ensures that server-side image maps are not used",
@@ -457,8 +460,8 @@
         "Tags": "cat.text-alternatives, wcag2a, wcag211, section508, section508.22.f",
         "Issue Type": "needs&nbsp;review",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[svg-img-alt](https://dequeuniversity.com/rules/axe/4.4/svg-img-alt?application=RuleDescription)",
         "Description": "Ensures &lt;svg&gt; elements with an img, graphics-document or graphics-symbol role have an accessible text",
@@ -466,8 +469,8 @@
         "Tags": "cat.text-alternatives, wcag2a, wcag111, section508, section508.22.a, ACT",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": "[7d6734](https://act-rules.github.io/rules/7d6734)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[td-headers-attr](https://dequeuniversity.com/rules/axe/4.4/td-headers-attr?application=RuleDescription)",
         "Description": "Ensure that each cell in a table that uses the headers attribute refers only to other cells in that table",
@@ -475,8 +478,8 @@
         "Tags": "cat.tables, wcag2a, wcag131, section508, section508.22.g",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": "[a25f45](https://act-rules.github.io/rules/a25f45)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[th-has-data-cells](https://dequeuniversity.com/rules/axe/4.4/th-has-data-cells?application=RuleDescription)",
         "Description": "Ensure that &lt;th&gt; elements and elements with role=columnheader/rowheader have data cells they describe",
@@ -484,8 +487,8 @@
         "Tags": "cat.tables, wcag2a, wcag131, section508, section508.22.g",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": "[d0f69e](https://act-rules.github.io/rules/d0f69e)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[valid-lang](https://dequeuniversity.com/rules/axe/4.4/valid-lang?application=RuleDescription)",
         "Description": "Ensures lang attributes have valid values",
@@ -493,8 +496,8 @@
         "Tags": "cat.language, wcag2aa, wcag312, ACT",
         "Issue Type": "failure",
         "ACT Rules": "[de46e4](https://act-rules.github.io/rules/de46e4)"
-    },
-    {
+      },
+      {
         "Implemented": "✅",
         "Rule ID": "[video-caption](https://dequeuniversity.com/rules/axe/4.4/video-caption?application=RuleDescription)",
         "Description": "Ensures &lt;video&gt; elements have captions",
@@ -502,53 +505,13 @@
         "Tags": "cat.text-alternatives, wcag2a, wcag122, section508, section508.22.a",
         "Issue Type": "needs&nbsp;review",
         "ACT Rules": "[eac66b](https://act-rules.github.io/rules/eac66b)"
-    },
-    {
-        "Implemented": "",
-        "Rule ID": "",
-        "Description": "",
-        "Impact": "",
-        "Tags": "",
-        "Issue Type": "",
-        "ACT Rules": ""
-    },
-    {
-        "Implemented": "### WCAG 2.1 Level A & AA Rules",
-        "Rule ID": "",
-        "Description": "",
-        "Impact": "",
-        "Tags": "",
-        "Issue Type": "",
-        "ACT Rules": ""
-    },
-    {
-        "Implemented": "",
-        "Rule ID": "",
-        "Description": "",
-        "Impact": "",
-        "Tags": "",
-        "Issue Type": "",
-        "ACT Rules": ""
-    },
-    {
-        "Implemented": "Implemented",
-        "Rule ID": "Rule ID",
-        "Description": "Description",
-        "Impact": "Impact",
-        "Tags": "Tags",
-        "Issue Type": "Issue Type",
-        "ACT Rules": "ACT Rules"
-    },
-    {
-        "Implemented": ":----------",
-        "Rule ID": ":-----------------------------------------------------------------------------------------------------------------",
-        "Description": ":--------------------------------------------------------------------------------------------",
-        "Impact": ":------",
-        "Tags": ":-------------------------------------------",
-        "Issue Type": ":---------",
-        "ACT Rules": ":---------------------------------------------------------------------------------------------------------------------------------------------------------"
-    },
-    {
+      }
+    ]
+  },
+  "WCAG 2.1 Level A & AA Rules": {
+    "description": "",
+    "rules": [
+      {
         "Implemented": "❌",
         "Rule ID": "[autocomplete-valid](https://dequeuniversity.com/rules/axe/4.4/autocomplete-valid?application=RuleDescription)",
         "Description": "Ensure the autocomplete attribute is correct and suitable for the form field",
@@ -556,8 +519,8 @@
         "Tags": "cat.forms, wcag21aa, wcag135, ACT",
         "Issue Type": "failure",
         "ACT Rules": "[73f2c2](https://act-rules.github.io/rules/73f2c2)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[avoid-inline-spacing](https://dequeuniversity.com/rules/axe/4.4/avoid-inline-spacing?application=RuleDescription)",
         "Description": "Ensure that text spacing set through style attributes can be adjusted with custom stylesheets",
@@ -565,8 +528,8 @@
         "Tags": "cat.structure, wcag21aa, wcag1412, ACT",
         "Issue Type": "failure",
         "ACT Rules": "[24afc2](https://act-rules.github.io/rules/24afc2), [9e45ec](https://act-rules.github.io/rules/9e45ec), [78fd32](https://act-rules.github.io/rules/78fd32)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[target-size](https://dequeuniversity.com/rules/axe/4.4/target-size?application=RuleDescription)",
         "Description": "Ensure touch target have sufficient size and space",
@@ -574,71 +537,13 @@
         "Tags": "wcag22aa, sc258, cat.sensory-and-visual-cues",
         "Issue Type": "failure",
         "ACT Rules": ""
-    },
-    {
-        "Implemented": "",
-        "Rule ID": "",
-        "Description": "",
-        "Impact": "",
-        "Tags": "",
-        "Issue Type": "",
-        "ACT Rules": ""
-    },
-    {
-        "Implemented": "### Best Practices Rules",
-        "Rule ID": "",
-        "Description": "",
-        "Impact": "",
-        "Tags": "",
-        "Issue Type": "",
-        "ACT Rules": ""
-    },
-    {
-        "Implemented": "",
-        "Rule ID": "",
-        "Description": "",
-        "Impact": "",
-        "Tags": "",
-        "Issue Type": "",
-        "ACT Rules": ""
-    },
-    {
-        "Implemented": "Rules that do not necessarily conform to WCAG success criterion but are industry accepted practices that improve the user experience.",
-        "Rule ID": "",
-        "Description": "",
-        "Impact": "",
-        "Tags": "",
-        "Issue Type": "",
-        "ACT Rules": ""
-    },
-    {
-        "Implemented": "",
-        "Rule ID": "",
-        "Description": "",
-        "Impact": "",
-        "Tags": "",
-        "Issue Type": "",
-        "ACT Rules": ""
-    },
-    {
-        "Implemented": "Implemented",
-        "Rule ID": "Rule ID",
-        "Description": "Description",
-        "Impact": "Impact",
-        "Tags": "Tags",
-        "Issue Type": "Issue Type",
-        "ACT Rules": "ACT Rules"
-    },
-    {
-        "Implemented": ":----------",
-        "Rule ID": ":-----------------------------------------------------------------------------------------------------------------------------------------------",
-        "Description": ":---------------------------------------------------------------------------------------------------------------------------------------------",
-        "Impact": ":-----------------",
-        "Tags": ":----------------------------------------------",
-        "Issue Type": ":-------------------------",
-        "ACT Rules": ":-------------------------------------------------"
-    },
-    {
+      }
+    ]
+  },
+  "Best Practices Rules": {
+    "description": "Rules that do not necessarily conform to WCAG success criterion but are industry accepted practices that improve the user experience.",
+    "rules": [
+      {
         "Implemented": "❌",
         "Rule ID": "[accesskeys](https://dequeuniversity.com/rules/axe/4.4/accesskeys?application=RuleDescription)",
         "Description": "Ensures every accesskey attribute value is unique",
@@ -646,8 +551,8 @@
         "Tags": "cat.keyboard, best-practice",
         "Issue Type": "failure",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[aria-allowed-role](https://dequeuniversity.com/rules/axe/4.4/aria-allowed-role?application=RuleDescription)",
         "Description": "Ensures role attribute has an appropriate value for the element",
@@ -655,8 +560,8 @@
         "Tags": "cat.aria, best-practice",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[aria-dialog-name](https://dequeuniversity.com/rules/axe/4.4/aria-dialog-name?application=RuleDescription)",
         "Description": "Ensures every ARIA dialog and alertdialog node has an accessible name",
@@ -664,8 +569,8 @@
         "Tags": "cat.aria, best-practice",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[aria-text](https://dequeuniversity.com/rules/axe/4.4/aria-text?application=RuleDescription)",
         "Description": "Ensures &quot;role=text&quot; is used on elements with no focusable descendants",
@@ -673,8 +578,8 @@
         "Tags": "cat.aria, best-practice",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[aria-treeitem-name](https://dequeuniversity.com/rules/axe/4.4/aria-treeitem-name?application=RuleDescription)",
         "Description": "Ensures every ARIA treeitem node has an accessible name",
@@ -682,8 +587,8 @@
         "Tags": "cat.aria, best-practice",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[empty-heading](https://dequeuniversity.com/rules/axe/4.4/empty-heading?application=RuleDescription)",
         "Description": "Ensures headings have discernible text",
@@ -691,8 +596,8 @@
         "Tags": "cat.name-role-value, best-practice",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": "[ffd0e9](https://act-rules.github.io/rules/ffd0e9)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[empty-table-header](https://dequeuniversity.com/rules/axe/4.4/empty-table-header?application=RuleDescription)",
         "Description": "Ensures table headers have discernible text",
@@ -700,8 +605,8 @@
         "Tags": "cat.name-role-value, best-practice",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[frame-tested](https://dequeuniversity.com/rules/axe/4.4/frame-tested?application=RuleDescription)",
         "Description": "Ensures &lt;iframe&gt; and &lt;frame&gt; elements contain the axe-core script",
@@ -709,8 +614,8 @@
         "Tags": "cat.structure, review-item, best-practice",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[heading-order](https://dequeuniversity.com/rules/axe/4.4/heading-order?application=RuleDescription)",
         "Description": "Ensures the order of headings is semantically correct",
@@ -718,8 +623,8 @@
         "Tags": "cat.semantics, best-practice",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[image-redundant-alt](https://dequeuniversity.com/rules/axe/4.4/image-redundant-alt?application=RuleDescription)",
         "Description": "Ensure image alternative is not repeated as text",
@@ -727,8 +632,8 @@
         "Tags": "cat.text-alternatives, best-practice",
         "Issue Type": "failure",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[label-title-only](https://dequeuniversity.com/rules/axe/4.4/label-title-only?application=RuleDescription)",
         "Description": "Ensures that every form element has a visible label and is not solely labeled using hidden labels, or the title or aria-describedby attributes",
@@ -736,8 +641,8 @@
         "Tags": "cat.forms, best-practice",
         "Issue Type": "failure",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[landmark-banner-is-top-level](https://dequeuniversity.com/rules/axe/4.4/landmark-banner-is-top-level?application=RuleDescription)",
         "Description": "Ensures the banner landmark is at top level",
@@ -745,8 +650,8 @@
         "Tags": "cat.semantics, best-practice",
         "Issue Type": "failure",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[landmark-complementary-is-top-level](https://dequeuniversity.com/rules/axe/4.4/landmark-complementary-is-top-level?application=RuleDescription)",
         "Description": "Ensures the complementary landmark or aside is at top level",
@@ -754,8 +659,8 @@
         "Tags": "cat.semantics, best-practice",
         "Issue Type": "failure",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[landmark-contentinfo-is-top-level](https://dequeuniversity.com/rules/axe/4.4/landmark-contentinfo-is-top-level?application=RuleDescription)",
         "Description": "Ensures the contentinfo landmark is at top level",
@@ -763,8 +668,8 @@
         "Tags": "cat.semantics, best-practice",
         "Issue Type": "failure",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[landmark-main-is-top-level](https://dequeuniversity.com/rules/axe/4.4/landmark-main-is-top-level?application=RuleDescription)",
         "Description": "Ensures the main landmark is at top level",
@@ -772,8 +677,8 @@
         "Tags": "cat.semantics, best-practice",
         "Issue Type": "failure",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[landmark-no-duplicate-banner](https://dequeuniversity.com/rules/axe/4.4/landmark-no-duplicate-banner?application=RuleDescription)",
         "Description": "Ensures the document has at most one banner landmark",
@@ -781,8 +686,8 @@
         "Tags": "cat.semantics, best-practice",
         "Issue Type": "failure",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[landmark-no-duplicate-contentinfo](https://dequeuniversity.com/rules/axe/4.4/landmark-no-duplicate-contentinfo?application=RuleDescription)",
         "Description": "Ensures the document has at most one contentinfo landmark",
@@ -790,8 +695,8 @@
         "Tags": "cat.semantics, best-practice",
         "Issue Type": "failure",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[landmark-no-duplicate-main](https://dequeuniversity.com/rules/axe/4.4/landmark-no-duplicate-main?application=RuleDescription)",
         "Description": "Ensures the document has at most one main landmark",
@@ -799,8 +704,8 @@
         "Tags": "cat.semantics, best-practice",
         "Issue Type": "failure",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[landmark-one-main](https://dequeuniversity.com/rules/axe/4.4/landmark-one-main?application=RuleDescription)",
         "Description": "Ensures the document has a main landmark",
@@ -808,8 +713,8 @@
         "Tags": "cat.semantics, best-practice",
         "Issue Type": "failure",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[landmark-unique](https://dequeuniversity.com/rules/axe/4.4/landmark-unique?application=RuleDescription)",
         "Description": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
@@ -817,8 +722,8 @@
         "Tags": "cat.semantics, best-practice",
         "Issue Type": "failure",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[meta-viewport-large](https://dequeuniversity.com/rules/axe/4.4/meta-viewport-large?application=RuleDescription)",
         "Description": "Ensures &lt;meta name=&quot;viewport&quot;&gt; can scale a significant amount",
@@ -826,8 +731,8 @@
         "Tags": "cat.sensory-and-visual-cues, best-practice",
         "Issue Type": "failure",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "✅",
         "Rule ID": "[meta-viewport](https://dequeuniversity.com/rules/axe/4.4/meta-viewport?application=RuleDescription)",
         "Description": "Ensures &lt;meta name=&quot;viewport&quot;&gt; does not disable text scaling and zooming",
@@ -835,8 +740,8 @@
         "Tags": "cat.sensory-and-visual-cues, best-practice, ACT",
         "Issue Type": "failure",
         "ACT Rules": "[b4f0c3](https://act-rules.github.io/rules/b4f0c3)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[page-has-heading-one](https://dequeuniversity.com/rules/axe/4.4/page-has-heading-one?application=RuleDescription)",
         "Description": "Ensure that the page, or at least one of its frames contains a level-one heading",
@@ -844,8 +749,8 @@
         "Tags": "cat.semantics, best-practice",
         "Issue Type": "failure",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[presentation-role-conflict](https://dequeuniversity.com/rules/axe/4.4/presentation-role-conflict?application=RuleDescription)",
         "Description": "Flags elements whose role is none or presentation and which cause the role conflict resolution to trigger.",
@@ -853,8 +758,8 @@
         "Tags": "cat.aria, best-practice, ACT",
         "Issue Type": "failure",
         "ACT Rules": "[46ca7f](https://act-rules.github.io/rules/46ca7f)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[region](https://dequeuniversity.com/rules/axe/4.4/region?application=RuleDescription)",
         "Description": "Ensures all page content is contained by landmarks",
@@ -862,8 +767,8 @@
         "Tags": "cat.keyboard, best-practice",
         "Issue Type": "failure",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "✅",
         "Rule ID": "[scope-attr-valid](https://dequeuniversity.com/rules/axe/4.4/scope-attr-valid?application=RuleDescription)",
         "Description": "Ensures the scope attribute is used correctly on tables",
@@ -871,8 +776,8 @@
         "Tags": "cat.tables, best-practice",
         "Issue Type": "failure",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[skip-link](https://dequeuniversity.com/rules/axe/4.4/skip-link?application=RuleDescription)",
         "Description": "Ensure all skip links have a focusable target",
@@ -880,8 +785,8 @@
         "Tags": "cat.keyboard, best-practice",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[tabindex](https://dequeuniversity.com/rules/axe/4.4/tabindex?application=RuleDescription)",
         "Description": "Ensures tabindex attribute values are not greater than 0",
@@ -889,8 +794,8 @@
         "Tags": "cat.keyboard, best-practice",
         "Issue Type": "failure",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[table-duplicate-name](https://dequeuniversity.com/rules/axe/4.4/table-duplicate-name?application=RuleDescription)",
         "Description": "Ensure the &lt;caption&gt; element does not contain the same text as the summary attribute",
@@ -898,71 +803,13 @@
         "Tags": "cat.tables, best-practice",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": ""
-    },
-    {
-        "Implemented": "",
-        "Rule ID": "",
-        "Description": "",
-        "Impact": "",
-        "Tags": "",
-        "Issue Type": "",
-        "ACT Rules": ""
-    },
-    {
-        "Implemented": "### WCAG 2.0 and 2.1 level AAA rules",
-        "Rule ID": "",
-        "Description": "",
-        "Impact": "",
-        "Tags": "",
-        "Issue Type": "",
-        "ACT Rules": ""
-    },
-    {
-        "Implemented": "",
-        "Rule ID": "",
-        "Description": "",
-        "Impact": "",
-        "Tags": "",
-        "Issue Type": "",
-        "ACT Rules": ""
-    },
-    {
-        "Implemented": "Rules that check for conformance to WCAG AAA success criteria that can be fully automated. These are disabled by default in axe-core.",
-        "Rule ID": "",
-        "Description": "",
-        "Impact": "",
-        "Tags": "",
-        "Issue Type": "",
-        "ACT Rules": ""
-    },
-    {
-        "Implemented": "",
-        "Rule ID": "",
-        "Description": "",
-        "Impact": "",
-        "Tags": "",
-        "Issue Type": "",
-        "ACT Rules": ""
-    },
-    {
-        "Implemented": "Implemented",
-        "Rule ID": "Rule ID",
-        "Description": "Description",
-        "Impact": "Impact",
-        "Tags": "Tags",
-        "Issue Type": "Issue Type",
-        "ACT Rules": "ACT Rules"
-    },
-    {
-        "Implemented": ":----------",
-        "Rule ID": ":---------------------------------------------------------------------------------------------------------------------------------",
-        "Description": ":-------------------------------------------------------------------------------------------------------",
-        "Impact": ":------",
-        "Tags": ":---------------------------------------------",
-        "Issue Type": ":-------------------------",
-        "ACT Rules": ":-------------------------------------------------"
-    },
-    {
+      }
+    ]
+  },
+  "WCAG 2.0 and 2.1 level AAA rules": {
+    "description": "Rules that check for conformance to WCAG AAA success criteria that can be fully automated. These are disabled by default in axe-core.",
+    "rules": [
+      {
         "Implemented": "❌",
         "Rule ID": "[color-contrast-enhanced](https://dequeuniversity.com/rules/axe/4.4/color-contrast-enhanced?application=RuleDescription)",
         "Description": "Ensures the contrast between foreground and background colors meets WCAG 2 AAA contrast ratio thresholds",
@@ -970,8 +817,8 @@
         "Tags": "cat.color, wcag2aaa, wcag146, ACT",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": "[09o5cg](https://act-rules.github.io/rules/09o5cg)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[identical-links-same-purpose](https://dequeuniversity.com/rules/axe/4.4/identical-links-same-purpose?application=RuleDescription)",
         "Description": "Ensure that links with the same accessible name serve a similar purpose",
@@ -979,8 +826,8 @@
         "Tags": "cat.semantics, wcag2aaa, wcag249",
         "Issue Type": "needs&nbsp;review",
         "ACT Rules": "[b20e66](https://act-rules.github.io/rules/b20e66)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[meta-refresh-no-exceptions](https://dequeuniversity.com/rules/axe/4.4/meta-refresh-no-exceptions?application=RuleDescription)",
         "Description": "Ensures &lt;meta http-equiv=&quot;refresh&quot;&gt; is not used for delayed refresh",
@@ -988,71 +835,13 @@
         "Tags": "cat.time-and-media, wcag2aaa, wcag224, wcag325",
         "Issue Type": "failure",
         "ACT Rules": "[bisz58](https://act-rules.github.io/rules/bisz58)"
-    },
-    {
-        "Implemented": "",
-        "Rule ID": "",
-        "Description": "",
-        "Impact": "",
-        "Tags": "",
-        "Issue Type": "",
-        "ACT Rules": ""
-    },
-    {
-        "Implemented": "### Experimental Rules",
-        "Rule ID": "",
-        "Description": "",
-        "Impact": "",
-        "Tags": "",
-        "Issue Type": "",
-        "ACT Rules": ""
-    },
-    {
-        "Implemented": "",
-        "Rule ID": "",
-        "Description": "",
-        "Impact": "",
-        "Tags": "",
-        "Issue Type": "",
-        "ACT Rules": ""
-    },
-    {
-        "Implemented": "Rules we are still testing and developing. They are disabled by default in axe-core, but are enabled for the axe browser extensions.",
-        "Rule ID": "",
-        "Description": "",
-        "Impact": "",
-        "Tags": "",
-        "Issue Type": "",
-        "ACT Rules": ""
-    },
-    {
-        "Implemented": "",
-        "Rule ID": "",
-        "Description": "",
-        "Impact": "",
-        "Tags": "",
-        "Issue Type": "",
-        "ACT Rules": ""
-    },
-    {
-        "Implemented": "Implemented",
-        "Rule ID": "Rule ID",
-        "Description": "Description",
-        "Impact": "Impact",
-        "Tags": "Tags",
-        "Issue Type": "Issue Type",
-        "ACT Rules": "ACT Rules"
-    },
-    {
-        "Implemented": ":----------",
-        "Rule ID": ":-------------------------------------------------------------------------------------------------------------------------------",
-        "Description": ":-------------------------------------------------------------------------------------------------------------------------",
-        "Impact": ":-------",
-        "Tags": ":---------------------------------------------------------------------",
-        "Issue Type": ":-------------------------",
-        "ACT Rules": ":-------------------------------------------------"
-    },
-    {
+      }
+    ]
+  },
+  "Experimental Rules": {
+    "description": "Rules we are still testing and developing. They are disabled by default in axe-core, but are enabled for the axe browser extensions.",
+    "rules": [
+      {
         "Implemented": "❌",
         "Rule ID": "[css-orientation-lock](https://dequeuniversity.com/rules/axe/4.4/css-orientation-lock?application=RuleDescription)",
         "Description": "Ensures content is not locked to any specific display orientation, and the content is operable in all display orientations",
@@ -1060,8 +849,8 @@
         "Tags": "cat.structure, wcag134, wcag21aa, experimental",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": "[b33eff](https://act-rules.github.io/rules/b33eff)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[focus-order-semantics](https://dequeuniversity.com/rules/axe/4.4/focus-order-semantics?application=RuleDescription)",
         "Description": "Ensures elements in the focus order have a role appropriate for interactive content",
@@ -1069,8 +858,8 @@
         "Tags": "cat.keyboard, best-practice, experimental",
         "Issue Type": "failure",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[hidden-content](https://dequeuniversity.com/rules/axe/4.4/hidden-content?application=RuleDescription)",
         "Description": "Informs users about hidden content.",
@@ -1078,8 +867,8 @@
         "Tags": "cat.structure, experimental, review-item, best-practice",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[label-content-name-mismatch](https://dequeuniversity.com/rules/axe/4.4/label-content-name-mismatch?application=RuleDescription)",
         "Description": "Ensures that elements labelled through their content must have their visible text as part of their accessible name",
@@ -1087,8 +876,8 @@
         "Tags": "cat.semantics, wcag21a, wcag253, experimental",
         "Issue Type": "failure",
         "ACT Rules": "[2ee8b8](https://act-rules.github.io/rules/2ee8b8)"
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[link-in-text-block](https://dequeuniversity.com/rules/axe/4.4/link-in-text-block?application=RuleDescription)",
         "Description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
@@ -1096,8 +885,8 @@
         "Tags": "cat.color, experimental, wcag2a, wcag141",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[p-as-heading](https://dequeuniversity.com/rules/axe/4.4/p-as-heading?application=RuleDescription)",
         "Description": "Ensure bold, italic text and font-size is not used to style &lt;p&gt; elements as a heading",
@@ -1105,8 +894,8 @@
         "Tags": "cat.semantics, wcag2a, wcag131, experimental",
         "Issue Type": "failure, needs&nbsp;review",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[table-fake-caption](https://dequeuniversity.com/rules/axe/4.4/table-fake-caption?application=RuleDescription)",
         "Description": "Ensure that tables with a caption use the &lt;caption&gt; element.",
@@ -1114,8 +903,8 @@
         "Tags": "cat.tables, experimental, wcag2a, wcag131, section508, section508.22.g",
         "Issue Type": "failure",
         "ACT Rules": ""
-    },
-    {
+      },
+      {
         "Implemented": "❌",
         "Rule ID": "[td-has-header](https://dequeuniversity.com/rules/axe/4.4/td-has-header?application=RuleDescription)",
         "Description": "Ensure that each non-empty data cell in a &lt;table&gt; larger than 3 by 3 has one or more table headers",
@@ -1123,5 +912,7 @@
         "Tags": "cat.tables, experimental, wcag2a, wcag131, section508, section508.22.g",
         "Issue Type": "failure",
         "ACT Rules": ""
-    }
-]
+      }
+    ]
+  }
+}
