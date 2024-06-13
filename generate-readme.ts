@@ -21,8 +21,10 @@ const document = `
 
 ## AXE Rules
 
-${tables.map(({ name, description, table }) => {
-  return `### ${name}\n\n${description}\n\n${table}\n\n`;
-})}`.trim();
+${tables
+  .map(({ name, description, table }) => {
+    return `### ${name}\n\n${description}\n\n${table}\n`;
+  })
+  .join("\n")}`.trim();
 
 await writeFile("./README.md", document, "utf8");
