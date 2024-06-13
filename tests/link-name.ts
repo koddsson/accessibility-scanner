@@ -1,8 +1,8 @@
 import { fixture, html, expect } from "@open-wc/testing";
 import { Scanner } from "../src/scanner";
-import linkHasNonEmptyAccessibleName from "../src/rules/link-has-non-empty-accessible-name";
+import linkName from "../src/rules/link-name";
 
-const scanner = new Scanner([linkHasNonEmptyAccessibleName]);
+const scanner = new Scanner([linkName]);
 
 const passes = [
   await fixture(html`<input type="image" alt="monkeys" />`),
