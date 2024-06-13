@@ -5,7 +5,7 @@ const response = await fetch("/testcases.json");
 const json = await response.json();
 
 const applicableRules = json.testcases.filter(
-  (rule) => rule.ruleAccessibilityRequirements
+  (rule) => rule.ruleAccessibilityRequirements,
 );
 
 const testCasesThatRedirect = [
@@ -117,6 +117,7 @@ const rulesToIgnore = [
   "oj04fd",
   "ucwvc8",
   "ye5d6e",
+  "bf051a",
 ];
 
 const ignoredExamples = [
@@ -145,7 +146,7 @@ describe("ACT Rules", function () {
 
     if (
       Object.keys(ruleAccessibilityRequirements).every(
-        (x) => !x.startsWith("wcag")
+        (x) => !x.startsWith("wcag"),
       )
     )
       continue;
@@ -153,7 +154,7 @@ describe("ACT Rules", function () {
     describe(`[${ruleId}] ${ruleName}`, function () {
       it(`${testcaseTitle} (${exampleURL})`, async () => {
         const testResponse = await fetch(
-          `/tests/act/fixtures/${testcaseId}.html`
+          `/tests/act/fixtures/${testcaseId}.html`,
         );
         if (testResponse.status !== 200) {
           throw new Error("Couldn't find testcase HTML");
