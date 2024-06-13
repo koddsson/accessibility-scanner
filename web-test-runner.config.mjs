@@ -13,7 +13,7 @@ if (process.env.CI) {
 export default {
   nodeResolve: true,
   coverage: true,
-  files: ["tests/**/*.ts"],
+  files: ["tests/**/*.ts", "tests/**/*.js"],
   plugins: [esbuildPlugin({ ts: true, target: "esnext" })],
   browsers,
   filterBrowserLogs(log) {
