@@ -8,7 +8,7 @@ import metaRefresh from "./rules/meta-refresh";
 import imageAlt from "./rules/image-alt";
 import buttonName from "./rules/button-name";
 import label from "./rules/label";
-import linkHasNonEmptyAccessibleName from "./rules/link-has-non-empty-accessible-name";
+import linkName from "./rules/link-name";
 import nestedInteractive from "./rules/nested-interactive";
 
 import { Logger } from "./logger";
@@ -34,7 +34,7 @@ export const allRules: Rule[] = [
   imageAlt,
   buttonName,
   label,
-  linkHasNonEmptyAccessibleName,
+  linkName,
   nestedInteractive,
 ];
 

@@ -1,5 +1,14 @@
-import { writeFile, readFile } from "node:fs/promises";
+import { writeFile, readFile, access, constants } from "node:fs/promises";
 import tablemark from "tablemark";
+
+async function fileExists(path: string): Promise<boolean> {
+  try {
+    await access(path, constants.F_OK);
+    return true;
+  } catch {
+    return false;
+  }
+}
 
 const sections: Record<
   string,
@@ -8,6 +17,10 @@ const sections: Record<
 const tables = [];
 
 for (const [name, { description, rules }] of Object.entries(sections)) {
+  for (const rule of rules) {
+    const implemented = await fileExists(`./src/rules/${rule.id}.ts`);
+    rule.implemented = implemented ? "✅" : "❌";
+  }
   const table = tablemark(rules);
   tables.push({
     name,
