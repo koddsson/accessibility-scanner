@@ -66,7 +66,7 @@
 | ✅           | [video-caption](https://dequeuniversity.com/rules/axe/4.4/video-caption?application=RuleDescription)                             | Ensures &lt;video&gt; elements have captions                                                                                                          | Critical                 | cat.text-alternatives, wcag2a, wcag122, section508, section508.22.a               | needs&nbsp;review          | [eac66b](https://act-rules.github.io/rules/eac66b)                                                                                                                                                                                                                 |
 
 
-,### WCAG 2.1 Level A & AA Rules
+### WCAG 2.1 Level A & AA Rules
 
 
 
@@ -77,7 +77,7 @@
 | ❌           | [target-size](https://dequeuniversity.com/rules/axe/4.4/target-size?application=RuleDescription)                   | Ensure touch target have sufficient size and space                                            | Serious | wcag22aa, sc258, cat.sensory-and-visual-cues | failure    |                                                                                                                                                            |
 
 
-,### Best Practices Rules
+### Best Practices Rules
 
 Rules that do not necessarily conform to WCAG success criterion but are industry accepted practices that improve the user experience.
 
@@ -114,7 +114,7 @@ Rules that do not necessarily conform to WCAG success criterion but are industry
 | ❌           | [table-duplicate-name](https://dequeuniversity.com/rules/axe/4.4/table-duplicate-name?application=RuleDescription)                               | Ensure the &lt;caption&gt; element does not contain the same text as the summary attribute                                                     | Minor              | cat.tables, best-practice                       | failure, needs&nbsp;review |                                                    |
 
 
-,### WCAG 2.0 and 2.1 level AAA rules
+### WCAG 2.0 and 2.1 level AAA rules
 
 Rules that check for conformance to WCAG AAA success criteria that can be fully automated. These are disabled by default in axe-core.
 
@@ -125,7 +125,7 @@ Rules that check for conformance to WCAG AAA success criteria that can be fully 
 | ❌           | [meta-refresh-no-exceptions](https://dequeuniversity.com/rules/axe/4.4/meta-refresh-no-exceptions?application=RuleDescription)     | Ensures &lt;meta http-equiv=&quot;refresh&quot;&gt; is not used for delayed refresh                      | Minor   | cat.time-and-media, wcag2aaa, wcag224, wcag325 | failure                    | [bisz58](https://act-rules.github.io/rules/bisz58) |
 
 
-,### Experimental Rules
+### Experimental Rules
 
 Rules we are still testing and developing. They are disabled by default in axe-core, but are enabled for the axe browser extensions.
 
