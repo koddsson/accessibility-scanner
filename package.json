@@ -12,7 +12,8 @@
     "format": "npm run lint -- --fix",
     "test": "npm run format && web-test-runner",
     "test:watch": "npm run format && web-test-runner --watch",
-    "start": "web-dev-server"
+    "start": "web-dev-server",
+    "build:readme": "tsx generate-readme.ts"
   },
   "files": [
     "dist/src/*"
@@ -29,6 +30,8 @@
     "@web/test-runner-playwright": "^0.11.0",
     "eslint": "^8.25.0",
     "eslint-plugin-github": "^4.4.0",
+    "tablemark": "^3.1.0",
+    "tsx": "^4.15.4",
     "typescript": "^5.4.5"
   }
 }
