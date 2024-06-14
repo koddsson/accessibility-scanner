@@ -18,6 +18,7 @@ export default {
   browsers,
   filterBrowserLogs(log) {
     if (
+      typeof log.args[0] === "string" &&
       log.args[0].includes(
         "Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.",
       )
