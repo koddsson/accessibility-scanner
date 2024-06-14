@@ -44,7 +44,8 @@ export default function (el: Element): AccessibilityError[] {
   for (const element of elements) {
     const firstTextNode = document
       .createNodeIterator(element, NodeFilter.SHOW_TEXT, (node) => {
-        if (node.wholeText.trim() === "") return NodeFilter.FILTER_REJECT;
+        if ((node as Text).wholeText.trim() === "")
+          return NodeFilter.FILTER_REJECT;
         const parentElement = node.parentElement;
         const closestLangElement = parentElement?.closest("[lang]");
         return closestLangElement?.isSameNode(element)
