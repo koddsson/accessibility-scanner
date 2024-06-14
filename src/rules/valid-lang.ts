@@ -21,6 +21,19 @@ const id = "de46e4";
 const url = `https://act-rules.github.io/rules/${id}`;
 const text = "Ensures lang attributes have valid values";
 
+function getTexts(element: Element): string[] {
+  // Normally we'd get all the text nodes here but we need to special case those with a filter.
+  // Maybe we can generalise this by taking in a filter function?
+  // TODO: Look into that.
+  const labels = querySelectorAll("[aria-label]", element)
+    .map((x) => x.getAttribute("aria-label")!.trim())
+    .filter(Boolean);
+  const alts = querySelectorAll("img[alt]", element)
+    .map((x) => x.getAttribute("alt")!.trim())
+    .filter(Boolean);
+  return [...labels, ...alts];
+}
+
 export default function (el: Element): AccessibilityError[] {
   const errors = [];
   const elements = querySelectorAll("[lang]", el);
@@ -29,7 +42,20 @@ export default function (el: Element): AccessibilityError[] {
   }
 
   for (const element of elements) {
-    if (!langIsValid(element.getAttribute("lang")!)) {
+    const firstTextNode = document
+      .createNodeIterator(element, NodeFilter.SHOW_TEXT, (node) => {
+        if (node.wholeText.trim() === "") return NodeFilter.FILTER_REJECT;
+        const parentElement = node.parentElement;
+        const closestLangElement = parentElement?.closest("[lang]");
+        return closestLangElement?.isSameNode(element)
+          ? NodeFilter.FILTER_ACCEPT
+          : NodeFilter.FILTER_REJECT;
+      })
+      .nextNode();
+
+    const hasTextNodes = !!firstTextNode || getTexts(element).length > 0;
+
+    if (!langIsValid(element.getAttribute("lang")!) && hasTextNodes) {
       errors.push({
         element,
         text,
