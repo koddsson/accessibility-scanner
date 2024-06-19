@@ -1,3 +1,4 @@
+import { summaryReporter } from "@web/test-runner";
 import { esbuildPlugin } from "@web/dev-server-esbuild";
 import { playwrightLauncher } from "@web/test-runner-playwright";
 
@@ -16,6 +17,7 @@ export default {
   files: ["tests/**/*.ts", "tests/**/*.js"],
   plugins: [esbuildPlugin({ ts: true, target: "esnext" })],
   browsers,
+  reporters: [summaryReporter()],
   filterBrowserLogs(log) {
     if (
       typeof log.args[0] === "string" &&
