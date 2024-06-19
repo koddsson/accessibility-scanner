@@ -30,7 +30,7 @@ const violations = [
 
 describe("aria-tooltip-name", async function () {
   for (const markup of passes) {
-    const el = await fixture(html`${markup}`);
+    const el = await fixture(markup);
     it(el.outerHTML, async () => {
       const results = (await scanner.scan(el)).map(({ text, url }) => {
         return { text, url };
@@ -41,7 +41,7 @@ describe("aria-tooltip-name", async function () {
   }
 
   for await (const markup of violations) {
-    const el = await fixture(html`${markup}`);
+    const el = await fixture(markup);
     it(el.outerHTML, async () => {
       const results = (await scanner.scan(el)).map(({ text, url }) => {
         return { text, url };
