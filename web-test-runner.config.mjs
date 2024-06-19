@@ -1,15 +1,29 @@
+// eslint-disable-next-line foo
+import { env } from "node:process";
+
 import { summaryReporter } from "@web/test-runner";
 import { esbuildPlugin } from "@web/dev-server-esbuild";
 import { playwrightLauncher } from "@web/test-runner-playwright";
+import { junitReporter } from "@web/test-runner-junit-reporter";
 
 const browsers = [playwrightLauncher({ product: "chromium" })];
 
-if (process.env.CI) {
+if (env.CI) {
   browsers.push(
     playwrightLauncher({ product: "firefox" }),
     playwrightLauncher({ product: "webkit" }),
   );
 }
+
+const reporters = [
+  summaryReporter(),
+  env.CI
+    ? junitReporter({
+        outputPath: "./test-results.xml",
+        reportLogs: true,
+      })
+    : null,
+];
 
 export default {
   nodeResolve: true,
@@ -17,7 +31,7 @@ export default {
   files: ["tests/**/*.ts", "tests/**/*.js"],
   plugins: [esbuildPlugin({ ts: true, target: "esnext" })],
   browsers,
-  reporters: [summaryReporter()],
+  reporters,
   filterBrowserLogs(log) {
     if (
       typeof log.args[0] === "string" &&
