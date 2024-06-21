@@ -91,8 +91,6 @@ export const references = {
 };
 
 export function ariaRequiredChildren(el: Element): AccessibilityError[] {
-  const root = document.createElement("div");
-  root.append(el);
   const errors = [];
 
   // Loop over all the different rules.
@@ -100,7 +98,7 @@ export function ariaRequiredChildren(el: Element): AccessibilityError[] {
     roleToRequiredChildRoleMapping,
   )) {
     // Find all the elements with a role that we are interested in.
-    for (const parent of querySelectorAll(`[role=${role}]`, root)) {
+    for (const parent of querySelectorAll(`[role=${role}]`, el)) {
       let isValid = false;
 
       // Look for children of the parents with the correct roles.

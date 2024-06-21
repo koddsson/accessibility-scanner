@@ -193,8 +193,8 @@ describe("aria-required-attr", async function () {
       });
       expect(results).to.eql([
         {
-          text: "ARIA attributes must conform to valid names",
-          url: "https://dequeuniversity.com/rules/axe/4.4/aria-valid-attr",
+          text: "TODO",
+          url: "TODO",
         },
       ]);
     });

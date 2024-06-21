@@ -1,7 +1,6 @@
 // eslint-disable-next-line foo
 import { env } from "node:process";
 
-import { summaryReporter } from "@web/test-runner";
 import { esbuildPlugin } from "@web/dev-server-esbuild";
 import { playwrightLauncher } from "@web/test-runner-playwright";
 import { junitReporter } from "@web/test-runner-junit-reporter";
@@ -15,23 +14,12 @@ if (env.CI) {
   );
 }
 
-const reporters = [
-  summaryReporter(),
-  env.CI
-    ? junitReporter({
-        outputPath: "./test-results.xml",
-        reportLogs: true,
-      })
-    : null,
-];
-
-export default {
+const config = {
   nodeResolve: true,
   coverage: true,
   files: ["tests/**/*.ts", "tests/**/*.js"],
   plugins: [esbuildPlugin({ ts: true, target: "esnext" })],
   browsers,
-  reporters,
   filterBrowserLogs(log) {
     if (
       typeof log.args[0] === "string" &&
@@ -44,3 +32,16 @@ export default {
     return true;
   },
 };
+
+if (env.CI) {
+  config.reporters = [
+    env.CI
+      ? junitReporter({
+          outputPath: "./test-results.xml",
+          reportLogs: true,
+        })
+      : null,
+  ];
+}
+
+export default config;
