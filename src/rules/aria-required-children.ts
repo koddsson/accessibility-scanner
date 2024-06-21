@@ -3,33 +3,51 @@ import { querySelectorAll } from "../utils";
 
 // TODO: This list is incomplete!
 type Role =
+  | "article"
+  | "cell"
   | "checkbox"
+  | "columnheader"
   | "combobox"
+  | "deletion"
+  | "feed"
+  | "grid"
+  | "gridcell"
+  | "group"
   | "heading"
+  | "insertion"
+  | "list"
+  | "listbox"
+  | "listitem"
+  | "menu"
+  | "menubar"
+  | "menuitem"
   | "menuitemcheckbox"
   | "menuitemradio"
   | "meter"
+  | "option"
   | "radio"
+  | "row"
+  | "rowgroup"
+  | "rowheader"
   | "scrollbar"
+  | "separator"
   | "seperator"
   | "slider"
-  | "switch";
-
-// TODO: This list is incomplete!
-type AriaAttribute =
-  | "aria-checked"
-  | "aria-expanded"
-  | "aria-level"
-  | "aria-checked"
-  | "aria-valuenow"
-  | "aria-controls";
+  | "suggestion"
+  | "switch"
+  | "tab"
+  | "table"
+  | "tablist"
+  | "tree"
+  | "treegrid"
+  | "treeitem";
 
 /**
  * Required States and Properties:
  *
  * @see https://w3c.github.io/aria/#authorErrorDefaultValuesTable
  */
-const roleToRequiredStatesAndPropertiesMaps: Record<Role, AriaAttribute[]> = {
+const roleToRequiredChildRoleMapping: Partial<Record<Role, Role[]>> = {
   feed: ["article"],
   grid: ["rowgroup", "row"],
   list: ["listitem"],
@@ -73,23 +91,39 @@ export const references = {
 };
 
 export function ariaRequiredChildren(el: Element): AccessibilityError[] {
+  const root = document.createElement("div");
+  root.append(el);
   const errors = [];
 
-  const selector = Object.entries(roleToRequiredStatesAndPropertiesMaps)
-    .map(([role, attributes]) => {
-      return `[role=${role}]:not(${attributes.map((attr) => `[${attr}]`).join("")})`;
-    })
-    .join(",");
+  // Loop over all the different rules.
+  for (const [role, requiredChildren] of Object.entries(
+    roleToRequiredChildRoleMapping,
+  )) {
+    // Find all the elements with a role that we are interested in.
+    for (const parent of querySelectorAll(`[role=${role}]`, root)) {
+      let isValid = false;
 
-  const elements = querySelectorAll(selector, el);
-  if (el.matches(selector)) elements.push(el);
+      // Look for children of the parents with the correct roles.
+      // TODO: Probably special case `aria-owns` as that allows you to not have
+      // the items as descendants.
+      const childSelector = requiredChildren.reduce((selector, childRole) => {
+        if (!selector) return `[role=${childRole}]`;
+        return `${selector},[role=${childRole}]`;
+      }, "");
+      for (const child of querySelectorAll(childSelector, parent)) {
+        if (!child) continue;
+        // TODO: Check if child is valid somehow
+        isValid = true;
+      }
 
-  for (const element of elements) {
-    errors.push({
-      element,
-      text,
-      url,
-    });
+      if (isValid) continue;
+      errors.push({
+        element: parent,
+        text: references.axe.text,
+        url: references.axe.text,
+      });
+    }
   }
+
   return errors;
 }

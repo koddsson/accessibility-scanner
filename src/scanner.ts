@@ -11,6 +11,7 @@ import label from "./rules/label";
 import linkName from "./rules/link-name";
 import nestedInteractive from "./rules/nested-interactive";
 import validLang from "./rules/valid-lang";
+import { ariaRequiredChildren } from "./rules/aria-required-children";
 
 import { Logger } from "./logger";
 
@@ -38,6 +39,7 @@ export const allRules: Rule[] = [
   linkName,
   nestedInteractive,
   validLang,
+  ariaRequiredChildren,
 ];
 
 export async function requestIdleScan(
