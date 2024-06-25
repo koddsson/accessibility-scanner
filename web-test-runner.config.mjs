@@ -8,30 +8,12 @@ import { junitReporter } from "@web/test-runner-junit-reporter";
 
 const browsers = [playwrightLauncher({ product: "chromium" })];
 
-if (env.CI) {
-  browsers.push(
-    playwrightLauncher({ product: "firefox" }),
-    playwrightLauncher({ product: "webkit" }),
-  );
-}
-
-const reporters = [
-  summaryReporter(),
-  env.CI
-    ? junitReporter({
-        outputPath: "./test-results.xml",
-        reportLogs: true,
-      })
-    : null,
-];
-
-export default {
+const config = {
   nodeResolve: true,
   coverage: true,
   files: ["tests/**/*.ts", "tests/**/*.js"],
   plugins: [esbuildPlugin({ ts: true, target: "esnext" })],
   browsers,
-  reporters,
   filterBrowserLogs(log) {
     if (
       typeof log.args[0] === "string" &&
@@ -44,3 +26,22 @@ export default {
     return true;
   },
 };
+
+if (env.CI) {
+  config.browsers.push(
+    playwrightLauncher({ product: "firefox" }),
+    playwrightLauncher({ product: "webkit" }),
+  );
+
+  config.reporters = [
+    summaryReporter(),
+    env.CI
+      ? junitReporter({
+          outputPath: "./test-results.xml",
+          reportLogs: true,
+        })
+      : null,
+  ];
+}
+
+export default config;
