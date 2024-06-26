@@ -1,10 +1,8 @@
-import { fixture, html, expect } from "@open-wc/testing";
-import { scan } from "../../src/scanner";
+import { mkdir, writeFile, readFile } from "node:fs/promises";
 
-const response = await fetch("/testcases.json");
-const json = await response.json();
+const { testcases } = JSON.parse(await readFile("./testcases.json", "utf8"));
 
-const applicableRules = json.testcases.filter(
+const applicableRules = testcases.filter(
   (rule) => rule.ruleAccessibilityRequirements,
 );
 
@@ -126,67 +124,66 @@ const ignoredExamples = [
   "https://act-rules.github.io/testcases/qt1vmo/0ef4f516db9ed70cb25f39c99637272808b8e60f.html",
 ];
 
-describe("ACT Rules", function () {
-  for (const rule of applicableRules) {
-    const {
-      ruleId,
-      ruleName,
-      testcaseId,
-      testcaseTitle,
-      expected,
-      url: exampleURL,
-      ruleAccessibilityRequirements,
-    } = rule;
+for (const rule of applicableRules) {
+  const {
+    ruleId,
+    ruleName,
+    testcaseId,
+    testcaseTitle,
+    expected,
+    url: exampleURL,
+    ruleAccessibilityRequirements,
+  } = rule;
 
-    if (testCasesThatRedirect.includes(testcaseId)) continue;
-    if (ruleName.includes("DEPRECATED")) continue;
-    if (rulesToIgnore.includes(ruleId)) continue;
-    if (ignoredExamples.includes(exampleURL)) continue;
+  if (testCasesThatRedirect.includes(testcaseId)) continue;
+  if (ruleName.includes("DEPRECATED")) continue;
+  if (rulesToIgnore.includes(ruleId)) continue;
+  if (ignoredExamples.includes(exampleURL)) continue;
+  // Ignore inapplicable results
+  if (expected === "inapplicable") continue;
 
-    if (
-      Object.keys(ruleAccessibilityRequirements).every(
-        (x) => !x.startsWith("wcag"),
-      )
+  console.log({ ruleId, testcaseId });
+
+  if (
+    Object.keys(ruleAccessibilityRequirements).every(
+      (x) => !x.startsWith("wcag"),
     )
-      continue;
+  )
+    continue;
 
-    describe(`[${ruleId}] ${ruleName}`, function () {
-      it(`${testcaseTitle} (${exampleURL})`, async () => {
-        const testResponse = await fetch(
-          `/tests/act/fixtures/${testcaseId}.html`,
-        );
-        if (testResponse.status !== 200) {
-          throw new Error("Couldn't find testcase HTML");
-        }
-        const testHTML = await testResponse.text();
-        await fixture(testHTML);
+  const html = await readFile(
+    `./tests/act/fixtures/${testcaseId}.html`,
+    "utf8",
+  );
 
-        const results = (await scan(document.body)).map(({ text, url }) => {
-          return { text, url };
-        });
-
-        try {
-          if (expected === "passed") {
-            expect(results).to.be.empty;
-          } else if (expected === "failed") {
-            expect(results).to.not.be.empty;
-          } else if (expected === "inapplicable") {
-            // Ignore inapplicable results
-          } else {
-            throw new Error(`Unknown expected state: ${expected}`);
-          }
-        } catch (error) {
-          console.log("=======");
-          console.log(`[${ruleId}] ${ruleName}`);
-          console.log(testcaseTitle);
-          console.log(`${testcaseId}.html`);
-          console.log(Object.keys(ruleAccessibilityRequirements));
-          console.log("-------");
-          console.log(testHTML);
-          console.log("\n");
-          throw error;
-        }
-      });
-    });
+  let assertion = undefined;
+  if (expected === "passed") {
+    assertion = "expect(results).to.be.empty;";
+  } else if (expected === "failed") {
+    assertion = "expect(results).to.not.be.empty;";
+  } else {
+    throw new Error(`Unknown expected state: ${expected}`);
   }
+
+  const suite = `import { fixture, expect } from "@open-wc/testing";
+import { scan } from "../../../../src/scanner";
+
+describe("[${ruleId}]${ruleName}", function () {
+  it("${testcaseTitle} (${exampleURL})", async () => {
+    await fixture(\`${html}\`);
+
+    const results = (await scan(document.body)).map(({ text, url }) => {
+      return { text, url };
+    });
+
+    ${assertion}
+  });
 });
+`;
+  await mkdir(`./tests/act/tests/${ruleId}/`, { recursive: true });
+  await writeFile(
+    `./tests/act/tests/${ruleId}/${testcaseId}.ts`,
+    suite,
+    "utf8",
+  );
+}
