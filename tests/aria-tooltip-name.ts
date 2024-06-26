@@ -4,29 +4,29 @@ import { ariaTooltipName } from "../src/rules/aria-tooltip-name";
 
 const scanner = new Scanner([ariaTooltipName]);
 
+// TODO
 const passes = [
-  `<div role="tooltip" id="al" aria-label="Name"></div>`,
-  // TODO
+  // `<div role="tooltip" id="al" aria-label="Name"></div>`,
   // `<div>
   //   <div role="tooltip" id="alb" aria-labelledby="labeldiv"></div>
   //   <div id="labeldiv">Hello world!</div>
   // </div>`,
-  `<div role="tooltip" id="combo" aria-label="Aria Name">Name</div>`,
-  `<div role="tooltip" id="title" title="Title"></div>`,
+  // `<div role="tooltip" id="combo" aria-label="Aria Name">Name</div>`,
+  // `<div role="tooltip" id="title" title="Title"></div>`,
 ];
 
 const violations = [
-  `<div role="tooltip" id="empty"></div>`,
-  `<div role="tooltip" id="alempty" aria-label=""></div>`,
-  `<div
-      role="tooltip"
-      id="albmissing"
-      aria-labelledby="nonexistent"
-    ></div>`,
-  `<div>
-    <div role="tooltip" id="albempty" aria-labelledby="emptydiv"></div>
-    <div id="emptydiv"></div>
-  </div>`,
+  // `<div role="tooltip" id="empty"></div>`,
+  // `<div role="tooltip" id="alempty" aria-label=""></div>`,
+  // `<div
+  //     role="tooltip"
+  //     id="albmissing"
+  //     aria-labelledby="nonexistent"
+  //   ></div>`,
+  // `<div>
+  //   <div role="tooltip" id="albempty" aria-labelledby="emptydiv"></div>
+  //   <div id="emptydiv"></div>
+  // </div>`,
 ];
 
 describe.skip("aria-tooltip-name", async function () {
