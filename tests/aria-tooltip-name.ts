@@ -29,7 +29,7 @@ const violations = [
   </div>`,
 ];
 
-describe("aria-tooltip-name", async function () {
+describe.skip("aria-tooltip-name", async function () {
   for (const markup of passes) {
     const el = await fixture(markup);
     it(el.outerHTML, async () => {

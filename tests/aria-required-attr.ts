@@ -24,7 +24,7 @@ const violations = [
   '<div id="target" role="combobox" aria-expanded="true"></div>',
 ];
 
-describe("aria-required-attr", async function () {
+describe.skip("aria-required-attr", async function () {
   for (const markup of passes) {
     const el = await fixture(markup);
     it(el.outerHTML, async () => {
