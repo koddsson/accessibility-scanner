@@ -54,7 +54,7 @@ export default function (el: Element): AccessibilityError[] {
       const title = image && image.getAttribute("title");
       if (title) continue;
 
-      if (image && labelledByIsValid(image)) continue;
+      if (image && labelledByIsValid(image, el.ownerDocument)) continue;
 
       errors.push({
         element,
