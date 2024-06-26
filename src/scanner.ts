@@ -72,7 +72,7 @@ export async function requestIdleScan(
 }
 
 export async function scan(
-  element: Element,
+  element: Element | Document,
   enabledRules?: Rule[],
 ): Promise<AccessibilityError[]> {
   const errors: AccessibilityError[] = [];
