@@ -165,12 +165,14 @@ for (const rule of applicableRules) {
     throw new Error(`Unknown expected state: ${expected}`);
   }
 
-  const suite = `import { fixture, expect } from "@open-wc/testing";
+  const suite = `import { expect } from "@open-wc/testing";
 import { scan } from "../../../../src/scanner";
+
+const parser = new DOMParser();
 
 describe("[${ruleId}]${ruleName}", function () {
   it("${testcaseTitle} (${exampleURL})", async () => {
-    await fixture(\`${html}\`);
+    const document = parser.parseFromString(\`${html}\`, 'text/html');
 
     const results = (await scan(document.body)).map(({ text, url }) => {
       return { text, url };

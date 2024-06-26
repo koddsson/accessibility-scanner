@@ -1,9 +1,11 @@
-import { fixture, expect } from "@open-wc/testing";
+import { expect } from "@open-wc/testing";
 import { scan } from "../../../../src/scanner";
+
+const parser = new DOMParser();
 
 describe("[c487ae]Link has non-empty accessible name", function () {
   it("Passed Example 9 (https://act-rules.github.io/testcases/c487ae/2c58ea9a68f5bf34cabb07059af1a533be96c720.html)", async () => {
-    await fixture(`<!DOCTYPE html> <html>
+    const document = parser.parseFromString(`<!DOCTYPE html> <html>
 	<style>
 		.offScreenLink {
 			position: absolute;
@@ -14,7 +16,7 @@ describe("[c487ae]Link has non-empty accessible name", function () {
 	<body>
 		<a class="offScreenLink" href="https://www.w3.org/WAI">Web Accessibility Initiative (WAI)</a>
 	</body>
-</html>`);
+</html>`, 'text/html');
 
     const results = (await scan(document.body)).map(({ text, url }) => {
       return { text, url };
