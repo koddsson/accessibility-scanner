@@ -6,11 +6,16 @@ export function isVisible(el: HTMLElement): boolean {
 /**
  * Given a element, make sure that it's `aria-labelledby` has a value and it's
  * value maps to a element in the DOM that has valid text
+ *
+ * @TODO: Make the `document` argument a required argument
  **/
-export function labelledByIsValid(el: Element): boolean {
+export function labelledByIsValid(
+  el: Element,
+  doc: Document = document,
+): boolean {
   const id = el.getAttribute("aria-labelledby");
   if (!id) return false;
-  const otherElement = querySelector(`#${id}`, document);
+  const otherElement = querySelector(`#${id}`, doc);
   if (!otherElement) return false;
 
   if (otherElement instanceof HTMLSelectElement) return false;
