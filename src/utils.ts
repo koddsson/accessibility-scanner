@@ -9,13 +9,10 @@ export function isVisible(el: HTMLElement): boolean {
  *
  * @TODO: Make the `document` argument a required argument
  **/
-export function labelledByIsValid(
-  el: Element,
-  doc: Document = document,
-): boolean {
+export function labelledByIsValid(el: Element): boolean {
   const id = el.getAttribute("aria-labelledby");
   if (!id) return false;
-  const otherElement = querySelector(`#${id}`, doc);
+  const otherElement = querySelector(`#${id}`, el.ownerDocument);
   if (!otherElement) return false;
 
   if (otherElement instanceof HTMLSelectElement) return false;

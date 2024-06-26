@@ -16,7 +16,7 @@ export default function (el: Element): AccessibilityError[] {
       continue;
     const label = element.getAttribute("aria-label");
     if (label && label.trim() !== "") continue;
-    if (labelledByIsValid(element, element.ownerDocument)) continue;
+    if (labelledByIsValid(element)) continue;
     if (element.title) continue;
 
     const role = element.getAttribute("role");
