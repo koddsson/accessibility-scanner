@@ -3,4 +3,7 @@ export interface AccessibilityError {
   url: string;
   element: HTMLElement;
 }
-export declare function scan(element: HTMLElement): Promise<void>;
+
+type Scannable = HTMLElement | Document;
+
+export declare function scan(element: Scannable): Promise<void>;

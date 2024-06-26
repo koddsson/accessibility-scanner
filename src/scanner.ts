@@ -22,7 +22,7 @@ export interface AccessibilityError {
 
 const logger = new Logger();
 
-type Rule = (el: Element) => AccessibilityError[];
+type Rule = (el: Document | Element) => AccessibilityError[];
 
 export const allRules: Rule[] = [
   areaAlt,
