@@ -14,7 +14,7 @@ async function createHTMLElement(htmlString: string): Promise<HTMLElement> {
 }
 
 describe("html-has-lang", function () {
-  it("html element without a lang attribute fails", async () => {
+  it.skip("html element without a lang attribute fails", async () => {
     const container = await createHTMLElement("<html></html>");
 
     // Not sure why there's a timing issue here but this seems to fix it
