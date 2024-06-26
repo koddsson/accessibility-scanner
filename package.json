@@ -5,6 +5,9 @@
   "type": "module",
   "module": "./dist/src/scanner.js",
   "main": "./dist/src/scanner.js",
+  "repository": {
+    "url": "https://github.com/koddsson/accessibility-scanner"
+  },
   "scripts": {
     "prepublish": "npm run build",
     "build": "tsc",
