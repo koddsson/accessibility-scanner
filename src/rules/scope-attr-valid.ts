@@ -5,11 +5,12 @@ const text = "Scope attribute should be used correctly on tables";
 const url =
   "https://dequeuniversity.com/rules/axe/4.4/scope-attr-valid?application=RuleDescription";
 
-function checkScopeElements(el: Element) {
+function checkScopeElements(el: Document | Element) {
   const errors = [];
   const selector = "[scope]";
   const elements = querySelectorAll(selector, el);
-  if (el.matches(selector)) elements.push(el as HTMLElement);
+  if (el instanceof Element && el.matches(selector))
+    elements.push(el as HTMLElement);
   for (const element of elements) {
     if (element.tagName !== "TH") {
       errors.push({
@@ -34,11 +35,12 @@ function checkScopeElements(el: Element) {
   return errors;
 }
 
-function checkTableHeaderElements(el: Element) {
+function checkTableHeaderElements(el: Document | Element) {
   const errors = [];
   const selector = "th:not([scope])";
   const elements = querySelectorAll(selector, el);
-  if (el.matches(selector)) elements.push(el as HTMLElement);
+  if (el instanceof HTMLElement && el.matches(selector))
+    elements.push(el as HTMLElement);
   for (const element of elements) {
     errors.push({
       element,
@@ -49,7 +51,7 @@ function checkTableHeaderElements(el: Element) {
   return errors;
 }
 
-export default function metaViewport(el: Element) {
+export default function metaViewport(el: Document | Element) {
   const errors = [];
 
   errors.push(...checkScopeElements(el), ...checkTableHeaderElements(el));

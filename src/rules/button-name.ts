@@ -18,10 +18,10 @@ function getElementText(element: Element): string {
   return label.trim();
 }
 
-export default function (el: Element): AccessibilityError[] {
+export default function (el: Document | Element): AccessibilityError[] {
   const errors = [];
   const elements = querySelectorAll("button", el);
-  if (el.matches("button")) {
+  if (el instanceof HTMLElement && el.matches("button")) {
     elements.push(el as HTMLButtonElement);
   }
   for (const element of elements) {

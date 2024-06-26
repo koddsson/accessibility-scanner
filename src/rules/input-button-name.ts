@@ -4,7 +4,8 @@ import { querySelectorAll, labelledByIsValid } from "../utils";
 const text = "Input buttons must have discernible text";
 const url = "https://dequeuniversity.com/rules/axe/4.4/input-button-name";
 
-export default function (el: Element): AccessibilityError[] {
+export default function (el: Element | Document): AccessibilityError[] {
+  el = el instanceof Document ? el.documentElement : el;
   const selector =
     'input[type="button"],input[type="submit"],input[type="reset"]';
   const errors = [];

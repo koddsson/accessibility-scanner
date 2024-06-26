@@ -11,13 +11,14 @@ function parseContent(content: string): Record<string, string> {
   return obj;
 }
 
-export default function metaViewport(el: Element) {
+export default function metaViewport(el: Document | Element) {
   const errors = [];
 
   // TODO: Do the same for all the other rules
   const selector = "meta[name=viewport]";
   const elements = Array.from(el.querySelectorAll<HTMLMetaElement>(selector));
-  if (el.matches(selector)) elements.push(el as HTMLMetaElement);
+  if (el instanceof Element && el.matches(selector))
+    elements.push(el as HTMLMetaElement);
   for (const element of elements) {
     const content = parseContent(element.content);
     if (content["user-scalable"] === "no" || content["user-scalable"] === "0") {

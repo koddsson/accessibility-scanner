@@ -34,10 +34,10 @@ function getTexts(element: Element): string[] {
   return [...labels, ...alts];
 }
 
-export default function (el: Element): AccessibilityError[] {
+export default function (el: Document | Element): AccessibilityError[] {
   const errors = [];
   const elements = querySelectorAll("[lang]", el);
-  if (el.matches("[lang]")) {
+  if (el instanceof HTMLElement && el.matches("[lang]")) {
     elements.push(el);
   }
 
