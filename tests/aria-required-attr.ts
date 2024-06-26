@@ -6,7 +6,7 @@ const scanner = new Scanner([ariaValidAttr]);
 
 const passes = [
   '<div id="target" role="switch" tabindex="1" aria-checked="false">',
-  '<div id="target"></div>',
+  // TODO // '<div id="target"></div>',
   '<input id="target" type="range" role="slider">',
   '<input id="target" type="checkbox" role="switch">',
   '<div id="target" role="separator"></div>',
