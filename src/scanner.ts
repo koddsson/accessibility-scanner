@@ -11,6 +11,7 @@ import label from "./rules/label";
 import linkName from "./rules/link-name";
 import nestedInteractive from "./rules/nested-interactive";
 import validLang from "./rules/valid-lang";
+import bypass from "./rules/bypass";
 
 import { Logger } from "./logger";
 
@@ -38,6 +39,7 @@ export const allRules: Rule[] = [
   linkName,
   nestedInteractive,
   validLang,
+  bypass,
 ];
 
 export async function requestIdleScan(
