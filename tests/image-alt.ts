@@ -16,6 +16,12 @@ const passes = [
   `<img src="img.jpg" role="none" />`,
   `<img src="img.jpg" role="button" aria-label="foo" />`,
   `<img src="img.jpg" role="checkbox" title="bar" />`,
+  `<div>
+      <a href="https://www.w3.org/WAI">
+        <img src="/test-assets/shared/w3c-logo.png" aria-labelledby="id1" />
+      </a>
+      <div id="id1">Web Accessibility Initiative (WAI)</div>
+    </div>`,
   // await fixture(html`<img src="img.jpg" id="inapplicable1" role="separator" />`),
 ];
 
