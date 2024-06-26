@@ -113,7 +113,6 @@ const rulesToIgnore = [
   "off6ek",
   "oj04fd",
   "ucwvc8",
-  "ye5d6e",
   "bf051a",
 ];
 
@@ -172,9 +171,9 @@ const parser = new DOMParser();
 
 describe("[${ruleId}]${ruleName}", function () {
   it("${testcaseTitle} (${exampleURL})", async () => {
-    const document = parser.parseFromString(\`${html}\`, 'text/html');
+    const el = parser.parseFromString(\`${html}\`, 'text/html');
 
-    const results = (await scan(document.body)).map(({ text, url }) => {
+    const results = (await scan(el)).map(({ text, url }) => {
       return { text, url };
     });
 

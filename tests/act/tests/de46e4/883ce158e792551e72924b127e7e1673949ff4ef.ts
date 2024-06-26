@@ -5,7 +5,7 @@ const parser = new DOMParser();
 
 describe("[de46e4]Element with lang attribute has valid language tag", function () {
   it("Passed Example 2 (https://act-rules.github.io/testcases/de46e4/883ce158e792551e72924b127e7e1673949ff4ef.html)", async () => {
-    const document = parser.parseFromString(`<!DOCTYPE html> <html>
+    const el = parser.parseFromString(`<!DOCTYPE html> <html>
 	<body>
 		<blockquote lang="fr-CH">
 			Ils ont trouvé un étrange bar Tiki aux abords de la petite ville balnéaire.
@@ -13,7 +13,7 @@ describe("[de46e4]Element with lang attribute has valid language tag", function 
 	</body>
 </html>`, 'text/html');
 
-    const results = (await scan(document.body)).map(({ text, url }) => {
+    const results = (await scan(el)).map(({ text, url }) => {
       return { text, url };
     });
 

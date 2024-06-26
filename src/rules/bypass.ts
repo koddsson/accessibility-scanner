@@ -13,11 +13,14 @@ export default function (el: Document | Element): AccessibilityError[] {
 
   let hasInstrument = false;
 
+  // Loop over all the links and see if there's a instrucment to skip to the main content.
+  // If there's a link
   for (const link of links) {
-    const target = querySelector(link.getAttribute("href")!, document);
+    const href = link.getAttribute("href")!;
+    const target = querySelector(href, document);
     if (target?.parentElement?.isSameNode(document.body)) hasInstrument = true;
   }
-  if (hasInstrument) {
+  if (!hasInstrument) {
     errors.push({
       element: document.body,
       text,
