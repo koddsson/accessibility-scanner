@@ -103,7 +103,7 @@ function recurse(
 ) {
   // if "document" is passed in, it will also pick up "<html>" causing the query to run twice.
   if (container instanceof Document) {
-    container = document.documentElement;
+    container = container.documentElement;
   }
 
   // I haven't figured this one out, but for some reason when using the buildQueries
