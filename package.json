@@ -1,5 +1,5 @@
 {
-  "name": "@koddsson/accessbility-scanner",
+  "name": "@koddsson/accessibility-scanner",
   "version": "0.1.3",
   "description": "A accessbility scanner",
   "type": "module",
@@ -15,9 +15,7 @@
     "start": "web-dev-server",
     "build:readme": "tsx generate-readme.ts"
   },
-  "files": [
-    "dist/src/*"
-  ],
+  "files": ["dist/src/*"],
   "keywords": [],
   "author": "Kristján Oddsson",
   "license": "ISC",
