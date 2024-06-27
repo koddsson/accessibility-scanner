@@ -117,9 +117,7 @@ function recurse(
     elementsToProcess.push(container.shadowRoot);
   }
 
-  // eslint-disable-next-line github/array-foreach
   elementsToProcess.forEach((containerElement) => {
-    // eslint-disable-next-line github/array-foreach
     containerElement.querySelectorAll(selector).forEach((el) => {
       if (el.shadowRoot == null || el.shadowRoot.mode === "closed") {
         elements.push(el);
@@ -130,14 +128,12 @@ function recurse(
       elements.push(el.shadowRoot);
 
       if (options.depth <= currentDepth) {
-        // eslint-disable-next-line github/array-foreach
         el.shadowRoot.querySelectorAll(selector).forEach((e) => {
           elements.push(e);
         });
         return;
       }
 
-      // eslint-disable-next-line github/array-foreach
       el.shadowRoot.querySelectorAll(selector).forEach((e) => {
         elements.push(e);
         elementsToProcess.push(e);
