@@ -5,6 +5,10 @@
   "type": "module",
   "module": "./dist/src/scanner.js",
   "main": "./dist/src/scanner.js",
+  "exports": {
+    ".": "./dist/src/scanner.js",
+    "./rules/*": "./dist/src/rules/*.js"
+  },
   "repository": {
     "url": "https://github.com/koddsson/accessibility-scanner"
   },
