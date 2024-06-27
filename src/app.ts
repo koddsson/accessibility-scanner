@@ -1,16 +1,12 @@
 import { scan } from "./scanner";
 
 async function ready(): Promise<void> {
-  if (
-    document.readyState === "interactive" ||
+  return document.readyState === "interactive" ||
     document.readyState === "complete"
-  ) {
-    return Promise.resolve();
-  } else {
-    return new Promise((resolve) => {
-      document.addEventListener("DOMContentLoaded", () => resolve());
-    });
-  }
+    ? Promise.resolve()
+    : new Promise((resolve) => {
+        document.addEventListener("DOMContentLoaded", () => resolve());
+      });
 }
 
 (async function () {

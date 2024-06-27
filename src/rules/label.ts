@@ -10,13 +10,13 @@ const text = "Form <input> elements must have labels";
 const url =
   "https://dequeuniversity.com/rules/axe/4.4/label?application=RuleDescription";
 
-export default function (el: Element): AccessibilityError[] {
+export default function (element: Element): AccessibilityError[] {
   const errors = [];
   const selector = ["input", "textarea"].map((x) => `form ${x}`).join(", ");
-  const elements = querySelectorAll(selector, el) as HTMLInputElement[];
+  const elements = querySelectorAll(selector, element) as HTMLInputElement[];
 
-  if (el.matches(selector)) {
-    elements.push(el as HTMLInputElement);
+  if (element.matches(selector)) {
+    elements.push(element as HTMLInputElement);
   }
   for (const element of elements) {
     if (element.type === "hidden") continue;

@@ -1,16 +1,16 @@
-export function isVisible(el: HTMLElement): boolean {
+export function isVisible(element: HTMLElement): boolean {
   //console.log(el.style.display === "none");
-  return el.style.display !== "none";
+  return element.style.display !== "none";
 }
 
 /**
  * Given a element, make sure that it's `aria-labelledby` has a value and it's
  * value maps to a element in the DOM that has valid text
  **/
-export function labelledByIsValid(el: Element): boolean {
-  const id = el.getAttribute("aria-labelledby");
+export function labelledByIsValid(element: Element): boolean {
+  const id = element.getAttribute("aria-labelledby");
   if (!id) return false;
-  const otherElement = querySelector(`#${id}`, el.ownerDocument);
+  const otherElement = querySelector(`#${id}`, element.ownerDocument);
   if (!otherElement) return false;
 
   if (otherElement instanceof HTMLSelectElement) return false;
@@ -42,7 +42,7 @@ type Container = HTMLElement | Element | Document | ShadowRoot;
 export function querySelector<T extends Element>(
   selector: string,
   container: Container,
-  options = { depth: Infinity },
+  options = { depth: Number.POSITIVE_INFINITY },
 ): T | null {
   const els = querySelectorAll<T>(selector, container, options);
 
@@ -68,13 +68,13 @@ export function querySelector<T extends Element>(
 export function querySelectorAll<T extends Element>(
   selector: string,
   container: Container,
-  options = { depth: Infinity },
+  options = { depth: Number.POSITIVE_INFINITY },
 ): T[] {
   const elements = getAllElementsAndShadowRoots(container, options);
 
-  const queriedElements = elements
-    .map((el) => Array.from(el.querySelectorAll<T>(selector)))
-    .flat();
+  const queriedElements = elements.flatMap((element) => [
+    ...element.querySelectorAll<T>(selector),
+  ]);
   return [...new Set(queriedElements)];
 }
 
@@ -82,7 +82,7 @@ export function querySelectorAll<T extends Element>(
 // maybe an infinite generator in the future?
 export function getAllElementsAndShadowRoots(
   container: Container,
-  options = { depth: Infinity },
+  options = { depth: Number.POSITIVE_INFINITY },
 ) {
   const selector = "*";
   return recurse(container, selector, options);
@@ -91,7 +91,7 @@ export function getAllElementsAndShadowRoots(
 function recurse(
   container: Container,
   selector: string,
-  options = { depth: Infinity },
+  options = { depth: Number.POSITIVE_INFINITY },
   elementsToProcess: Array<Element | ShadowRoot | Document> = [],
   elements: Array<Element | ShadowRoot | Document> = [],
   currentDepth = 1,
@@ -110,44 +110,47 @@ function recurse(
   // Accounts for if the container houses a textNode
   if (
     container instanceof HTMLElement &&
-    container.shadowRoot != null &&
+    container.shadowRoot != undefined &&
     container.shadowRoot.mode !== "closed"
   ) {
     elements.push(container.shadowRoot);
     elementsToProcess.push(container.shadowRoot);
   }
 
-  elementsToProcess.forEach((containerElement) => {
-    containerElement.querySelectorAll(selector).forEach((el) => {
-      if (el.shadowRoot == null || el.shadowRoot.mode === "closed") {
-        elements.push(el);
-        return;
+  for (const containerElement of elementsToProcess) {
+    for (const element of containerElement.querySelectorAll(selector)) {
+      if (
+        element.shadowRoot == undefined ||
+        element.shadowRoot.mode === "closed"
+      ) {
+        elements.push(element);
+        continue;
       }
 
       // This is here because queryByRole() requires the parent element which in some cases is the shadow root.
-      elements.push(el.shadowRoot);
+      elements.push(element.shadowRoot);
 
       if (options.depth <= currentDepth) {
-        el.shadowRoot.querySelectorAll(selector).forEach((e) => {
+        for (const e of element.shadowRoot.querySelectorAll(selector)) {
           elements.push(e);
-        });
-        return;
+        }
+        continue;
       }
 
-      el.shadowRoot.querySelectorAll(selector).forEach((e) => {
+      for (const e of element.shadowRoot.querySelectorAll(selector)) {
         elements.push(e);
         elementsToProcess.push(e);
-      });
+      }
       recurse(
-        el.shadowRoot,
+        element.shadowRoot,
         selector,
         options,
         elementsToProcess,
         elements,
         currentDepth,
       );
-    });
-  });
+    }
+  }
 
   // We can sometimes hit duplicate nodes this way, lets stop that.
   return [...new Set(elements)];
