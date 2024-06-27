@@ -38,10 +38,14 @@ export function labelReadableText(label: HTMLElement): boolean {
 
 type Container = HTMLElement | Element | Document | ShadowRoot;
 
+interface QuerySelectorOptions {
+  depth: number;
+}
+
 export function querySelector<T extends Element>(
   selector: string,
   container: Container,
-  options,
+  options?: QuerySelectorOptions,
 ): T | undefined {
   const els = querySelectorAll<T>(
     selector,
@@ -71,7 +75,7 @@ export function querySelector<T extends Element>(
 export function querySelectorAll<T extends Element>(
   selector: string,
   container: Container,
-  options,
+  options?: QuerySelectorOptions,
 ): T[] {
   const elements = getAllElementsAndShadowRoots(
     container,
@@ -86,7 +90,10 @@ export function querySelectorAll<T extends Element>(
 
 // This could probably get really slow and memory intensive in large DOMs,
 // maybe an infinite generator in the future?
-export function getAllElementsAndShadowRoots(container: Container, options) {
+export function getAllElementsAndShadowRoots(
+  container: Container,
+  options?: QuerySelectorOptions,
+) {
   const selector = "*";
   return recurse(
     container,
@@ -98,7 +105,7 @@ export function getAllElementsAndShadowRoots(container: Container, options) {
 function recurse(
   container: Container,
   selector: string,
-  options,
+  options?: QuerySelectorOptions,
   elementsToProcess: Array<Element | ShadowRoot | Document> = [],
   elements: Array<Element | ShadowRoot | Document> = [],
   currentDepth = 1,
