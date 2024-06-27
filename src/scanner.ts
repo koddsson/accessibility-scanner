@@ -50,9 +50,11 @@ export async function requestIdleScan(
   return new Promise((resolve) => {
     requestIdleCallback(async function executeScan(deadline: IdleDeadline) {
       while (
+        // eslint-disable-next-line tscompat/tscompat
         (deadline.timeRemaining() > 0 || deadline.didTimeout) &&
         rules.length > 0
       ) {
+        // eslint-disable-next-line tscompat/tscompat
         logger.log(deadline.timeRemaining(), deadline.didTimeout);
         const rule = rules.shift()!;
         logger.log(`Executing ${rule.name}`);

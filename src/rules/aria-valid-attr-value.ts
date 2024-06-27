@@ -65,9 +65,12 @@ function valid(element: Element, attribute: string, info: Info) {
       return false;
     }
     return true;
-  } else if (info.type === "decimal" && !isNaN(Number.parseFloat(value))) {
+  } else if (
+    info.type === "decimal" &&
+    !Number.isNaN(Number.parseFloat(value))
+  ) {
     return true;
-  } else if (info.type === "int" && !isNaN(Number.parseInt(value))) {
+  } else if (info.type === "int" && !Number.isNaN(Number.parseInt(value))) {
     if (info.minValue != undefined) {
       return info.minValue <= Number.parseInt(value);
     }

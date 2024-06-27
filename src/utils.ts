@@ -25,8 +25,7 @@ export function labelReadableText(label: HTMLElement): boolean {
   if (!label?.textContent?.trim()) return false;
 
   // NOTE: This is expensive and we should look into ways to not do this any more.
-  const hasDisplayNone =
-    window.getComputedStyle(label, null).display === "none";
+  const hasDisplayNone = window.getComputedStyle(label).display === "none";
   if (hasDisplayNone) return false;
 
   const copiedNode = label.cloneNode(true) as Element;
@@ -42,15 +41,19 @@ type Container = HTMLElement | Element | Document | ShadowRoot;
 export function querySelector<T extends Element>(
   selector: string,
   container: Container,
-  options = { depth: Number.POSITIVE_INFINITY },
-): T | null {
-  const els = querySelectorAll<T>(selector, container, options);
+  options,
+): T | undefined {
+  const els = querySelectorAll<T>(
+    selector,
+    container,
+    options || { depth: Number.POSITIVE_INFINITY },
+  );
 
   if (Array.isArray(els) && els.length > 0) {
     return els[0];
   }
 
-  return null;
+  return undefined;
 }
 
 /**
@@ -68,9 +71,12 @@ export function querySelector<T extends Element>(
 export function querySelectorAll<T extends Element>(
   selector: string,
   container: Container,
-  options = { depth: Number.POSITIVE_INFINITY },
+  options,
 ): T[] {
-  const elements = getAllElementsAndShadowRoots(container, options);
+  const elements = getAllElementsAndShadowRoots(
+    container,
+    options || { depth: Number.POSITIVE_INFINITY },
+  );
 
   const queriedElements = elements.flatMap((element) => [
     ...element.querySelectorAll<T>(selector),
@@ -80,22 +86,24 @@ export function querySelectorAll<T extends Element>(
 
 // This could probably get really slow and memory intensive in large DOMs,
 // maybe an infinite generator in the future?
-export function getAllElementsAndShadowRoots(
-  container: Container,
-  options = { depth: Number.POSITIVE_INFINITY },
-) {
+export function getAllElementsAndShadowRoots(container: Container, options) {
   const selector = "*";
-  return recurse(container, selector, options);
+  return recurse(
+    container,
+    selector,
+    options || { depth: Number.POSITIVE_INFINITY },
+  );
 }
 
 function recurse(
   container: Container,
   selector: string,
-  options = { depth: Number.POSITIVE_INFINITY },
+  options,
   elementsToProcess: Array<Element | ShadowRoot | Document> = [],
   elements: Array<Element | ShadowRoot | Document> = [],
   currentDepth = 1,
 ) {
+  options = options || { depth: Number.POSITIVE_INFINITY };
   // if "document" is passed in, it will also pick up "<html>" causing the query to run twice.
   if (container instanceof Document) {
     container = container.documentElement;

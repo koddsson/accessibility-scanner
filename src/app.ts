@@ -9,24 +9,22 @@ async function ready(): Promise<void> {
       });
 }
 
-(async function () {
-  await ready();
+await ready();
 
-  const startTime = performance.now();
-  const errors = await scan(document.body);
-  const endTime = performance.now();
+const startTime = performance.now();
+const errors = await scan(document.body);
+const endTime = performance.now();
 
-  for (const accessbilityError of errors) {
-    accessbilityError.element.setAttribute("style", "border: 5px solid red;");
-    console.log(
-      accessbilityError.text,
-      accessbilityError.element,
-      accessbilityError.url,
-    );
-  }
+for (const accessbilityError of errors) {
+  accessbilityError.element.setAttribute("style", "border: 5px solid red;");
   console.log(
-    `Took ${(endTime - startTime).toPrecision(
-      2,
-    )}ms to execute accessbility scans`,
+    accessbilityError.text,
+    accessbilityError.element,
+    accessbilityError.url,
   );
-})();
+}
+console.log(
+  `Took ${(endTime - startTime).toPrecision(
+    2,
+  )}ms to execute accessbility scans`,
+);
