@@ -6,4 +6,10 @@ export default tseslint.config(
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
   ...myConfig,
+  {
+    rules: {
+      "unicorn/prevent-abbreviations": "off",
+      "unicorn/no-anonymous-default-export": "off",
+    },
+  },
 );
