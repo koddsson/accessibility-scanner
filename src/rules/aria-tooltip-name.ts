@@ -31,7 +31,8 @@ function hasAccessibleText(el: Element): boolean {
   return true;
 }
 
-export function ariaTooltipName(el: Element): AccessibilityError[] {
+export function ariaTooltipName(el: Element | Document): AccessibilityError[] {
+  el = el instanceof Document ? el.documentElement : el;
   const errors = [];
   const tooltips = querySelectorAll("[role=tooltip]", el);
   if (el.matches("[role=tooltip]")) tooltips.push(el);

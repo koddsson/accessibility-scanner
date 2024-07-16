@@ -11,7 +11,7 @@ const ariaMappings: Record<string, string | undefined> = {
   I: undefined,
 };
 
-export function ariaAllowedAttr(el: Element): AccessibilityError[] {
+export function ariaAllowedAttr(el: Document | Element): AccessibilityError[] {
   const errors = [];
   const selector = Object.keys(ariaMappings).join(",");
   for (const element of querySelectorAll(selector, el)) {

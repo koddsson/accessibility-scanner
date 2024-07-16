@@ -5,7 +5,7 @@ const text = "Elements must only use allowed ARIA attributes";
 const url =
   "https://dequeuniversity.com/rules/axe/4.4/area-alt?application=RuleDescription";
 
-export function areaAlt(el: Element): AccessibilityError[] {
+export function areaAlt(el: Document | Element): AccessibilityError[] {
   const errors = [];
 
   for (const element of querySelectorAll("map area[href]", el)) {

@@ -82,7 +82,10 @@ function valid(el: Element, attribute: string, info: Info) {
   return false;
 }
 
-export function ariaValidAttrValue(el: Element): AccessibilityError[] {
+export function ariaValidAttrValue(
+  el: Element | Document,
+): AccessibilityError[] {
+  el = el instanceof Document ? el.documentElement : el;
   const errors = [];
   const selector = Object.keys(ariaAttributes)
     .map((attributeName) => `[${attributeName}]`)

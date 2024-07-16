@@ -5,7 +5,7 @@ const parser = new DOMParser();
 
 describe("[c487ae]Link has non-empty accessible name", function () {
   it("Passed Example 9 (https://act-rules.github.io/testcases/c487ae/2c58ea9a68f5bf34cabb07059af1a533be96c720.html)", async () => {
-    const document = parser.parseFromString(`<!DOCTYPE html> <html>
+    const el = parser.parseFromString(`<!DOCTYPE html> <html>
 	<style>
 		.offScreenLink {
 			position: absolute;
@@ -18,7 +18,7 @@ describe("[c487ae]Link has non-empty accessible name", function () {
 	</body>
 </html>`, 'text/html');
 
-    const results = (await scan(document.body)).map(({ text, url }) => {
+    const results = (await scan(el)).map(({ text, url }) => {
       return { text, url };
     });
 

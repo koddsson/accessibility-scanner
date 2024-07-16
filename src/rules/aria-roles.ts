@@ -24,7 +24,7 @@ const validRoles = [
   "contentinfo",
 ];
 
-export default function (el: Element): AccessibilityError[] {
+export default function (el: Document | Element): AccessibilityError[] {
   const errors = [];
   for (const element of querySelectorAll("[role]", el)) {
     const role = element.getAttribute("role");

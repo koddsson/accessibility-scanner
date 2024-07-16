@@ -5,10 +5,10 @@ const text = "Images must have alternate text";
 const url =
   "https://dequeuniversity.com/rules/axe/4.4/image-alt?application=RuleDescription";
 
-export default function (el: Element): AccessibilityError[] {
+export default function (el: Document | Element): AccessibilityError[] {
   const errors = [];
   const elements = querySelectorAll("img", el) as HTMLImageElement[];
-  if (el.matches("img")) {
+  if (el instanceof HTMLElement && el.matches("img")) {
     elements.push(el as HTMLImageElement);
   }
   for (const element of elements) {

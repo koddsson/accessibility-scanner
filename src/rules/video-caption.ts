@@ -5,10 +5,10 @@ const text = "<video> elements must have a <track> for captions";
 const url =
   "https://dequeuniversity.com/rules/axe/4.4/video-caption?application=RuleDescription";
 
-export default function (el: Element): AccessibilityError[] {
+export default function (el: Document | Element): AccessibilityError[] {
   const errors = [];
   const elements = querySelectorAll("video", el);
-  if (el.matches("video")) {
+  if (el instanceof HTMLElement && el.matches("video")) {
     elements.push(el as HTMLElement);
   }
   for (const element of elements) {

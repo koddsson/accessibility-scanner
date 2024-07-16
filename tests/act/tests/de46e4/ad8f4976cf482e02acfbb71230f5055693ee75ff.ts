@@ -5,7 +5,7 @@ const parser = new DOMParser();
 
 describe("[de46e4]Element with lang attribute has valid language tag", function () {
   it("Failed Example 7 (https://act-rules.github.io/testcases/de46e4/ad8f4976cf482e02acfbb71230f5055693ee75ff.html)", async () => {
-    const document = parser.parseFromString(`<!DOCTYPE html> <html>
+    const el = parser.parseFromString(`<!DOCTYPE html> <html>
 	<body>
 		<div lang="invalid">
 			<img src="/test-assets/shared/fireworks.jpg" alt="Fireworks over Paris" />
@@ -13,7 +13,7 @@ describe("[de46e4]Element with lang attribute has valid language tag", function 
 	</body>
 </html>`, 'text/html');
 
-    const results = (await scan(document.body)).map(({ text, url }) => {
+    const results = (await scan(el)).map(({ text, url }) => {
       return { text, url };
     });
 

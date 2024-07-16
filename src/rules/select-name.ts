@@ -10,10 +10,10 @@ const text = "select element must have an accessible name";
 const url =
   "https://dequeuniversity.com/rules/axe/4.4/select-name?application=RuleDescription";
 
-export default function (el: Element): AccessibilityError[] {
+export default function (el: Document | Element): AccessibilityError[] {
   const errors = [];
   const elements = querySelectorAll("select", el) as HTMLSelectElement[];
-  if (el.matches("select")) {
+  if (el instanceof HTMLElement && el.matches("select")) {
     elements.push(el as HTMLSelectElement);
   }
   for (const element of elements) {
