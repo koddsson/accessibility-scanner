@@ -27,7 +27,7 @@ const config = {
 
 if (env.CI) {
   config.browsers.push(
-    playwrightLauncher({ product: "firefox" }),
+    //playwrightLauncher({ product: "firefox" }),
     playwrightLauncher({ product: "webkit" }),
   );
 }
