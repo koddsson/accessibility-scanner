@@ -11,7 +11,7 @@
   "scripts": {
     "prepublish": "npm run build",
     "build": "tsc",
-    "lint": "eslint src/",
+    "lint": "eslint src/**/*.ts",
     "format": "npm run lint -- --fix",
     "test": "npm run format && web-test-runner",
     "test:watch": "npm run format && web-test-runner --watch",

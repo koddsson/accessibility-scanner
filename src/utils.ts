@@ -117,9 +117,7 @@ function recurse(
     elementsToProcess.push(container.shadowRoot);
   }
 
-  // eslint-disable-next-line github/array-foreach
   for (const containerElement of elementsToProcess) {
-    // eslint-disable-next-line github/array-foreach
     for (const element of containerElement.querySelectorAll(selector)) {
       if (
         element.shadowRoot == undefined ||
@@ -133,14 +131,12 @@ function recurse(
       elements.push(element.shadowRoot);
 
       if (options.depth <= currentDepth) {
-        // eslint-disable-next-line github/array-foreach
         for (const e of element.shadowRoot.querySelectorAll(selector)) {
           elements.push(e);
         }
         continue;
       }
 
-      // eslint-disable-next-line github/array-foreach
       for (const e of element.shadowRoot.querySelectorAll(selector)) {
         elements.push(e);
         elementsToProcess.push(e);
