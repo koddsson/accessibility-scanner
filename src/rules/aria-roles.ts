@@ -13,7 +13,7 @@ const text = "ARIA roles used must conform to valid values";
 const url =
   "https://dequeuniversity.com/rules/axe/4.4/aria-roles?application=RuleDescription";
 
-const validRoles = [
+const validRoles = new Set([
   "article",
   "banner",
   "complementary",
@@ -22,13 +22,13 @@ const validRoles = [
   "region",
   "search",
   "contentinfo",
-];
+]);
 
-export default function (el: Element): AccessibilityError[] {
+export default function (element_: Element): AccessibilityError[] {
   const errors = [];
-  for (const element of querySelectorAll("[role]", el)) {
+  for (const element of querySelectorAll("[role]", element_)) {
     const role = element.getAttribute("role");
-    if (role && validRoles.includes(role)) continue;
+    if (role && validRoles.has(role)) continue;
     errors.push({
       element,
       text,

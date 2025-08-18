@@ -11,10 +11,10 @@ const ariaMappings: Record<string, string | undefined> = {
   I: undefined,
 };
 
-export function ariaAllowedAttr(el: Element): AccessibilityError[] {
+export function ariaAllowedAttr(element_: Element): AccessibilityError[] {
   const errors = [];
   const selector = Object.keys(ariaMappings).join(",");
-  for (const element of querySelectorAll(selector, el)) {
+  for (const element of querySelectorAll(selector, element_)) {
     if (element.getAttribute("role") === ariaMappings[element.tagName])
       continue;
     errors.push({

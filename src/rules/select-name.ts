@@ -10,11 +10,11 @@ const text = "select element must have an accessible name";
 const url =
   "https://dequeuniversity.com/rules/axe/4.4/select-name?application=RuleDescription";
 
-export default function (el: Element): AccessibilityError[] {
+export default function (element: Element): AccessibilityError[] {
   const errors = [];
-  const elements = querySelectorAll("select", el) as HTMLSelectElement[];
-  if (el.matches("select")) {
-    elements.push(el as HTMLSelectElement);
+  const elements = querySelectorAll("select", element) as HTMLSelectElement[];
+  if (element.matches("select")) {
+    elements.push(element as HTMLSelectElement);
   }
   for (const element of elements) {
     const labelId = element.getAttribute("id");
