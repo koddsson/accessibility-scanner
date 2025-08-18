@@ -48,17 +48,17 @@ const id = "aria-required-attr";
 const text = "Required ARIA attributes must be provided";
 const url = `https://dequeuniversity.com/rules/axe/4.4/${id}?application=RuleDescription`;
 
-export function ariaRequiredAttr(el: Element): AccessibilityError[] {
+export function ariaRequiredAttr(element: Element): AccessibilityError[] {
   const errors = [];
 
   const selector = Object.entries(roleToRequiredStatesAndPropertiesMaps)
     .map(([role, attributes]) => {
-      return `[role=${role}]:not(${attributes.map((attr) => `[${attr}]`).join("")})`;
+      return `[role=${role}]:not(${attributes.map((attribute) => `[${attribute}]`).join("")})`;
     })
     .join(",");
 
-  const elements = querySelectorAll(selector, el);
-  if (el.matches(selector)) elements.push(el);
+  const elements = querySelectorAll(selector, element);
+  if (element.matches(selector)) elements.push(element);
 
   for (const element of elements) {
     errors.push({

@@ -1,7 +1,7 @@
 import { areaAlt } from "./rules/area-alt";
 import { ariaHiddenBody } from "./rules/aria-hidden-body";
 import metaViewport from "./rules/meta-viewport";
-import scopeAttrValid from "./rules/scope-attr-valid";
+import scopeAttributeValid from "./rules/scope-attr-valid";
 import videoCaptions from "./rules/video-caption";
 import selectName from "./rules/select-name";
 import metaRefresh from "./rules/meta-refresh";
@@ -22,13 +22,13 @@ export interface AccessibilityError {
 
 const logger = new Logger();
 
-type Rule = (el: Element) => AccessibilityError[];
+type Rule = (element: Element) => AccessibilityError[];
 
 export const allRules: Rule[] = [
   areaAlt,
   ariaHiddenBody,
   metaViewport,
-  scopeAttrValid,
+  scopeAttributeValid,
   videoCaptions,
   selectName,
   metaRefresh,
@@ -50,16 +50,18 @@ export async function requestIdleScan(
   return new Promise((resolve) => {
     requestIdleCallback(async function executeScan(deadline: IdleDeadline) {
       while (
+        // eslint-disable-next-line tscompat/tscompat
         (deadline.timeRemaining() > 0 || deadline.didTimeout) &&
-        rules.length
+        rules.length > 0
       ) {
+        // eslint-disable-next-line tscompat/tscompat
         logger.log(deadline.timeRemaining(), deadline.didTimeout);
         const rule = rules.shift()!;
         logger.log(`Executing ${rule.name}`);
         errors.push(...rule(element));
       }
 
-      if (rules.length) {
+      if (rules.length > 0) {
         console.log(`exited with ${allRules.length} left`);
         requestIdleCallback(executeScan);
       } else {

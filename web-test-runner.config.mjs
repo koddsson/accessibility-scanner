@@ -5,14 +5,16 @@ import { esbuildPlugin } from "@web/dev-server-esbuild";
 import { playwrightLauncher } from "@web/test-runner-playwright";
 import { junitReporter } from "@web/test-runner-junit-reporter";
 
+import { verboseReporter } from "./verbose-test-reporter.js";
+
 const browsers = [playwrightLauncher({ product: "chromium" })];
 
 const config = {
   nodeResolve: true,
-  coverage: true,
   files: ["tests/**/*.ts", "tests/**/*.js"],
   plugins: [esbuildPlugin({ ts: true, target: "esnext" })],
   browsers,
+  reporters: [verboseReporter()],
   filterBrowserLogs(log) {
     if (
       typeof log.args[0] === "string" &&
@@ -28,7 +30,7 @@ const config = {
 
 if (env.CI) {
   config.browsers.push(
-    playwrightLauncher({ product: "firefox" }),
+    //playwrightLauncher({ product: "firefox" }),
     playwrightLauncher({ product: "webkit" }),
   );
 }

@@ -11,11 +11,11 @@ const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 // TODO: Maybe use https://github.com/A11yance/aria-query for this?
 
-export default function (el: Element): AccessibilityError[] {
+export default function (element_: Element): AccessibilityError[] {
   const errors = [];
   const selector = "*";
-  const elements = querySelectorAll(selector, el);
-  for (const element of [el, ...elements]) {
+  const elements = querySelectorAll(selector, element_);
+  for (const element of [element_, ...elements]) {
     for (const attribute of element.attributes) {
       if (
         attribute.name === "aria-errormessage" &&

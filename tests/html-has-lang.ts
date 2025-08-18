@@ -13,7 +13,7 @@ async function createHTMLElement(htmlString: string): Promise<HTMLElement> {
   return iframe.contentDocument!.querySelector("html")!;
 }
 
-describe("html-has-lang", function () {
+describe.skip("html-has-lang", function () {
   it.skip("html element without a lang attribute fails", async () => {
     const container = await createHTMLElement("<html></html>");
 

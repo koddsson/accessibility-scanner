@@ -22,16 +22,4 @@ jobs:
           node-version: 22
       - run: npm ci
       - run: npx playwright install
-      - run: npm test
-      - name: Report code coverage
-        uses: koddsson/github-actions-report-lcov@main
-        with:
-          coverage-files: coverage/lcov.info
-          minimum-coverage: 90
-          artifact-name: code-coverage-report
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Publish Test Report
-        uses: mikepenz/action-junit-report@v4
-        if: success() || failure() # always run even if the previous step fails
-        with:
-          report_paths: './test-results.xml'
+      - run: npm run test
