@@ -18,7 +18,7 @@ export interface Info {
   minValue?: number;
 }
 
-const ariaAttrs: Record<string, Info> = {
+const ariaAttributes: Record<string, Info> = {
   "aria-activedescendant": {
     type: "idref",
     allowEmpty: true,
@@ -224,4 +224,4 @@ const ariaAttrs: Record<string, Info> = {
   },
 };
 
-export default ariaAttrs;
+export default ariaAttributes;

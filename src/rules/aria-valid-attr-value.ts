@@ -6,30 +6,29 @@ const id = "aria-valid-attr-value";
 export const text = "ARIA attributes must conform to valid values";
 export const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
-function valid(el: Element, attribute: string, info: Info) {
+function valid(element: Element, attribute: string, info: Info) {
   // Special case `aria-errormessage`.
-  if (attribute === "aria-errormessage") {
-    if (
-      !el.hasAttribute("aria-invalid") ||
-      el.getAttribute("aria-invalid") === "false"
-    ) {
-      return true;
-    }
+  if (
+    attribute === "aria-errormessage" &&
+    (!element.hasAttribute("aria-invalid") ||
+      element.getAttribute("aria-invalid") === "false")
+  ) {
+    return true;
   }
 
   if (attribute === "aria-describedby" || attribute === "aria-labelledby") {
     return true;
   }
 
-  const value = el.getAttribute(attribute)!;
+  const value = element.getAttribute(attribute)!;
   if (info.type === "boolean" && (value === "true" || value === "false")) {
     return true;
   } else if (info.type === "idref") {
     if (info.allowEmpty && value === "") return true;
     const referencedValue = document.querySelector<HTMLElement>(`#${value}`);
-    if (el.id === "pass169")
+    if (element.id === "pass169")
       console.log(
-        el.id,
+        element.id,
         value,
         referencedValue,
         document.querySelectorAll("div"),
@@ -47,8 +46,8 @@ function valid(el: Element, attribute: string, info: Info) {
     if (info.allowEmpty && value === "") return true;
     const ids = value.trim().split(" ");
     const selector = ids.map((x) => `#${x}`).join(",");
-    const refs = document.querySelectorAll<HTMLElement>(selector);
-    if (refs.length === 0) return false;
+    const references = document.querySelectorAll<HTMLElement>(selector);
+    if (references.length === 0) return false;
     //if (referencedValue.hasAttribute('hidden') || referencedValue.hasAttribute('aria-hidden')) return false
     //if (referencedValue.textContent?.trim() === '') return false
     return true;
@@ -66,11 +65,11 @@ function valid(el: Element, attribute: string, info: Info) {
       return false;
     }
     return true;
-  } else if (info.type === "decimal" && !isNaN(parseFloat(value))) {
+  } else if (info.type === "decimal" && !isNaN(Number.parseFloat(value))) {
     return true;
-  } else if (info.type === "int" && !isNaN(parseInt(value))) {
-    if (info.minValue != null) {
-      return info.minValue <= parseInt(value);
+  } else if (info.type === "int" && !isNaN(Number.parseInt(value))) {
+    if (info.minValue != undefined) {
+      return info.minValue <= Number.parseInt(value);
     }
     return true;
   } else if (
@@ -82,14 +81,14 @@ function valid(el: Element, attribute: string, info: Info) {
   return false;
 }
 
-export function ariaValidAttrValue(el: Element): AccessibilityError[] {
+export function ariaValidAttrValue(element: Element): AccessibilityError[] {
   const errors = [];
   const selector = Object.keys(ariaAttributes)
     .map((attributeName) => `[${attributeName}]`)
     .join(",");
-  const elements = Array.from(el.querySelectorAll<HTMLElement>(selector));
-  if (el.matches(selector)) {
-    elements.push(el as HTMLElement);
+  const elements = [...element.querySelectorAll<HTMLElement>(selector)];
+  if (element.matches(selector)) {
+    elements.push(element as HTMLElement);
   }
 
   for (const element of elements) {

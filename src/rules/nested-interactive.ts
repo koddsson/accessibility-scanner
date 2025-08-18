@@ -15,11 +15,11 @@ const interactiveSelector = [
   "[role=radio]",
 ].join(",");
 
-export default function (el: Element): AccessibilityError[] {
+export default function (element: Element): AccessibilityError[] {
   const errors = [];
-  const elements = Array.from(querySelectorAll(interactiveSelector, el));
-  if (el.matches(interactiveSelector)) {
-    elements.push(el as HTMLImageElement);
+  const elements = [...querySelectorAll(interactiveSelector, element)];
+  if (element.matches(interactiveSelector)) {
+    elements.push(element as HTMLImageElement);
   }
 
   for (const element of elements) {

@@ -18,11 +18,11 @@ function getElementText(element: Element): string {
   return label.trim();
 }
 
-export default function (el: Element): AccessibilityError[] {
+export default function (element: Element): AccessibilityError[] {
   const errors = [];
-  const elements = querySelectorAll("button", el);
-  if (el.matches("button")) {
-    elements.push(el as HTMLButtonElement);
+  const elements = querySelectorAll("button", element);
+  if (element.matches("button")) {
+    elements.push(element as HTMLButtonElement);
   }
   for (const element of elements) {
     if (element.textContent?.trim() !== "") continue;
