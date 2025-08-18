@@ -5,12 +5,12 @@ const text = "Image buttons must have alternate text";
 const url =
   "https://dequeuniversity.com/rules/axe/4.4/input-image-alt?application=RuleDescription";
 
-export default function (el: Element): AccessibilityError[] {
+export default function (element: Element): AccessibilityError[] {
   const selector = "input[type=image]";
   const errors = [];
-  const elements = querySelectorAll(selector, el) as HTMLImageElement[];
-  if (el.matches(selector)) {
-    elements.push(el as HTMLImageElement);
+  const elements = querySelectorAll(selector, element) as HTMLImageElement[];
+  if (element.matches(selector)) {
+    elements.push(element as HTMLImageElement);
   }
   for (const element of elements) {
     if (element.hasAttribute("alt") && element.alt === element.alt.trim())

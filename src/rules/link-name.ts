@@ -10,11 +10,11 @@ const id = "c487ae";
 const url = `https://act-rules.github.io/rules/${id}`;
 const text = "Link has non-empty accessible name";
 
-export default function (el: Element): AccessibilityError[] {
+export default function (element_: Element): AccessibilityError[] {
   const errors = [];
-  const elements = querySelectorAll("a", el) as HTMLAnchorElement[];
-  if (el.matches("a")) {
-    elements.push(el as HTMLAnchorElement);
+  const elements = querySelectorAll("a", element_) as HTMLAnchorElement[];
+  if (element_.matches("a")) {
+    elements.push(element_ as HTMLAnchorElement);
   }
   for (const element of elements) {
     if (!isVisible(element)) continue;
@@ -30,7 +30,7 @@ export default function (el: Element): AccessibilityError[] {
       element.getAttribute("aria-labelledby")?.trim() === ""
     ) {
       const labelledby = element.getAttribute("aria-labelledby")?.trim();
-      const x = querySelector(`#${labelledby}`, el);
+      const x = querySelector(`#${labelledby}`, element_);
       if (x && x.textContent && x?.textContent?.trim() === "") {
         errors.push({
           element,
