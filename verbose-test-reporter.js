@@ -41,7 +41,7 @@ export function verboseReporter({
     onTestRunFinished({ testRun, sessions, testCoverage, focusedTestFile }) {
       console.log("onTestRunFinished");
       const failures = sessions.filter((x) => !x.passed);
-      console.log({ failures });
+      console.log(JSON.stringify({ failures }, null, 2));
     },
 
     /**
