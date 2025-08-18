@@ -5,6 +5,8 @@ import { esbuildPlugin } from "@web/dev-server-esbuild";
 import { playwrightLauncher } from "@web/test-runner-playwright";
 import { junitReporter } from "@web/test-runner-junit-reporter";
 
+import { verboseReporter } from "./verbose-test-reporter.js";
+
 const browsers = [playwrightLauncher({ product: "chromium" })];
 
 const config = {
@@ -12,6 +14,7 @@ const config = {
   files: ["tests/**/*.ts", "tests/**/*.js"],
   plugins: [esbuildPlugin({ ts: true, target: "esnext" })],
   browsers,
+  reporters: [verboseReporter()],
   filterBrowserLogs(log) {
     if (
       typeof log.args[0] === "string" &&
