@@ -1,16 +1,16 @@
-export function isVisible(el: HTMLElement): boolean {
+export function isVisible(element: HTMLElement): boolean {
   //console.log(el.style.display === "none");
-  return el.style.display !== "none";
+  return element.style.display !== "none";
 }
 
 /**
  * Given a element, make sure that it's `aria-labelledby` has a value and it's
  * value maps to a element in the DOM that has valid text
  **/
-export function labelledByIsValid(el: Element): boolean {
-  const id = el.getAttribute("aria-labelledby");
+export function labelledByIsValid(element: Element): boolean {
+  const id = element.getAttribute("aria-labelledby");
   if (!id) return false;
-  const otherElement = querySelector(`#${id}`, el.ownerDocument);
+  const otherElement = querySelector(`#${id}`, element.ownerDocument);
   if (!otherElement) return false;
 
   if (otherElement instanceof HTMLSelectElement) return false;
@@ -26,7 +26,7 @@ export function labelReadableText(label: HTMLElement): boolean {
 
   // NOTE: This is expensive and we should look into ways to not do this any more.
   const hasDisplayNone =
-    window.getComputedStyle(label, null).display === "none";
+    globalThis.getComputedStyle(label, null).display === "none";
   if (hasDisplayNone) return false;
 
   const copiedNode = label.cloneNode(true) as Element;
@@ -72,9 +72,9 @@ export function querySelectorAll<T extends Element>(
 ): T[] {
   const elements = getAllElementsAndShadowRoots(container, options);
 
-  const queriedElements = elements
-    .map((el) => Array.from(el.querySelectorAll<T>(selector)))
-    .flat();
+  const queriedElements = elements.flatMap((element) => [
+    ...element.querySelectorAll<T>(selector),
+  ]);
   return [...new Set(queriedElements)];
 }
 
@@ -110,48 +110,47 @@ function recurse(
   // Accounts for if the container houses a textNode
   if (
     container instanceof HTMLElement &&
-    container.shadowRoot != null &&
+    container.shadowRoot != undefined &&
     container.shadowRoot.mode !== "closed"
   ) {
     elements.push(container.shadowRoot);
     elementsToProcess.push(container.shadowRoot);
   }
 
-  // eslint-disable-next-line github/array-foreach
-  elementsToProcess.forEach((containerElement) => {
-    // eslint-disable-next-line github/array-foreach
-    containerElement.querySelectorAll(selector).forEach((el) => {
-      if (el.shadowRoot == null || el.shadowRoot.mode === "closed") {
-        elements.push(el);
-        return;
+  for (const containerElement of elementsToProcess) {
+    for (const element of containerElement.querySelectorAll(selector)) {
+      if (
+        element.shadowRoot == undefined ||
+        element.shadowRoot.mode === "closed"
+      ) {
+        elements.push(element);
+        continue;
       }
 
       // This is here because queryByRole() requires the parent element which in some cases is the shadow root.
-      elements.push(el.shadowRoot);
+      elements.push(element.shadowRoot);
 
       if (options.depth <= currentDepth) {
-        // eslint-disable-next-line github/array-foreach
-        el.shadowRoot.querySelectorAll(selector).forEach((e) => {
+        for (const e of element.shadowRoot.querySelectorAll(selector)) {
           elements.push(e);
-        });
-        return;
+        }
+        continue;
       }
 
-      // eslint-disable-next-line github/array-foreach
-      el.shadowRoot.querySelectorAll(selector).forEach((e) => {
+      for (const e of element.shadowRoot.querySelectorAll(selector)) {
         elements.push(e);
         elementsToProcess.push(e);
-      });
+      }
       recurse(
-        el.shadowRoot,
+        element.shadowRoot,
         selector,
         options,
         elementsToProcess,
         elements,
         currentDepth,
       );
-    });
-  });
+    }
+  }
 
   // We can sometimes hit duplicate nodes this way, lets stop that.
   return [...new Set(elements)];
