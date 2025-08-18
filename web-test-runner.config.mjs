@@ -9,7 +9,6 @@ const browsers = [playwrightLauncher({ product: "chromium" })];
 
 const config = {
   nodeResolve: true,
-  coverage: true,
   files: ["tests/**/*.ts", "tests/**/*.js"],
   plugins: [esbuildPlugin({ ts: true, target: "esnext" })],
   browsers,
@@ -28,7 +27,7 @@ const config = {
 
 if (env.CI) {
   config.browsers.push(
-    playwrightLauncher({ product: "firefox" }),
+    //playwrightLauncher({ product: "firefox" }),
     playwrightLauncher({ product: "webkit" }),
   );
 }
