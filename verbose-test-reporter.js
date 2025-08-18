@@ -1,3 +1,14 @@
+const seen = new WeakSet();
+const circularReplacer = (key, value) => {
+  if (typeof value === "object" && value !== null) {
+    if (seen.has(value)) {
+      return; // Circular reference found, discard key
+    }
+    seen.add(value);
+  }
+  return value;
+};
+
 export function verboseReporter({
   reportResults = true,
   reportProgress = true,
@@ -41,7 +52,7 @@ export function verboseReporter({
     onTestRunFinished({ testRun, sessions, testCoverage, focusedTestFile }) {
       console.log("onTestRunFinished");
       const failures = sessions.filter((x) => !x.passed);
-      console.log({ failures });
+      console.log(JSON.stringify({ failures }, circularReplacer, 2));
     },
 
     /**

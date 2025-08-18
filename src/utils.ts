@@ -4,6 +4,29 @@ export function isVisible(element: HTMLElement): boolean {
 }
 
 /**
+ * Make sure that a elements text is "visible" to a screenreader user.
+ *
+ * - Inner text that is discernible to screen reader users.
+ * - Non-empty aria-label attribute.
+ * - aria-labelledby pointing to element with text which is discernible to screen reader users.
+ */
+export function hasAccessibleText(el: Element): boolean {
+  if (el.hasAttribute("aria-label")) {
+    return el.getAttribute("aria-label")!.trim() !== "";
+  }
+
+  if (el.getAttribute("title")) {
+    return el.getAttribute("title")!.trim() !== "";
+  }
+
+  if (el.hasAttribute("aria-labelledby")) {
+    return labelledByIsValid(el);
+  }
+
+  return el.textContent?.trim() !== "";
+}
+
+/**
  * Given a element, make sure that it's `aria-labelledby` has a value and it's
  * value maps to a element in the DOM that has valid text
  **/
