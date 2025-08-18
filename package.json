@@ -25,7 +25,7 @@
   "author": "Kristján Oddsson",
   "license": "ISC",
   "devDependencies": {
-    "@koddsson/eslint-config": "^2.0.0",
+    "@koddsson/eslint-config": "^2.0.1",
     "@open-wc/testing": "^4.0.0",
     "@types/mocha": "^10.0.6",
     "@web/dev-server": "^0.4.5",
