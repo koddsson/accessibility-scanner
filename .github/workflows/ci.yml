@@ -9,7 +9,7 @@ on:
 jobs:
   test-node:
     name: Run tests
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     permissions:
       pull-requests: write
       contents: read
