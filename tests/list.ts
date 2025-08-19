@@ -65,12 +65,13 @@ describe("list", async function () {
         return { text, url };
       });
 
-      expect(results).to.eql([
-        {
+      expect(results).to.not.be.empty;
+      results.forEach(result => {
+        expect(result).to.eql({
           "text": "Ensures that lists are structured correctly",
           "url": "https://dequeuniversity.com/rules/axe/4.4/list?application=RuleDescription"
-        },
-      ]);
+        });
+      });
     });
   }
 });

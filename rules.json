@@ -403,7 +403,7 @@
         "ACT Rules": "[c487ae](https://act-rules.github.io/rules/c487ae)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "list",
         "url": "https://dequeuniversity.com/rules/axe/4.4/list?application=RuleDescription",
         "Description": "Ensures that lists are structured correctly",
