@@ -39,5 +39,8 @@
     "tablemark": "^3.1.0",
     "tsx": "^4.15.4",
     "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "jsdom": "^26.1.0"
   }
 }
