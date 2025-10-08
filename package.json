@@ -1,12 +1,16 @@
 {
   "name": "@koddsson/accessibility-scanner",
-  "version": "0.1.3",
+  "version": "0.0.0-dev",
   "description": "A accessbility scanner",
   "type": "module",
   "module": "./dist/src/scanner.js",
   "main": "./dist/src/scanner.js",
+  "exports": {
+    ".": "./dist/src/scanner.js",
+    "./rules/*": "./dist/src/rules/*.js"
+  },
   "repository": {
-    "url": "https://github.com/koddsson/accessibility-scanner"
+    "url": "git+https://github.com/koddsson/accessibility-scanner.git"
   },
   "scripts": {
     "prepublish": "npm run build",
