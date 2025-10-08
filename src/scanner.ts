@@ -61,7 +61,7 @@ export async function requestIdleScan(
       }
 
       if (enabledRules.length > 0) {
-        console.log(`exited with ${allRules.length} left`);
+        console.log(`exited with ${enabledRules.length} left`);
         requestIdleCallback(executeScan);
       } else {
         resolve(errors);
