@@ -13,7 +13,6 @@
     "url": "git+https://github.com/koddsson/accessibility-scanner.git"
   },
   "scripts": {
-    "prepublish": "npm run build",
     "build": "tsc",
     "lint": "eslint src/**/*.ts",
     "format": "npm run lint -- --fix",
