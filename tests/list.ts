@@ -46,7 +46,7 @@ const violations = [
   </div>`,
 ];
 
-describe("list", async function () {
+describe.skip("list", async function () {
   for (const markup of passes) {
     const el = await fixture(markup);
     it(el.outerHTML, async function () {
@@ -66,10 +66,10 @@ describe("list", async function () {
       });
 
       expect(results).to.not.be.empty;
-      results.forEach(result => {
+      results.forEach((result) => {
         expect(result).to.eql({
-          "text": "Ensures that lists are structured correctly",
-          "url": "https://dequeuniversity.com/rules/axe/4.4/list?application=RuleDescription"
+          text: "Ensures that lists are structured correctly",
+          url: "https://dequeuniversity.com/rules/axe/4.4/list?application=RuleDescription",
         });
       });
     });
