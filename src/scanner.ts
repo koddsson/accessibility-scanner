@@ -42,26 +42,25 @@ export const allRules: Rule[] = [
 
 export async function requestIdleScan(
   element: Element,
-  enabledRules: Rule[],
+  enabledRules: Rule[] = allRules,
 ): Promise<AccessibilityError[]> {
   const errors: AccessibilityError[] = [];
-  const rules = enabledRules || allRules;
 
   return new Promise((resolve) => {
     requestIdleCallback(async function executeScan(deadline: IdleDeadline) {
       while (
         // eslint-disable-next-line tscompat/tscompat
         (deadline.timeRemaining() > 0 || deadline.didTimeout) &&
-        rules.length > 0
+        enabledRules.length > 0
       ) {
         // eslint-disable-next-line tscompat/tscompat
         logger.log(deadline.timeRemaining(), deadline.didTimeout);
-        const rule = rules.shift()!;
+        const rule = enabledRules.shift()!;
         logger.log(`Executing ${rule.name}`);
         errors.push(...rule(element));
       }
 
-      if (rules.length > 0) {
+      if (enabledRules.length > 0) {
         console.log(`exited with ${allRules.length} left`);
         requestIdleCallback(executeScan);
       } else {
@@ -73,11 +72,10 @@ export async function requestIdleScan(
 
 export async function scan(
   element: Element,
-  enabledRules?: Rule[],
+  enabledRules: Rule[] = allRules,
 ): Promise<AccessibilityError[]> {
   const errors: AccessibilityError[] = [];
-  const rules = enabledRules || allRules;
-  for (const rule of rules) {
+  for (const rule of enabledRules) {
     errors.push(...rule(element));
   }
 
