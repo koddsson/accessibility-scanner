@@ -10,7 +10,7 @@
     "./rules/*": "./dist/src/rules/*.js"
   },
   "repository": {
-    "url": "https://github.com/koddsson/accessibility-scanner"
+    "url": "git+https://github.com/koddsson/accessibility-scanner.git"
   },
   "scripts": {
     "prepublish": "npm run build",
