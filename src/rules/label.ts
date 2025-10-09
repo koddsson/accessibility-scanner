@@ -38,6 +38,7 @@ export default function (element: Element): AccessibilityError[] {
     if (labelledByIsValid(element)) continue;
     if (element.getAttribute("title")) continue;
     if (element.disabled) continue;
+    if (element.type === "submit" && element.value.trim() !== "") continue;
 
     errors.push({
       element,
