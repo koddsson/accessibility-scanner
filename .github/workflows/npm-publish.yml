@@ -18,12 +18,14 @@ jobs:
           node-version: 24.x
       - name: Install Dependencies
         run: npm ci
-      - name: Install playwright
-        run: npx playwright install --with-deps
       - name: Lint
         run: npm run lint
+      - name: Install playwright
+        run: npx playwright install --with-deps
       - name: Test
         run: npm test
+      - name: Build
+        run: npm run build
   publish-npm:
     needs: build
     runs-on: ubuntu-latest
