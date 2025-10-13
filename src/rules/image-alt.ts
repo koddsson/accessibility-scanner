@@ -12,6 +12,7 @@ export default function (element: Element): AccessibilityError[] {
     elements.push(element as HTMLImageElement);
   }
   for (const element of elements) {
+    if (element.getAttribute("aria-hidden") === "true") continue;
     if (element.hasAttribute("alt") && element.alt === element.alt.trim())
       continue;
     const label = element.getAttribute("aria-label");
