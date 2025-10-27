@@ -14,8 +14,10 @@ accessibility-scanner/
 │   ├── app.ts              # Main application entry point
 │   ├── scanner.ts          # Core scanner implementation
 │   ├── logger.ts           # Logging utilities
-│   ├── rules/              # Individual accessibility rule implementations
-│   └── utils/              # Utility functions
+│   ├── utils.ts            # Utility functions
+│   ├── utils/              # Additional utility modules
+│   │   └── aria-attrs.ts   # ARIA attribute utilities
+│   └── rules/              # Individual accessibility rule implementations
 ├── tests/                  # Test files
 ├── scripts/                # Build and utility scripts
 ├── package.json            # Node.js dependencies and scripts
