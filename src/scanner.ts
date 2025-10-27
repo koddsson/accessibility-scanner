@@ -12,6 +12,7 @@ import linkName from "./rules/link-name";
 import nestedInteractive from "./rules/nested-interactive";
 import validLang from "./rules/valid-lang";
 import ariaRequiredChildren from "./rules/aria-required-children";
+import colorContrast from "./rules/color-contrast";
 
 import { Logger } from "./logger";
 
@@ -40,6 +41,7 @@ export const allRules: Rule[] = [
   nestedInteractive,
   validLang,
   ariaRequiredChildren,
+  colorContrast,
 ];
 
 export async function requestIdleScan(
