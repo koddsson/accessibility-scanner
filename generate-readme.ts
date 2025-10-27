@@ -1,5 +1,5 @@
 import { writeFile, readFile, access, constants } from "node:fs/promises";
-import tablemark from "tablemark";
+import { tablemark } from "tablemark";
 
 async function fileExists(path: string): Promise<boolean> {
   try {
