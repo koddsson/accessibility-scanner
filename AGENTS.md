@@ -172,7 +172,7 @@ Compiled files are output to the `dist/src/` directory as specified in `package.
 
 ## Notes for AI Agents
 
-- Always run `npm run format` and `npm test` before committing changes
+- Always run `npm run format`, `npm test` and `npm run build:readme` before committing changes
 - The project follows TypeScript strict mode
 - Accessibility rules should follow WCAG 2.0 Level A & AA standards
 - When adding rules, check `rules.json` and the README for existing implementations
