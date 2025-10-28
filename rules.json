@@ -243,7 +243,7 @@
         "ACT Rules": ""
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "document-title",
         "url": "https://dequeuniversity.com/rules/axe/4.4/document-title?application=RuleDescription",
         "Description": "Ensures each HTML document contains a non-empty &lt;title&gt; element",
