@@ -1,6 +1,14 @@
-export function isVisible(element: HTMLElement): boolean {
-  //console.log(el.style.display === "none");
-  return element.style.display !== "none";
+export function isVisible(element: Element | null): boolean {
+  // Return false for null/undefined
+  if (!element) {
+    return false;
+  }
+  // If element doesn't have a style property, we can't check display, so assume visible
+  if (!("style" in element)) {
+    return true;
+  }
+  // Check inline display style
+  return (element as HTMLElement).style.display !== "none";
 }
 
 /**
