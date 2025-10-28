@@ -1,6 +1,21 @@
 import { areaAlt } from "./rules/area-alt";
+import { ariaAllowedAttr } from "./rules/aria-allowed-attr";
+import ariaCommandName from "./rules/aria-command-name";
 import { ariaHiddenBody } from "./rules/aria-hidden-body";
+import ariaHiddenFocus from "./rules/aria-hidden-focus";
 import ariaDialogName from "./rules/aria-dialog-name";
+import ariaInputFieldName from "./rules/aria-input-field-name";
+import ariaMeterName from "./rules/aria-meter-name";
+import ariaProgressbarName from "./rules/aria-progressbar-name";
+import { ariaRequiredAttr } from "./rules/aria-required-attr";
+import ariaRequiredChildren from "./rules/aria-required-children";
+import ariaRequiredParent from "./rules/aria-required-parent";
+import ariaRoledescription from "./rules/aria-roledescription";
+import ariaRoles from "./rules/aria-roles";
+import ariaToggleFieldName from "./rules/aria-toggle-field-name";
+import { ariaTooltipName } from "./rules/aria-tooltip-name";
+import ariaValidAttr from "./rules/aria-valid-attr";
+import { ariaValidAttrValue } from "./rules/aria-valid-attr-value";
 import metaViewport from "./rules/meta-viewport";
 import scopeAttributeValid from "./rules/scope-attr-valid";
 import videoCaptions from "./rules/video-caption";
@@ -12,12 +27,13 @@ import buttonName from "./rules/button-name";
 import label from "./rules/label";
 import linkName from "./rules/link-name";
 import listitem from "./rules/listitem";
+import list from "./rules/list";
 import dlitem from "./rules/dlitem";
 import nestedInteractive from "./rules/nested-interactive";
 import validLang from "./rules/valid-lang";
+import htmlHasLang from "./rules/html-has-lang";
 import htmlLangValid from "./rules/html-lang-valid";
 import htmlXmlLangMismatch from "./rules/html-xml-lang-mismatch";
-import ariaRequiredChildren from "./rules/aria-required-children";
 import colorContrast from "./rules/color-contrast";
 import tdHasHeader from "./rules/td-has-header";
 import tdHeadersAttr from "./rules/td-headers-attr";
@@ -31,15 +47,25 @@ import accesskeys from "./rules/accesskeys";
 import tableFakeCaption from "./rules/table-fake-caption";
 import frameFocusableContent from "./rules/frame-focusable-content";
 import frameTitle from "./rules/frame-title";
-import ariaRoledescription from "./rules/aria-roledescription";
 import frameTitleUnique from "./rules/frame-title-unique";
 import noAutoplayAudio from "./rules/no-autoplay-audio";
 import formFieldMultipleLabels from "./rules/form-field-multiple-labels";
 import duplicateId from "./rules/duplicate-id";
+import duplicateIdActive from "./rules/duplicate-id-active";
+import duplicateIdAria from "./rules/duplicate-id-aria";
 import cssOrientationLock from "./rules/css-orientation-lock";
 import hiddenContent from "./rules/hidden-content";
 import autocompleteValid from "./rules/autocomplete-valid";
+import avoidInlineSpacing from "./rules/avoid-inline-spacing";
 import svgImgAlt from "./rules/svg-img-alt";
+import audioCaptions from "./rules/audio-caption";
+import inputButtonName from "./rules/input-button-name";
+import inputImageAlt from "./rules/input-image-alt";
+import pAsHeading from "./rules/p-as-heading";
+import roleImgAlt from "./rules/role-img-alt";
+import scrollableRegionFocusable from "./rules/scrollable-region-focusable";
+import serverSideImageMap from "./rules/server-side-image-map";
+import targetSize from "./rules/target-size";
 
 import { Logger } from "./logger";
 
@@ -54,48 +80,74 @@ const logger = new Logger();
 type Rule = (element: Element) => AccessibilityError[];
 
 export const allRules: Rule[] = [
+  accesskeys,
   areaAlt,
+  ariaAllowedAttr,
+  ariaCommandName,
   ariaDialogName,
   ariaHiddenBody,
-  metaViewport,
-  scopeAttributeValid,
-  videoCaptions,
-  selectName,
-  metaRefresh,
-  marquee,
-  imageAlt,
-  buttonName,
-  label,
-  linkName,
-  listitem,
-  dlitem,
-  nestedInteractive,
-  validLang,
-  htmlLangValid,
-  htmlXmlLangMismatch,
+  ariaHiddenFocus,
+  ariaInputFieldName,
+  ariaMeterName,
+  ariaProgressbarName,
+  ariaRequiredAttr,
   ariaRequiredChildren,
-  colorContrast,
-  tdHasHeader,
-  tdHeadersAttr,
-  labelContentNameMismatch,
-  documentTitle,
+  ariaRequiredParent,
+  ariaRoledescription,
+  ariaRoles,
+  ariaToggleFieldName,
+  ariaTooltipName,
+  ariaValidAttr,
+  ariaValidAttrValue,
+  audioCaptions,
+  autocompleteValid,
+  avoidInlineSpacing,
   blink,
+  buttonName,
   bypass,
+  colorContrast,
+  cssOrientationLock,
   definitionList,
-  linkInTextBlock,
-  accesskeys,
-  tableFakeCaption,
+  dlitem,
+  documentTitle,
+  duplicateId,
+  duplicateIdActive,
+  duplicateIdAria,
+  formFieldMultipleLabels,
   frameFocusableContent,
   frameTitle,
-  ariaRoledescription,
   frameTitleUnique,
-  noAutoplayAudio,
-  formFieldMultipleLabels,
-  duplicateId,
-  cssOrientationLock,
   hiddenContent,
-  autocompleteValid,
+  htmlHasLang,
+  htmlLangValid,
+  htmlXmlLangMismatch,
+  imageAlt,
+  inputButtonName,
+  inputImageAlt,
+  label,
+  labelContentNameMismatch,
+  linkInTextBlock,
+  linkName,
+  list,
+  listitem,
+  marquee,
+  metaRefresh,
+  metaViewport,
+  nestedInteractive,
+  noAutoplayAudio,
+  pAsHeading,
+  roleImgAlt,
+  scopeAttributeValid,
+  scrollableRegionFocusable,
+  selectName,
+  serverSideImageMap,
   svgImgAlt,
+  tableFakeCaption,
+  targetSize,
+  tdHasHeader,
+  tdHeadersAttr,
+  validLang,
+  videoCaptions,
 ];
 
 export async function requestIdleScan(
