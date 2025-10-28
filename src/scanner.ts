@@ -16,6 +16,7 @@ import ariaRequiredChildren from "./rules/aria-required-children";
 import colorContrast from "./rules/color-contrast";
 import tdHasHeader from "./rules/td-has-header";
 import labelContentNameMismatch from "./rules/label-content-name-mismatch";
+import blink from "./rules/blink";
 
 import { Logger } from "./logger";
 
@@ -48,6 +49,7 @@ export const allRules: Rule[] = [
   colorContrast,
   tdHasHeader,
   labelContentNameMismatch,
+  blink,
 ];
 
 export async function requestIdleScan(
