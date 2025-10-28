@@ -6,7 +6,7 @@ const url =
   "https://dequeuniversity.com/rules/axe/4.4/form-field-multiple-labels?application=RuleDescription";
 
 export default function (element: Element): AccessibilityError[] {
-  const errors = [];
+  const errors: AccessibilityError[] = [];
   const selector = ["input", "select", "textarea"]
     .map((x) => `${x}[id]`)
     .join(", ");
@@ -31,8 +31,9 @@ export default function (element: Element): AccessibilityError[] {
     if (!elementId) continue;
 
     // Find all labels with for attribute pointing to this element
+    const escapedId = CSS.escape(elementId);
     const labelsWithFor = querySelectorAll(
-      `label[for="${elementId}"]`,
+      `label[for="${escapedId}"]`,
       element.ownerDocument,
     ) as HTMLLabelElement[];
 
