@@ -25,6 +25,7 @@ import documentTitle from "./rules/document-title";
 import blink from "./rules/blink";
 import bypass from "./rules/bypass";
 import definitionList from "./rules/definition-list";
+import linkInTextBlock from "./rules/link-in-text-block";
 import accesskeys from "./rules/accesskeys";
 import tableFakeCaption from "./rules/table-fake-caption";
 import frameTitle from "./rules/frame-title";
@@ -33,6 +34,8 @@ import frameTitleUnique from "./rules/frame-title-unique";
 import noAutoplayAudio from "./rules/no-autoplay-audio";
 import formFieldMultipleLabels from "./rules/form-field-multiple-labels";
 import duplicateId from "./rules/duplicate-id";
+import cssOrientationLock from "./rules/css-orientation-lock";
+import hiddenContent from "./rules/hidden-content";
 
 import { Logger } from "./logger";
 
@@ -74,6 +77,7 @@ export const allRules: Rule[] = [
   blink,
   bypass,
   definitionList,
+  linkInTextBlock,
   accesskeys,
   tableFakeCaption,
   frameTitle,
@@ -82,6 +86,8 @@ export const allRules: Rule[] = [
   noAutoplayAudio,
   formFieldMultipleLabels,
   duplicateId,
+  cssOrientationLock,
+  hiddenContent,
 ];
 
 export async function requestIdleScan(
