@@ -16,6 +16,13 @@ const TEXT_SPACING_PROPERTIES = [
 ] as const;
 
 /**
+ * Pre-compiled regular expressions for checking !important text spacing properties
+ */
+const TEXT_SPACING_REGEX = TEXT_SPACING_PROPERTIES.map(
+  (property) => new RegExp(`${property}\\s*:\\s*[^;]+!important`, "i"),
+);
+
+/**
  * Check if an element has inline style with !important for text spacing properties
  */
 function hasImportantInlineSpacing(element: Element): boolean {
@@ -25,15 +32,7 @@ function hasImportantInlineSpacing(element: Element): boolean {
   }
 
   // Check if the inline style contains !important for text spacing properties
-  for (const property of TEXT_SPACING_PROPERTIES) {
-    // Match property: value !important
-    const regex = new RegExp(`${property}\\s*:\\s*[^;]+!important`, "i");
-    if (regex.test(styleAttr)) {
-      return true;
-    }
-  }
-
-  return false;
+  return TEXT_SPACING_REGEX.some((regex) => regex.test(styleAttr));
 }
 
 export default function (element: Element): AccessibilityError[] {
