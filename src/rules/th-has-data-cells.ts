@@ -12,7 +12,7 @@ const url =
  */
 function hasDataCells(
   header: HTMLTableCellElement | Element,
-  table: HTMLTableElement,
+  table: HTMLTableElement | Element,
 ): boolean {
   // If the header has an id, check if any cells reference it via headers attribute
   const headerId = header.getAttribute("id");
@@ -33,8 +33,11 @@ function hasDataCells(
   // Check based on scope attribute
   const scope = header.getAttribute("scope");
 
-  // For th elements in a table, check if there are data cells in the same row/column
-  if (header instanceof HTMLTableCellElement) {
+  // For th elements in an HTML table, check if there are data cells in the same row/column
+  if (
+    header instanceof HTMLTableCellElement &&
+    table instanceof HTMLTableElement
+  ) {
     const row = header.parentElement as HTMLTableRowElement;
     if (!row) return false;
 
@@ -138,7 +141,7 @@ export default function thHasDataCells(element: Element): AccessibilityError[] {
       }
 
       // Check if this header has associated data cells
-      if (!hasDataCells(header, table as HTMLTableElement)) {
+      if (!hasDataCells(header, table)) {
         errors.push({
           element: header,
           text,
