@@ -13,11 +13,15 @@ const expectedError = {
 async function waitForIframeLoad(iframe: HTMLIFrameElement): Promise<void> {
   return new Promise((resolve) => {
     if (iframe.contentDocument && iframe.contentDocument.readyState === 'complete') {
-      resolve();
+      // Even if readyState is complete, wait a tick to ensure content is accessible
+      setTimeout(resolve, 50);
     } else {
-      iframe.addEventListener('load', () => resolve(), { once: true });
+      iframe.addEventListener('load', () => {
+        // Wait a bit more after load event to ensure content is fully accessible
+        setTimeout(resolve, 50);
+      }, { once: true });
       // Also resolve after a timeout as a fallback
-      setTimeout(resolve, 200);
+      setTimeout(resolve, 300);
     }
   });
 }
