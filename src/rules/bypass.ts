@@ -20,6 +20,11 @@ export default function (element: Element): AccessibilityError[] {
   }
 
   // Check for skip links - internal anchor links that are visible or become visible on focus
+  // Get all links once for efficiency
+  const allLinks = querySelectorAll<HTMLAnchorElement>(
+    "a",
+    doc.body || element,
+  );
   const skipLinks = querySelectorAll<HTMLAnchorElement>(
     'a[href^="#"]',
     doc.body || element,
@@ -34,14 +39,10 @@ export default function (element: Element): AccessibilityError[] {
     if (!href || href === "#") continue;
 
     const targetId = href.slice(1);
-    const target = doc.querySelector(`#${targetId}`);
+    const target = doc.querySelector(`#${CSS.escape(targetId)}`);
 
     if (target && hasAccessibleText(link)) {
       // Check if this is early in the document (one of the first 3 links)
-      const allLinks = querySelectorAll<HTMLAnchorElement>(
-        "a",
-        doc.body || element,
-      );
       const linkIndex = allLinks.indexOf(link);
       if (linkIndex < 3) {
         return []; // Valid skip link found
@@ -61,6 +62,9 @@ export default function (element: Element): AccessibilityError[] {
   }
 
   // Check for heading structure
+  // Note: This checks for presence of multiple headings, not hierarchy.
+  // Proper heading hierarchy (H1->H2->H3) is a separate concern covered by other rules.
+  // For bypass purposes, having multiple headings allows users to navigate the page structure.
   const headings = querySelectorAll(
     "h1, h2, h3, h4, h5, h6",
     doc.body || element,
