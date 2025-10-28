@@ -233,7 +233,7 @@
         "ACT Rules": ""
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "dlitem",
         "url": "https://dequeuniversity.com/rules/axe/4.4/dlitem?application=RuleDescription",
         "Description": "Ensures &lt;dt&gt; and &lt;dd&gt; elements are contained by a &lt;dl&gt;",
