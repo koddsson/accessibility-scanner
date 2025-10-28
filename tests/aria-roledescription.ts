@@ -37,6 +37,10 @@ const passes = [
   await fixture(html`<textarea aria-roledescription="custom textarea"></textarea>`),
   await fixture(html`<table aria-roledescription="custom table"><tr><td>Cell</td></tr></table>`),
 
+  // Header and footer at document level have implicit roles
+  await fixture(html`<header aria-roledescription="custom banner">Header</header>`),
+  await fixture(html`<footer aria-roledescription="custom contentinfo">Footer</footer>`),
+
   // Elements without aria-roledescription (should pass)
   await fixture(html`<div>Plain div without aria-roledescription</div>`),
   await fixture(html`<span>Plain span</span>`),
@@ -79,6 +83,18 @@ const violations = [
   // a/area without href have no implicit role
   await fixture(
     html`<a aria-roledescription="custom link">No href</a>`,
+  ),
+
+  // header/footer nested in sectioning elements have no implicit role
+  await fixture(
+    html`<article>
+      <header aria-roledescription="custom">Nested header</header>
+    </article>`,
+  ),
+  await fixture(
+    html`<section>
+      <footer aria-roledescription="custom">Nested footer</footer>
+    </section>`,
   ),
 ];
 

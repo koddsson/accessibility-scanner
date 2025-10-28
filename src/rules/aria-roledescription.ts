@@ -56,6 +56,20 @@ function getImplicitRole(el: Element): string | null {
     }
     case "footer": {
       // footer has role="contentinfo" only when not a descendant of article/aside/main/nav/section
+      let ancestor = el.parentElement;
+      while (ancestor) {
+        const ancestorTag = ancestor.tagName.toLowerCase();
+        if (
+          ancestorTag === "article" ||
+          ancestorTag === "aside" ||
+          ancestorTag === "main" ||
+          ancestorTag === "nav" ||
+          ancestorTag === "section"
+        ) {
+          return null;
+        }
+        ancestor = ancestor.parentElement;
+      }
       return "contentinfo";
     }
     case "form": {
@@ -71,6 +85,20 @@ function getImplicitRole(el: Element): string | null {
     }
     case "header": {
       // header has role="banner" only when not a descendant of article/aside/main/nav/section
+      let ancestor = el.parentElement;
+      while (ancestor) {
+        const ancestorTag = ancestor.tagName.toLowerCase();
+        if (
+          ancestorTag === "article" ||
+          ancestorTag === "aside" ||
+          ancestorTag === "main" ||
+          ancestorTag === "nav" ||
+          ancestorTag === "section"
+        ) {
+          return null;
+        }
+        ancestor = ancestor.parentElement;
+      }
       return "banner";
     }
     case "hr": {
@@ -222,7 +250,11 @@ export default function ariaRoledescription(
   const elements = querySelectorAll(selector, element_);
 
   // Check if the element being scanned itself has aria-roledescription
-  if (element_.hasAttribute("aria-roledescription")) {
+  // Only add if it's not already in the elements array
+  if (
+    element_.hasAttribute("aria-roledescription") &&
+    !elements.includes(element_)
+  ) {
     elements.push(element_);
   }
 
