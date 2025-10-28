@@ -13,6 +13,7 @@ import listitem from "./rules/listitem";
 import dlitem from "./rules/dlitem";
 import nestedInteractive from "./rules/nested-interactive";
 import validLang from "./rules/valid-lang";
+import htmlLangValid from "./rules/html-lang-valid";
 import ariaRequiredChildren from "./rules/aria-required-children";
 import colorContrast from "./rules/color-contrast";
 import tdHasHeader from "./rules/td-has-header";
@@ -48,6 +49,7 @@ export const allRules: Rule[] = [
   dlitem,
   nestedInteractive,
   validLang,
+  htmlLangValid,
   ariaRequiredChildren,
   colorContrast,
   tdHasHeader,
