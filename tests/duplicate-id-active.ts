@@ -179,7 +179,7 @@ describe("duplicate-id-active", function () {
       const container = await fixture(html`
         <div>
           <div id="editable" contenteditable="true">Edit 1</div>
-          <div id="editable" contenteditable="true">Edit 2</div>
+          <div id="editable" contenteditable="">Edit 2</div>
         </div>
       `);
 

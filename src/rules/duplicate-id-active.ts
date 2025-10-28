@@ -16,7 +16,7 @@ const activeElementSelector = [
   "summary",
   "iframe",
   "object",
-  "[contenteditable='true']",
+  "[contenteditable]:not([contenteditable='false'])",
   "[tabindex]:not([tabindex='-1'])",
 ].join(",");
 
