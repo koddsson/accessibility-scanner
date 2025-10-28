@@ -5,7 +5,7 @@ const url =
   "https://dequeuniversity.com/rules/axe/4.4/accesskeys?application=RuleDescription";
 
 export default function (element: Element): AccessibilityError[] {
-  const errors = [];
+  const errors: AccessibilityError[] = [];
   const elements = [...element.querySelectorAll("[accesskey]")];
   if (element.hasAttribute("accesskey")) {
     elements.push(element as HTMLElement);
@@ -21,12 +21,15 @@ export default function (element: Element): AccessibilityError[] {
       if (!accesskeyMap.has(normalizedKey)) {
         accesskeyMap.set(normalizedKey, []);
       }
-      accesskeyMap.get(normalizedKey)!.push(el);
+      const elementList = accesskeyMap.get(normalizedKey);
+      if (elementList) {
+        elementList.push(el);
+      }
     }
   }
 
   // Report errors for duplicate accesskeys
-  for (const [, elementsWithKey] of accesskeyMap.entries()) {
+  for (const elementsWithKey of accesskeyMap.values()) {
     if (elementsWithKey.length > 1) {
       for (const el of elementsWithKey) {
         errors.push({
