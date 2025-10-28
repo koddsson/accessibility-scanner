@@ -453,7 +453,7 @@
         "ACT Rules": "[307n5z](https://act-rules.github.io/rules/307n5z)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "no-autoplay-audio",
         "url": "https://dequeuniversity.com/rules/axe/4.4/no-autoplay-audio?application=RuleDescription",
         "Description": "Ensures &lt;video&gt; or &lt;audio&gt; elements do not autoplay audio for more than 3 seconds without a control mechanism to stop or mute the audio",
