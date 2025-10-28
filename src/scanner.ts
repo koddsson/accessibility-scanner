@@ -38,6 +38,7 @@ import formFieldMultipleLabels from "./rules/form-field-multiple-labels";
 import duplicateId from "./rules/duplicate-id";
 import cssOrientationLock from "./rules/css-orientation-lock";
 import hiddenContent from "./rules/hidden-content";
+import autocompleteValid from "./rules/autocomplete-valid";
 import svgImgAlt from "./rules/svg-img-alt";
 
 import { Logger } from "./logger";
@@ -93,6 +94,7 @@ export const allRules: Rule[] = [
   duplicateId,
   cssOrientationLock,
   hiddenContent,
+  autocompleteValid,
   svgImgAlt,
 ];
 
