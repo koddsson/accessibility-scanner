@@ -283,7 +283,7 @@
         "ACT Rules": "[3ea0c8](https://act-rules.github.io/rules/3ea0c8)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "form-field-multiple-labels",
         "url": "https://dequeuniversity.com/rules/axe/4.4/form-field-multiple-labels?application=RuleDescription",
         "Description": "Ensures form field does not have multiple label elements",
