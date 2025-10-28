@@ -5,6 +5,26 @@ const text = "Ensures <li> elements are used semantically";
 const url =
   "https://dequeuniversity.com/rules/axe/4.4/listitem?application=RuleDescription";
 
+function hasValidListParent(element: Element): boolean {
+  let parent = element.parentElement;
+
+  while (parent) {
+    // Check for semantic list parents (ul, ol)
+    if (parent.matches("ul, ol")) {
+      return true;
+    }
+
+    // Check for ARIA list parent (role="list")
+    if (parent.getAttribute("role") === "list") {
+      return true;
+    }
+
+    parent = parent.parentElement;
+  }
+
+  return false;
+}
+
 export default function (element: Element): AccessibilityError[] {
   const errors: AccessibilityError[] = [];
 
@@ -15,27 +35,7 @@ export default function (element: Element): AccessibilityError[] {
   }
 
   for (const listItem of listItems) {
-    // Check if the <li> has a proper parent
-    let hasValidParent = false;
-    let parent = listItem.parentElement;
-
-    while (parent) {
-      // Check for semantic list parents (ul, ol)
-      if (parent.matches("ul, ol")) {
-        hasValidParent = true;
-        break;
-      }
-
-      // Check for ARIA list parent (role="list")
-      if (parent.getAttribute("role") === "list") {
-        hasValidParent = true;
-        break;
-      }
-
-      parent = parent.parentElement;
-    }
-
-    if (!hasValidParent) {
+    if (!hasValidListParent(listItem)) {
       errors.push({
         element: listItem,
         text,
@@ -51,27 +51,7 @@ export default function (element: Element): AccessibilityError[] {
   }
 
   for (const listItem of ariaListItems) {
-    // Check if the element with role="listitem" has a proper parent
-    let hasValidParent = false;
-    let parent = listItem.parentElement;
-
-    while (parent) {
-      // Check for semantic list parents (ul, ol)
-      if (parent.matches("ul, ol")) {
-        hasValidParent = true;
-        break;
-      }
-
-      // Check for ARIA list parent (role="list")
-      if (parent.getAttribute("role") === "list") {
-        hasValidParent = true;
-        break;
-      }
-
-      parent = parent.parentElement;
-    }
-
-    if (!hasValidParent) {
+    if (!hasValidListParent(listItem)) {
       errors.push({
         element: listItem,
         text,
