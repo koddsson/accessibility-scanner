@@ -5,7 +5,7 @@ const parser = new DOMParser();
 
 describe("[de46e4]Element with lang attribute has valid language tag", function () {
   it("Passed Example 4 (https://act-rules.github.io/testcases/de46e4/c39849b0dc83ea0262f90869b33d1937822a3316.html)", async () => {
-    const document = parser.parseFromString(`<!DOCTYPE html> <html>
+    const document = parser.parseFromString(`<!DOCTYPE html><html><head><title>Test</title></head><body><head><title>Test</title></head>
 	<body>
 		<article lang="invalid">
 			<div lang="en">

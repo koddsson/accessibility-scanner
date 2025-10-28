@@ -1,5 +1,6 @@
 import { areaAlt } from "./rules/area-alt";
 import { ariaHiddenBody } from "./rules/aria-hidden-body";
+import ariaDialogName from "./rules/aria-dialog-name";
 import metaViewport from "./rules/meta-viewport";
 import scopeAttributeValid from "./rules/scope-attr-valid";
 import videoCaptions from "./rules/video-caption";
@@ -21,10 +22,21 @@ import tdHasHeader from "./rules/td-has-header";
 import thHasDataCells from "./rules/th-has-data-cells";
 import tdHeadersAttr from "./rules/td-headers-attr";
 import labelContentNameMismatch from "./rules/label-content-name-mismatch";
+import documentTitle from "./rules/document-title";
 import blink from "./rules/blink";
 import bypass from "./rules/bypass";
 import definitionList from "./rules/definition-list";
+import linkInTextBlock from "./rules/link-in-text-block";
+import accesskeys from "./rules/accesskeys";
 import tableFakeCaption from "./rules/table-fake-caption";
+import frameTitle from "./rules/frame-title";
+import ariaRoledescription from "./rules/aria-roledescription";
+import frameTitleUnique from "./rules/frame-title-unique";
+import noAutoplayAudio from "./rules/no-autoplay-audio";
+import formFieldMultipleLabels from "./rules/form-field-multiple-labels";
+import duplicateId from "./rules/duplicate-id";
+import cssOrientationLock from "./rules/css-orientation-lock";
+import hiddenContent from "./rules/hidden-content";
 
 import { Logger } from "./logger";
 
@@ -40,6 +52,7 @@ type Rule = (element: Element) => AccessibilityError[];
 
 export const allRules: Rule[] = [
   areaAlt,
+  ariaDialogName,
   ariaHiddenBody,
   metaViewport,
   scopeAttributeValid,
@@ -62,10 +75,21 @@ export const allRules: Rule[] = [
   thHasDataCells,
   tdHeadersAttr,
   labelContentNameMismatch,
+  documentTitle,
   blink,
   bypass,
   definitionList,
+  linkInTextBlock,
+  accesskeys,
   tableFakeCaption,
+  frameTitle,
+  ariaRoledescription,
+  frameTitleUnique,
+  noAutoplayAudio,
+  formFieldMultipleLabels,
+  duplicateId,
+  cssOrientationLock,
+  hiddenContent,
 ];
 
 export async function requestIdleScan(
