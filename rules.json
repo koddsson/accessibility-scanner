@@ -203,7 +203,7 @@
         "ACT Rules": "[97a4e1](https://act-rules.github.io/rules/97a4e1), [m6b1q3](https://act-rules.github.io/rules/m6b1q3)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "bypass",
         "url": "https://dequeuniversity.com/rules/axe/4.4/bypass?application=RuleDescription",
         "Description": "Ensures each page has at least one mechanism for a user to bypass navigation and jump straight to the content",
