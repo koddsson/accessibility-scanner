@@ -14,14 +14,17 @@ import listitem from "./rules/listitem";
 import dlitem from "./rules/dlitem";
 import nestedInteractive from "./rules/nested-interactive";
 import validLang from "./rules/valid-lang";
+import htmlLangValid from "./rules/html-lang-valid";
 import ariaRequiredChildren from "./rules/aria-required-children";
 import colorContrast from "./rules/color-contrast";
 import tdHasHeader from "./rules/td-has-header";
+import tdHeadersAttr from "./rules/td-headers-attr";
 import labelContentNameMismatch from "./rules/label-content-name-mismatch";
 import blink from "./rules/blink";
 import bypass from "./rules/bypass";
 import definitionList from "./rules/definition-list";
 import linkInTextBlock from "./rules/link-in-text-block";
+import tableFakeCaption from "./rules/table-fake-caption";
 
 import { Logger } from "./logger";
 
@@ -52,14 +55,17 @@ export const allRules: Rule[] = [
   dlitem,
   nestedInteractive,
   validLang,
+  htmlLangValid,
   ariaRequiredChildren,
   colorContrast,
   tdHasHeader,
+  tdHeadersAttr,
   labelContentNameMismatch,
   blink,
   bypass,
   definitionList,
   linkInTextBlock,
+  tableFakeCaption,
 ];
 
 export async function requestIdleScan(
