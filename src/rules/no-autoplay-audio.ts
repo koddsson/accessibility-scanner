@@ -5,6 +5,7 @@ const id = "no-autoplay-audio";
 const text =
   "Ensures <video> or <audio> elements do not autoplay audio for more than 3 seconds without a control mechanism to stop or mute the audio";
 const url = `https://dequeuniversity.com/rules/axe/4.4/${id}?application=RuleDescription`;
+const MAX_ALLOWED_DURATION_SECONDS = 3;
 
 function hasAutoplayViolation(
   el: HTMLAudioElement | HTMLVideoElement,
@@ -27,7 +28,7 @@ function hasAutoplayViolation(
   // If duration is 3 seconds or less, it's okay
   // Note: duration might not be available until metadata is loaded
   // For static analysis, we need to flag it as needing review
-  if (el.duration > 0 && el.duration <= 3) {
+  if (el.duration > 0 && el.duration <= MAX_ALLOWED_DURATION_SECONDS) {
     return false;
   }
 
