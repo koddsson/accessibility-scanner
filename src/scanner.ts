@@ -28,6 +28,7 @@ import definitionList from "./rules/definition-list";
 import linkInTextBlock from "./rules/link-in-text-block";
 import accesskeys from "./rules/accesskeys";
 import tableFakeCaption from "./rules/table-fake-caption";
+import frameFocusableContent from "./rules/frame-focusable-content";
 import frameTitle from "./rules/frame-title";
 import ariaRoledescription from "./rules/aria-roledescription";
 import frameTitleUnique from "./rules/frame-title-unique";
@@ -81,6 +82,7 @@ export const allRules: Rule[] = [
   linkInTextBlock,
   accesskeys,
   tableFakeCaption,
+  frameFocusableContent,
   frameTitle,
   ariaRoledescription,
   frameTitleUnique,
