@@ -32,7 +32,9 @@ function getAccessibleName(element: Element): string | null {
     const ids = labelledBy.split(/\s+/);
     const texts: string[] = [];
     for (const id of ids) {
-      const labelElement = element.ownerDocument.querySelector(`#${id}`);
+      // Escape the ID to prevent CSS injection
+      const escapedId = CSS.escape(id);
+      const labelElement = element.ownerDocument.querySelector(`#${escapedId}`);
       if (labelElement) {
         const labelText = labelElement.textContent?.trim() || "";
         if (labelText) {
