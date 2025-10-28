@@ -28,6 +28,8 @@ import definitionList from "./rules/definition-list";
 import accesskeys from "./rules/accesskeys";
 import tableFakeCaption from "./rules/table-fake-caption";
 import ariaRoledescription from "./rules/aria-roledescription";
+import formFieldMultipleLabels from "./rules/form-field-multiple-labels";
+import duplicateId from "./rules/duplicate-id";
 
 import { Logger } from "./logger";
 
@@ -72,6 +74,8 @@ export const allRules: Rule[] = [
   accesskeys,
   tableFakeCaption,
   ariaRoledescription,
+  formFieldMultipleLabels,
+  duplicateId,
 ];
 
 export async function requestIdleScan(
