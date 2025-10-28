@@ -1,5 +1,4 @@
 // https://dequeuniversity.com/rules/axe/4.4/td-headers-attr?application=RuleDescription
-// https://act-rules.github.io/rules/a25f45
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll } from "../utils";
 
