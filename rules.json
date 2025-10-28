@@ -343,7 +343,7 @@
         "ACT Rules": "[bf051a](https://act-rules.github.io/rules/bf051a)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "html-xml-lang-mismatch",
         "url": "https://dequeuniversity.com/rules/axe/4.4/html-xml-lang-mismatch?application=RuleDescription",
         "Description": "Ensure that HTML elements with both valid lang and xml:lang attributes agree on the base language of the page",
@@ -513,7 +513,7 @@
         "ACT Rules": ""
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "svg-img-alt",
         "url": "https://dequeuniversity.com/rules/axe/4.4/svg-img-alt?application=RuleDescription",
         "Description": "Ensures &lt;svg&gt; elements with an img, graphics-document or graphics-symbol role have an accessible text",
