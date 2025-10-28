@@ -1,5 +1,8 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { scan } from "../src/scanner";
+import { Scanner } from "../src/scanner";
+import scopeAttributeValid from "../src/rules/scope-attr-valid";
+
+const scanner = new Scanner([scopeAttributeValid]);
 
 describe("scope-attr-valid", function () {
   it("invalid scope value should error", async () => {
@@ -11,7 +14,7 @@ describe("scope-attr-valid", function () {
       </table>
     `);
 
-    const results = (await scan(table)).map(({ text, url }) => {
+    const results = (await scanner.scan(table)).map(({ text, url }) => {
       return { text, url };
     });
 
@@ -32,7 +35,7 @@ describe("scope-attr-valid", function () {
       </table>
     `);
 
-    const results = (await scan(table)).map(({ text, url }) => {
+    const results = (await scanner.scan(table)).map(({ text, url }) => {
       return { text, url };
     });
 
@@ -53,7 +56,7 @@ describe("scope-attr-valid", function () {
       </table>
     `);
 
-    const results = (await scan(table)).map(({ text, url }) => {
+    const results = (await scanner.scan(table)).map(({ text, url }) => {
       return { text, url };
     });
 
@@ -69,7 +72,7 @@ describe("scope-attr-valid", function () {
       </table>
     `);
 
-    const results = (await scan(table)).map(({ text, url }) => {
+    const results = (await scanner.scan(table)).map(({ text, url }) => {
       return { text, url };
     });
 
@@ -90,7 +93,7 @@ describe("scope-attr-valid", function () {
       </table>
     `);
 
-    const results = (await scan(table)).map(({ text, url }) => {
+    const results = (await scanner.scan(table)).map(({ text, url }) => {
       return { text, url };
     });
 

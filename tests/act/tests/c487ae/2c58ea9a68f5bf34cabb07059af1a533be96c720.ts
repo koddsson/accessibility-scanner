@@ -5,7 +5,7 @@ const parser = new DOMParser();
 
 describe("[c487ae]Link has non-empty accessible name", function () {
   it("Passed Example 9 (https://act-rules.github.io/testcases/c487ae/2c58ea9a68f5bf34cabb07059af1a533be96c720.html)", async () => {
-    const document = parser.parseFromString(`<!DOCTYPE html> <html>
+    const document = parser.parseFromString(`<!DOCTYPE html><html><head><title>Test</title></head><body><head><title>Test</title></head>
 	<style>
 		.offScreenLink {
 			position: absolute;
