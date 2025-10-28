@@ -28,6 +28,8 @@ import definitionList from "./rules/definition-list";
 import accesskeys from "./rules/accesskeys";
 import tableFakeCaption from "./rules/table-fake-caption";
 import ariaRoledescription from "./rules/aria-roledescription";
+import frameTitleUnique from "./rules/frame-title-unique";
+import noAutoplayAudio from "./rules/no-autoplay-audio";
 import formFieldMultipleLabels from "./rules/form-field-multiple-labels";
 import duplicateId from "./rules/duplicate-id";
 
@@ -74,6 +76,8 @@ export const allRules: Rule[] = [
   accesskeys,
   tableFakeCaption,
   ariaRoledescription,
+  frameTitleUnique,
+  noAutoplayAudio,
   formFieldMultipleLabels,
   duplicateId,
 ];
