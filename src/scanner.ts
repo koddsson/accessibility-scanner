@@ -23,6 +23,7 @@ import labelContentNameMismatch from "./rules/label-content-name-mismatch";
 import blink from "./rules/blink";
 import bypass from "./rules/bypass";
 import definitionList from "./rules/definition-list";
+import tableFakeCaption from "./rules/table-fake-caption";
 
 import { Logger } from "./logger";
 
@@ -62,6 +63,7 @@ export const allRules: Rule[] = [
   blink,
   bypass,
   definitionList,
+  tableFakeCaption,
 ];
 
 export async function requestIdleScan(
