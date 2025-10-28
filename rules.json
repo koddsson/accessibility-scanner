@@ -568,7 +568,7 @@
     "description": "",
     "rules": [
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "autocomplete-valid",
         "url": "https://dequeuniversity.com/rules/axe/4.4/autocomplete-valid?application=RuleDescription",
         "Description": "Ensure the autocomplete attribute is correct and suitable for the form field",
