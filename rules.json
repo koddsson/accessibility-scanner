@@ -313,7 +313,7 @@
         "ACT Rules": "[4b1c6c](https://act-rules.github.io/rules/4b1c6c)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "frame-title",
         "url": "https://dequeuniversity.com/rules/axe/4.4/frame-title?application=RuleDescription",
         "Description": "Ensures &lt;iframe&gt; and &lt;frame&gt; elements have an accessible name",
