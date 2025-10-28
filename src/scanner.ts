@@ -5,6 +5,7 @@ import scopeAttributeValid from "./rules/scope-attr-valid";
 import videoCaptions from "./rules/video-caption";
 import selectName from "./rules/select-name";
 import metaRefresh from "./rules/meta-refresh";
+import marquee from "./rules/marquee";
 import imageAlt from "./rules/image-alt";
 import buttonName from "./rules/button-name";
 import label from "./rules/label";
@@ -42,6 +43,7 @@ export const allRules: Rule[] = [
   videoCaptions,
   selectName,
   metaRefresh,
+  marquee,
   imageAlt,
   buttonName,
   label,
