@@ -18,9 +18,13 @@ function langIsValid(locale: string): boolean {
 
 export default function (element: Element): AccessibilityError[] {
   // Get the html element - either from the passed element's document or use the element itself if it's already html
-  const htmlElement = element.ownerDocument
-    ? element.ownerDocument.documentElement
-    : (element as HTMLHtmlElement);
+  let htmlElement: Element | null = null;
+
+  if (element.ownerDocument) {
+    htmlElement = element.ownerDocument.documentElement;
+  } else if (element.tagName?.toLowerCase() === "html") {
+    htmlElement = element;
+  }
 
   if (!htmlElement) {
     return [];
