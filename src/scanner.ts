@@ -5,6 +5,7 @@ import scopeAttributeValid from "./rules/scope-attr-valid";
 import videoCaptions from "./rules/video-caption";
 import selectName from "./rules/select-name";
 import metaRefresh from "./rules/meta-refresh";
+import marquee from "./rules/marquee";
 import imageAlt from "./rules/image-alt";
 import buttonName from "./rules/button-name";
 import label from "./rules/label";
@@ -13,14 +14,17 @@ import listitem from "./rules/listitem";
 import dlitem from "./rules/dlitem";
 import nestedInteractive from "./rules/nested-interactive";
 import validLang from "./rules/valid-lang";
+import htmlLangValid from "./rules/html-lang-valid";
 import ariaRequiredChildren from "./rules/aria-required-children";
 import colorContrast from "./rules/color-contrast";
 import tdHasHeader from "./rules/td-has-header";
 import thHasDataCells from "./rules/th-has-data-cells";
+import tdHeadersAttr from "./rules/td-headers-attr";
 import labelContentNameMismatch from "./rules/label-content-name-mismatch";
 import blink from "./rules/blink";
 import bypass from "./rules/bypass";
 import definitionList from "./rules/definition-list";
+import tableFakeCaption from "./rules/table-fake-caption";
 
 import { Logger } from "./logger";
 
@@ -42,6 +46,7 @@ export const allRules: Rule[] = [
   videoCaptions,
   selectName,
   metaRefresh,
+  marquee,
   imageAlt,
   buttonName,
   label,
@@ -50,14 +55,17 @@ export const allRules: Rule[] = [
   dlitem,
   nestedInteractive,
   validLang,
+  htmlLangValid,
   ariaRequiredChildren,
   colorContrast,
   tdHasHeader,
   thHasDataCells,
+  tdHeadersAttr,
   labelContentNameMismatch,
   blink,
   bypass,
   definitionList,
+  tableFakeCaption,
 ];
 
 export async function requestIdleScan(
