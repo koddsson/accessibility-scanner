@@ -17,9 +17,10 @@ const TEXT_SPACING_PROPERTIES = [
 
 /**
  * Pre-compiled regular expressions for checking !important text spacing properties
+ * Pattern matches: property: value !important (with optional whitespace)
  */
 const TEXT_SPACING_REGEX = TEXT_SPACING_PROPERTIES.map(
-  (property) => new RegExp(`${property}\\s*:\\s*[^;]+!important`, "i"),
+  (property) => new RegExp(`${property}\\s*:\\s*[^;]+\\s*!\\s*important`, "i"),
 );
 
 /**
