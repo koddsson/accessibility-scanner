@@ -5,7 +5,7 @@ const parser = new DOMParser();
 
 describe("[qt1vmo]Image accessible name is descriptive", function () {
   it("Passed Example 3 (https://act-rules.github.io/testcases/qt1vmo/766587b669e2928e8c5f21e3b1cd97e5b3e27a07.html)", async () => {
-    const document = parser.parseFromString(`<!DOCTYPE html> <html lang="en">
+    const document = parser.parseFromString(`<!DOCTYPE html><html><head><title>Test</title></head><body>
 	<canvas id="logo" width="72" height="48" aria-label="W3C"></canvas>
 	<script>
 		const img = new Image()
