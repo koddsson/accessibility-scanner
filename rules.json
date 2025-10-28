@@ -303,7 +303,7 @@
         "ACT Rules": "[akn7bn](https://act-rules.github.io/rules/akn7bn)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "frame-title-unique",
         "url": "https://dequeuniversity.com/rules/axe/4.4/frame-title-unique?application=RuleDescription",
         "Description": "Ensures &lt;iframe&gt; and &lt;frame&gt; elements contain a unique title attribute",
