@@ -5,6 +5,7 @@ import scopeAttributeValid from "./rules/scope-attr-valid";
 import videoCaptions from "./rules/video-caption";
 import selectName from "./rules/select-name";
 import metaRefresh from "./rules/meta-refresh";
+import marquee from "./rules/marquee";
 import imageAlt from "./rules/image-alt";
 import buttonName from "./rules/button-name";
 import label from "./rules/label";
@@ -18,6 +19,7 @@ import ariaRequiredChildren from "./rules/aria-required-children";
 import colorContrast from "./rules/color-contrast";
 import tdHasHeader from "./rules/td-has-header";
 import labelContentNameMismatch from "./rules/label-content-name-mismatch";
+import blink from "./rules/blink";
 import bypass from "./rules/bypass";
 import definitionList from "./rules/definition-list";
 
@@ -41,6 +43,7 @@ export const allRules: Rule[] = [
   videoCaptions,
   selectName,
   metaRefresh,
+  marquee,
   imageAlt,
   buttonName,
   label,
@@ -54,6 +57,7 @@ export const allRules: Rule[] = [
   colorContrast,
   tdHasHeader,
   labelContentNameMismatch,
+  blink,
   bypass,
   definitionList,
 ];
