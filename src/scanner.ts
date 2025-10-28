@@ -16,6 +16,7 @@ import dlitem from "./rules/dlitem";
 import nestedInteractive from "./rules/nested-interactive";
 import validLang from "./rules/valid-lang";
 import htmlLangValid from "./rules/html-lang-valid";
+import htmlXmlLangMismatch from "./rules/html-xml-lang-mismatch";
 import ariaRequiredChildren from "./rules/aria-required-children";
 import colorContrast from "./rules/color-contrast";
 import tdHasHeader from "./rules/td-has-header";
@@ -25,6 +26,7 @@ import documentTitle from "./rules/document-title";
 import blink from "./rules/blink";
 import bypass from "./rules/bypass";
 import definitionList from "./rules/definition-list";
+import linkInTextBlock from "./rules/link-in-text-block";
 import accesskeys from "./rules/accesskeys";
 import tableFakeCaption from "./rules/table-fake-caption";
 import frameFocusableContent from "./rules/frame-focusable-content";
@@ -34,7 +36,10 @@ import frameTitleUnique from "./rules/frame-title-unique";
 import noAutoplayAudio from "./rules/no-autoplay-audio";
 import formFieldMultipleLabels from "./rules/form-field-multiple-labels";
 import duplicateId from "./rules/duplicate-id";
+import cssOrientationLock from "./rules/css-orientation-lock";
 import hiddenContent from "./rules/hidden-content";
+import autocompleteValid from "./rules/autocomplete-valid";
+import svgImgAlt from "./rules/svg-img-alt";
 
 import { Logger } from "./logger";
 
@@ -67,6 +72,7 @@ export const allRules: Rule[] = [
   nestedInteractive,
   validLang,
   htmlLangValid,
+  htmlXmlLangMismatch,
   ariaRequiredChildren,
   colorContrast,
   tdHasHeader,
@@ -76,6 +82,7 @@ export const allRules: Rule[] = [
   blink,
   bypass,
   definitionList,
+  linkInTextBlock,
   accesskeys,
   tableFakeCaption,
   frameFocusableContent,
@@ -85,7 +92,10 @@ export const allRules: Rule[] = [
   noAutoplayAudio,
   formFieldMultipleLabels,
   duplicateId,
+  cssOrientationLock,
   hiddenContent,
+  autocompleteValid,
+  svgImgAlt,
 ];
 
 export async function requestIdleScan(
