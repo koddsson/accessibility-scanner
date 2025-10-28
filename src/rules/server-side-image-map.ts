@@ -5,7 +5,7 @@ const url =
   "https://dequeuniversity.com/rules/axe/4.4/server-side-image-map?application=RuleDescription";
 
 export default function (element: Element): AccessibilityError[] {
-  const errors = [];
+  const errors: AccessibilityError[] = [];
   const elements = [
     ...element.querySelectorAll<HTMLImageElement>("img[ismap]"),
   ];
