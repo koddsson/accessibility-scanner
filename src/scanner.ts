@@ -10,6 +10,7 @@ import buttonName from "./rules/button-name";
 import label from "./rules/label";
 import linkName from "./rules/link-name";
 import listitem from "./rules/listitem";
+import dlitem from "./rules/dlitem";
 import nestedInteractive from "./rules/nested-interactive";
 import validLang from "./rules/valid-lang";
 import ariaRequiredChildren from "./rules/aria-required-children";
@@ -43,6 +44,7 @@ export const allRules: Rule[] = [
   label,
   linkName,
   listitem,
+  dlitem,
   nestedInteractive,
   validLang,
   ariaRequiredChildren,
