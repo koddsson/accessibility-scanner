@@ -26,6 +26,7 @@ import bypass from "./rules/bypass";
 import definitionList from "./rules/definition-list";
 import accesskeys from "./rules/accesskeys";
 import tableFakeCaption from "./rules/table-fake-caption";
+import noAutoplayAudio from "./rules/no-autoplay-audio";
 
 import { Logger } from "./logger";
 
@@ -68,6 +69,7 @@ export const allRules: Rule[] = [
   definitionList,
   accesskeys,
   tableFakeCaption,
+  noAutoplayAudio,
 ];
 
 export async function requestIdleScan(
