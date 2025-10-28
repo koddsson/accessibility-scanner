@@ -1,5 +1,6 @@
 import { areaAlt } from "./rules/area-alt";
 import { ariaHiddenBody } from "./rules/aria-hidden-body";
+import ariaDialogName from "./rules/aria-dialog-name";
 import metaViewport from "./rules/meta-viewport";
 import scopeAttributeValid from "./rules/scope-attr-valid";
 import videoCaptions from "./rules/video-caption";
@@ -20,6 +21,7 @@ import colorContrast from "./rules/color-contrast";
 import tdHasHeader from "./rules/td-has-header";
 import tdHeadersAttr from "./rules/td-headers-attr";
 import labelContentNameMismatch from "./rules/label-content-name-mismatch";
+import documentTitle from "./rules/document-title";
 import blink from "./rules/blink";
 import bypass from "./rules/bypass";
 import definitionList from "./rules/definition-list";
@@ -40,6 +42,7 @@ type Rule = (element: Element) => AccessibilityError[];
 
 export const allRules: Rule[] = [
   areaAlt,
+  ariaDialogName,
   ariaHiddenBody,
   metaViewport,
   scopeAttributeValid,
@@ -61,6 +64,7 @@ export const allRules: Rule[] = [
   tdHasHeader,
   tdHeadersAttr,
   labelContentNameMismatch,
+  documentTitle,
   blink,
   bypass,
   definitionList,

@@ -1,5 +1,8 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { scan } from "../src/scanner";
+import { Scanner } from "../src/scanner";
+import metaViewport from "../src/rules/meta-viewport";
+
+const scanner = new Scanner([metaViewport]);
 
 describe("meta-viewport", function () {
   it("maximum-scale=2 has no errors", async () => {
@@ -9,7 +12,7 @@ describe("meta-viewport", function () {
       </div>
     `);
 
-    const results = (await scan(meta)).map(({ text, url }) => {
+    const results = (await scanner.scan(meta)).map(({ text, url }) => {
       return { text, url };
     });
 
@@ -25,7 +28,7 @@ describe("meta-viewport", function () {
       />
     `);
 
-    expect(await scan(meta)).to.be.empty;
+    expect(await scanner.scan(meta)).to.be.empty;
   });
 
   it("user-scalable should fail", async () => {
@@ -37,7 +40,7 @@ describe("meta-viewport", function () {
       />
     `);
 
-    const results = (await scan(meta)).map(({ text, url }) => {
+    const results = (await scanner.scan(meta)).map(({ text, url }) => {
       return { text, url };
     });
 
@@ -54,7 +57,7 @@ describe("meta-viewport", function () {
       <meta name="viewport" id="mvp" content="maximum-scale=1.5;" />
     `);
 
-    const results = (await scan(meta)).map(({ text, url }) => {
+    const results = (await scanner.scan(meta)).map(({ text, url }) => {
       return { text, url };
     });
 
