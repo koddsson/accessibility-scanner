@@ -16,7 +16,7 @@ function getPrimaryLanguageSubtag(langValue: string): string {
   if (hyphenIndex === -1) {
     return trimmed.toLowerCase();
   }
-  return trimmed.slice(0, Math.max(0, hyphenIndex)).toLowerCase();
+  return trimmed.slice(0, hyphenIndex).toLowerCase();
 }
 
 export default function (element: Element): AccessibilityError[] {
