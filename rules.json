@@ -283,7 +283,7 @@
         "ACT Rules": "[3ea0c8](https://act-rules.github.io/rules/3ea0c8)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "form-field-multiple-labels",
         "url": "https://dequeuniversity.com/rules/axe/4.4/form-field-multiple-labels?application=RuleDescription",
         "Description": "Ensures form field does not have multiple label elements",
@@ -303,7 +303,7 @@
         "ACT Rules": "[akn7bn](https://act-rules.github.io/rules/akn7bn)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "frame-title-unique",
         "url": "https://dequeuniversity.com/rules/axe/4.4/frame-title-unique?application=RuleDescription",
         "Description": "Ensures &lt;iframe&gt; and &lt;frame&gt; elements contain a unique title attribute",
@@ -313,7 +313,7 @@
         "ACT Rules": "[4b1c6c](https://act-rules.github.io/rules/4b1c6c)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "frame-title",
         "url": "https://dequeuniversity.com/rules/axe/4.4/frame-title?application=RuleDescription",
         "Description": "Ensures &lt;iframe&gt; and &lt;frame&gt; elements have an accessible name",
@@ -453,7 +453,7 @@
         "ACT Rules": "[307n5z](https://act-rules.github.io/rules/307n5z)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "no-autoplay-audio",
         "url": "https://dequeuniversity.com/rules/axe/4.4/no-autoplay-audio?application=RuleDescription",
         "Description": "Ensures &lt;video&gt; or &lt;audio&gt; elements do not autoplay audio for more than 3 seconds without a control mechanism to stop or mute the audio",
