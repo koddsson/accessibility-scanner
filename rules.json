@@ -183,7 +183,7 @@
         "ACT Rules": "[2eb176](https://act-rules.github.io/rules/2eb176), [afb423](https://act-rules.github.io/rules/afb423)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "blink",
         "url": "https://dequeuniversity.com/rules/axe/4.4/blink?application=RuleDescription",
         "Description": "Ensures &lt;blink&gt; elements are not used",
