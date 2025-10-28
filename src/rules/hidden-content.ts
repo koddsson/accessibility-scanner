@@ -11,21 +11,29 @@ export default function hiddenContent(element: Element): AccessibilityError[] {
   const allElements = [element, ...element.querySelectorAll("*")];
 
   for (const el of allElements) {
-    if (!(el instanceof HTMLElement)) continue;
-
-    // Check for various ways content can be hidden
-    const hasHiddenAttribute = el.hasAttribute("hidden");
+    // Check for aria-hidden on all elements (including SVG)
     const hasAriaHidden = el.getAttribute("aria-hidden") === "true";
-    const hasDisplayNone = el.style.display === "none";
-    const hasVisibilityHidden = el.style.visibility === "hidden";
 
-    // If any hiding method is detected, report it
-    if (
-      hasHiddenAttribute ||
-      hasAriaHidden ||
-      hasDisplayNone ||
-      hasVisibilityHidden
-    ) {
+    // For HTML elements, also check hidden attribute and inline styles
+    if (el instanceof HTMLElement) {
+      const hasHiddenAttribute = el.hasAttribute("hidden");
+      const hasDisplayNone = el.style.display === "none";
+      const hasVisibilityHidden = el.style.visibility === "hidden";
+
+      if (
+        hasHiddenAttribute ||
+        hasAriaHidden ||
+        hasDisplayNone ||
+        hasVisibilityHidden
+      ) {
+        errors.push({
+          element: el,
+          text,
+          url,
+        });
+      }
+    } else if (hasAriaHidden) {
+      // For non-HTML elements (like SVG), only check aria-hidden
       errors.push({
         element: el,
         text,

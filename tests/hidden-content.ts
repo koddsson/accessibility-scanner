@@ -171,4 +171,24 @@ describe("hidden-content", function () {
       url: "https://dequeuniversity.com/rules/axe/4.4/hidden-content?application=RuleDescription",
     });
   });
+
+  it("returns errors for SVG elements with aria-hidden='true'", async () => {
+    const element = await fixture(html`
+      <div>
+        <svg aria-hidden="true" width="100" height="100">
+          <circle cx="50" cy="50" r="40" />
+        </svg>
+      </div>
+    `);
+
+    const results = (await scanner.scan(element)).map(({ text, url }) => {
+      return { text, url };
+    });
+
+    expect(results).to.have.lengthOf(1);
+    expect(results[0]).to.eql({
+      text: "Informs users about hidden content.",
+      url: "https://dequeuniversity.com/rules/axe/4.4/hidden-content?application=RuleDescription",
+    });
+  });
 });
