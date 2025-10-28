@@ -178,6 +178,23 @@ const passes = [
     </div>`,
   ),
 
+  // Element owned via aria-owns
+  await fixture(
+    html`<div>
+      <div role="list" aria-owns="ownedItem"></div>
+      <div role="listitem" id="ownedItem">Owned item</div>
+    </div>`,
+  ),
+
+  // Element owned via aria-owns with multiple ids
+  await fixture(
+    html`<div>
+      <div role="menu" aria-owns="item1 item2"></div>
+      <div role="menuitem" id="item1">Item 1</div>
+      <div role="menuitem" id="item2">Item 2</div>
+    </div>`,
+  ),
+
   // Nested with generic role (transparent)
   await fixture(
     html`<div role="list">

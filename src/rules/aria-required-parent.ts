@@ -73,16 +73,8 @@ function findRequiredParent(
   requiredParents: string[],
   root: Element,
 ): boolean {
-  let current: Element | null = element.parentElement;
-  while (current && current !== root.parentElement) {
-    // Check if this element has one of the required parent roles
-    const currentRole = getRole(current);
-    if (currentRole && requiredParents.includes(currentRole)) {
-      return true;
-    }
-
-    // Handle aria-owns relationships - check if current element is owned
-    // by another element that might have the required role
+  // First check if this element is owned via aria-owns
+  if (element.id) {
     const ownedBy = querySelectorAll(
       `[aria-owns~="${element.id}"]`,
       root,
@@ -92,6 +84,16 @@ function findRequiredParent(
     });
 
     if (ownedBy.length > 0) {
+      return true;
+    }
+  }
+
+  // Then check the DOM hierarchy
+  let current: Element | null = element.parentElement;
+  while (current && current !== root.parentElement) {
+    // Check if this element has one of the required parent roles
+    const currentRole = getRole(current);
+    if (currentRole && requiredParents.includes(currentRole)) {
       return true;
     }
 
