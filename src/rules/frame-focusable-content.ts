@@ -49,7 +49,9 @@ function hasFocusableContent(element: Element): boolean {
 
         for (const focusableElement of focusableElements) {
           // Skip elements that are not truly HTML elements (could be SVG elements, etc.)
-          // We check if the element has a 'style' property which all HTML elements should have
+          // NOTE: We cannot use `instanceof HTMLElement` here because elements from an iframe's
+          // contentDocument have a different HTMLElement constructor than the parent window.
+          // Checking for 'style' property is a pragmatic approach that works across contexts.
           if (!("style" in focusableElement)) {
             continue;
           }
