@@ -18,7 +18,18 @@ function isStyledLikeHeading(element: HTMLElement): boolean {
   }
 
   // Check for bold (font-weight >= 600) or italic
-  const fontWeight = parseInt(computed.fontWeight, 10);
+  // Handle both numeric values and keywords like 'bold', 'normal'
+  let fontWeight = parseInt(computed.fontWeight, 10);
+  if (isNaN(fontWeight)) {
+    // Map common font-weight keywords to numeric values
+    const fontWeightKeywords: { [key: string]: number } = {
+      normal: 400,
+      bold: 700,
+      bolder: 700,
+      lighter: 300,
+    };
+    fontWeight = fontWeightKeywords[computed.fontWeight] || 400;
+  }
   const isBoldOrItalic = fontWeight >= 600 || computed.fontStyle === "italic";
 
   if (!isBoldOrItalic) {
@@ -46,7 +57,7 @@ function isStyledLikeHeading(element: HTMLElement): boolean {
 }
 
 export default function (element: Element): AccessibilityError[] {
-  const errors = [];
+  const errors: AccessibilityError[] = [];
   const elements = querySelectorAll<HTMLElement>("p", element);
 
   if (element.matches("p")) {
