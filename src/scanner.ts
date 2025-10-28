@@ -28,6 +28,10 @@ import definitionList from "./rules/definition-list";
 import accesskeys from "./rules/accesskeys";
 import tableFakeCaption from "./rules/table-fake-caption";
 import frameFocusableContent from "./rules/frame-focusable-content";
+import frameTitleUnique from "./rules/frame-title-unique";
+import noAutoplayAudio from "./rules/no-autoplay-audio";
+import formFieldMultipleLabels from "./rules/form-field-multiple-labels";
+import duplicateId from "./rules/duplicate-id";
 
 import { Logger } from "./logger";
 
@@ -72,6 +76,10 @@ export const allRules: Rule[] = [
   accesskeys,
   tableFakeCaption,
   frameFocusableContent,
+  frameTitleUnique,
+  noAutoplayAudio,
+  formFieldMultipleLabels,
+  duplicateId,
 ];
 
 export async function requestIdleScan(
