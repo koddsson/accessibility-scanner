@@ -1,10 +1,13 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { scan } from "../src/scanner";
+import { Scanner } from "../src/scanner";
+import videoCaptions from "../src/rules/video-caption";
+
+const scanner = new Scanner([videoCaptions]);
 
 describe("video-caption", function () {
   it("video elements without a track return errors", async () => {
     const container = await fixture(html`<video></video>`);
-    const results = (await scan(container)).map(({ text, url }) => {
+    const results = (await scanner.scan(container)).map(({ text, url }) => {
       return { text, url };
     });
 
@@ -20,7 +23,7 @@ describe("video-caption", function () {
     const container = await fixture(
       html`<video><track kind="descriptions" /></video>`
     );
-    const results = (await scan(container)).map(({ text, url }) => {
+    const results = (await scanner.scan(container)).map(({ text, url }) => {
       return { text, url };
     });
 
@@ -36,7 +39,7 @@ describe("video-caption", function () {
     const container = await fixture(
       html`<video><track kind="captions" /></video>`
     );
-    const results = (await scan(container)).map(({ text, url }) => {
+    const results = (await scanner.scan(container)).map(({ text, url }) => {
       return { text, url };
     });
 
@@ -50,7 +53,7 @@ describe("video-caption", function () {
         <track kind="captions" />
       </video>`
     );
-    const results = (await scan(container)).map(({ text, url }) => {
+    const results = (await scanner.scan(container)).map(({ text, url }) => {
       return { text, url };
     });
 

@@ -243,7 +243,7 @@
         "ACT Rules": ""
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "document-title",
         "url": "https://dequeuniversity.com/rules/axe/4.4/document-title?application=RuleDescription",
         "Description": "Ensures each HTML document contains a non-empty &lt;title&gt; element",
@@ -253,7 +253,7 @@
         "ACT Rules": "[2779a5](https://act-rules.github.io/rules/2779a5)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "duplicate-id-active",
         "url": "https://dequeuniversity.com/rules/axe/4.4/duplicate-id-active?application=RuleDescription",
         "Description": "Ensures every id attribute value of active elements is unique",
@@ -603,7 +603,7 @@
     "description": "Rules that do not necessarily conform to WCAG success criterion but are industry accepted practices that improve the user experience.",
     "rules": [
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "accesskeys",
         "url": "https://dequeuniversity.com/rules/axe/4.4/accesskeys?application=RuleDescription",
         "Description": "Ensures every accesskey attribute value is unique",
@@ -993,7 +993,7 @@
         "ACT Rules": ""
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "table-fake-caption",
         "url": "https://dequeuniversity.com/rules/axe/4.4/table-fake-caption?application=RuleDescription",
         "Description": "Ensure that tables with a caption use the &lt;caption&gt; element.",

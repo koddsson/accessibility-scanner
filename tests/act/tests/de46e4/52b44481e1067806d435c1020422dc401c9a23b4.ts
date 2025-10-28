@@ -5,7 +5,7 @@ const parser = new DOMParser();
 
 describe("[de46e4]Element with lang attribute has valid language tag", function () {
   it("Passed Example 1 (https://act-rules.github.io/testcases/de46e4/52b44481e1067806d435c1020422dc401c9a23b4.html)", async () => {
-    const document = parser.parseFromString(`<!DOCTYPE html> <html>
+    const document = parser.parseFromString(`<!DOCTYPE html><html><head><title>Test</title></head><body><head><title>Test</title></head>
 	<body>
 		<article lang="en">
 			They wandered into a strange Tiki bar on the edge of the small beach town.
