@@ -48,6 +48,11 @@ function hasFocusableContent(element: Element): boolean {
         );
 
         for (const focusableElement of focusableElements) {
+          // Skip falsy/null elements that might occur in some edge cases
+          if (!focusableElement) {
+            continue;
+          }
+
           // Skip elements that are not truly HTML elements (could be SVG elements, etc.)
           // NOTE: We cannot use `instanceof HTMLElement` here because elements from an iframe's
           // contentDocument have a different HTMLElement constructor than the parent window.
