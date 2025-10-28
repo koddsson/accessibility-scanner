@@ -31,6 +31,7 @@ import frameTitleUnique from "./rules/frame-title-unique";
 import noAutoplayAudio from "./rules/no-autoplay-audio";
 import formFieldMultipleLabels from "./rules/form-field-multiple-labels";
 import duplicateId from "./rules/duplicate-id";
+import hiddenContent from "./rules/hidden-content";
 
 import { Logger } from "./logger";
 
@@ -78,6 +79,7 @@ export const allRules: Rule[] = [
   noAutoplayAudio,
   formFieldMultipleLabels,
   duplicateId,
+  hiddenContent,
 ];
 
 export async function requestIdleScan(
