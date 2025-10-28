@@ -253,7 +253,7 @@
         "ACT Rules": "[2779a5](https://act-rules.github.io/rules/2779a5)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "duplicate-id-active",
         "url": "https://dequeuniversity.com/rules/axe/4.4/duplicate-id-active?application=RuleDescription",
         "Description": "Ensures every id attribute value of active elements is unique",
