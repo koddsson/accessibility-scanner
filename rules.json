@@ -223,7 +223,7 @@
         "ACT Rules": "[afw4f7](https://act-rules.github.io/rules/afw4f7)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "definition-list",
         "url": "https://dequeuniversity.com/rules/axe/4.4/definition-list?application=RuleDescription",
         "Description": "Ensures &lt;dl&gt; elements are structured correctly",
