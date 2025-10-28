@@ -27,6 +27,7 @@ import bypass from "./rules/bypass";
 import definitionList from "./rules/definition-list";
 import accesskeys from "./rules/accesskeys";
 import tableFakeCaption from "./rules/table-fake-caption";
+import ariaRoledescription from "./rules/aria-roledescription";
 import frameTitleUnique from "./rules/frame-title-unique";
 import noAutoplayAudio from "./rules/no-autoplay-audio";
 import formFieldMultipleLabels from "./rules/form-field-multiple-labels";
@@ -74,6 +75,7 @@ export const allRules: Rule[] = [
   definitionList,
   accesskeys,
   tableFakeCaption,
+  ariaRoledescription,
   frameTitleUnique,
   noAutoplayAudio,
   formFieldMultipleLabels,
