@@ -6,6 +6,26 @@ const text =
 const url =
   "https://dequeuniversity.com/rules/axe/4.4/link-in-text-block?application=RuleDescription";
 
+// Threshold for determining if text content beyond link indicates a text block
+const TEXT_BLOCK_THRESHOLD = 10;
+
+// Font weight difference threshold between normal (400) and bold (700)
+const FONT_WEIGHT_DIFFERENCE_THRESHOLD = 300;
+
+/**
+ * Convert CSS font-weight to numeric value
+ */
+function getFontWeightNumeric(fontWeight: string): number {
+  const weightMap: { [key: string]: number } = {
+    normal: 400,
+    bold: 700,
+    lighter: 300,
+    bolder: 700,
+  };
+
+  return weightMap[fontWeight] || parseInt(fontWeight) || 400;
+}
+
 /**
  * Check if an element has text content
  */
@@ -58,18 +78,17 @@ function isDistinguishableWithoutColor(link: HTMLAnchorElement): boolean {
   const parent = link.parentElement;
   if (parent) {
     const parentComputed = globalThis.getComputedStyle(parent);
-    const linkWeight = parseInt(computed.fontWeight) || 400;
-    const parentWeight = parseInt(parentComputed.fontWeight) || 400;
+    const linkWeight = getFontWeightNumeric(computed.fontWeight);
+    const parentWeight = getFontWeightNumeric(parentComputed.fontWeight);
 
     // A difference of 300 or more indicates bold vs normal
-    if (Math.abs(linkWeight - parentWeight) >= 300) {
+    if (
+      Math.abs(linkWeight - parentWeight) >= FONT_WEIGHT_DIFFERENCE_THRESHOLD
+    ) {
       return true;
     }
-  }
 
-  // Check for different font style (italic)
-  if (parent) {
-    const parentComputed = globalThis.getComputedStyle(parent);
+    // Check for different font style (italic)
     if (
       computed.fontStyle !== parentComputed.fontStyle &&
       (computed.fontStyle === "italic" || computed.fontStyle === "oblique")
@@ -109,7 +128,7 @@ function isInTextBlock(link: HTMLAnchorElement): boolean {
 
   // If parent has significantly more text than just the link, it's a text block
   // Using a threshold to account for whitespace and small differences
-  return parentText.length > linkText.length + 10;
+  return parentText.length > linkText.length + TEXT_BLOCK_THRESHOLD;
 }
 
 export default function (element: Element): AccessibilityError[] {
