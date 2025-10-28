@@ -26,6 +26,7 @@ import documentTitle from "./rules/document-title";
 import blink from "./rules/blink";
 import bypass from "./rules/bypass";
 import definitionList from "./rules/definition-list";
+import linkInTextBlock from "./rules/link-in-text-block";
 import accesskeys from "./rules/accesskeys";
 import tableFakeCaption from "./rules/table-fake-caption";
 import frameTitle from "./rules/frame-title";
@@ -78,6 +79,7 @@ export const allRules: Rule[] = [
   blink,
   bypass,
   definitionList,
+  linkInTextBlock,
   accesskeys,
   tableFakeCaption,
   frameTitle,
