@@ -23,10 +23,8 @@ export default function (element: Element): AccessibilityError[] {
     const label = element.getAttribute("aria-label");
     if (label && label.trim() !== "") continue;
     if (labelledByIsValid(element)) continue;
-    if (element.hasAttribute("title")) {
-      const title = element.getAttribute("title");
-      if (title && title.trim() !== "") continue;
-    }
+    const title = element.getAttribute("title");
+    if (title && title.trim() !== "") continue;
 
     errors.push({
       element,
