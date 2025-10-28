@@ -36,7 +36,7 @@ function hasFakeCaption(table: HTMLTableElement): Element | null {
     const row = table.rows[i];
     let columnCount = 0;
     for (let j = 0; j < row.cells.length; j++) {
-      const cell = row.cells[j] as HTMLTableCellElement;
+      const cell = row.cells[j];
       columnCount += cell.colSpan || 1;
     }
     maxColumns = Math.max(maxColumns, columnCount);
