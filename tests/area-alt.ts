@@ -1,6 +1,9 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { scan } from "../src/scanner";
+import { Scanner } from "../src/scanner";
 
+import { areaAlt } from "../src/rules/area-alt";
+
+const scanner = new Scanner([areaAlt]);
 describe("area-alt", function () {
   it("empty alt attribute fails", async () => {
     const container = await fixture(html`
@@ -11,7 +14,7 @@ describe("area-alt", function () {
       </div>
     `);
 
-    const results = (await scan(container)).map(({text, url}) => {
+    const results = (await scanner.scan(container)).map(({text, url}) => {
       return {text, url}
     })
 
@@ -32,7 +35,7 @@ describe("area-alt", function () {
       </div>
     `);
 
-    expect(await scan(container)).to.be.empty
+    expect(await scanner.scan(container)).to.be.empty
   });
 
   it("area element with a valid aria-label attribute has no errors", async () => {
@@ -44,7 +47,7 @@ describe("area-alt", function () {
       </div>
     `);
 
-    expect(await scan(container)).to.be.empty
+    expect(await scanner.scan(container)).to.be.empty
   });
   
   it("area element with a valid aria-labelledby attribute has no errors", async () => {
@@ -57,7 +60,7 @@ describe("area-alt", function () {
       </div>
     `);
 
-    expect(await scan(container)).to.be.empty
+    expect(await scanner.scan(container)).to.be.empty
   });
 
   it("empty aria-label attribute fails", async () => {
@@ -69,7 +72,7 @@ describe("area-alt", function () {
       </div>
     `);
 
-    const results = (await scan(container)).map(({text, url}) => {
+    const results = (await scanner.scan(container)).map(({text, url}) => {
       return {text, url}
     })
 
@@ -90,7 +93,7 @@ describe("area-alt", function () {
       </div>
     `);
 
-    const results = (await scan(container)).map(({text, url}) => {
+    const results = (await scanner.scan(container)).map(({text, url}) => {
       return {text, url}
     })
 
@@ -111,7 +114,7 @@ describe("area-alt", function () {
       </div>
     `);
 
-    const results = (await scan(container)).map(({text, url}) => {
+    const results = (await scanner.scan(container)).map(({text, url}) => {
       return {text, url}
     })
 
@@ -135,7 +138,7 @@ describe("area-alt", function () {
       </map>
     </div>`);
 
-    expect(await scan(container)).to.be.empty
+    expect(await scanner.scan(container)).to.be.empty
   });
 
   it("works with shadow dom", async () => {
@@ -152,7 +155,7 @@ describe("area-alt", function () {
 
     const container = await fixture(html`<my-el></my-el>`);
 
-    const results = (await scan(container)).map(({text, url}) => {
+    const results = (await scanner.scan(container)).map(({text, url}) => {
       return {text, url}
     })
 
