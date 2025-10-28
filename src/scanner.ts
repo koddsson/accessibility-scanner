@@ -5,11 +5,13 @@ import scopeAttributeValid from "./rules/scope-attr-valid";
 import videoCaptions from "./rules/video-caption";
 import selectName from "./rules/select-name";
 import metaRefresh from "./rules/meta-refresh";
+import marquee from "./rules/marquee";
 import imageAlt from "./rules/image-alt";
 import buttonName from "./rules/button-name";
 import label from "./rules/label";
 import linkName from "./rules/link-name";
 import listitem from "./rules/listitem";
+import dlitem from "./rules/dlitem";
 import nestedInteractive from "./rules/nested-interactive";
 import validLang from "./rules/valid-lang";
 import ariaRequiredChildren from "./rules/aria-required-children";
@@ -17,6 +19,9 @@ import colorContrast from "./rules/color-contrast";
 import tdHasHeader from "./rules/td-has-header";
 import labelContentNameMismatch from "./rules/label-content-name-mismatch";
 import documentTitle from "./rules/document-title";
+import blink from "./rules/blink";
+import bypass from "./rules/bypass";
+import definitionList from "./rules/definition-list";
 
 import { Logger } from "./logger";
 
@@ -38,11 +43,13 @@ export const allRules: Rule[] = [
   videoCaptions,
   selectName,
   metaRefresh,
+  marquee,
   imageAlt,
   buttonName,
   label,
   linkName,
   listitem,
+  dlitem,
   nestedInteractive,
   validLang,
   ariaRequiredChildren,
@@ -50,6 +57,9 @@ export const allRules: Rule[] = [
   tdHasHeader,
   labelContentNameMismatch,
   documentTitle,
+  blink,
+  bypass,
+  definitionList,
 ];
 
 export async function requestIdleScan(

@@ -183,7 +183,7 @@
         "ACT Rules": "[2eb176](https://act-rules.github.io/rules/2eb176), [afb423](https://act-rules.github.io/rules/afb423)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "blink",
         "url": "https://dequeuniversity.com/rules/axe/4.4/blink?application=RuleDescription",
         "Description": "Ensures &lt;blink&gt; elements are not used",
@@ -203,7 +203,7 @@
         "ACT Rules": "[97a4e1](https://act-rules.github.io/rules/97a4e1), [m6b1q3](https://act-rules.github.io/rules/m6b1q3)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "bypass",
         "url": "https://dequeuniversity.com/rules/axe/4.4/bypass?application=RuleDescription",
         "Description": "Ensures each page has at least one mechanism for a user to bypass navigation and jump straight to the content",
@@ -223,7 +223,7 @@
         "ACT Rules": "[afw4f7](https://act-rules.github.io/rules/afw4f7)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "definition-list",
         "url": "https://dequeuniversity.com/rules/axe/4.4/definition-list?application=RuleDescription",
         "Description": "Ensures &lt;dl&gt; elements are structured correctly",
@@ -233,7 +233,7 @@
         "ACT Rules": ""
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "dlitem",
         "url": "https://dequeuniversity.com/rules/axe/4.4/dlitem?application=RuleDescription",
         "Description": "Ensures &lt;dt&gt; and &lt;dd&gt; elements are contained by a &lt;dl&gt;",
@@ -423,7 +423,7 @@
         "ACT Rules": ""
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "marquee",
         "url": "https://dequeuniversity.com/rules/axe/4.4/marquee?application=RuleDescription",
         "Description": "Ensures &lt;marquee&gt; elements are not used",
