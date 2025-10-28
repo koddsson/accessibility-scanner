@@ -503,7 +503,7 @@
         "ACT Rules": "[e086e5](https://act-rules.github.io/rules/e086e5)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "server-side-image-map",
         "url": "https://dequeuniversity.com/rules/axe/4.4/server-side-image-map?application=RuleDescription",
         "Description": "Ensures that server-side image maps are not used",
