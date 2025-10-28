@@ -1,5 +1,6 @@
 import { areaAlt } from "./rules/area-alt";
 import { ariaHiddenBody } from "./rules/aria-hidden-body";
+import ariaDialogName from "./rules/aria-dialog-name";
 import metaViewport from "./rules/meta-viewport";
 import scopeAttributeValid from "./rules/scope-attr-valid";
 import videoCaptions from "./rules/video-caption";
@@ -41,6 +42,7 @@ type Rule = (element: Element) => AccessibilityError[];
 
 export const allRules: Rule[] = [
   areaAlt,
+  ariaDialogName,
   ariaHiddenBody,
   metaViewport,
   scopeAttributeValid,
