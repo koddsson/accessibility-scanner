@@ -1,5 +1,6 @@
 import { areaAlt } from "./rules/area-alt";
 import { ariaHiddenBody } from "./rules/aria-hidden-body";
+import ariaDialogName from "./rules/aria-dialog-name";
 import metaViewport from "./rules/meta-viewport";
 import scopeAttributeValid from "./rules/scope-attr-valid";
 import videoCaptions from "./rules/video-caption";
@@ -27,6 +28,8 @@ import definitionList from "./rules/definition-list";
 import accesskeys from "./rules/accesskeys";
 import tableFakeCaption from "./rules/table-fake-caption";
 import frameTitleUnique from "./rules/frame-title-unique";
+import formFieldMultipleLabels from "./rules/form-field-multiple-labels";
+import duplicateId from "./rules/duplicate-id";
 
 import { Logger } from "./logger";
 
@@ -42,6 +45,7 @@ type Rule = (element: Element) => AccessibilityError[];
 
 export const allRules: Rule[] = [
   areaAlt,
+  ariaDialogName,
   ariaHiddenBody,
   metaViewport,
   scopeAttributeValid,
@@ -70,6 +74,8 @@ export const allRules: Rule[] = [
   accesskeys,
   tableFakeCaption,
   frameTitleUnique,
+  formFieldMultipleLabels,
+  duplicateId,
 ];
 
 export async function requestIdleScan(
