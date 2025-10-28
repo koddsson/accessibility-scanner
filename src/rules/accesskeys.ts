@@ -1,0 +1,42 @@
+import { AccessibilityError } from "../scanner";
+
+const text = "Ensures every accesskey attribute value is unique";
+const url =
+  "https://dequeuniversity.com/rules/axe/4.4/accesskeys?application=RuleDescription";
+
+export default function (element: Element): AccessibilityError[] {
+  const errors = [];
+  const elements = [...element.querySelectorAll("[accesskey]")];
+  if (element.hasAttribute("accesskey")) {
+    elements.push(element as HTMLElement);
+  }
+
+  // Track accesskey values and their elements
+  const accesskeyMap = new Map<string, Element[]>();
+
+  for (const el of elements) {
+    const accesskey = el.getAttribute("accesskey");
+    if (accesskey && accesskey.trim() !== "") {
+      const normalizedKey = accesskey.trim();
+      if (!accesskeyMap.has(normalizedKey)) {
+        accesskeyMap.set(normalizedKey, []);
+      }
+      accesskeyMap.get(normalizedKey)!.push(el);
+    }
+  }
+
+  // Report errors for duplicate accesskeys
+  for (const [, elementsWithKey] of accesskeyMap.entries()) {
+    if (elementsWithKey.length > 1) {
+      for (const el of elementsWithKey) {
+        errors.push({
+          element: el,
+          text,
+          url,
+        });
+      }
+    }
+  }
+
+  return errors;
+}

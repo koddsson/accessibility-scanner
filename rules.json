@@ -603,7 +603,7 @@
     "description": "Rules that do not necessarily conform to WCAG success criterion but are industry accepted practices that improve the user experience.",
     "rules": [
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "accesskeys",
         "url": "https://dequeuniversity.com/rules/axe/4.4/accesskeys?application=RuleDescription",
         "Description": "Ensures every accesskey attribute value is unique",
