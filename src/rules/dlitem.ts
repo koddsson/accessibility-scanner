@@ -14,8 +14,7 @@ function hasValidDefinitionListParent(element: Element): boolean {
       return true;
     }
 
-    // Check for ARIA definition list parent (role="list" for definition lists)
-    // or more specific roles like "group" when used with definitions
+    // Check for ARIA list parent (role="list")
     if (parent.getAttribute("role") === "list") {
       return true;
     }
