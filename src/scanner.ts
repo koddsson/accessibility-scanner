@@ -13,6 +13,7 @@ import nestedInteractive from "./rules/nested-interactive";
 import validLang from "./rules/valid-lang";
 import ariaRequiredChildren from "./rules/aria-required-children";
 import colorContrast from "./rules/color-contrast";
+import tdHasHeader from "./rules/td-has-header";
 
 import { Logger } from "./logger";
 
@@ -42,6 +43,7 @@ export const allRules: Rule[] = [
   validLang,
   ariaRequiredChildren,
   colorContrast,
+  tdHasHeader,
 ];
 
 export async function requestIdleScan(
