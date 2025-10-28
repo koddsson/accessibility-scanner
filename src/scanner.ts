@@ -18,6 +18,7 @@ import htmlLangValid from "./rules/html-lang-valid";
 import ariaRequiredChildren from "./rules/aria-required-children";
 import colorContrast from "./rules/color-contrast";
 import tdHasHeader from "./rules/td-has-header";
+import tdHeadersAttr from "./rules/td-headers-attr";
 import labelContentNameMismatch from "./rules/label-content-name-mismatch";
 import blink from "./rules/blink";
 import bypass from "./rules/bypass";
@@ -56,6 +57,7 @@ export const allRules: Rule[] = [
   ariaRequiredChildren,
   colorContrast,
   tdHasHeader,
+  tdHeadersAttr,
   labelContentNameMismatch,
   blink,
   bypass,
