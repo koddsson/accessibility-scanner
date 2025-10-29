@@ -56,6 +56,7 @@ import hiddenContent from "./rules/hidden-content";
 import autocompleteValid from "./rules/autocomplete-valid";
 import avoidInlineSpacing from "./rules/avoid-inline-spacing";
 import svgImgAlt from "./rules/svg-img-alt";
+import focusOrderSemantics from "./rules/focus-order-semantics";
 import audioCaptions from "./rules/audio-caption";
 import inputButtonName from "./rules/input-button-name";
 import inputImageAlt from "./rules/input-image-alt";
@@ -144,6 +145,7 @@ export const allRules: Rule[] = [
   selectName,
   serverSideImageMap,
   svgImgAlt,
+  focusOrderSemantics,
   tableFakeCaption,
   targetSize,
   tdHasHeader,
