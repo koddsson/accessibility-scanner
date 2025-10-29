@@ -33,6 +33,7 @@ import htmlLangValid from "./rules/html-lang-valid";
 import htmlXmlLangMismatch from "./rules/html-xml-lang-mismatch";
 import colorContrast from "./rules/color-contrast";
 import tdHasHeader from "./rules/td-has-header";
+import thHasDataCells from "./rules/th-has-data-cells";
 import tdHeadersAttr from "./rules/td-headers-attr";
 import labelContentNameMismatch from "./rules/label-content-name-mismatch";
 import documentTitle from "./rules/document-title";
@@ -97,6 +98,12 @@ export const allRules: Rule[] = [
   audioCaptions,
   autocompleteValid,
   avoidInlineSpacing,
+  colorContrast,
+  tdHasHeader,
+  thHasDataCells,
+  tdHeadersAttr,
+  labelContentNameMismatch,
+  documentTitle,
   blink,
   buttonName,
   bypass,
