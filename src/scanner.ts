@@ -40,6 +40,7 @@ import cssOrientationLock from "./rules/css-orientation-lock";
 import hiddenContent from "./rules/hidden-content";
 import autocompleteValid from "./rules/autocomplete-valid";
 import svgImgAlt from "./rules/svg-img-alt";
+import focusOrderSemantics from "./rules/focus-order-semantics";
 
 import { Logger } from "./logger";
 
@@ -96,6 +97,7 @@ export const allRules: Rule[] = [
   hiddenContent,
   autocompleteValid,
   svgImgAlt,
+  focusOrderSemantics,
 ];
 
 export async function requestIdleScan(
