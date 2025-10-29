@@ -322,5 +322,24 @@ describe("focus-order-semantics", function () {
 
       expect(results).to.be.empty;
     });
+
+    it("input type=password has implicit textbox role", async () => {
+      const container = await fixture(html`<input type="password" />`);
+      const results = await scanner.scan(container);
+
+      expect(results).to.be.empty;
+    });
+
+    it("select with multiple attribute has implicit listbox role", async () => {
+      const container = await fixture(
+        html`<select multiple>
+          <option>Option 1</option>
+          <option>Option 2</option>
+        </select>`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.be.empty;
+    });
   });
 });

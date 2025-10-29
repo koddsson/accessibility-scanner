@@ -25,6 +25,7 @@ const interactiveRoles = new Set([
   "slider",
   "spinbutton",
   "treeitem",
+  "listbox",
 ]);
 
 // Widget roles that are interactive by nature
@@ -86,7 +87,8 @@ function getRole(element: Element): string | null {
       type === "email" ||
       type === "tel" ||
       type === "url" ||
-      type === "search"
+      type === "search" ||
+      type === "password"
     ) {
       return "textbox";
     }
