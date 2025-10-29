@@ -7,11 +7,9 @@ import ariaDialogName from "./rules/aria-dialog-name";
 import ariaInputFieldName from "./rules/aria-input-field-name";
 import ariaMeterName from "./rules/aria-meter-name";
 import ariaProgressbarName from "./rules/aria-progressbar-name";
-import { ariaRequiredAttr } from "./rules/aria-required-attr";
 import ariaRequiredChildren from "./rules/aria-required-children";
 import ariaRequiredParent from "./rules/aria-required-parent";
 import ariaRoledescription from "./rules/aria-roledescription";
-import ariaRoles from "./rules/aria-roles";
 import ariaToggleFieldName from "./rules/aria-toggle-field-name";
 import { ariaTooltipName } from "./rules/aria-tooltip-name";
 import ariaValidAttr from "./rules/aria-valid-attr";
@@ -31,7 +29,6 @@ import list from "./rules/list";
 import dlitem from "./rules/dlitem";
 import nestedInteractive from "./rules/nested-interactive";
 import validLang from "./rules/valid-lang";
-import htmlHasLang from "./rules/html-has-lang";
 import htmlLangValid from "./rules/html-lang-valid";
 import htmlXmlLangMismatch from "./rules/html-xml-lang-mismatch";
 import colorContrast from "./rules/color-contrast";
@@ -90,11 +87,9 @@ export const allRules: Rule[] = [
   ariaInputFieldName,
   ariaMeterName,
   ariaProgressbarName,
-  ariaRequiredAttr,
   ariaRequiredChildren,
   ariaRequiredParent,
   ariaRoledescription,
-  ariaRoles,
   ariaToggleFieldName,
   ariaTooltipName,
   ariaValidAttr,
@@ -118,7 +113,6 @@ export const allRules: Rule[] = [
   frameTitle,
   frameTitleUnique,
   hiddenContent,
-  htmlHasLang,
   htmlLangValid,
   htmlXmlLangMismatch,
   imageAlt,
