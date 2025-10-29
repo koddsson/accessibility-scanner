@@ -14,7 +14,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "lint": "eslint src/**/*.ts",
+    "lint:types": "tsc --noEmit",
+    "lint": "eslint src/**/*.ts && npm run lint:types",
     "format": "npm run lint -- --fix",
     "test": "npm run format && web-test-runner",
     "test:watch": "npm run format && web-test-runner --watch",
