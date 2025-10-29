@@ -41,6 +41,7 @@ import cssOrientationLock from "./rules/css-orientation-lock";
 import hiddenContent from "./rules/hidden-content";
 import autocompleteValid from "./rules/autocomplete-valid";
 import svgImgAlt from "./rules/svg-img-alt";
+import objectAlt from "./rules/object-alt";
 
 import { Logger } from "./logger";
 
@@ -98,6 +99,7 @@ export const allRules: Rule[] = [
   hiddenContent,
   autocompleteValid,
   svgImgAlt,
+  objectAlt,
 ];
 
 export async function requestIdleScan(
