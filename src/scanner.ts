@@ -64,6 +64,7 @@ import roleImgAlt from "./rules/role-img-alt";
 import scrollableRegionFocusable from "./rules/scrollable-region-focusable";
 import serverSideImageMap from "./rules/server-side-image-map";
 import targetSize from "./rules/target-size";
+import objectAlt from "./rules/object-alt";
 
 import { Logger } from "./logger";
 
@@ -149,6 +150,7 @@ export const allRules: Rule[] = [
   tdHeadersAttr,
   validLang,
   videoCaptions,
+  objectAlt,
 ];
 
 export async function requestIdleScan(
