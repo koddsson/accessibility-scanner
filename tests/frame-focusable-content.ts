@@ -9,20 +9,37 @@ const expectedError = {
   url: "https://dequeuniversity.com/rules/axe/4.4/frame-focusable-content?application=RuleDescription",
 };
 
-// Helper to wait for iframe to be fully loaded
+// Helper to wait for iframe to be fully loaded with polling
 async function waitForIframeLoad(iframe: HTMLIFrameElement): Promise<void> {
-  return new Promise((resolve) => {
-    if (iframe.contentDocument && iframe.contentDocument.readyState === 'complete') {
-      // Even if readyState is complete, wait a tick to ensure content is accessible
-      setTimeout(resolve, 50);
-    } else {
-      iframe.addEventListener('load', () => {
-        // Wait a bit more after load event to ensure content is fully accessible
-        setTimeout(resolve, 50);
-      }, { once: true });
-      // Also resolve after a timeout as a fallback
-      setTimeout(resolve, 300);
-    }
+  const timeout = 2000; // 2 second timeout
+  const pollInterval = 50; // Check every 50ms
+  const startTime = Date.now();
+
+  return new Promise((resolve, reject) => {
+    const checkIframeReady = () => {
+      // Check if iframe content is accessible and ready
+      // For srcdoc iframes, contentDocument and body should be available even if readyState isn't 'complete'
+      if (
+        iframe.contentDocument &&
+        iframe.contentDocument.body
+      ) {
+        // Give it one more tick to ensure any dynamic content is rendered
+        setTimeout(resolve, 10);
+        return;
+      }
+
+      // Check if we've exceeded the timeout
+      if (Date.now() - startTime >= timeout) {
+        reject(new Error('Timeout waiting for iframe to load'));
+        return;
+      }
+
+      // Poll again after interval
+      setTimeout(checkIframeReady, pollInterval);
+    };
+
+    // Start checking
+    checkIframeReady();
   });
 }
 
@@ -33,8 +50,8 @@ describe("frame-focusable-content", function () {
         <iframe tabindex="-1" srcdoc="<a href='#'>Link</a>"></iframe>
       `);
       
-      const iframe = container.querySelector('iframe') || container as HTMLIFrameElement;
-      await waitForIframeLoad(iframe as HTMLIFrameElement);
+      const iframe = (container.querySelector('iframe') || container) as HTMLIFrameElement;
+      await waitForIframeLoad(iframe);
       
       const results = (await scanner.scan(container)).map(({ text, url }) => {
         return { text, url };
@@ -48,8 +65,8 @@ describe("frame-focusable-content", function () {
         <iframe tabindex="-1" srcdoc="<button>Click me</button>"></iframe>
       `);
       
-      const iframe = container.querySelector('iframe') || container as HTMLIFrameElement;
-      await waitForIframeLoad(iframe as HTMLIFrameElement);
+      const iframe = (container.querySelector('iframe') || container) as HTMLIFrameElement;
+      await waitForIframeLoad(iframe);
       
       const results = (await scanner.scan(container)).map(({ text, url }) => {
         return { text, url };
@@ -63,8 +80,8 @@ describe("frame-focusable-content", function () {
         <iframe tabindex="-1" srcdoc="<input type='text'>"></iframe>
       `);
       
-      const iframe = container.querySelector('iframe') || container as HTMLIFrameElement;
-      await waitForIframeLoad(iframe as HTMLIFrameElement);
+      const iframe = (container.querySelector('iframe') || container) as HTMLIFrameElement;
+      await waitForIframeLoad(iframe);
       
       const results = (await scanner.scan(container)).map(({ text, url }) => {
         return { text, url };
@@ -78,8 +95,8 @@ describe("frame-focusable-content", function () {
         <iframe tabindex="-1" srcdoc="<select><option>Option</option></select>"></iframe>
       `);
       
-      const iframe = container.querySelector('iframe') || container as HTMLIFrameElement;
-      await waitForIframeLoad(iframe as HTMLIFrameElement);
+      const iframe = (container.querySelector('iframe') || container) as HTMLIFrameElement;
+      await waitForIframeLoad(iframe);
       
       const results = (await scanner.scan(container)).map(({ text, url }) => {
         return { text, url };
@@ -93,8 +110,8 @@ describe("frame-focusable-content", function () {
         <iframe tabindex="-1" srcdoc="<textarea></textarea>"></iframe>
       `);
       
-      const iframe = container.querySelector('iframe') || container as HTMLIFrameElement;
-      await waitForIframeLoad(iframe as HTMLIFrameElement);
+      const iframe = (container.querySelector('iframe') || container) as HTMLIFrameElement;
+      await waitForIframeLoad(iframe);
       
       const results = (await scanner.scan(container)).map(({ text, url }) => {
         return { text, url };
@@ -108,8 +125,8 @@ describe("frame-focusable-content", function () {
         <iframe tabindex="-1" srcdoc="<div tabindex='0'>Focusable div</div>"></iframe>
       `);
       
-      const iframe = container.querySelector('iframe') || container as HTMLIFrameElement;
-      await waitForIframeLoad(iframe as HTMLIFrameElement);
+      const iframe = (container.querySelector('iframe') || container) as HTMLIFrameElement;
+      await waitForIframeLoad(iframe);
       
       const results = (await scanner.scan(container)).map(({ text, url }) => {
         return { text, url };
@@ -125,8 +142,8 @@ describe("frame-focusable-content", function () {
         <iframe srcdoc="<a href='#'>Link</a>"></iframe>
       `);
       
-      const iframe = container.querySelector('iframe') || container as HTMLIFrameElement;
-      await waitForIframeLoad(iframe as HTMLIFrameElement);
+      const iframe = (container.querySelector('iframe') || container) as HTMLIFrameElement;
+      await waitForIframeLoad(iframe);
       
       const results = (await scanner.scan(container)).map(({ text, url }) => {
         return { text, url };
@@ -140,8 +157,8 @@ describe("frame-focusable-content", function () {
         <iframe tabindex="0" srcdoc="<a href='#'>Link</a>"></iframe>
       `);
       
-      const iframe = container.querySelector('iframe') || container as HTMLIFrameElement;
-      await waitForIframeLoad(iframe as HTMLIFrameElement);
+      const iframe = (container.querySelector('iframe') || container) as HTMLIFrameElement;
+      await waitForIframeLoad(iframe);
       
       const results = (await scanner.scan(container)).map(({ text, url }) => {
         return { text, url };
@@ -155,8 +172,8 @@ describe("frame-focusable-content", function () {
         <iframe tabindex="-1" srcdoc="<p>Just text</p>"></iframe>
       `);
       
-      const iframe = container.querySelector('iframe') || container as HTMLIFrameElement;
-      await waitForIframeLoad(iframe as HTMLIFrameElement);
+      const iframe = (container.querySelector('iframe') || container) as HTMLIFrameElement;
+      await waitForIframeLoad(iframe);
       
       const results = (await scanner.scan(container)).map(({ text, url }) => {
         return { text, url };
@@ -170,8 +187,8 @@ describe("frame-focusable-content", function () {
         <iframe tabindex="-1" srcdoc="<a href='#' tabindex='-1'>Link</a>"></iframe>
       `);
       
-      const iframe = container.querySelector('iframe') || container as HTMLIFrameElement;
-      await waitForIframeLoad(iframe as HTMLIFrameElement);
+      const iframe = (container.querySelector('iframe') || container) as HTMLIFrameElement;
+      await waitForIframeLoad(iframe);
       
       const results = (await scanner.scan(container)).map(({ text, url }) => {
         return { text, url };
@@ -185,8 +202,8 @@ describe("frame-focusable-content", function () {
         <iframe tabindex="-1" srcdoc="<button disabled>Click me</button>"></iframe>
       `);
       
-      const iframe = container.querySelector('iframe') || container as HTMLIFrameElement;
-      await waitForIframeLoad(iframe as HTMLIFrameElement);
+      const iframe = (container.querySelector('iframe') || container) as HTMLIFrameElement;
+      await waitForIframeLoad(iframe);
       
       const results = (await scanner.scan(container)).map(({ text, url }) => {
         return { text, url };
@@ -200,8 +217,8 @@ describe("frame-focusable-content", function () {
         <iframe tabindex="-1" srcdoc="<a href='#' style='display: none;'>Link</a>"></iframe>
       `);
       
-      const iframe = container.querySelector('iframe') || container as HTMLIFrameElement;
-      await waitForIframeLoad(iframe as HTMLIFrameElement);
+      const iframe = (container.querySelector('iframe') || container) as HTMLIFrameElement;
+      await waitForIframeLoad(iframe);
       
       const results = (await scanner.scan(container)).map(({ text, url }) => {
         return { text, url };

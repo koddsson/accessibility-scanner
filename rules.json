@@ -483,7 +483,7 @@
         "ACT Rules": "[23a2a8](https://act-rules.github.io/rules/23a2a8)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "scrollable-region-focusable",
         "url": "https://dequeuniversity.com/rules/axe/4.4/scrollable-region-focusable?application=RuleDescription",
         "Description": "Ensure elements that have scrollable content are accessible by keyboard",
@@ -503,7 +503,7 @@
         "ACT Rules": "[e086e5](https://act-rules.github.io/rules/e086e5)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "server-side-image-map",
         "url": "https://dequeuniversity.com/rules/axe/4.4/server-side-image-map?application=RuleDescription",
         "Description": "Ensures that server-side image maps are not used",
@@ -568,7 +568,7 @@
     "description": "",
     "rules": [
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "autocomplete-valid",
         "url": "https://dequeuniversity.com/rules/axe/4.4/autocomplete-valid?application=RuleDescription",
         "Description": "Ensure the autocomplete attribute is correct and suitable for the form field",
