@@ -97,8 +97,7 @@ describe("label-content-name-mismatch", function () {
           <button aria-labelledby="label1">Find</button>
         </div>`,
       );
-      const button = container.querySelector('button');
-      const results = await scanner.scan(button);
+      const results = await scanner.scan(container);
 
       expect(results).to.have.lengthOf(1);
     });
@@ -110,8 +109,7 @@ describe("label-content-name-mismatch", function () {
           <button aria-labelledby="label2">Find</button>
         </div>`,
       );
-      const button = container.querySelector('button');
-      const results = await scanner.scan(button);
+      const results = await scanner.scan(container);
 
       expect(results).to.be.empty;
     });
