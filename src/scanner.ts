@@ -52,7 +52,6 @@ import duplicateId from "./rules/duplicate-id";
 import duplicateIdActive from "./rules/duplicate-id-active";
 import duplicateIdAria from "./rules/duplicate-id-aria";
 import cssOrientationLock from "./rules/css-orientation-lock";
-import hiddenContent from "./rules/hidden-content";
 import autocompleteValid from "./rules/autocomplete-valid";
 import avoidInlineSpacing from "./rules/avoid-inline-spacing";
 import svgImgAlt from "./rules/svg-img-alt";
@@ -121,7 +120,6 @@ export const allRules: Rule[] = [
   frameFocusableContent,
   frameTitle,
   frameTitleUnique,
-  hiddenContent,
   htmlLangValid,
   htmlXmlLangMismatch,
   imageAlt,
