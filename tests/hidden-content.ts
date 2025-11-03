@@ -5,6 +5,22 @@ import hiddenContent from "../src/rules/hidden-content";
 const scanner = new Scanner([hiddenContent]);
 
 describe("hidden-content", function () {
+  it("is not included in the default scanner", async () => {
+    const defaultScanner = new Scanner();
+    const element = await fixture(html`
+      <div>
+        <p hidden>This is hidden content</p>
+      </div>
+    `);
+
+    const results = await defaultScanner.scan(element);
+    // Should not return errors for hidden content when using default scanner
+    const hiddenContentErrors = results.filter(
+      (r) => r.url === "https://dequeuniversity.com/rules/axe/4.4/hidden-content?application=RuleDescription"
+    );
+    expect(hiddenContentErrors).to.be.empty;
+  });
+
   it("returns errors for elements with hidden attribute", async () => {
     const element = await fixture(html`
       <div>
