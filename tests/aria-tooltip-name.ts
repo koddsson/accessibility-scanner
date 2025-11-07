@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
 import { Scanner } from "../src/scanner";
-import { ariaTooltipName } from "../src/rules/aria-tooltip-name";
+import ariaTooltipName from "../src/rules/aria-tooltip-name";
 
 const scanner = new Scanner([ariaTooltipName]);
 
