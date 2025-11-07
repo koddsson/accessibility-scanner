@@ -18,9 +18,11 @@ function hasAccessibleText(element: Element): boolean {
     return element.getAttribute("aria-label")!.trim() !== "";
   }
 
-  if (!labelledByIsValid(element)) return false;
+  if (element.hasAttribute("aria-labelledby")) {
+    return labelledByIsValid(element);
+  }
 
-  if (element.getAttribute("title")) {
+  if (element.hasAttribute("title")) {
     return element.getAttribute("title")!.trim() !== "";
   }
 
@@ -28,10 +30,10 @@ function hasAccessibleText(element: Element): boolean {
     return element.textContent.trim() !== "";
   }
 
-  return true;
+  return false;
 }
 
-export function ariaTooltipName(element: Element): AccessibilityError[] {
+export default function (element: Element): AccessibilityError[] {
   const errors = [];
   const tooltips = querySelectorAll("[role=tooltip]", element);
   if (element.matches("[role=tooltip]")) tooltips.push(element);

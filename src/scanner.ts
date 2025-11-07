@@ -11,7 +11,7 @@ import ariaRequiredChildren from "./rules/aria-required-children";
 import ariaRequiredParent from "./rules/aria-required-parent";
 import ariaRoledescription from "./rules/aria-roledescription";
 import ariaToggleFieldName from "./rules/aria-toggle-field-name";
-import { ariaTooltipName } from "./rules/aria-tooltip-name";
+import ariaTooltipName from "./rules/aria-tooltip-name";
 import ariaValidAttr from "./rules/aria-valid-attr";
 import { ariaValidAttrValue } from "./rules/aria-valid-attr-value";
 import metaViewport from "./rules/meta-viewport";
