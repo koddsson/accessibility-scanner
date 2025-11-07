@@ -79,7 +79,7 @@ describe("role-img-alt", async function () {
       expect(results).to.eql([
         {
           text: 'Elements containing role="img" have an alternative text',
-          url: "https://dequeuniversity.com/rules/axe/4.4/role-img-alt?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/role-img-alt",
         },
       ]);
     });

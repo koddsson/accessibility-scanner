@@ -4,7 +4,7 @@ import { labelledByIsValid, querySelectorAll } from "../utils";
 // Metadata
 const id = "aria-meter-name";
 const text = "ARIA meter must have an accessible name";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}?application=RuleDescription`;
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 /**
  * Check if an element has an accessible name via aria-label, aria-labelledby, or title

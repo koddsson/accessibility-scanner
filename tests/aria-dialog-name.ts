@@ -83,7 +83,7 @@ describe("aria-dialog-name", function () {
     expect(results).to.eql([
       {
         text: "ARIA dialog and alertdialog nodes must have an accessible name",
-        url: "https://dequeuniversity.com/rules/axe/4.4/aria-dialog-name?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/aria-dialog-name",
       },
     ]);
   });
@@ -100,7 +100,7 @@ describe("aria-dialog-name", function () {
     expect(results).to.eql([
       {
         text: "ARIA dialog and alertdialog nodes must have an accessible name",
-        url: "https://dequeuniversity.com/rules/axe/4.4/aria-dialog-name?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/aria-dialog-name",
       },
     ]);
   });
@@ -117,7 +117,7 @@ describe("aria-dialog-name", function () {
     expect(results).to.eql([
       {
         text: "ARIA dialog and alertdialog nodes must have an accessible name",
-        url: "https://dequeuniversity.com/rules/axe/4.4/aria-dialog-name?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/aria-dialog-name",
       },
     ]);
   });
@@ -134,7 +134,7 @@ describe("aria-dialog-name", function () {
     expect(results).to.eql([
       {
         text: "ARIA dialog and alertdialog nodes must have an accessible name",
-        url: "https://dequeuniversity.com/rules/axe/4.4/aria-dialog-name?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/aria-dialog-name",
       },
     ]);
   });
@@ -151,7 +151,7 @@ describe("aria-dialog-name", function () {
     expect(results).to.eql([
       {
         text: "ARIA dialog and alertdialog nodes must have an accessible name",
-        url: "https://dequeuniversity.com/rules/axe/4.4/aria-dialog-name?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/aria-dialog-name",
       },
     ]);
   });
@@ -168,7 +168,7 @@ describe("aria-dialog-name", function () {
     expect(results).to.eql([
       {
         text: "ARIA dialog and alertdialog nodes must have an accessible name",
-        url: "https://dequeuniversity.com/rules/axe/4.4/aria-dialog-name?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/aria-dialog-name",
       },
     ]);
   });
@@ -185,7 +185,7 @@ describe("aria-dialog-name", function () {
     expect(results).to.eql([
       {
         text: "ARIA dialog and alertdialog nodes must have an accessible name",
-        url: "https://dequeuniversity.com/rules/axe/4.4/aria-dialog-name?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/aria-dialog-name",
       },
     ]);
   });
@@ -202,7 +202,7 @@ describe("aria-dialog-name", function () {
     expect(results).to.eql([
       {
         text: "ARIA dialog and alertdialog nodes must have an accessible name",
-        url: "https://dequeuniversity.com/rules/axe/4.4/aria-dialog-name?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/aria-dialog-name",
       },
     ]);
   });
@@ -233,11 +233,11 @@ describe("aria-dialog-name", function () {
     expect(results).to.have.lengthOf(2);
     expect(results[0]).to.eql({
       text: "ARIA dialog and alertdialog nodes must have an accessible name",
-      url: "https://dequeuniversity.com/rules/axe/4.4/aria-dialog-name?application=RuleDescription",
+      url: "https://dequeuniversity.com/rules/axe/4.4/aria-dialog-name",
     });
     expect(results[1]).to.eql({
       text: "ARIA dialog and alertdialog nodes must have an accessible name",
-      url: "https://dequeuniversity.com/rules/axe/4.4/aria-dialog-name?application=RuleDescription",
+      url: "https://dequeuniversity.com/rules/axe/4.4/aria-dialog-name",
     });
   });
 
@@ -255,7 +255,7 @@ describe("aria-dialog-name", function () {
     expect(results).to.have.lengthOf(1);
     expect(results[0]).to.eql({
       text: "ARIA dialog and alertdialog nodes must have an accessible name",
-      url: "https://dequeuniversity.com/rules/axe/4.4/aria-dialog-name?application=RuleDescription",
+      url: "https://dequeuniversity.com/rules/axe/4.4/aria-dialog-name",
     });
   });
 });

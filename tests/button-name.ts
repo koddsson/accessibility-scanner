@@ -15,7 +15,7 @@ describe("button-name", function () {
       expect(results).to.eql([
         {
           text: "Buttons must have discernible text",
-          url: "https://dequeuniversity.com/rules/axe/4.4/button-name?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/button-name",
         },
       ]);
     });
@@ -42,7 +42,7 @@ describe("button-name", function () {
       expect(results).to.eql([
         {
           text: "Buttons must have discernible text",
-          url: "https://dequeuniversity.com/rules/axe/4.4/button-name?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/button-name",
         },
       ]);
     });
@@ -58,7 +58,7 @@ describe("button-name", function () {
       expect(results).to.eql([
         {
           text: "Buttons must have discernible text",
-          url: "https://dequeuniversity.com/rules/axe/4.4/button-name?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/button-name",
         },
       ]);
     });
@@ -74,7 +74,7 @@ describe("button-name", function () {
       expect(results).to.eql([
         {
           text: "Buttons must have discernible text",
-          url: "https://dequeuniversity.com/rules/axe/4.4/button-name?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/button-name",
         },
       ]);
     });
@@ -94,7 +94,7 @@ describe("button-name", function () {
       expect(results).to.eql([
         {
           text: "Buttons must have discernible text",
-          url: "https://dequeuniversity.com/rules/axe/4.4/button-name?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/button-name",
         },
       ]);
     });
@@ -116,19 +116,19 @@ describe("button-name", function () {
       expect(results).to.eql([
         {
           text: "Buttons must have discernible text",
-          url: "https://dequeuniversity.com/rules/axe/4.4/button-name?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/button-name",
         },
         {
           text: "Buttons must have discernible text",
-          url: "https://dequeuniversity.com/rules/axe/4.4/button-name?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/button-name",
         },
         {
           text: "Buttons must have discernible text",
-          url: "https://dequeuniversity.com/rules/axe/4.4/button-name?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/button-name",
         },
         {
           text: "Buttons must have discernible text",
-          url: "https://dequeuniversity.com/rules/axe/4.4/button-name?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/button-name",
         },
       ]);
     });

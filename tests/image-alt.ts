@@ -139,7 +139,7 @@ describe("image-alt", async function () {
       expect(results).to.eql([
         {
           text: "Images must have alternate text",
-          url: "https://dequeuniversity.com/rules/axe/4.4/image-alt?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/image-alt",
         },
       ]);
     });

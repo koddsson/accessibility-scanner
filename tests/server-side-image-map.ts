@@ -19,7 +19,7 @@ describe("server-side-image-map", function () {
     expect(results).to.eql([
       {
         text: "Ensures that server-side image maps are not used",
-        url: "https://dequeuniversity.com/rules/axe/4.4/server-side-image-map?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/server-side-image-map",
       },
     ]);
   });
@@ -34,7 +34,7 @@ describe("server-side-image-map", function () {
     expect(results).to.eql([
       {
         text: "Ensures that server-side image maps are not used",
-        url: "https://dequeuniversity.com/rules/axe/4.4/server-side-image-map?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/server-side-image-map",
       },
     ]);
   });
@@ -58,11 +58,11 @@ describe("server-side-image-map", function () {
     expect(results).to.have.lengthOf(2);
     expect(results[0]).to.eql({
       text: "Ensures that server-side image maps are not used",
-      url: "https://dequeuniversity.com/rules/axe/4.4/server-side-image-map?application=RuleDescription",
+      url: "https://dequeuniversity.com/rules/axe/4.4/server-side-image-map",
     });
     expect(results[1]).to.eql({
       text: "Ensures that server-side image maps are not used",
-      url: "https://dequeuniversity.com/rules/axe/4.4/server-side-image-map?application=RuleDescription",
+      url: "https://dequeuniversity.com/rules/axe/4.4/server-side-image-map",
     });
   });
 
@@ -132,7 +132,7 @@ describe("server-side-image-map", function () {
     expect(results).to.eql([
       {
         text: "Ensures that server-side image maps are not used",
-        url: "https://dequeuniversity.com/rules/axe/4.4/server-side-image-map?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/server-side-image-map",
       },
     ]);
   });

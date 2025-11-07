@@ -88,7 +88,7 @@ describe("input-image-alt", async function () {
       expect(results).to.eql([
         {
           "text": "Image buttons must have alternate text",
-          "url": "https://dequeuniversity.com/rules/axe/4.4/input-image-alt?application=RuleDescription"
+          "url": "https://dequeuniversity.com/rules/axe/4.4/input-image-alt"
         },
       ]);
     });

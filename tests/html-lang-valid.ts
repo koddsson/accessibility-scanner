@@ -19,7 +19,7 @@ describe("html-lang-valid", function () {
       expect(results).to.eql([
         {
           text: "The lang attribute of the <html> element must have a valid value",
-          url: "https://dequeuniversity.com/rules/axe/4.4/html-lang-valid?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/html-lang-valid",
         },
       ]);
     });
@@ -39,7 +39,7 @@ describe("html-lang-valid", function () {
       expect(results).to.eql([
         {
           text: "The lang attribute of the <html> element must have a valid value",
-          url: "https://dequeuniversity.com/rules/axe/4.4/html-lang-valid?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/html-lang-valid",
         },
       ]);
     });
@@ -59,7 +59,7 @@ describe("html-lang-valid", function () {
       expect(results).to.eql([
         {
           text: "The lang attribute of the <html> element must have a valid value",
-          url: "https://dequeuniversity.com/rules/axe/4.4/html-lang-valid?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/html-lang-valid",
         },
       ]);
     });

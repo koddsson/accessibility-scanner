@@ -17,7 +17,7 @@ describe("meta-refresh", function () {
     expect(results).to.eql([
       {
         text: "Timed refresh must not exist",
-        url: "https://dequeuniversity.com/rules/axe/4.4/meta-refresh?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/meta-refresh",
       },
     ]);
   });

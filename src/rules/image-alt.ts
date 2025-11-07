@@ -3,8 +3,7 @@ import { querySelectorAll, labelledByIsValid } from "../utils";
 
 const id = "image-alt";
 const text = "Images must have alternate text";
-const url =
-  "https://dequeuniversity.com/rules/axe/4.4/image-alt?application=RuleDescription";
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 export default function (element: Element): AccessibilityError[] {
   const errors = [];

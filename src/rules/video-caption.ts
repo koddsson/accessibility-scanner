@@ -3,8 +3,7 @@ import { AccessibilityError } from "../scanner";
 
 const id = "video-caption";
 const text = "<video> elements must have a <track> for captions";
-const url =
-  "https://dequeuniversity.com/rules/axe/4.4/video-caption?application=RuleDescription";
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 export default function (element: Element): AccessibilityError[] {
   const errors = [];

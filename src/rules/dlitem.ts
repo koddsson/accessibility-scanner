@@ -3,8 +3,7 @@ import { querySelectorAll } from "../utils";
 
 const id = "dlitem";
 const text = "Ensures <dt> and <dd> elements are contained by a <dl>";
-const url =
-  "https://dequeuniversity.com/rules/axe/4.4/dlitem?application=RuleDescription";
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 function hasValidDefinitionListParent(element: Element): boolean {
   let parent = element.parentElement;

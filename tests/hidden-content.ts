@@ -16,7 +16,7 @@ describe("hidden-content", function () {
     const results = await defaultScanner.scan(element);
     // Should not return errors for hidden content when using default scanner
     const hiddenContentErrors = results.filter(
-      (r) => r.url === "https://dequeuniversity.com/rules/axe/4.4/hidden-content?application=RuleDescription"
+      (r) => r.url === "https://dequeuniversity.com/rules/axe/4.4/hidden-content"
     );
     expect(hiddenContentErrors).to.be.empty;
   });
@@ -35,7 +35,7 @@ describe("hidden-content", function () {
     expect(results).to.have.lengthOf(1);
     expect(results[0]).to.eql({
       text: "Informs users about hidden content.",
-      url: "https://dequeuniversity.com/rules/axe/4.4/hidden-content?application=RuleDescription",
+      url: "https://dequeuniversity.com/rules/axe/4.4/hidden-content",
     });
   });
 
@@ -53,7 +53,7 @@ describe("hidden-content", function () {
     expect(results).to.have.lengthOf(1);
     expect(results[0]).to.eql({
       text: "Informs users about hidden content.",
-      url: "https://dequeuniversity.com/rules/axe/4.4/hidden-content?application=RuleDescription",
+      url: "https://dequeuniversity.com/rules/axe/4.4/hidden-content",
     });
   });
 
@@ -71,7 +71,7 @@ describe("hidden-content", function () {
     expect(results).to.have.lengthOf(1);
     expect(results[0]).to.eql({
       text: "Informs users about hidden content.",
-      url: "https://dequeuniversity.com/rules/axe/4.4/hidden-content?application=RuleDescription",
+      url: "https://dequeuniversity.com/rules/axe/4.4/hidden-content",
     });
   });
 
@@ -89,7 +89,7 @@ describe("hidden-content", function () {
     expect(results).to.have.lengthOf(1);
     expect(results[0]).to.eql({
       text: "Informs users about hidden content.",
-      url: "https://dequeuniversity.com/rules/axe/4.4/hidden-content?application=RuleDescription",
+      url: "https://dequeuniversity.com/rules/axe/4.4/hidden-content",
     });
   });
 
@@ -184,7 +184,7 @@ describe("hidden-content", function () {
     expect(results).to.have.lengthOf(1);
     expect(results[0]).to.eql({
       text: "Informs users about hidden content.",
-      url: "https://dequeuniversity.com/rules/axe/4.4/hidden-content?application=RuleDescription",
+      url: "https://dequeuniversity.com/rules/axe/4.4/hidden-content",
     });
   });
 
@@ -204,7 +204,7 @@ describe("hidden-content", function () {
     expect(results).to.have.lengthOf(1);
     expect(results[0]).to.eql({
       text: "Informs users about hidden content.",
-      url: "https://dequeuniversity.com/rules/axe/4.4/hidden-content?application=RuleDescription",
+      url: "https://dequeuniversity.com/rules/axe/4.4/hidden-content",
     });
   });
 });

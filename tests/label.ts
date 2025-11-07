@@ -42,31 +42,31 @@ describe("select-name", function () {
     expect(results).to.eql([
       {
         text: "Form <input> elements must have labels",
-        url: "https://dequeuniversity.com/rules/axe/4.4/label?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/label",
       },
       {
         text: "Form <input> elements must have labels",
-        url: "https://dequeuniversity.com/rules/axe/4.4/label?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/label",
       },
       {
         text: "Form <input> elements must have labels",
-        url: "https://dequeuniversity.com/rules/axe/4.4/label?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/label",
       },
       {
         text: "Form <input> elements must have labels",
-        url: "https://dequeuniversity.com/rules/axe/4.4/label?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/label",
       },
       {
         text: "Form <input> elements must have labels",
-        url: "https://dequeuniversity.com/rules/axe/4.4/label?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/label",
       },
       {
         text: "Form <input> elements must have labels",
-        url: "https://dequeuniversity.com/rules/axe/4.4/label?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/label",
       },
       {
         text: "Form <input> elements must have labels",
-        url: "https://dequeuniversity.com/rules/axe/4.4/label?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/label",
       },
     ]);
   });
@@ -89,7 +89,7 @@ describe("select-name", function () {
     expect(results).to.eql([
       {
         text: "Form <input> elements must have labels",
-        url: "https://dequeuniversity.com/rules/axe/4.4/label?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/label",
       },
     ]);
   });
@@ -116,7 +116,7 @@ describe("select-name", function () {
     expect(results).to.eql([
       {
         text: "Form <input> elements must have labels",
-        url: "https://dequeuniversity.com/rules/axe/4.4/label?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/label",
       },
     ]);
   });
@@ -143,7 +143,7 @@ describe("select-name", function () {
     expect(results).to.eql([
       {
         text: "Form <input> elements must have labels",
-        url: "https://dequeuniversity.com/rules/axe/4.4/label?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/label",
       },
     ]);
   });

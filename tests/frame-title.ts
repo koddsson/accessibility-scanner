@@ -17,7 +17,7 @@ describe("frame-title", function () {
       expect(results).to.eql([
         {
           text: "Frames must have an accessible name",
-          url: "https://dequeuniversity.com/rules/axe/4.4/frame-title?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/frame-title",
         },
       ]);
     });
@@ -33,7 +33,7 @@ describe("frame-title", function () {
       expect(results).to.eql([
         {
           text: "Frames must have an accessible name",
-          url: "https://dequeuniversity.com/rules/axe/4.4/frame-title?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/frame-title",
         },
       ]);
     });
@@ -49,7 +49,7 @@ describe("frame-title", function () {
       expect(results).to.eql([
         {
           text: "Frames must have an accessible name",
-          url: "https://dequeuniversity.com/rules/axe/4.4/frame-title?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/frame-title",
         },
       ]);
     });
@@ -72,7 +72,7 @@ describe("frame-title", function () {
       expect(results).to.eql([
         {
           text: "Frames must have an accessible name",
-          url: "https://dequeuniversity.com/rules/axe/4.4/frame-title?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/frame-title",
         },
       ]);
     });
@@ -91,7 +91,7 @@ describe("frame-title", function () {
       expect(results).to.eql([
         {
           text: "Frames must have an accessible name",
-          url: "https://dequeuniversity.com/rules/axe/4.4/frame-title?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/frame-title",
         },
       ]);
     });
@@ -114,7 +114,7 @@ describe("frame-title", function () {
       expect(results).to.eql([
         {
           text: "Frames must have an accessible name",
-          url: "https://dequeuniversity.com/rules/axe/4.4/frame-title?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/frame-title",
         },
       ]);
     });

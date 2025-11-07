@@ -20,7 +20,7 @@ describe("listitem", function () {
       expect(results).to.eql([
         {
           text: "Ensures <li> elements are used semantically",
-          url: "https://dequeuniversity.com/rules/axe/4.4/listitem?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/listitem",
         },
       ]);
     });
@@ -35,7 +35,7 @@ describe("listitem", function () {
       expect(results).to.eql([
         {
           text: "Ensures <li> elements are used semantically",
-          url: "https://dequeuniversity.com/rules/axe/4.4/listitem?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/listitem",
         },
       ]);
     });
@@ -54,7 +54,7 @@ describe("listitem", function () {
       expect(results).to.eql([
         {
           text: "Ensures <li> elements are used semantically",
-          url: "https://dequeuniversity.com/rules/axe/4.4/listitem?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/listitem",
         },
       ]);
     });
@@ -74,11 +74,11 @@ describe("listitem", function () {
       expect(results).to.eql([
         {
           text: "Ensures <li> elements are used semantically",
-          url: "https://dequeuniversity.com/rules/axe/4.4/listitem?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/listitem",
         },
         {
           text: "Ensures <li> elements are used semantically",
-          url: "https://dequeuniversity.com/rules/axe/4.4/listitem?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/listitem",
         },
       ]);
     });

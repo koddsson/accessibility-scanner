@@ -3,8 +3,7 @@ import { querySelectorAll } from "../utils";
 
 const id = "definition-list";
 const text = "Ensures <dl> elements are structured correctly";
-const url =
-  "https://dequeuniversity.com/rules/axe/4.4/definition-list?application=RuleDescription";
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 export default function (element: Element): AccessibilityError[] {
   const errors: AccessibilityError[] = [];

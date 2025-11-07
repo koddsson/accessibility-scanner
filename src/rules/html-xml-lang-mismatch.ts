@@ -3,7 +3,7 @@ import { AccessibilityError } from "../scanner";
 const id = "html-xml-lang-mismatch";
 const text =
   "Ensure that HTML elements with both valid lang and xml:lang attributes agree on the base language of the page";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}?application=RuleDescription`;
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 /**
  * Extract the primary language subtag (the part before the first hyphen)

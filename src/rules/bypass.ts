@@ -3,8 +3,7 @@ import { querySelectorAll, hasAccessibleText } from "../utils";
 
 const id = "bypass";
 const text = "Page must have means to bypass repeated blocks";
-const url =
-  "https://dequeuniversity.com/rules/axe/4.4/bypass?application=RuleDescription";
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 /**
  * Checks if the page has at least one mechanism to bypass navigation.

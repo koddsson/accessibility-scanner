@@ -21,11 +21,11 @@ describe("accesskeys", function () {
       expect(results).to.have.lengthOf(2);
       expect(results[0]).to.eql({
         text: "Ensures every accesskey attribute value is unique",
-        url: "https://dequeuniversity.com/rules/axe/4.4/accesskeys?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/accesskeys",
       });
       expect(results[1]).to.eql({
         text: "Ensures every accesskey attribute value is unique",
-        url: "https://dequeuniversity.com/rules/axe/4.4/accesskeys?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/accesskeys",
       });
     });
 

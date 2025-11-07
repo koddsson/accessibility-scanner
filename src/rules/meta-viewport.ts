@@ -1,7 +1,6 @@
 const id = "meta-viewport";
 const text = "Zooming and scaling must not be disabled";
-const url =
-  "https://dequeuniversity.com/rules/axe/4.4/meta-viewport?application=RuleDescription";
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 function parseContent(content: string): Record<string, string> {
   const object: Record<string, string> = {};

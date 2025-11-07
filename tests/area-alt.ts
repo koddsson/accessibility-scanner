@@ -21,7 +21,7 @@ describe("area-alt", function () {
     expect(results).to.eql([
       {
         text: "Elements must only use allowed ARIA attributes",
-        url: "https://dequeuniversity.com/rules/axe/4.4/area-alt?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/area-alt",
       },
     ]);
   });
@@ -79,7 +79,7 @@ describe("area-alt", function () {
     expect(results).to.eql([
       {
         text: "Elements must only use allowed ARIA attributes",
-        url: "https://dequeuniversity.com/rules/axe/4.4/area-alt?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/area-alt",
       },
     ]);
   });
@@ -100,7 +100,7 @@ describe("area-alt", function () {
     expect(results).to.eql([
       {
         text: "Elements must only use allowed ARIA attributes",
-        url: "https://dequeuniversity.com/rules/axe/4.4/area-alt?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/area-alt",
       },
     ]);
   });
@@ -121,7 +121,7 @@ describe("area-alt", function () {
     expect(results).to.eql([
       {
         text: "Elements must only use allowed ARIA attributes",
-        url: "https://dequeuniversity.com/rules/axe/4.4/area-alt?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/area-alt",
       },
     ]);
   });
@@ -162,7 +162,7 @@ describe("area-alt", function () {
     expect(results).to.eql([
       {
         text: "Elements must only use allowed ARIA attributes",
-        url: "https://dequeuniversity.com/rules/axe/4.4/area-alt?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/area-alt",
       },
     ]);
   });

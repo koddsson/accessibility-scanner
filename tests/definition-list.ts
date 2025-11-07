@@ -22,7 +22,7 @@ describe("definition-list", function () {
       expect(results).to.eql([
         {
           text: "Ensures <dl> elements are structured correctly",
-          url: "https://dequeuniversity.com/rules/axe/4.4/definition-list?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/definition-list",
         },
       ]);
     });
@@ -43,7 +43,7 @@ describe("definition-list", function () {
       expect(results).to.eql([
         {
           text: "Ensures <dl> elements are structured correctly",
-          url: "https://dequeuniversity.com/rules/axe/4.4/definition-list?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/definition-list",
         },
       ]);
     });
@@ -65,11 +65,11 @@ describe("definition-list", function () {
       expect(results).to.eql([
         {
           text: "Ensures <dl> elements are structured correctly",
-          url: "https://dequeuniversity.com/rules/axe/4.4/definition-list?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/definition-list",
         },
         {
           text: "Ensures <dl> elements are structured correctly",
-          url: "https://dequeuniversity.com/rules/axe/4.4/definition-list?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/definition-list",
         },
       ]);
     });
@@ -92,7 +92,7 @@ describe("definition-list", function () {
       expect(results).to.eql([
         {
           text: "Ensures <dl> elements are structured correctly",
-          url: "https://dequeuniversity.com/rules/axe/4.4/definition-list?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/definition-list",
         },
       ]);
     });

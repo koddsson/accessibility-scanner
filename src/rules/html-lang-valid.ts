@@ -2,7 +2,7 @@ import { AccessibilityError } from "../scanner";
 
 const id = "html-lang-valid";
 const text = "The lang attribute of the <html> element must have a valid value";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}?application=RuleDescription`;
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 function langIsValid(locale: string): boolean {
   try {

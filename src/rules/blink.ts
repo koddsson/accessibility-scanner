@@ -2,8 +2,7 @@ import { AccessibilityError } from "../scanner";
 
 const id = "blink";
 const text = "Ensure <blink> elements are not used";
-const url =
-  "https://dequeuniversity.com/rules/axe/4.4/blink?application=RuleDescription";
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 export default function (element: Element): AccessibilityError[] {
   const errors = [];

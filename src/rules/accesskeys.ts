@@ -2,8 +2,7 @@ import { AccessibilityError } from "../scanner";
 
 const id = "accesskeys";
 const text = "Ensures every accesskey attribute value is unique";
-const url =
-  "https://dequeuniversity.com/rules/axe/4.4/accesskeys?application=RuleDescription";
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 export default function (element: Element): AccessibilityError[] {
   const errors: AccessibilityError[] = [];

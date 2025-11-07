@@ -8,8 +8,7 @@ import {
 
 const id = "select-name";
 const text = "select element must have an accessible name";
-const url =
-  "https://dequeuniversity.com/rules/axe/4.4/select-name?application=RuleDescription";
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 export default function (element: Element): AccessibilityError[] {
   const errors = [];

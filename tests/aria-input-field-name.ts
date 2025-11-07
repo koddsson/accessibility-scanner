@@ -93,7 +93,7 @@ describe("aria-input-field-name", function () {
     expect(results).to.eql([
       {
         text: "ARIA input fields must have an accessible name",
-        url: "https://dequeuniversity.com/rules/axe/4.4/aria-input-field-name?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/aria-input-field-name",
       },
     ]);
   });
@@ -110,7 +110,7 @@ describe("aria-input-field-name", function () {
     expect(results).to.eql([
       {
         text: "ARIA input fields must have an accessible name",
-        url: "https://dequeuniversity.com/rules/axe/4.4/aria-input-field-name?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/aria-input-field-name",
       },
     ]);
   });
@@ -128,7 +128,7 @@ describe("aria-input-field-name", function () {
     expect(results).to.eql([
       {
         text: "ARIA input fields must have an accessible name",
-        url: "https://dequeuniversity.com/rules/axe/4.4/aria-input-field-name?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/aria-input-field-name",
       },
     ]);
   });
@@ -143,7 +143,7 @@ describe("aria-input-field-name", function () {
     expect(results).to.eql([
       {
         text: "ARIA input fields must have an accessible name",
-        url: "https://dequeuniversity.com/rules/axe/4.4/aria-input-field-name?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/aria-input-field-name",
       },
     ]);
   });
@@ -164,7 +164,7 @@ describe("aria-input-field-name", function () {
     expect(results).to.eql([
       {
         text: "ARIA input fields must have an accessible name",
-        url: "https://dequeuniversity.com/rules/axe/4.4/aria-input-field-name?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/aria-input-field-name",
       },
     ]);
   });

@@ -6,7 +6,7 @@ const scanner = new Scanner([frameFocusableContent]);
 
 const expectedError = {
   text: "Frames with focusable content must not have tabindex=-1",
-  url: "https://dequeuniversity.com/rules/axe/4.4/frame-focusable-content?application=RuleDescription",
+  url: "https://dequeuniversity.com/rules/axe/4.4/frame-focusable-content",
 };
 
 // Helper to wait for iframe to be fully loaded with polling

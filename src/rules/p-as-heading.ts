@@ -4,8 +4,7 @@ import { querySelectorAll } from "../utils";
 const id = "p-as-heading";
 const text =
   "Ensure bold, italic text and font-size is not used to style <p> elements as a heading";
-const url =
-  "https://dequeuniversity.com/rules/axe/4.4/p-as-heading?application=RuleDescription";
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 /**
  * Check if an element is styled like a heading (bold or italic with larger font size)

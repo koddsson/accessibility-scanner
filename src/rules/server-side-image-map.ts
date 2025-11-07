@@ -2,8 +2,7 @@ import { AccessibilityError } from "../scanner";
 
 const id = "server-side-image-map";
 const text = "Ensures that server-side image maps are not used";
-const url =
-  "https://dequeuniversity.com/rules/axe/4.4/server-side-image-map?application=RuleDescription";
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 export default function (element: Element): AccessibilityError[] {
   const errors: AccessibilityError[] = [];

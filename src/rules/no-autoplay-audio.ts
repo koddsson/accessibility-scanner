@@ -4,7 +4,7 @@ import { AccessibilityError } from "../scanner";
 const id = "no-autoplay-audio";
 const text =
   "Ensures <video> or <audio> elements do not autoplay audio for more than 3 seconds without a control mechanism to stop or mute the audio";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}?application=RuleDescription`;
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 const MAX_ALLOWED_DURATION_SECONDS = 3;
 
 function hasAutoplayViolation(

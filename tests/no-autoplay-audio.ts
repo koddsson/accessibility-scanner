@@ -14,7 +14,7 @@ describe("no-autoplay-audio", function () {
     expect(results).to.eql([
       {
         text: "Ensures <video> or <audio> elements do not autoplay audio for more than 3 seconds without a control mechanism to stop or mute the audio",
-        url: "https://dequeuniversity.com/rules/axe/4.4/no-autoplay-audio?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/no-autoplay-audio",
       },
     ]);
   });
@@ -57,7 +57,7 @@ describe("no-autoplay-audio", function () {
     expect(results).to.eql([
       {
         text: "Ensures <video> or <audio> elements do not autoplay audio for more than 3 seconds without a control mechanism to stop or mute the audio",
-        url: "https://dequeuniversity.com/rules/axe/4.4/no-autoplay-audio?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/no-autoplay-audio",
       },
     ]);
   });
@@ -105,7 +105,7 @@ describe("no-autoplay-audio", function () {
     expect(results).to.have.lengthOf(2);
     expect(results[0]).to.eql({
       text: "Ensures <video> or <audio> elements do not autoplay audio for more than 3 seconds without a control mechanism to stop or mute the audio",
-      url: "https://dequeuniversity.com/rules/axe/4.4/no-autoplay-audio?application=RuleDescription",
+      url: "https://dequeuniversity.com/rules/axe/4.4/no-autoplay-audio",
     });
   });
 
@@ -138,7 +138,7 @@ describe("no-autoplay-audio", function () {
     expect(results).to.have.lengthOf(1);
     expect(results[0]).to.eql({
       text: "Ensures <video> or <audio> elements do not autoplay audio for more than 3 seconds without a control mechanism to stop or mute the audio",
-      url: "https://dequeuniversity.com/rules/axe/4.4/no-autoplay-audio?application=RuleDescription",
+      url: "https://dequeuniversity.com/rules/axe/4.4/no-autoplay-audio",
     });
   });
 

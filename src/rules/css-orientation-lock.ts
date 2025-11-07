@@ -3,8 +3,7 @@ import { AccessibilityError } from "../scanner";
 const id = "css-orientation-lock";
 const text =
   "Ensures content is not locked to any specific display orientation, and the content is operable in all display orientations";
-const url =
-  "https://dequeuniversity.com/rules/axe/4.4/css-orientation-lock?application=RuleDescription";
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 /**
  * Checks if a CSS rule contains transform rotations that lock orientation
