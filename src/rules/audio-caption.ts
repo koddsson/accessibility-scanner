@@ -14,6 +14,7 @@ export default function (element: Element): AccessibilityError[] {
   for (const element of elements) {
     if (querySelector('track[kind="captions"]', element)) continue;
     errors.push({
+      id,
       element,
       text,
       url,

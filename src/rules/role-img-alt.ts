@@ -1,6 +1,7 @@
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll, labelledByIsValid } from "../utils";
 
+const id = "role-img-alt";
 const text = 'Elements containing role="img" have an alternative text';
 const url =
   "https://dequeuniversity.com/rules/axe/4.4/role-img-alt?application=RuleDescription";
@@ -30,6 +31,7 @@ export default function (element: Element): AccessibilityError[] {
       continue;
 
     errors.push({
+      id,
       element,
       text,
       url,

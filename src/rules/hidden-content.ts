@@ -1,5 +1,6 @@
 import { AccessibilityError } from "../scanner";
 
+const id = "hidden-content";
 const text = "Informs users about hidden content.";
 const url =
   "https://dequeuniversity.com/rules/axe/4.4/hidden-content?application=RuleDescription";
@@ -27,6 +28,7 @@ export default function hiddenContent(element: Element): AccessibilityError[] {
         hasVisibilityHidden
       ) {
         errors.push({
+          id,
           element: el,
           text,
           url,
@@ -35,6 +37,7 @@ export default function hiddenContent(element: Element): AccessibilityError[] {
     } else if (hasAriaHidden) {
       // For non-HTML elements (like SVG), only check aria-hidden
       errors.push({
+        id,
         element: el,
         text,
         url,

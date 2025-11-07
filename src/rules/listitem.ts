@@ -1,6 +1,7 @@
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll } from "../utils";
 
+const id = "listitem";
 const text = "Ensures <li> elements are used semantically";
 const url =
   "https://dequeuniversity.com/rules/axe/4.4/listitem?application=RuleDescription";
@@ -37,6 +38,7 @@ export default function (element: Element): AccessibilityError[] {
   for (const listItem of listItems) {
     if (!hasValidListParent(listItem)) {
       errors.push({
+        id,
         element: listItem,
         text,
         url,
@@ -53,6 +55,7 @@ export default function (element: Element): AccessibilityError[] {
   for (const listItem of ariaListItems) {
     if (!hasValidListParent(listItem)) {
       errors.push({
+        id,
         element: listItem,
         text,
         url,

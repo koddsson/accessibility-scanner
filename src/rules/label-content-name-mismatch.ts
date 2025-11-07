@@ -1,6 +1,7 @@
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll } from "../utils";
 
+const id = "label-content-name-mismatch";
 const text =
   "Ensures that elements labelled through their content must have their visible text as part of their accessible name";
 const url =
@@ -103,6 +104,7 @@ export default function (element: Element): AccessibilityError[] {
     // Check if visible text is part of accessible name
     if (!isTextPartOfAccessibleName(visibleText, accessibleName)) {
       errors.push({
+        id,
         element: el,
         text,
         url,

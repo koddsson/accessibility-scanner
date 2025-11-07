@@ -38,6 +38,7 @@ export function ariaTooltipName(element: Element): AccessibilityError[] {
   for (const tooltip of tooltips) {
     if (!hasAccessibleText(tooltip)) {
       errors.push({
+        id,
         element: tooltip,
         url,
         text,

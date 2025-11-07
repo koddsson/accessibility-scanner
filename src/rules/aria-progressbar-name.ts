@@ -43,6 +43,7 @@ export default function (element: Element): AccessibilityError[] {
   for (const el of elements) {
     if (!hasAccessibleName(el)) {
       errors.push({
+        id,
         element: el,
         url,
         text,

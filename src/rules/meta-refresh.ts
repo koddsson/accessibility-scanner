@@ -1,5 +1,6 @@
 import { AccessibilityError } from "../scanner";
 
+const id = "meta-refresh";
 const text = "Timed refresh must not exist";
 const url =
   "https://dequeuniversity.com/rules/axe/4.4/meta-refresh?application=RuleDescription";
@@ -13,6 +14,7 @@ export default function (element: Element): AccessibilityError[] {
   for (const element of elements) {
     if (element.httpEquiv === "refresh") {
       errors.push({
+        id,
         element,
         text,
         url,

@@ -140,6 +140,7 @@ export default function ariaRequiredParent(
 
     if (!hasValidParent) {
       errors.push({
+        id,
         element: el,
         text,
         url,

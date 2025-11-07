@@ -55,6 +55,7 @@ export default function (element: Element): AccessibilityError[] {
     const el = audioElement as HTMLAudioElement;
     if (hasAutoplayViolation(el)) {
       errors.push({
+        id,
         element: el,
         text,
         url,
@@ -67,6 +68,7 @@ export default function (element: Element): AccessibilityError[] {
     const el = videoElement as HTMLVideoElement;
     if (hasAutoplayViolation(el)) {
       errors.push({
+        id,
         element: el,
         text,
         url,

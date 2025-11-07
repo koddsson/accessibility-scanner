@@ -1,6 +1,7 @@
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll } from "../utils";
 
+const id = "p-as-heading";
 const text =
   "Ensure bold, italic text and font-size is not used to style <p> elements as a heading";
 const url =
@@ -77,6 +78,7 @@ export default function (element: Element): AccessibilityError[] {
 
     if (isStyledLikeHeading(pElement)) {
       errors.push({
+        id,
         element: pElement,
         text,
         url,

@@ -1,6 +1,7 @@
 import { querySelectorAll } from "../utils";
 import { AccessibilityError } from "../scanner";
 
+const id = "aria-allowed-attr";
 const text = "Elements must only use allowed ARIA attributes";
 const url =
   "https://dequeuniversity.com/rules/axe/4.4/aria-allowed-attr?application=RuleDescription";
@@ -18,6 +19,7 @@ export function ariaAllowedAttr(element_: Element): AccessibilityError[] {
     if (element.getAttribute("role") === ariaMappings[element.tagName])
       continue;
     errors.push({
+      id,
       element,
       text,
       url,

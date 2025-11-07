@@ -69,6 +69,7 @@ import objectAlt from "./rules/object-alt";
 import { Logger } from "./logger";
 
 export interface AccessibilityError {
+  id: string;
   text: string;
   url: string;
   element: Element;

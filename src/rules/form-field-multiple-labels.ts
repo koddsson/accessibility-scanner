@@ -1,6 +1,7 @@
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll } from "../utils";
 
+const id = "form-field-multiple-labels";
 const text = "Ensures form field does not have multiple label elements";
 const url =
   "https://dequeuniversity.com/rules/axe/4.4/form-field-multiple-labels?application=RuleDescription";
@@ -53,6 +54,7 @@ export default function (element: Element): AccessibilityError[] {
 
     if (totalLabels > 1) {
       errors.push({
+        id,
         element,
         text,
         url,

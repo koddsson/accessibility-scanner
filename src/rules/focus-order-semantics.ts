@@ -1,6 +1,7 @@
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll } from "../utils";
 
+const id = "focus-order-semantics";
 const text =
   "Ensures elements in the focus order have a role appropriate for interactive content";
 const url =
@@ -200,6 +201,7 @@ export default function focusOrderSemantics(
     // Check if the element has an appropriate role for interactive content
     if (!hasAppropriateRole(el)) {
       errors.push({
+        id,
         element: el,
         text,
         url,

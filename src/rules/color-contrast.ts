@@ -9,6 +9,7 @@ import {
   flattenColor,
 } from "../utils/color";
 
+const id = "color-contrast";
 const text = "Elements must have sufficient color contrast";
 const url =
   "https://dequeuniversity.com/rules/axe/4.4/color-contrast?application=RuleDescription";
@@ -135,6 +136,7 @@ export default function (element: Element): ContrastError[] {
         const hasComplex = hasComplexBackground(textElement);
 
         errors.push({
+          id,
           element: textElement,
           text: text,
           url: url,

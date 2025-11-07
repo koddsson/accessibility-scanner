@@ -1,6 +1,7 @@
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll } from "../utils";
 
+const id = "link-in-text-block";
 const text =
   "Links must be distinguished from surrounding text in a way that does not rely on color";
 const url =
@@ -161,6 +162,7 @@ export default function (element: Element): AccessibilityError[] {
     // Check if link is distinguishable without color
     if (!isDistinguishableWithoutColor(anchor)) {
       errors.push({
+        id,
         element: anchor,
         text,
         url,

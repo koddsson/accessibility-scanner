@@ -1,6 +1,7 @@
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll, labelledByIsValid } from "../utils";
 
+const id = "svg-img-alt";
 const text =
   "Ensures <svg> elements with an img, graphics-document or graphics-symbol role have an accessible text";
 const url =
@@ -27,6 +28,7 @@ export default function (element: Element): AccessibilityError[] {
     if (title && title.trim() !== "") continue;
 
     errors.push({
+      id,
       element,
       text,
       url,

@@ -268,6 +268,7 @@ export default function ariaRoledescription(
     // Check if element has a role (explicit or implicit)
     if (!hasRole(element)) {
       errors.push({
+        id,
         element,
         text,
         url,

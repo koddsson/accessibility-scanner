@@ -1,5 +1,6 @@
 import { AccessibilityError } from "../scanner";
 
+const id = "marquee";
 const text = "<marquee> elements are not used";
 const url =
   "https://dequeuniversity.com/rules/axe/4.4/marquee?application=RuleDescription";
@@ -12,6 +13,7 @@ export default function (element: Element): AccessibilityError[] {
   }
   for (const element of elements) {
     errors.push({
+      id,
       element,
       text,
       url,

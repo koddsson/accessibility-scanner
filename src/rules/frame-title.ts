@@ -30,6 +30,7 @@ export default function (element: Element): AccessibilityError[] {
 
     // If none of the above, it's an error
     errors.push({
+      id,
       element: frameElement,
       text,
       url,

@@ -1,6 +1,7 @@
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll } from "../utils";
 
+const id = "list";
 const text = "Ensures that lists are structured correctly";
 const url =
   "https://dequeuniversity.com/rules/axe/4.4/list?application=RuleDescription";
@@ -19,6 +20,7 @@ export default function (element: Element): AccessibilityError[] {
     for (const child of list.children) {
       if (!["LI", "SCRIPT", "TEMPLATE"].includes(child.tagName)) {
         errors.push({
+          id,
           element: child,
           text,
           url,
@@ -48,6 +50,7 @@ export default function (element: Element): AccessibilityError[] {
       nestedListItems.length === 0
     ) {
       errors.push({
+        id,
         element: list,
         text,
         url,

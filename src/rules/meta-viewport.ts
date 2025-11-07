@@ -1,3 +1,4 @@
+const id = "meta-viewport";
 const text = "Zooming and scaling must not be disabled";
 const url =
   "https://dequeuniversity.com/rules/axe/4.4/meta-viewport?application=RuleDescription";
@@ -22,6 +23,7 @@ export default function metaViewport(element: Element) {
     const content = parseContent(element.content);
     if (content["user-scalable"] === "no" || content["user-scalable"] === "0") {
       errors.push({
+        id,
         element,
         text,
         url,
@@ -29,6 +31,7 @@ export default function metaViewport(element: Element) {
     }
     if (Number.parseFloat(content["maximum-scale"]) < 2) {
       errors.push({
+        id,
         element,
         text,
         url,

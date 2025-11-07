@@ -33,6 +33,7 @@ export default function (element: Element): AccessibilityError[] {
       // All elements with the duplicate ID should be reported as errors
       for (const element of elementList) {
         errors.push({
+          id,
           element,
           text,
           url,

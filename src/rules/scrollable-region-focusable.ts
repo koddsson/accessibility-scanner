@@ -1,6 +1,7 @@
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll } from "../utils";
 
+const id = "scrollable-region-focusable";
 const text =
   "Ensure elements that have scrollable content are accessible by keyboard";
 const url =
@@ -147,6 +148,7 @@ export default function scrollableRegionFocusable(
 
     if (!isKeyboardAccessible) {
       errors.push({
+        id,
         element: el,
         text,
         url,

@@ -20,6 +20,17 @@ describe("button-name", function () {
       ]);
     });
 
+    it("includes id in errors", async () => {
+      const container = await fixture(html`<button id="empty"></button>`);
+      const results = await scanner.scan(container);
+
+      expect(results).to.have.lengthOf(1);
+      expect(results[0]).to.have.property("id", "button-name");
+      expect(results[0]).to.have.property("text");
+      expect(results[0]).to.have.property("url");
+      expect(results[0]).to.have.property("element");
+    });
+
     it("just has a value but no discernible text", async () => {
       const container = await fixture(
         html`<button id="val" value="Button Name"></button>`,

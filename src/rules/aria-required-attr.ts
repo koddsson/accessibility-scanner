@@ -62,6 +62,7 @@ export function ariaRequiredAttr(element: Element): AccessibilityError[] {
 
   for (const element of elements) {
     errors.push({
+      id,
       element,
       text,
       url,

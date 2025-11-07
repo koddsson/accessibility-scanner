@@ -33,6 +33,7 @@ export default function (element_: Element): AccessibilityError[] {
       const x = querySelector(`#${labelledby}`, element_);
       if (x && x.textContent && x?.textContent?.trim() === "") {
         errors.push({
+          id,
           element,
           text,
           url,
@@ -57,6 +58,7 @@ export default function (element_: Element): AccessibilityError[] {
       if (image && labelledByIsValid(image)) continue;
 
       errors.push({
+        id,
         element,
         text,
         url,

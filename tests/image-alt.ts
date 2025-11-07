@@ -63,6 +63,17 @@ const violations = [
 ];
 
 describe("image-alt", async function () {
+  it("includes id in errors", async function () {
+    const img = await fixture(html`<img src="" />`);
+    const results = await scanner.scan(img);
+    
+    expect(results).to.have.lengthOf(1);
+    expect(results[0]).to.have.property("id", "image-alt");
+    expect(results[0]).to.have.property("text");
+    expect(results[0]).to.have.property("url");
+    expect(results[0]).to.have.property("element");
+  });
+
   it("dont worry about it", async () => {
     const el = await fixture(html`
       <div>

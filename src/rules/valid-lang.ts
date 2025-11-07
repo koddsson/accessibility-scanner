@@ -58,6 +58,7 @@ export default function (element: Element): AccessibilityError[] {
 
     if (!langIsValid(element.getAttribute("lang")!) && hasTextNodes) {
       errors.push({
+        id,
         element,
         text,
         url,

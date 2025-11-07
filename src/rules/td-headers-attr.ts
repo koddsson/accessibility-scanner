@@ -2,6 +2,7 @@
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll } from "../utils";
 
+const id = "td-headers-attr";
 const text =
   "Ensure that each cell in a table that uses the headers attribute refers only to other cells in that table";
 const url =
@@ -75,6 +76,7 @@ export default function tdHeadersAttr(element: Element): AccessibilityError[] {
     // Validate the headers attribute
     if (!validateHeadersAttribute(tableCell)) {
       errors.push({
+        id,
         element: tableCell,
         text,
         url,

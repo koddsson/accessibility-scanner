@@ -1,5 +1,6 @@
 import { AccessibilityError } from "../scanner";
 
+const id = "css-orientation-lock";
 const text =
   "Ensures content is not locked to any specific display orientation, and the content is operable in all display orientations";
 const url =
@@ -81,6 +82,7 @@ export default function cssOrientationLock(
         if (violatingRule) {
           // Report error on the document element or scanned element
           errors.push({
+            id,
             element: doc.documentElement || element,
             text,
             url,
@@ -106,6 +108,7 @@ export default function cssOrientationLock(
 
           if (violatingRule) {
             errors.push({
+              id,
               element: styleElement,
               text,
               url,

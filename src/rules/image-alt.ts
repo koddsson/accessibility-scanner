@@ -1,6 +1,7 @@
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll, labelledByIsValid } from "../utils";
 
+const id = "image-alt";
 const text = "Images must have alternate text";
 const url =
   "https://dequeuniversity.com/rules/axe/4.4/image-alt?application=RuleDescription";
@@ -30,6 +31,7 @@ export default function (element: Element): AccessibilityError[] {
       continue;
 
     errors.push({
+      id,
       element,
       text,
       url,

@@ -1,5 +1,6 @@
 import { AccessibilityError } from "../scanner";
 
+const id = "server-side-image-map";
 const text = "Ensures that server-side image maps are not used";
 const url =
   "https://dequeuniversity.com/rules/axe/4.4/server-side-image-map?application=RuleDescription";
@@ -14,6 +15,7 @@ export default function (element: Element): AccessibilityError[] {
   }
   for (const element of elements) {
     errors.push({
+      id,
       element,
       text,
       url,

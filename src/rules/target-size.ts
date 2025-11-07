@@ -1,6 +1,7 @@
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll } from "../utils";
 
+const id = "target-size";
 const text = "Ensure touch target have sufficient size and space";
 const url =
   "https://dequeuniversity.com/rules/axe/4.4/target-size?application=RuleDescription";
@@ -108,6 +109,7 @@ export default function (element: Element): AccessibilityError[] {
     // Check if target meets minimum size
     if (!meetsTargetSize(target)) {
       errors.push({
+        id,
         element: target,
         text,
         url,

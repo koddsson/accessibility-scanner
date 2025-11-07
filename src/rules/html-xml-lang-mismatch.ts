@@ -52,7 +52,7 @@ export default function (element: Element): AccessibilityError[] {
 
   // Compare primary language subtags (case-insensitive)
   if (langPrimary !== xmlLangPrimary) {
-    return [{ element: htmlElement, url, text }];
+    return [{ id, element: htmlElement, url, text }];
   }
 
   return [];

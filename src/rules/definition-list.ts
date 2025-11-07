@@ -1,6 +1,7 @@
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll } from "../utils";
 
+const id = "definition-list";
 const text = "Ensures <dl> elements are structured correctly";
 const url =
   "https://dequeuniversity.com/rules/axe/4.4/definition-list?application=RuleDescription";
@@ -19,6 +20,7 @@ export default function (element: Element): AccessibilityError[] {
     for (const child of dl.children) {
       if (!["DT", "DD", "SCRIPT", "TEMPLATE", "DIV"].includes(child.tagName)) {
         errors.push({
+          id,
           element: child,
           text,
           url,

@@ -40,7 +40,7 @@ export default function (element: Element): AccessibilityError[] {
 
   // Check if the lang attribute has a valid value
   if (!langIsValid(langAttribute.trim())) {
-    return [{ element: htmlElement, url, text }];
+    return [{ id, element: htmlElement, url, text }];
   }
 
   return [];

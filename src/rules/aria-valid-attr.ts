@@ -30,6 +30,7 @@ export default function (element_: Element): AccessibilityError[] {
         !validAriaAttributes.includes(attribute.name)
       ) {
         errors.push({
+          id,
           element,
           text,
           url,

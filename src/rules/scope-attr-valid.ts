@@ -1,6 +1,7 @@
 // https://www.w3.org/TR/WCAG20-TECHS/H63.html
 import { querySelectorAll } from "../utils";
 
+const id = "scope-attr-valid";
 const text = "Scope attribute should be used correctly on tables";
 const url =
   "https://dequeuniversity.com/rules/axe/4.4/scope-attr-valid?application=RuleDescription";
@@ -13,6 +14,7 @@ function checkScopeElements(element: Element) {
   for (const element of elements) {
     if (element.tagName !== "TH") {
       errors.push({
+        id,
         element,
         text,
         url,
@@ -25,6 +27,7 @@ function checkScopeElements(element: Element) {
       element.getAttribute("scope") !== "rowgroup"
     ) {
       errors.push({
+        id,
         element,
         text,
         url,
@@ -41,6 +44,7 @@ function checkTableHeaderElements(element: Element) {
   if (element.matches(selector)) elements.push(element as HTMLElement);
   for (const element of elements) {
     errors.push({
+      id,
       element,
       text,
       url,

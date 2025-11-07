@@ -97,7 +97,7 @@ export function ariaValidAttrValue(element: Element): AccessibilityError[] {
       if (!info) continue;
 
       if (!valid(element, attribute.name, info)) {
-        errors.push({ element, text, url });
+        errors.push({ id, element, text, url });
       }
     }
   }
