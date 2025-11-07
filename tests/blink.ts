@@ -15,7 +15,7 @@ describe("blink", function () {
     expect(results).to.eql([
       {
         text: "Ensure <blink> elements are not used",
-        url: "https://dequeuniversity.com/rules/axe/4.4/blink?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/blink",
       },
     ]);
   });
@@ -35,7 +35,7 @@ describe("blink", function () {
     expect(results).to.have.lengthOf(2);
     expect(results[0]).to.eql({
       text: "Ensure <blink> elements are not used",
-      url: "https://dequeuniversity.com/rules/axe/4.4/blink?application=RuleDescription",
+      url: "https://dequeuniversity.com/rules/axe/4.4/blink",
     });
   });
 

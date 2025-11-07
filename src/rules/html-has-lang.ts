@@ -10,7 +10,7 @@ export default function (element: Element): AccessibilityError[] {
 
   // Report error if the `lang` attribute is not on the element or if it's just whitespace
   if (!langAttribute || langAttribute?.trim() === "") {
-    return [{ element: htmlElement, url, text }];
+    return [{ id, element: htmlElement, url, text }];
   }
   return [];
 }

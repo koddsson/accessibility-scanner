@@ -14,7 +14,7 @@ describe("video-caption", function () {
     expect(results).to.eql([
       {
         text: "<video> elements must have a <track> for captions",
-        url: "https://dequeuniversity.com/rules/axe/4.4/video-caption?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/video-caption",
       },
     ]);
   });
@@ -30,7 +30,7 @@ describe("video-caption", function () {
     expect(results).to.eql([
       {
         text: "<video> elements must have a <track> for captions",
-        url: "https://dequeuniversity.com/rules/axe/4.4/video-caption?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/video-caption",
       },
     ]);
   });
@@ -60,7 +60,7 @@ describe("video-caption", function () {
     expect(results).to.eql([
       {
         text: "<video> elements must have a <track> for captions",
-        url: "https://dequeuniversity.com/rules/axe/4.4/video-caption?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/video-caption",
       },
     ]);
   });

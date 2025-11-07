@@ -46,7 +46,7 @@ const roleToRequiredStatesAndPropertiesMaps: Record<Role, AriaAttribute[]> = {
 
 const id = "aria-required-attr";
 const text = "Required ARIA attributes must be provided";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}?application=RuleDescription`;
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 export function ariaRequiredAttr(element: Element): AccessibilityError[] {
   const errors = [];
@@ -62,6 +62,7 @@ export function ariaRequiredAttr(element: Element): AccessibilityError[] {
 
   for (const element of elements) {
     errors.push({
+      id,
       element,
       text,
       url,

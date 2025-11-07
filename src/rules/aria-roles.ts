@@ -9,9 +9,9 @@
 import { querySelectorAll } from "../utils";
 import { AccessibilityError } from "../scanner";
 
+const id = "aria-roles";
 const text = "ARIA roles used must conform to valid values";
-const url =
-  "https://dequeuniversity.com/rules/axe/4.4/aria-roles?application=RuleDescription";
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 const validRoles = new Set([
   "article",
@@ -30,6 +30,7 @@ export default function (element_: Element): AccessibilityError[] {
     const role = element.getAttribute("role");
     if (role && validRoles.has(role)) continue;
     errors.push({
+      id,
       element,
       text,
       url,

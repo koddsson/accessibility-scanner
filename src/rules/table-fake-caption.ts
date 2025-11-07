@@ -2,9 +2,9 @@
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll } from "../utils";
 
+const id = "table-fake-caption";
 const text = "Ensure that tables with a caption use the <caption> element.";
-const url =
-  "https://dequeuniversity.com/rules/axe/4.4/table-fake-caption?application=RuleDescription";
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 /**
  * Check if a table has a fake caption
@@ -72,6 +72,7 @@ export default function tableFakeCaption(
     const fakeCaption = hasFakeCaption(table as HTMLTableElement);
     if (fakeCaption) {
       errors.push({
+        id,
         element: fakeCaption,
         text,
         url,

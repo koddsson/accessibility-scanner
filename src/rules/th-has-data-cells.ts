@@ -2,10 +2,10 @@
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll } from "../utils";
 
+const id = "th-has-data-cells";
 const text =
   "Ensure that <th> elements and elements with role=columnheader/rowheader have data cells they describe";
-const url =
-  "https://dequeuniversity.com/rules/axe/4.4/th-has-data-cells?application=RuleDescription";
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 /**
  * Check if a header cell has associated data cells
@@ -143,6 +143,7 @@ export default function thHasDataCells(element: Element): AccessibilityError[] {
       // Check if this header has associated data cells
       if (!hasDataCells(header, table)) {
         errors.push({
+          id,
           element: header,
           text,
           url,

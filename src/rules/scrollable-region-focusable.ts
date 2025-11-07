@@ -1,10 +1,10 @@
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll } from "../utils";
 
+const id = "scrollable-region-focusable";
 const text =
   "Ensure elements that have scrollable content are accessible by keyboard";
-const url =
-  "https://dequeuniversity.com/rules/axe/4.4/scrollable-region-focusable?application=RuleDescription";
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 /**
  * Check if an element is focusable via keyboard
@@ -147,6 +147,7 @@ export default function scrollableRegionFocusable(
 
     if (!isKeyboardAccessible) {
       errors.push({
+        id,
         element: el,
         text,
         url,

@@ -121,7 +121,7 @@ describe("aria-toggle-field-name", function () {
     expect(results).to.eql([
       {
         text: "ARIA toggle fields must have an accessible name",
-        url: "https://dequeuniversity.com/rules/axe/4.4/aria-toggle-field-name?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/aria-toggle-field-name",
       },
     ]);
   });
@@ -136,7 +136,7 @@ describe("aria-toggle-field-name", function () {
     expect(results).to.eql([
       {
         text: "ARIA toggle fields must have an accessible name",
-        url: "https://dequeuniversity.com/rules/axe/4.4/aria-toggle-field-name?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/aria-toggle-field-name",
       },
     ]);
   });
@@ -151,7 +151,7 @@ describe("aria-toggle-field-name", function () {
     expect(results).to.eql([
       {
         text: "ARIA toggle fields must have an accessible name",
-        url: "https://dequeuniversity.com/rules/axe/4.4/aria-toggle-field-name?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/aria-toggle-field-name",
       },
     ]);
   });
@@ -166,7 +166,7 @@ describe("aria-toggle-field-name", function () {
     expect(results).to.eql([
       {
         text: "ARIA toggle fields must have an accessible name",
-        url: "https://dequeuniversity.com/rules/axe/4.4/aria-toggle-field-name?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/aria-toggle-field-name",
       },
     ]);
   });
@@ -181,7 +181,7 @@ describe("aria-toggle-field-name", function () {
     expect(results).to.eql([
       {
         text: "ARIA toggle fields must have an accessible name",
-        url: "https://dequeuniversity.com/rules/axe/4.4/aria-toggle-field-name?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/aria-toggle-field-name",
       },
     ]);
   });
@@ -197,7 +197,7 @@ describe("aria-toggle-field-name", function () {
     expect(results).to.eql([
       {
         text: "ARIA toggle fields must have an accessible name",
-        url: "https://dequeuniversity.com/rules/axe/4.4/aria-toggle-field-name?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/aria-toggle-field-name",
       },
     ]);
   });
@@ -212,7 +212,7 @@ describe("aria-toggle-field-name", function () {
     expect(results).to.eql([
       {
         text: "ARIA toggle fields must have an accessible name",
-        url: "https://dequeuniversity.com/rules/axe/4.4/aria-toggle-field-name?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/aria-toggle-field-name",
       },
     ]);
   });
@@ -227,7 +227,7 @@ describe("aria-toggle-field-name", function () {
     expect(results).to.eql([
       {
         text: "ARIA toggle fields must have an accessible name",
-        url: "https://dequeuniversity.com/rules/axe/4.4/aria-toggle-field-name?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/aria-toggle-field-name",
       },
     ]);
   });
@@ -264,7 +264,7 @@ describe("aria-toggle-field-name", function () {
     expect(results).to.have.lengthOf(1);
     expect(results[0]).to.eql({
       text: "ARIA toggle fields must have an accessible name",
-      url: "https://dequeuniversity.com/rules/axe/4.4/aria-toggle-field-name?application=RuleDescription",
+      url: "https://dequeuniversity.com/rules/axe/4.4/aria-toggle-field-name",
     });
   });
 });

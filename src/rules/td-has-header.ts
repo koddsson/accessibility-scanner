@@ -2,10 +2,10 @@
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll } from "../utils";
 
+const id = "td-has-header";
 const text =
   "Ensure that each non-empty data cell in a <table> larger than 3 by 3 has one or more table headers";
-const url =
-  "https://dequeuniversity.com/rules/axe/4.4/td-has-header?application=RuleDescription";
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 /**
  * Check if a table is larger than 3x3
@@ -108,6 +108,7 @@ export default function tdHasHeader(element: Element): AccessibilityError[] {
       // Check if this td has headers
       if (!hasHeaders(tdElement)) {
         errors.push({
+          id,
           element: tdElement,
           text,
           url,

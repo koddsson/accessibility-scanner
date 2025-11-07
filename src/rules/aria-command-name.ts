@@ -1,8 +1,9 @@
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll, hasAccessibleText } from "../utils";
 
+const id = "aria-command-name";
 const text = "ARIA button, link, and menuitem must have an accessible name";
-const url = "https://dequeuniversity.com/rules/axe/4.4/aria-command-name";
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 /*
 <div role="link" id="al" aria-label="Name"></div>
@@ -27,7 +28,7 @@ export default function (el: Element): AccessibilityError[] {
 
   for (const element of elements) {
     if (hasAccessibleText(element)) continue;
-    errors.push({ element, text, url });
+    errors.push({ id, element, text, url });
   }
   return errors;
 }

@@ -1,9 +1,9 @@
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll, labelledByIsValid } from "../utils";
 
+const id = "object-alt";
 const text = "<object> elements must have alternative text";
-const url =
-  "https://dequeuniversity.com/rules/axe/4.4/object-alt?application=RuleDescription";
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 export default function (element: Element): AccessibilityError[] {
   const errors = [];
@@ -27,6 +27,7 @@ export default function (element: Element): AccessibilityError[] {
     if (role === "presentation" || role === "none") continue;
 
     errors.push({
+      id,
       element,
       text,
       url,

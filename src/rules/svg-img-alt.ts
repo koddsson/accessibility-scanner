@@ -1,10 +1,10 @@
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll, labelledByIsValid } from "../utils";
 
+const id = "svg-img-alt";
 const text =
   "Ensures <svg> elements with an img, graphics-document or graphics-symbol role have an accessible text";
-const url =
-  "https://dequeuniversity.com/rules/axe/4.4/svg-img-alt?application=RuleDescription";
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 export default function (element: Element): AccessibilityError[] {
   const errors = [];
@@ -27,6 +27,7 @@ export default function (element: Element): AccessibilityError[] {
     if (title && title.trim() !== "") continue;
 
     errors.push({
+      id,
       element,
       text,
       url,

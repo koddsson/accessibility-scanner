@@ -1,9 +1,9 @@
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll, labelledByIsValid } from "../utils";
 
+const id = "button-name";
 const text = "Buttons must have discernible text";
-const url =
-  "https://dequeuniversity.com/rules/axe/4.4/button-name?application=RuleDescription";
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 function getElementText(element: Element): string {
   let label = element.getAttribute("aria-label");
@@ -41,6 +41,7 @@ export default function (element: Element): AccessibilityError[] {
       continue;
 
     errors.push({
+      id,
       element,
       text,
       url,

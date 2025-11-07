@@ -15,9 +15,20 @@ describe("button-name", function () {
       expect(results).to.eql([
         {
           text: "Buttons must have discernible text",
-          url: "https://dequeuniversity.com/rules/axe/4.4/button-name?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/button-name",
         },
       ]);
+    });
+
+    it("includes id in errors", async () => {
+      const container = await fixture(html`<button id="empty"></button>`);
+      const results = await scanner.scan(container);
+
+      expect(results).to.have.lengthOf(1);
+      expect(results[0]).to.have.property("id", "button-name");
+      expect(results[0]).to.have.property("text");
+      expect(results[0]).to.have.property("url");
+      expect(results[0]).to.have.property("element");
     });
 
     it("just has a value but no discernible text", async () => {
@@ -31,7 +42,7 @@ describe("button-name", function () {
       expect(results).to.eql([
         {
           text: "Buttons must have discernible text",
-          url: "https://dequeuniversity.com/rules/axe/4.4/button-name?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/button-name",
         },
       ]);
     });
@@ -47,7 +58,7 @@ describe("button-name", function () {
       expect(results).to.eql([
         {
           text: "Buttons must have discernible text",
-          url: "https://dequeuniversity.com/rules/axe/4.4/button-name?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/button-name",
         },
       ]);
     });
@@ -63,7 +74,7 @@ describe("button-name", function () {
       expect(results).to.eql([
         {
           text: "Buttons must have discernible text",
-          url: "https://dequeuniversity.com/rules/axe/4.4/button-name?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/button-name",
         },
       ]);
     });
@@ -83,7 +94,7 @@ describe("button-name", function () {
       expect(results).to.eql([
         {
           text: "Buttons must have discernible text",
-          url: "https://dequeuniversity.com/rules/axe/4.4/button-name?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/button-name",
         },
       ]);
     });
@@ -105,19 +116,19 @@ describe("button-name", function () {
       expect(results).to.eql([
         {
           text: "Buttons must have discernible text",
-          url: "https://dequeuniversity.com/rules/axe/4.4/button-name?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/button-name",
         },
         {
           text: "Buttons must have discernible text",
-          url: "https://dequeuniversity.com/rules/axe/4.4/button-name?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/button-name",
         },
         {
           text: "Buttons must have discernible text",
-          url: "https://dequeuniversity.com/rules/axe/4.4/button-name?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/button-name",
         },
         {
           text: "Buttons must have discernible text",
-          url: "https://dequeuniversity.com/rules/axe/4.4/button-name?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/button-name",
         },
       ]);
     });

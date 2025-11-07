@@ -4,7 +4,7 @@ import { labelledByIsValid, querySelectorAll } from "../utils";
 // Metadata
 const id = "aria-input-field-name";
 const text = "ARIA input fields must have an accessible name";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}?application=RuleDescription`;
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 // ARIA roles that are considered input fields
 const inputFieldRoles = [
@@ -54,6 +54,7 @@ export default function (element: Element): AccessibilityError[] {
   for (const el of elements) {
     if (!hasAccessibleName(el)) {
       errors.push({
+        id,
         element: el,
         url,
         text,

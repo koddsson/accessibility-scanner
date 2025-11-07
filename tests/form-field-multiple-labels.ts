@@ -21,7 +21,7 @@ describe("form-field-multiple-labels", function () {
     expect(results).to.eql([
       {
         text: "Ensures form field does not have multiple label elements",
-        url: "https://dequeuniversity.com/rules/axe/4.4/form-field-multiple-labels?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/form-field-multiple-labels",
       },
     ]);
   });
@@ -44,7 +44,7 @@ describe("form-field-multiple-labels", function () {
     expect(results).to.eql([
       {
         text: "Ensures form field does not have multiple label elements",
-        url: "https://dequeuniversity.com/rules/axe/4.4/form-field-multiple-labels?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/form-field-multiple-labels",
       },
     ]);
   });
@@ -67,7 +67,7 @@ describe("form-field-multiple-labels", function () {
     expect(results).to.eql([
       {
         text: "Ensures form field does not have multiple label elements",
-        url: "https://dequeuniversity.com/rules/axe/4.4/form-field-multiple-labels?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/form-field-multiple-labels",
       },
     ]);
   });
@@ -88,7 +88,7 @@ describe("form-field-multiple-labels", function () {
     expect(results).to.eql([
       {
         text: "Ensures form field does not have multiple label elements",
-        url: "https://dequeuniversity.com/rules/axe/4.4/form-field-multiple-labels?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/form-field-multiple-labels",
       },
     ]);
   });
@@ -110,7 +110,7 @@ describe("form-field-multiple-labels", function () {
     expect(results).to.eql([
       {
         text: "Ensures form field does not have multiple label elements",
-        url: "https://dequeuniversity.com/rules/axe/4.4/form-field-multiple-labels?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/form-field-multiple-labels",
       },
     ]);
   });
@@ -245,7 +245,7 @@ describe("form-field-multiple-labels", function () {
     expect(results).to.eql([
       {
         text: "Ensures form field does not have multiple label elements",
-        url: "https://dequeuniversity.com/rules/axe/4.4/form-field-multiple-labels?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/form-field-multiple-labels",
       },
     ]);
   });

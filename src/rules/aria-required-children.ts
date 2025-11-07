@@ -267,6 +267,7 @@ export default function ariaRequiredChildren(
     // report an error.
     if (children.length === 0 || forbidden.length > 0) {
       errors.push({
+        id,
         element: parent,
         text,
         url,

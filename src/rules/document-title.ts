@@ -10,7 +10,7 @@ export default function (element: Element): AccessibilityError[] {
 
   // Check if there is at least one <title> element
   if (titleElements.length === 0) {
-    return [{ element: document.documentElement, url, text }];
+    return [{ id, element: document.documentElement, url, text }];
   }
 
   // Check that at least one <title> element has non-empty text content
@@ -22,5 +22,5 @@ export default function (element: Element): AccessibilityError[] {
   }
 
   // All <title> elements are empty
-  return [{ element: document.documentElement, url, text }];
+  return [{ id, element: document.documentElement, url, text }];
 }

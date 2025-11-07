@@ -18,7 +18,7 @@ describe("html-xml-lang-mismatch", function () {
       expect(results).to.eql([
         {
           text: "Ensure that HTML elements with both valid lang and xml:lang attributes agree on the base language of the page",
-          url: "https://dequeuniversity.com/rules/axe/4.4/html-xml-lang-mismatch?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/html-xml-lang-mismatch",
         },
       ]);
     });
@@ -38,7 +38,7 @@ describe("html-xml-lang-mismatch", function () {
       expect(results).to.eql([
         {
           text: "Ensure that HTML elements with both valid lang and xml:lang attributes agree on the base language of the page",
-          url: "https://dequeuniversity.com/rules/axe/4.4/html-xml-lang-mismatch?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/html-xml-lang-mismatch",
         },
       ]);
     });
@@ -166,7 +166,7 @@ describe("html-xml-lang-mismatch", function () {
       expect(results).to.eql([
         {
           text: "Ensure that HTML elements with both valid lang and xml:lang attributes agree on the base language of the page",
-          url: "https://dequeuniversity.com/rules/axe/4.4/html-xml-lang-mismatch?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/html-xml-lang-mismatch",
         },
       ]);
     });

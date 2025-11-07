@@ -1,8 +1,9 @@
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll, isVisible } from "../utils";
 
+const id = "aria-hidden-focus";
 const text = "aria-hidden elements do not contain focusable elements";
-const url = "https://dequeuniversity.com/rules/axe/4.4/aria-hidden-focus";
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 const focusableSelector = [
   "a[href]",
@@ -94,6 +95,7 @@ export default function ariaHiddenFocus(
 
     if (hasOffendingFocusable) {
       errors.push({
+        id,
         element: hiddenElement,
         text,
         url,

@@ -70,7 +70,7 @@ describe("object-alt", function () {
     expect(results).to.eql([
       {
         text: "<object> elements must have alternative text",
-        url: "https://dequeuniversity.com/rules/axe/4.4/object-alt?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/object-alt",
       },
     ]);
   });
@@ -89,7 +89,7 @@ describe("object-alt", function () {
     expect(results).to.eql([
       {
         text: "<object> elements must have alternative text",
-        url: "https://dequeuniversity.com/rules/axe/4.4/object-alt?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/object-alt",
       },
     ]);
   });
@@ -108,7 +108,7 @@ describe("object-alt", function () {
     expect(results).to.eql([
       {
         text: "<object> elements must have alternative text",
-        url: "https://dequeuniversity.com/rules/axe/4.4/object-alt?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/object-alt",
       },
     ]);
   });
@@ -127,7 +127,7 @@ describe("object-alt", function () {
     expect(results).to.eql([
       {
         text: "<object> elements must have alternative text",
-        url: "https://dequeuniversity.com/rules/axe/4.4/object-alt?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/object-alt",
       },
     ]);
   });
@@ -146,7 +146,7 @@ describe("object-alt", function () {
     expect(results).to.eql([
       {
         text: "<object> elements must have alternative text",
-        url: "https://dequeuniversity.com/rules/axe/4.4/object-alt?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/object-alt",
       },
     ]);
   });
@@ -165,7 +165,7 @@ describe("object-alt", function () {
     expect(results).to.eql([
       {
         text: "<object> elements must have alternative text",
-        url: "https://dequeuniversity.com/rules/axe/4.4/object-alt?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/object-alt",
       },
     ]);
   });
@@ -184,7 +184,7 @@ describe("object-alt", function () {
     expect(results).to.eql([
       {
         text: "<object> elements must have alternative text",
-        url: "https://dequeuniversity.com/rules/axe/4.4/object-alt?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/object-alt",
       },
     ]);
   });
@@ -208,7 +208,7 @@ describe("object-alt", function () {
     expect(results).to.eql([
       {
         text: "<object> elements must have alternative text",
-        url: "https://dequeuniversity.com/rules/axe/4.4/object-alt?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/object-alt",
       },
     ]);
   });

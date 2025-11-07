@@ -1,10 +1,10 @@
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll } from "../utils";
 
+const id = "avoid-inline-spacing";
 const text =
   "Ensure that text spacing set through style attributes can be adjusted with custom stylesheets";
-const url =
-  "https://dequeuniversity.com/rules/axe/4.4/avoid-inline-spacing?application=RuleDescription";
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 /**
  * Properties that affect text spacing according to WCAG 1.4.12
@@ -50,6 +50,7 @@ export default function (element: Element): AccessibilityError[] {
   for (const el of elements) {
     if (hasImportantInlineSpacing(el)) {
       errors.push({
+        id,
         element: el,
         text,
         url,

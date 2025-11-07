@@ -4,7 +4,7 @@ import { labelledByIsValid, querySelectorAll } from "../utils";
 // Metadata
 const id = "aria-tooltip-name";
 const text = "ARIA tooltip must have an accessible name";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}?application=RuleDescription`;
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 /**
  * Make sure that a elements text is "visible" to a screenreader user.
@@ -38,6 +38,7 @@ export function ariaTooltipName(element: Element): AccessibilityError[] {
   for (const tooltip of tooltips) {
     if (!hasAccessibleText(tooltip)) {
       errors.push({
+        id,
         element: tooltip,
         url,
         text,

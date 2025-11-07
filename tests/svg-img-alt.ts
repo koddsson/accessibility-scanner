@@ -49,7 +49,7 @@ describe("svg-img-alt", async function () {
       expect(results).to.eql([
         {
           text: "Ensures <svg> elements with an img, graphics-document or graphics-symbol role have an accessible text",
-          url: "https://dequeuniversity.com/rules/axe/4.4/svg-img-alt?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/svg-img-alt",
         },
       ]);
     });

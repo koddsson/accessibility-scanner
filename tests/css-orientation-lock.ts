@@ -93,7 +93,7 @@ describe("css-orientation-lock", function () {
       "Ensures content is not locked to any specific display orientation, and the content is operable in all display orientations"
     );
     expect(results[0].url).to.equal(
-      "https://dequeuniversity.com/rules/axe/4.4/css-orientation-lock?application=RuleDescription"
+      "https://dequeuniversity.com/rules/axe/4.4/css-orientation-lock"
     );
   });
 

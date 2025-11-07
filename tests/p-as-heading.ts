@@ -21,7 +21,7 @@ describe("p-as-heading", function () {
       expect(results).to.eql([
         {
           text: "Ensure bold, italic text and font-size is not used to style <p> elements as a heading",
-          url: "https://dequeuniversity.com/rules/axe/4.4/p-as-heading?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/p-as-heading",
         },
       ]);
     });
@@ -41,7 +41,7 @@ describe("p-as-heading", function () {
       expect(results).to.eql([
         {
           text: "Ensure bold, italic text and font-size is not used to style <p> elements as a heading",
-          url: "https://dequeuniversity.com/rules/axe/4.4/p-as-heading?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/p-as-heading",
         },
       ]);
     });
@@ -61,7 +61,7 @@ describe("p-as-heading", function () {
       expect(results).to.eql([
         {
           text: "Ensure bold, italic text and font-size is not used to style <p> elements as a heading",
-          url: "https://dequeuniversity.com/rules/axe/4.4/p-as-heading?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/p-as-heading",
         },
       ]);
     });
@@ -81,7 +81,7 @@ describe("p-as-heading", function () {
       expect(results).to.eql([
         {
           text: "Ensure bold, italic text and font-size is not used to style <p> elements as a heading",
-          url: "https://dequeuniversity.com/rules/axe/4.4/p-as-heading?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/p-as-heading",
         },
       ]);
     });
@@ -103,7 +103,7 @@ describe("p-as-heading", function () {
       expect(results).to.have.lengthOf(2);
       expect(results[0]).to.eql({
         text: "Ensure bold, italic text and font-size is not used to style <p> elements as a heading",
-        url: "https://dequeuniversity.com/rules/axe/4.4/p-as-heading?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/p-as-heading",
       });
     });
   });

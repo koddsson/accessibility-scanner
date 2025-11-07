@@ -1,9 +1,9 @@
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll, labelledByIsValid } from "../utils";
 
+const id = "input-image-alt";
 const text = "Image buttons must have alternate text";
-const url =
-  "https://dequeuniversity.com/rules/axe/4.4/input-image-alt?application=RuleDescription";
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 export default function (element: Element): AccessibilityError[] {
   const selector = "input[type=image]";
@@ -21,6 +21,7 @@ export default function (element: Element): AccessibilityError[] {
     if (element.title) continue;
 
     errors.push({
+      id,
       element,
       text,
       url,

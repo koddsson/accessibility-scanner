@@ -1,10 +1,10 @@
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll } from "../utils";
 
+const id = "focus-order-semantics";
 const text =
   "Ensures elements in the focus order have a role appropriate for interactive content";
-const url =
-  "https://dequeuniversity.com/rules/axe/4.4/focus-order-semantics?application=RuleDescription";
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 // Roles that are appropriate for interactive content
 const interactiveRoles = new Set([
@@ -200,6 +200,7 @@ export default function focusOrderSemantics(
     // Check if the element has an appropriate role for interactive content
     if (!hasAppropriateRole(el)) {
       errors.push({
+        id,
         element: el,
         text,
         url,

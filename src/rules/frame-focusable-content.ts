@@ -1,9 +1,9 @@
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll, isVisible } from "../utils";
 
+const id = "frame-focusable-content";
 const text = "Frames with focusable content must not have tabindex=-1";
-const url =
-  "https://dequeuniversity.com/rules/axe/4.4/frame-focusable-content?application=RuleDescription";
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 // Selector for focusable elements based on HTML spec and common patterns
 const focusableSelector = [
@@ -117,6 +117,7 @@ export default function frameFocusableContent(
     // Check if the frame has focusable content
     if (hasFocusableContent(frame)) {
       errors.push({
+        id,
         element: frame,
         text,
         url,

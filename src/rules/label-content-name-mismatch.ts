@@ -1,10 +1,10 @@
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll } from "../utils";
 
+const id = "label-content-name-mismatch";
 const text =
   "Ensures that elements labelled through their content must have their visible text as part of their accessible name";
-const url =
-  "https://dequeuniversity.com/rules/axe/4.4/label-content-name-mismatch?application=RuleDescription";
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 /**
  * Get the visible text content of an element
@@ -103,6 +103,7 @@ export default function (element: Element): AccessibilityError[] {
     // Check if visible text is part of accessible name
     if (!isTextPartOfAccessibleName(visibleText, accessibleName)) {
       errors.push({
+        id,
         element: el,
         text,
         url,

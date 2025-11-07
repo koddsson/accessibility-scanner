@@ -19,7 +19,7 @@ describe("select-name", function () {
     expect(results).to.eql([
       {
         text: "select element must have an accessible name",
-        url: "https://dequeuniversity.com/rules/axe/4.4/select-name?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/select-name",
       },
     ]);
   });
@@ -84,7 +84,7 @@ describe("select-name", function () {
     expect(results).to.eql([
       {
         text: "select element must have an accessible name",
-        url: "https://dequeuniversity.com/rules/axe/4.4/select-name?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/select-name",
       },
     ]);
   });
@@ -107,7 +107,7 @@ describe("select-name", function () {
     expect(results).to.eql([
       {
         text: "select element must have an accessible name",
-        url: "https://dequeuniversity.com/rules/axe/4.4/select-name?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/select-name",
       },
     ]);
   });
@@ -133,7 +133,7 @@ describe("select-name", function () {
     expect(results).to.eql([
       {
         text: "select element must have an accessible name",
-        url: "https://dequeuniversity.com/rules/axe/4.4/select-name?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/select-name",
       },
     ]);
   });
@@ -182,11 +182,11 @@ describe("select-name", function () {
     expect(results).to.eql([
       {
         text: "select element must have an accessible name",
-        url: "https://dequeuniversity.com/rules/axe/4.4/select-name?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/select-name",
       },
       {
         text: "select element must have an accessible name",
-        url: "https://dequeuniversity.com/rules/axe/4.4/select-name?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/select-name",
       },
     ]);
   });

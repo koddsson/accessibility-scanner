@@ -29,6 +29,7 @@ export default function (element: Element): AccessibilityError[] {
     );
     for (const nestedInteractiveElement of nestedInteractiveElements) {
       errors.push({
+        id,
         element: nestedInteractiveElement,
         text,
         url,

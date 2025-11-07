@@ -47,7 +47,7 @@ describe("meta-viewport", function () {
     expect(results).to.eql([
       {
         text: "Zooming and scaling must not be disabled",
-        url: "https://dequeuniversity.com/rules/axe/4.4/meta-viewport?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/meta-viewport",
       },
     ]);
   });
@@ -64,7 +64,7 @@ describe("meta-viewport", function () {
     expect(results).to.eql([
       {
         text: "Zooming and scaling must not be disabled",
-        url: "https://dequeuniversity.com/rules/axe/4.4/meta-viewport?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/meta-viewport",
       },
     ]);
   });

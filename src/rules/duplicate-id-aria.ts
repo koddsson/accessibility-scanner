@@ -16,6 +16,7 @@ export default function (element: Element): AccessibilityError[] {
     if (labelledByIsValid(element)) continue;
 
     errors.push({
+      id,
       element,
       text,
       url,

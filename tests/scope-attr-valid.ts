@@ -21,7 +21,7 @@ describe("scope-attr-valid", function () {
     expect(results).to.eql([
       {
         text: "Scope attribute should be used correctly on tables",
-        url: "https://dequeuniversity.com/rules/axe/4.4/scope-attr-valid?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/scope-attr-valid",
       },
     ]);
   });
@@ -42,7 +42,7 @@ describe("scope-attr-valid", function () {
     expect(results).to.eql([
       {
         text: "Scope attribute should be used correctly on tables",
-        url: "https://dequeuniversity.com/rules/axe/4.4/scope-attr-valid?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/scope-attr-valid",
       },
     ]);
   });
@@ -79,7 +79,7 @@ describe("scope-attr-valid", function () {
     expect(results).to.eql([
       {
         text: "Scope attribute should be used correctly on tables",
-        url: "https://dequeuniversity.com/rules/axe/4.4/scope-attr-valid?application=RuleDescription",
+        url: "https://dequeuniversity.com/rules/axe/4.4/scope-attr-valid",
       },
     ]);
   });

@@ -17,7 +17,7 @@ describe("target-size", function () {
       expect(results).to.eql([
         {
           text: "Ensure touch target have sufficient size and space",
-          url: "https://dequeuniversity.com/rules/axe/4.4/target-size?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/target-size",
         },
       ]);
     });
@@ -36,7 +36,7 @@ describe("target-size", function () {
       expect(results).to.eql([
         {
           text: "Ensure touch target have sufficient size and space",
-          url: "https://dequeuniversity.com/rules/axe/4.4/target-size?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/target-size",
         },
       ]);
     });

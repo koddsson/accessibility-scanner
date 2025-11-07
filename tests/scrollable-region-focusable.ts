@@ -149,7 +149,7 @@ and require scrolling to read all content
       expect(results).to.eql([
         {
           text: "Ensure elements that have scrollable content are accessible by keyboard",
-          url: "https://dequeuniversity.com/rules/axe/4.4/scrollable-region-focusable?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/scrollable-region-focusable",
         },
       ]);
     });
@@ -173,7 +173,7 @@ and require scrolling to read all content
       expect(results).to.eql([
         {
           text: "Ensure elements that have scrollable content are accessible by keyboard",
-          url: "https://dequeuniversity.com/rules/axe/4.4/scrollable-region-focusable?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/scrollable-region-focusable",
         },
       ]);
     });
@@ -194,7 +194,7 @@ and require scrolling to read all content
       expect(results).to.eql([
         {
           text: "Ensure elements that have scrollable content are accessible by keyboard",
-          url: "https://dequeuniversity.com/rules/axe/4.4/scrollable-region-focusable?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/scrollable-region-focusable",
         },
       ]);
     });
@@ -214,7 +214,7 @@ and require scrolling to read all content
       expect(results).to.eql([
         {
           text: "Ensure elements that have scrollable content are accessible by keyboard",
-          url: "https://dequeuniversity.com/rules/axe/4.4/scrollable-region-focusable?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/scrollable-region-focusable",
         },
       ]);
     });
@@ -234,7 +234,7 @@ and require scrolling to read all content
       expect(results).to.eql([
         {
           text: "Ensure elements that have scrollable content are accessible by keyboard",
-          url: "https://dequeuniversity.com/rules/axe/4.4/scrollable-region-focusable?application=RuleDescription",
+          url: "https://dequeuniversity.com/rules/axe/4.4/scrollable-region-focusable",
         },
       ]);
     });

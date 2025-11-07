@@ -137,6 +137,7 @@ export default function (element: Element): AccessibilityError[] {
     // Validate the autocomplete value
     if (!isValidAutocomplete(autocompleteAttr)) {
       errors.push({
+        id,
         element: el,
         text,
         url,

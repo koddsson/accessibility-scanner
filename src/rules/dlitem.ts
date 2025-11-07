@@ -1,9 +1,9 @@
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll } from "../utils";
 
+const id = "dlitem";
 const text = "Ensures <dt> and <dd> elements are contained by a <dl>";
-const url =
-  "https://dequeuniversity.com/rules/axe/4.4/dlitem?application=RuleDescription";
+const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
 
 function hasValidDefinitionListParent(element: Element): boolean {
   let parent = element.parentElement;
@@ -37,6 +37,7 @@ export default function (element: Element): AccessibilityError[] {
   for (const dd of ddElements) {
     if (!hasValidDefinitionListParent(dd)) {
       errors.push({
+        id,
         element: dd,
         text,
         url,
@@ -53,6 +54,7 @@ export default function (element: Element): AccessibilityError[] {
   for (const dt of dtElements) {
     if (!hasValidDefinitionListParent(dt)) {
       errors.push({
+        id,
         element: dt,
         text,
         url,
@@ -69,6 +71,7 @@ export default function (element: Element): AccessibilityError[] {
   for (const definition of ariaDefinitions) {
     if (!hasValidDefinitionListParent(definition)) {
       errors.push({
+        id,
         element: definition,
         text,
         url,
@@ -85,6 +88,7 @@ export default function (element: Element): AccessibilityError[] {
   for (const term of ariaTerms) {
     if (!hasValidDefinitionListParent(term)) {
       errors.push({
+        id,
         element: term,
         text,
         url,
