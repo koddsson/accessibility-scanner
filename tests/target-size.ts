@@ -105,5 +105,43 @@ describe("target-size", function () {
 
       expect(results).to.be.empty;
     });
+
+    it("disabled button is not checked", async () => {
+      const container = await fixture(
+        html`<button style="width: 10px; height: 10px;" disabled>Disabled</button>`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.be.empty;
+    });
+
+    it("disabled input is not checked", async () => {
+      const container = await fixture(
+        html`<input type="text" style="width: 10px; height: 10px;" disabled />`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.be.empty;
+    });
+
+    it("disabled select is not checked", async () => {
+      const container = await fixture(
+        html`<select style="width: 10px; height: 10px;" disabled>
+          <option>Option</option>
+        </select>`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.be.empty;
+    });
+
+    it("disabled textarea is not checked", async () => {
+      const container = await fixture(
+        html`<textarea style="width: 10px; height: 10px;" disabled></textarea>`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.be.empty;
+    });
   });
 });
