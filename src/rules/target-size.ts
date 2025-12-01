@@ -100,6 +100,11 @@ export default function (element: Element): AccessibilityError[] {
       continue;
     }
 
+    // Skip disabled elements (they cannot be interacted with)
+    if ((target as HTMLElement).hasAttribute("disabled")) {
+      continue;
+    }
+
     // Skip inline text links (exception per WCAG 2.5.8)
     if (isInlineTextLink(target)) {
       continue;
