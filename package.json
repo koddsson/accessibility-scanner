@@ -39,7 +39,7 @@
     "@web/test-runner-playwright": "^0.11.0",
     "bottleneck": "^2.19.5",
     "cheerio": "^1.0.0-rc.12",
-    "eslint": "^9.33.0",
+    "eslint": "^10.0.3",
     "tablemark": "^4.1.0",
     "tsx": "^4.15.4",
     "typescript": "^5.4.5"
