@@ -20,7 +20,8 @@ const TEXT_SPACING_PROPERTIES = [
  * Pattern matches: property: value !important (with optional whitespace)
  */
 const TEXT_SPACING_REGEX = TEXT_SPACING_PROPERTIES.map(
-  (property) => new RegExp(`${property}\\s*:\\s*[^;]+\\s*!\\s*important`, "i"),
+  (property) =>
+    new RegExp(String.raw`${property}\s*:\s*[^;]+\s*!\s*important`, "i"),
 );
 
 /**

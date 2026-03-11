@@ -18,7 +18,7 @@ function hasOrientationLockingTransform(cssRule: CSSStyleRule): boolean {
   // These transforms are used to lock orientation
   const anglePattern = String.raw`-?\s*(?:90|270)deg`;
   const rotatePattern = new RegExp(
-    `rotate\\s*\\(\\s*(${anglePattern})\\s*\\)|rotateZ\\s*\\(\\s*(${anglePattern})\\s*\\)`,
+    String.raw`rotate\s*\(\s*(${anglePattern})\s*\)|rotateZ\s*\(\s*(${anglePattern})\s*\)`,
     "i",
   );
   return rotatePattern.test(transform);
