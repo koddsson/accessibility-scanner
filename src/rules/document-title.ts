@@ -5,6 +5,9 @@ const text = "Documents must have <title> element to aid in navigation";
 const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 export default function (element: Element): AccessibilityError[] {
+  if (!element) {
+    return [];
+  }
   const document = element.ownerDocument;
   if (!document) {
     return [];
