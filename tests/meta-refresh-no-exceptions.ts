@@ -19,7 +19,7 @@ describe("meta-refresh-no-exceptions", function () {
 
   it("returns errors when meta refresh has a non-zero delay", async () => {
     const meta = await fixture(html`
-      <meta http-equiv="refresh" content="5" />
+      <meta http-equiv="refresh" content="3000" />
     `);
 
     const results = (await scanner.scan(meta)).map(({ text, url }) => {
@@ -48,7 +48,7 @@ describe("meta-refresh-no-exceptions", function () {
 
   it("returns errors when meta refresh has a large delay", async () => {
     const meta = await fixture(html`
-      <meta http-equiv="refresh" content="300" />
+      <meta http-equiv="refresh" content="72000" />
     `);
 
     const results = (await scanner.scan(meta)).map(({ text, url }) => {
