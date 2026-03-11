@@ -3,7 +3,7 @@ import { querySelectorAll } from "../utils";
 
 const id = "target-size";
 const text = "Ensure touch target have sufficient size and space";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
+const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 // Minimum target size in CSS pixels (WCAG 2.2 SC 2.5.8)
 const MIN_TARGET_SIZE = 24;

@@ -71,7 +71,7 @@ describe.only("nested-interactive", async function () {
       expect(results).to.eql([
         {
           text: "Interactive controls must not be nested",
-          url: "https://dequeuniversity.com/rules/axe/4.4/nested-interactive",
+          url: "https://dequeuniversity.com/rules/axe/4.11/nested-interactive",
         },
       ]);
     });

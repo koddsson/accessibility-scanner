@@ -44,11 +44,11 @@ describe("duplicate-id", function () {
       expect(results).to.eql([
         {
           text: "IDs must be unique",
-          url: "https://dequeuniversity.com/rules/axe/4.4/duplicate-id",
+          url: "https://dequeuniversity.com/rules/axe/4.11/duplicate-id",
         },
         {
           text: "IDs must be unique",
-          url: "https://dequeuniversity.com/rules/axe/4.4/duplicate-id",
+          url: "https://dequeuniversity.com/rules/axe/4.11/duplicate-id",
         },
       ]);
     });
@@ -62,15 +62,15 @@ describe("duplicate-id", function () {
       expect(results).to.eql([
         {
           text: "IDs must be unique",
-          url: "https://dequeuniversity.com/rules/axe/4.4/duplicate-id",
+          url: "https://dequeuniversity.com/rules/axe/4.11/duplicate-id",
         },
         {
           text: "IDs must be unique",
-          url: "https://dequeuniversity.com/rules/axe/4.4/duplicate-id",
+          url: "https://dequeuniversity.com/rules/axe/4.11/duplicate-id",
         },
         {
           text: "IDs must be unique",
-          url: "https://dequeuniversity.com/rules/axe/4.4/duplicate-id",
+          url: "https://dequeuniversity.com/rules/axe/4.11/duplicate-id",
         },
       ]);
     });
@@ -85,7 +85,7 @@ describe("duplicate-id", function () {
         for (const result of results) {
           expect(result).to.eql({
             text: "IDs must be unique",
-            url: "https://dequeuniversity.com/rules/axe/4.4/duplicate-id",
+            url: "https://dequeuniversity.com/rules/axe/4.11/duplicate-id",
           });
         }
       });
@@ -120,11 +120,11 @@ describe("duplicate-id", function () {
       expect(results).to.eql([
         {
           text: "IDs must be unique",
-          url: "https://dequeuniversity.com/rules/axe/4.4/duplicate-id",
+          url: "https://dequeuniversity.com/rules/axe/4.11/duplicate-id",
         },
         {
           text: "IDs must be unique",
-          url: "https://dequeuniversity.com/rules/axe/4.4/duplicate-id",
+          url: "https://dequeuniversity.com/rules/axe/4.11/duplicate-id",
         },
       ]);
     });

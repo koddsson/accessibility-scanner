@@ -16,7 +16,7 @@ const {
 } = args;
 
 const response = await fetch(
-  `https://dequeuniversity.com/rules/axe/4.4/${rule}`,
+  `https://dequeuniversity.com/rules/axe/4.11/${rule}`,
 );
 
 if (!response.ok) {
@@ -34,7 +34,7 @@ const ruleTemplate = await format(
 
 const text = "${text}";
 const url =
-  "https://dequeuniversity.com/rules/axe/4.4/${rule}";
+  "https://dequeuniversity.com/rules/axe/4.11/${rule}";
 
 export default function (el: Element): AccessibilityError[] {
   throw new Error('Not implemented');
@@ -82,7 +82,7 @@ describe("${rule}", async function () {
       expect(results).to.eql([
         {
           "text": "${text}",
-          "url": "https://dequeuniversity.com/rules/axe/4.4/${rule}"
+          "url": "https://dequeuniversity.com/rules/axe/4.11/${rule}"
         },
       ]);
     });

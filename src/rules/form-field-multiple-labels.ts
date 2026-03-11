@@ -3,7 +3,7 @@ import { querySelectorAll } from "../utils";
 
 const id = "form-field-multiple-labels";
 const text = "Ensures form field does not have multiple label elements";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
+const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 export default function (element: Element): AccessibilityError[] {
   const errors: AccessibilityError[] = [];

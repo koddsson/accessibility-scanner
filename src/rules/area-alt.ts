@@ -3,7 +3,7 @@ import { querySelectorAll, labelledByIsValid } from "../utils";
 
 const id = "area-alt";
 const text = "Elements must only use allowed ARIA attributes";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
+const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 export function areaAlt(element_: Element): AccessibilityError[] {
   const errors = [];

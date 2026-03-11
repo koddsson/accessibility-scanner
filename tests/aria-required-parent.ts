@@ -317,7 +317,7 @@ describe("aria-required-parent", async function () {
       expect(results).to.eql([
         {
           text: "Certain ARIA roles must be contained by particular parents",
-          url: `https://dequeuniversity.com/rules/axe/4.4/aria-required-parent`,
+          url: `https://dequeuniversity.com/rules/axe/4.11/aria-required-parent`,
         },
       ]);
     });

@@ -38,7 +38,7 @@ describe("input-button-name", async function () {
       expect(results).to.eql([
         {
           "text": "IDs used in ARIA and labels must be unique",
-          "url": "https://dequeuniversity.com/rules/axe/4.4/duplicate-id-aria"
+          "url": "https://dequeuniversity.com/rules/axe/4.11/duplicate-id-aria"
         },
       ]);
     });

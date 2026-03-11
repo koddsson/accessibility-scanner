@@ -235,7 +235,7 @@ describe("aria-valid-attr", async function () {
       expect(results).to.eql([
         {
           text: "Certain ARIA roles must contain particular children",
-          url: `https://dequeuniversity.com/rules/axe/4.4/aria-required-children`,
+          url: `https://dequeuniversity.com/rules/axe/4.11/aria-required-children`,
         },
       ]);
     });

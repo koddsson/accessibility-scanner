@@ -4,7 +4,7 @@ import { querySelectorAll } from "../utils";
 const id = "aria-roledescription";
 const text =
   "Ensure aria-roledescription is only used on elements with an implicit or explicit role";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
+const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 /**
  * Returns the implicit role of an element based on its tag name and attributes.

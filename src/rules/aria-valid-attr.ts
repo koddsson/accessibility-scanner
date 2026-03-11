@@ -7,7 +7,7 @@ import {
 
 const id = "aria-valid-attr";
 const text = "ARIA attributes must conform to valid names";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
+const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 // TODO: Maybe use https://github.com/A11yance/aria-query for this?
 

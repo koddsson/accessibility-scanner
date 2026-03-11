@@ -3,7 +3,7 @@ import { querySelectorAll, isVisible } from "../utils";
 
 const id = "aria-hidden-focus";
 const text = "aria-hidden elements do not contain focusable elements";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
+const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 const focusableSelector = [
   "a[href]",

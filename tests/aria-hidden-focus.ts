@@ -98,7 +98,7 @@ describe("aria-hidden-focus", async function () {
       expect(results).to.eql([
         {
       "text": "aria-hidden elements do not contain focusable elements",
-      "url": "https://dequeuniversity.com/rules/axe/4.4/aria-hidden-focus"
+      "url": "https://dequeuniversity.com/rules/axe/4.11/aria-hidden-focus"
         },
       ]);
     });
