@@ -673,7 +673,7 @@
         "ACT Rules": ""
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "frame-tested",
         "url": "https://dequeuniversity.com/rules/axe/4.11/frame-tested?application=RuleDescription",
         "Description": "Ensures &lt;iframe&gt; and &lt;frame&gt; elements contain the axe-core script",

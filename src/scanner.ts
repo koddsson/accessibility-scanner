@@ -44,6 +44,7 @@ import linkInTextBlock from "./rules/link-in-text-block";
 import accesskeys from "./rules/accesskeys";
 import tableFakeCaption from "./rules/table-fake-caption";
 import frameFocusableContent from "./rules/frame-focusable-content";
+import frameTested from "./rules/frame-tested";
 import frameTitle from "./rules/frame-title";
 import frameTitleUnique from "./rules/frame-title-unique";
 import noAutoplayAudio from "./rules/no-autoplay-audio";
@@ -119,6 +120,7 @@ export const allRules: Rule[] = [
   duplicateIdAria,
   formFieldMultipleLabels,
   frameFocusableContent,
+  frameTested,
   frameTitle,
   frameTitleUnique,
   htmlLangValid,
