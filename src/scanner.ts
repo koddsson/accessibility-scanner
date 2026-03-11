@@ -68,6 +68,7 @@ import serverSideImageMap from "./rules/server-side-image-map";
 import targetSize from "./rules/target-size";
 import objectAlt from "./rules/object-alt";
 import tabindex from "./rules/tabindex";
+import landmarkContentinfoIsTopLevel from "./rules/landmark-contentinfo-is-top-level";
 
 import { Logger } from "./logger";
 
@@ -133,6 +134,7 @@ export const allRules: Rule[] = [
   inputImageAlt,
   label,
   labelContentNameMismatch,
+  landmarkContentinfoIsTopLevel,
   linkInTextBlock,
   linkName,
   list,
