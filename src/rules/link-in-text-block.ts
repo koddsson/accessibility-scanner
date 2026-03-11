@@ -97,6 +97,18 @@ function isDistinguishableWithoutColor(link: HTMLAnchorElement): boolean {
     }
   }
 
+  // Check for different background color compared to parent
+  if (parent) {
+    const parentComputed = globalThis.getComputedStyle(parent);
+    if (
+      computed.backgroundColor !== parentComputed.backgroundColor &&
+      computed.backgroundColor !== "transparent" &&
+      computed.backgroundColor !== "rgba(0, 0, 0, 0)"
+    ) {
+      return true;
+    }
+  }
+
   // Check for border that provides visual distinction
   const borderTopWidth = parseFloat(computed.borderTopWidth) || 0;
   const borderBottomWidth = parseFloat(computed.borderBottomWidth) || 0;
@@ -142,6 +154,13 @@ export default function (element: Element): AccessibilityError[] {
 
   for (const link of links) {
     const anchor = link as HTMLAnchorElement;
+
+    // Skip links inside navigation elements — navigation links are not
+    // "links in text blocks" and should not be required to have non-color
+    // visual indicators.
+    if (anchor.closest("nav, [role='navigation']")) {
+      continue;
+    }
 
     // Skip if link is not visible
     if (!isVisible(anchor)) {
