@@ -3,7 +3,7 @@ import { querySelectorAll, labelledByIsValid } from "../utils";
 
 const id = "frame-title";
 const text = "Frames must have an accessible name";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
+const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 export default function (element: Element): AccessibilityError[] {
   const errors = [];

@@ -3,7 +3,7 @@ import { querySelectorAll } from "../utils";
 
 const id = "frame-title-unique";
 const text = "Frames must have a unique title attribute";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
+const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 export default function (element: Element): AccessibilityError[] {
   const errors: AccessibilityError[] = [];

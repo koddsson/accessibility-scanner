@@ -14,7 +14,7 @@ describe("audio-caption", function () {
     expect(results).to.eql([
       {
         "text": "<audio> elements must have a captions <track>",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/audio-caption"
+        "url": "https://dequeuniversity.com/rules/axe/4.11/audio-caption"
       },
     ]);
   });

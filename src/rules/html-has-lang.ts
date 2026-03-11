@@ -2,7 +2,7 @@ import { AccessibilityError } from "../scanner";
 
 const id = "html-has-lang";
 const text = "<html> element must have a lang attribute";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
+const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 export default function (element: Element): AccessibilityError[] {
   const htmlElement = element.ownerDocument.documentElement;

@@ -1,10 +1,10 @@
-// https://dequeuniversity.com/rules/axe/4.4/table-fake-caption?application=RuleDescription
+// https://dequeuniversity.com/rules/axe/4.11/table-fake-caption?application=RuleDescription
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll } from "../utils";
 
 const id = "table-fake-caption";
 const text = "Ensure that tables with a caption use the <caption> element.";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
+const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 /**
  * Check if a table has a fake caption

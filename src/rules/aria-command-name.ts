@@ -3,7 +3,7 @@ import { querySelectorAll, hasAccessibleText } from "../utils";
 
 const id = "aria-command-name";
 const text = "ARIA button, link, and menuitem must have an accessible name";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
+const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 /*
 <div role="link" id="al" aria-label="Name"></div>

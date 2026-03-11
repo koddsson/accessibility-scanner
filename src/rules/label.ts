@@ -8,7 +8,7 @@ import {
 
 const id = "label";
 const text = "Form <input> elements must have labels";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
+const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 export default function (element: Element): AccessibilityError[] {
   const errors = [];

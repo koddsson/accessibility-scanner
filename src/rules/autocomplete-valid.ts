@@ -4,7 +4,7 @@ import { querySelectorAll } from "../utils";
 const id = "autocomplete-valid";
 const text =
   "Ensure the autocomplete attribute is correct and suitable for the form field";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
+const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 // Valid autocomplete tokens based on HTML Living Standard
 // https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill

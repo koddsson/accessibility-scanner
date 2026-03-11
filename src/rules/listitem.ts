@@ -3,7 +3,7 @@ import { querySelectorAll } from "../utils";
 
 const id = "listitem";
 const text = "Ensures <li> elements are used semantically";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
+const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 function hasValidListParent(element: Element): boolean {
   let parent = element.parentElement;

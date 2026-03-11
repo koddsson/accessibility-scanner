@@ -5,7 +5,7 @@
       {
         "implemented": "✅",
         "id": "area-alt",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/area-alt?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/area-alt?application=RuleDescription",
         "Description": "Ensures &lt;area&gt; elements of image maps have alternate text",
         "Impact": "Critical",
         "Tags": "cat.text-alternatives, wcag2a, wcag244, wcag412, section508, section508.22.a, ACT",
@@ -15,7 +15,7 @@
       {
         "implemented": "✅",
         "id": "aria-allowed-attr",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/aria-allowed-attr?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/aria-allowed-attr?application=RuleDescription",
         "Description": "Ensures ARIA attributes are allowed for an element&apos;s role",
         "Impact": "Serious, Critical",
         "Tags": "cat.aria, wcag2a, wcag412",
@@ -25,7 +25,7 @@
       {
         "implemented": "❌",
         "id": "aria-command-name",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/aria-command-name?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/aria-command-name?application=RuleDescription",
         "Description": "Ensures every ARIA button, link and menuitem has an accessible name",
         "Impact": "Serious",
         "Tags": "cat.aria, wcag2a, wcag412, ACT",
@@ -35,7 +35,7 @@
       {
         "implemented": "✅",
         "id": "aria-hidden-body",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/aria-hidden-body?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/aria-hidden-body?application=RuleDescription",
         "Description": "Ensures aria-hidden=&apos;true&apos; is not present on the document body.",
         "Impact": "Critical",
         "Tags": "cat.aria, wcag2a, wcag412",
@@ -45,7 +45,7 @@
       {
         "implemented": "❌",
         "id": "aria-hidden-focus",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/aria-hidden-focus?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/aria-hidden-focus?application=RuleDescription",
         "Description": "Ensures aria-hidden elements are not focusable nor contain focusable elements",
         "Impact": "Serious",
         "Tags": "cat.name-role-value, wcag2a, wcag412",
@@ -55,7 +55,7 @@
       {
         "implemented": "❌",
         "id": "aria-input-field-name",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/aria-input-field-name?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/aria-input-field-name?application=RuleDescription",
         "Description": "Ensures every ARIA input field has an accessible name",
         "Impact": "Moderate, Serious",
         "Tags": "cat.aria, wcag2a, wcag412, ACT",
@@ -65,7 +65,7 @@
       {
         "implemented": "❌",
         "id": "aria-meter-name",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/aria-meter-name?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/aria-meter-name?application=RuleDescription",
         "Description": "Ensures every ARIA meter node has an accessible name",
         "Impact": "Serious",
         "Tags": "cat.aria, wcag2a, wcag111",
@@ -75,7 +75,7 @@
       {
         "implemented": "❌",
         "id": "aria-progressbar-name",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/aria-progressbar-name?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/aria-progressbar-name?application=RuleDescription",
         "Description": "Ensures every ARIA progressbar node has an accessible name",
         "Impact": "Serious",
         "Tags": "cat.aria, wcag2a, wcag111",
@@ -85,7 +85,7 @@
       {
         "implemented": "✅",
         "id": "aria-required-attr",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/aria-required-attr?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/aria-required-attr?application=RuleDescription",
         "Description": "Ensures elements with ARIA roles have all required ARIA attributes",
         "Impact": "Critical",
         "Tags": "cat.aria, wcag2a, wcag412",
@@ -95,7 +95,7 @@
       {
         "implemented": "❌",
         "id": "aria-required-children",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/aria-required-children?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/aria-required-children?application=RuleDescription",
         "Description": "Ensures elements with an ARIA role that require child roles contain them",
         "Impact": "Critical",
         "Tags": "cat.aria, wcag2a, wcag131",
@@ -105,7 +105,7 @@
       {
         "implemented": "❌",
         "id": "aria-required-parent",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/aria-required-parent?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/aria-required-parent?application=RuleDescription",
         "Description": "Ensures elements with an ARIA role that require parent roles are contained by them",
         "Impact": "Critical",
         "Tags": "cat.aria, wcag2a, wcag131",
@@ -115,7 +115,7 @@
       {
         "implemented": "❌",
         "id": "aria-roledescription",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/aria-roledescription?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/aria-roledescription?application=RuleDescription",
         "Description": "Ensure aria-roledescription is only used on elements with an implicit or explicit role",
         "Impact": "Serious",
         "Tags": "cat.aria, wcag2a, wcag412",
@@ -125,7 +125,7 @@
       {
         "implemented": "✅",
         "id": "aria-roles",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/aria-roles?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/aria-roles?application=RuleDescription",
         "Description": "Ensures all elements with a role attribute use a valid value",
         "Impact": "Minor, Serious, Critical",
         "Tags": "cat.aria, wcag2a, wcag412",
@@ -135,7 +135,7 @@
       {
         "implemented": "❌",
         "id": "aria-toggle-field-name",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/aria-toggle-field-name?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/aria-toggle-field-name?application=RuleDescription",
         "Description": "Ensures every ARIA toggle field has an accessible name",
         "Impact": "Moderate, Serious",
         "Tags": "cat.aria, wcag2a, wcag412, ACT",
@@ -145,7 +145,7 @@
       {
         "implemented": "❌",
         "id": "aria-tooltip-name",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/aria-tooltip-name?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/aria-tooltip-name?application=RuleDescription",
         "Description": "Ensures every ARIA tooltip node has an accessible name",
         "Impact": "Serious",
         "Tags": "cat.aria, wcag2a, wcag412",
@@ -155,7 +155,7 @@
       {
         "implemented": "✅",
         "id": "aria-valid-attr-value",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/aria-valid-attr-value?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/aria-valid-attr-value?application=RuleDescription",
         "Description": "Ensures all ARIA attributes have valid values",
         "Impact": "Serious, Critical",
         "Tags": "cat.aria, wcag2a, wcag412",
@@ -165,7 +165,7 @@
       {
         "implemented": "✅",
         "id": "aria-valid-attr",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/aria-valid-attr?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/aria-valid-attr?application=RuleDescription",
         "Description": "Ensures attributes that begin with aria- are valid ARIA attributes",
         "Impact": "Critical",
         "Tags": "cat.aria, wcag2a, wcag412",
@@ -175,7 +175,7 @@
       {
         "implemented": "✅",
         "id": "audio-caption",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/audio-caption?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/audio-caption?application=RuleDescription",
         "Description": "Ensures &lt;audio&gt; elements have captions",
         "Impact": "Critical",
         "Tags": "cat.time-and-media, wcag2a, wcag121, section508, section508.22.a",
@@ -185,7 +185,7 @@
       {
         "implemented": "✅",
         "id": "blink",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/blink?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/blink?application=RuleDescription",
         "Description": "Ensures &lt;blink&gt; elements are not used",
         "Impact": "Serious",
         "Tags": "cat.time-and-media, wcag2a, wcag222, section508, section508.22.j",
@@ -195,7 +195,7 @@
       {
         "implemented": "✅",
         "id": "button-name",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/button-name?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/button-name?application=RuleDescription",
         "Description": "Ensures buttons have discernible text",
         "Impact": "Critical",
         "Tags": "cat.name-role-value, wcag2a, wcag412, section508, section508.22.a, ACT",
@@ -205,7 +205,7 @@
       {
         "implemented": "✅",
         "id": "bypass",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/bypass?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/bypass?application=RuleDescription",
         "Description": "Ensures each page has at least one mechanism for a user to bypass navigation and jump straight to the content",
         "Impact": "Serious",
         "Tags": "cat.keyboard, wcag2a, wcag241, section508, section508.22.o",
@@ -215,7 +215,7 @@
       {
         "implemented": "❌",
         "id": "color-contrast",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/color-contrast?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=RuleDescription",
         "Description": "Ensures the contrast between foreground and background colors meets WCAG 2 AA contrast ratio thresholds",
         "Impact": "Serious",
         "Tags": "cat.color, wcag2aa, wcag143, ACT",
@@ -225,7 +225,7 @@
       {
         "implemented": "✅",
         "id": "definition-list",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/definition-list?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/definition-list?application=RuleDescription",
         "Description": "Ensures &lt;dl&gt; elements are structured correctly",
         "Impact": "Serious",
         "Tags": "cat.structure, wcag2a, wcag131",
@@ -235,7 +235,7 @@
       {
         "implemented": "✅",
         "id": "dlitem",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/dlitem?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/dlitem?application=RuleDescription",
         "Description": "Ensures &lt;dt&gt; and &lt;dd&gt; elements are contained by a &lt;dl&gt;",
         "Impact": "Serious",
         "Tags": "cat.structure, wcag2a, wcag131",
@@ -245,7 +245,7 @@
       {
         "implemented": "✅",
         "id": "document-title",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/document-title?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/document-title?application=RuleDescription",
         "Description": "Ensures each HTML document contains a non-empty &lt;title&gt; element",
         "Impact": "Serious",
         "Tags": "cat.text-alternatives, wcag2a, wcag242, ACT",
@@ -255,7 +255,7 @@
       {
         "implemented": "✅",
         "id": "duplicate-id-active",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/duplicate-id-active?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/duplicate-id-active?application=RuleDescription",
         "Description": "Ensures every id attribute value of active elements is unique",
         "Impact": "Serious",
         "Tags": "cat.parsing, wcag2a, wcag411",
@@ -265,7 +265,7 @@
       {
         "implemented": "✅",
         "id": "duplicate-id-aria",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/duplicate-id-aria?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/duplicate-id-aria?application=RuleDescription",
         "Description": "Ensures every id attribute value used in ARIA and in labels is unique",
         "Impact": "Critical",
         "Tags": "cat.parsing, wcag2a, wcag411",
@@ -275,7 +275,7 @@
       {
         "implemented": "❌",
         "id": "duplicate-id",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/duplicate-id?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/duplicate-id?application=RuleDescription",
         "Description": "Ensures every id attribute value is unique",
         "Impact": "Minor",
         "Tags": "cat.parsing, wcag2a, wcag411",
@@ -285,7 +285,7 @@
       {
         "implemented": "✅",
         "id": "form-field-multiple-labels",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/form-field-multiple-labels?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/form-field-multiple-labels?application=RuleDescription",
         "Description": "Ensures form field does not have multiple label elements",
         "Impact": "Moderate",
         "Tags": "cat.forms, wcag2a, wcag332",
@@ -295,7 +295,7 @@
       {
         "implemented": "❌",
         "id": "frame-focusable-content",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/frame-focusable-content?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/frame-focusable-content?application=RuleDescription",
         "Description": "Ensures &lt;frame&gt; and &lt;iframe&gt; elements with focusable content do not have tabindex=-1",
         "Impact": "Serious",
         "Tags": "cat.keyboard, wcag2a, wcag211",
@@ -305,7 +305,7 @@
       {
         "implemented": "✅",
         "id": "frame-title-unique",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/frame-title-unique?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/frame-title-unique?application=RuleDescription",
         "Description": "Ensures &lt;iframe&gt; and &lt;frame&gt; elements contain a unique title attribute",
         "Impact": "Serious",
         "Tags": "cat.text-alternatives, wcag412, wcag2a",
@@ -315,7 +315,7 @@
       {
         "implemented": "✅",
         "id": "frame-title",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/frame-title?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/frame-title?application=RuleDescription",
         "Description": "Ensures &lt;iframe&gt; and &lt;frame&gt; elements have an accessible name",
         "Impact": "Serious",
         "Tags": "cat.text-alternatives, wcag2a, wcag412, section508, section508.22.i",
@@ -325,7 +325,7 @@
       {
         "implemented": "❌",
         "id": "html-has-lang",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/html-has-lang?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/html-has-lang?application=RuleDescription",
         "Description": "Ensures every HTML document has a lang attribute",
         "Impact": "Serious",
         "Tags": "cat.language, wcag2a, wcag311, ACT",
@@ -335,7 +335,7 @@
       {
         "implemented": "❌",
         "id": "html-lang-valid",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/html-lang-valid?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/html-lang-valid?application=RuleDescription",
         "Description": "Ensures the lang attribute of the &lt;html&gt; element has a valid value",
         "Impact": "Serious",
         "Tags": "cat.language, wcag2a, wcag311, ACT",
@@ -345,7 +345,7 @@
       {
         "implemented": "✅",
         "id": "html-xml-lang-mismatch",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/html-xml-lang-mismatch?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/html-xml-lang-mismatch?application=RuleDescription",
         "Description": "Ensure that HTML elements with both valid lang and xml:lang attributes agree on the base language of the page",
         "Impact": "Moderate",
         "Tags": "cat.language, wcag2a, wcag311, ACT",
@@ -355,7 +355,7 @@
       {
         "implemented": "✅",
         "id": "image-alt",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/image-alt?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/image-alt?application=RuleDescription",
         "Description": "Ensures &lt;img&gt; elements have alternate text or a role of none or presentation",
         "Impact": "Critical",
         "Tags": "cat.text-alternatives, wcag2a, wcag111, section508, section508.22.a, ACT",
@@ -365,7 +365,7 @@
       {
         "implemented": "✅",
         "id": "input-button-name",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/input-button-name?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/input-button-name?application=RuleDescription",
         "Description": "Ensures input buttons have discernible text",
         "Impact": "Critical",
         "Tags": "cat.name-role-value, wcag2a, wcag412, section508, section508.22.a, ACT",
@@ -375,7 +375,7 @@
       {
         "implemented": "✅",
         "id": "input-image-alt",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/input-image-alt?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/input-image-alt?application=RuleDescription",
         "Description": "Ensures &lt;input type=&quot;image&quot;&gt; elements have alternate text",
         "Impact": "Critical",
         "Tags": "cat.text-alternatives, wcag2a, wcag111, wcag412, section508, section508.22.a, ACT",
@@ -385,7 +385,7 @@
       {
         "implemented": "✅",
         "id": "label",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/label?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/label?application=RuleDescription",
         "Description": "Ensures every form element has a label",
         "Impact": "Minor, Critical",
         "Tags": "cat.forms, wcag2a, wcag412, section508, section508.22.n, ACT",
@@ -395,7 +395,7 @@
       {
         "implemented": "❌",
         "id": "link-name",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/link-name?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/link-name?application=RuleDescription",
         "Description": "Ensures links have discernible text",
         "Impact": "Serious",
         "Tags": "cat.name-role-value, wcag2a, wcag412, wcag244, section508, section508.22.a, ACT",
@@ -405,7 +405,7 @@
       {
         "implemented": "✅",
         "id": "list",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/list?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/list?application=RuleDescription",
         "Description": "Ensures that lists are structured correctly",
         "Impact": "Serious",
         "Tags": "cat.structure, wcag2a, wcag131",
@@ -415,7 +415,7 @@
       {
         "implemented": "❌",
         "id": "listitem",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/listitem?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/listitem?application=RuleDescription",
         "Description": "Ensures &lt;li&gt; elements are used semantically",
         "Impact": "Serious",
         "Tags": "cat.structure, wcag2a, wcag131",
@@ -425,7 +425,7 @@
       {
         "implemented": "✅",
         "id": "marquee",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/marquee?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/marquee?application=RuleDescription",
         "Description": "Ensures &lt;marquee&gt; elements are not used",
         "Impact": "Serious",
         "Tags": "cat.parsing, wcag2a, wcag222",
@@ -435,7 +435,7 @@
       {
         "implemented": "✅",
         "id": "meta-refresh",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/meta-refresh?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/meta-refresh?application=RuleDescription",
         "Description": "Ensures &lt;meta http-equiv=&quot;refresh&quot;&gt; is not used for delayed refresh",
         "Impact": "Critical",
         "Tags": "cat.time-and-media, wcag2a, wcag221",
@@ -445,7 +445,7 @@
       {
         "implemented": "✅",
         "id": "nested-interactive",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/nested-interactive?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/nested-interactive?application=RuleDescription",
         "Description": "Ensures interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
         "Impact": "Serious",
         "Tags": "cat.keyboard, wcag2a, wcag412",
@@ -455,7 +455,7 @@
       {
         "implemented": "✅",
         "id": "no-autoplay-audio",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/no-autoplay-audio?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/no-autoplay-audio?application=RuleDescription",
         "Description": "Ensures &lt;video&gt; or &lt;audio&gt; elements do not autoplay audio for more than 3 seconds without a control mechanism to stop or mute the audio",
         "Impact": "Moderate",
         "Tags": "cat.time-and-media, wcag2a, wcag142, ACT",
@@ -465,7 +465,7 @@
       {
         "implemented": "❌",
         "id": "object-alt",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/object-alt?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/object-alt?application=RuleDescription",
         "Description": "Ensures &lt;object&gt; elements have alternate text",
         "Impact": "Serious",
         "Tags": "cat.text-alternatives, wcag2a, wcag111, section508, section508.22.a",
@@ -475,7 +475,7 @@
       {
         "implemented": "❌",
         "id": "role-img-alt",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/role-img-alt?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/role-img-alt?application=RuleDescription",
         "Description": "Ensures [role=&apos;img&apos;] elements have alternate text",
         "Impact": "Serious",
         "Tags": "cat.text-alternatives, wcag2a, wcag111, section508, section508.22.a, ACT",
@@ -485,7 +485,7 @@
       {
         "implemented": "✅",
         "id": "scrollable-region-focusable",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/scrollable-region-focusable?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/scrollable-region-focusable?application=RuleDescription",
         "Description": "Ensure elements that have scrollable content are accessible by keyboard",
         "Impact": "Moderate",
         "Tags": "cat.keyboard, wcag2a, wcag211",
@@ -495,7 +495,7 @@
       {
         "implemented": "✅",
         "id": "select-name",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/select-name?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/select-name?application=RuleDescription",
         "Description": "Ensures select element has an accessible name",
         "Impact": "Minor, Critical",
         "Tags": "cat.forms, wcag2a, wcag412, section508, section508.22.n, ACT",
@@ -505,7 +505,7 @@
       {
         "implemented": "✅",
         "id": "server-side-image-map",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/server-side-image-map?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/server-side-image-map?application=RuleDescription",
         "Description": "Ensures that server-side image maps are not used",
         "Impact": "Minor",
         "Tags": "cat.text-alternatives, wcag2a, wcag211, section508, section508.22.f",
@@ -515,7 +515,7 @@
       {
         "implemented": "✅",
         "id": "svg-img-alt",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/svg-img-alt?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/svg-img-alt?application=RuleDescription",
         "Description": "Ensures &lt;svg&gt; elements with an img, graphics-document or graphics-symbol role have an accessible text",
         "Impact": "Serious",
         "Tags": "cat.text-alternatives, wcag2a, wcag111, section508, section508.22.a, ACT",
@@ -525,7 +525,7 @@
       {
         "implemented": "❌",
         "id": "td-headers-attr",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/td-headers-attr?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/td-headers-attr?application=RuleDescription",
         "Description": "Ensure that each cell in a table that uses the headers attribute refers only to other cells in that table",
         "Impact": "Serious",
         "Tags": "cat.tables, wcag2a, wcag131, section508, section508.22.g",
@@ -535,7 +535,7 @@
       {
         "implemented": "❌",
         "id": "th-has-data-cells",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/th-has-data-cells?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/th-has-data-cells?application=RuleDescription",
         "Description": "Ensure that &lt;th&gt; elements and elements with role=columnheader/rowheader have data cells they describe",
         "Impact": "Serious",
         "Tags": "cat.tables, wcag2a, wcag131, section508, section508.22.g",
@@ -545,7 +545,7 @@
       {
         "implemented": "❌",
         "id": "valid-lang",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/valid-lang?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/valid-lang?application=RuleDescription",
         "Description": "Ensures lang attributes have valid values",
         "Impact": "Serious",
         "Tags": "cat.language, wcag2aa, wcag312, ACT",
@@ -555,7 +555,7 @@
       {
         "implemented": "✅",
         "id": "video-caption",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/video-caption?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/video-caption?application=RuleDescription",
         "Description": "Ensures &lt;video&gt; elements have captions",
         "Impact": "Critical",
         "Tags": "cat.text-alternatives, wcag2a, wcag122, section508, section508.22.a",
@@ -570,7 +570,7 @@
       {
         "implemented": "✅",
         "id": "autocomplete-valid",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/autocomplete-valid?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/autocomplete-valid?application=RuleDescription",
         "Description": "Ensure the autocomplete attribute is correct and suitable for the form field",
         "Impact": "Serious",
         "Tags": "cat.forms, wcag21aa, wcag135, ACT",
@@ -580,7 +580,7 @@
       {
         "implemented": "❌",
         "id": "avoid-inline-spacing",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/avoid-inline-spacing?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/avoid-inline-spacing?application=RuleDescription",
         "Description": "Ensure that text spacing set through style attributes can be adjusted with custom stylesheets",
         "Impact": "Serious",
         "Tags": "cat.structure, wcag21aa, wcag1412, ACT",
@@ -590,7 +590,7 @@
       {
         "implemented": "❌",
         "id": "target-size",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/target-size?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/target-size?application=RuleDescription",
         "Description": "Ensure touch target have sufficient size and space",
         "Impact": "Serious",
         "Tags": "wcag22aa, sc258, cat.sensory-and-visual-cues",
@@ -605,7 +605,7 @@
       {
         "implemented": "✅",
         "id": "accesskeys",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/accesskeys?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/accesskeys?application=RuleDescription",
         "Description": "Ensures every accesskey attribute value is unique",
         "Impact": "Serious",
         "Tags": "cat.keyboard, best-practice",
@@ -615,7 +615,7 @@
       {
         "implemented": "❌",
         "id": "aria-allowed-role",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/aria-allowed-role?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/aria-allowed-role?application=RuleDescription",
         "Description": "Ensures role attribute has an appropriate value for the element",
         "Impact": "Minor",
         "Tags": "cat.aria, best-practice",
@@ -625,7 +625,7 @@
       {
         "implemented": "❌",
         "id": "aria-dialog-name",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/aria-dialog-name?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/aria-dialog-name?application=RuleDescription",
         "Description": "Ensures every ARIA dialog and alertdialog node has an accessible name",
         "Impact": "Serious",
         "Tags": "cat.aria, best-practice",
@@ -635,7 +635,7 @@
       {
         "implemented": "❌",
         "id": "aria-text",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/aria-text?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/aria-text?application=RuleDescription",
         "Description": "Ensures &quot;role=text&quot; is used on elements with no focusable descendants",
         "Impact": "Serious",
         "Tags": "cat.aria, best-practice",
@@ -645,7 +645,7 @@
       {
         "implemented": "❌",
         "id": "aria-treeitem-name",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/aria-treeitem-name?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/aria-treeitem-name?application=RuleDescription",
         "Description": "Ensures every ARIA treeitem node has an accessible name",
         "Impact": "Serious",
         "Tags": "cat.aria, best-practice",
@@ -655,7 +655,7 @@
       {
         "implemented": "❌",
         "id": "empty-heading",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/empty-heading?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/empty-heading?application=RuleDescription",
         "Description": "Ensures headings have discernible text",
         "Impact": "Minor",
         "Tags": "cat.name-role-value, best-practice",
@@ -665,7 +665,7 @@
       {
         "implemented": "❌",
         "id": "empty-table-header",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/empty-table-header?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/empty-table-header?application=RuleDescription",
         "Description": "Ensures table headers have discernible text",
         "Impact": "Minor",
         "Tags": "cat.name-role-value, best-practice",
@@ -675,7 +675,7 @@
       {
         "implemented": "✅",
         "id": "frame-tested",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/frame-tested?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/frame-tested?application=RuleDescription",
         "Description": "Ensures &lt;iframe&gt; and &lt;frame&gt; elements contain the axe-core script",
         "Impact": "Critical",
         "Tags": "cat.structure, review-item, best-practice",
@@ -685,7 +685,7 @@
       {
         "implemented": "❌",
         "id": "heading-order",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/heading-order?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/heading-order?application=RuleDescription",
         "Description": "Ensures the order of headings is semantically correct",
         "Impact": "Moderate",
         "Tags": "cat.semantics, best-practice",
@@ -695,7 +695,7 @@
       {
         "implemented": "❌",
         "id": "image-redundant-alt",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/image-redundant-alt?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/image-redundant-alt?application=RuleDescription",
         "Description": "Ensure image alternative is not repeated as text",
         "Impact": "Minor",
         "Tags": "cat.text-alternatives, best-practice",
@@ -705,7 +705,7 @@
       {
         "implemented": "❌",
         "id": "label-title-only",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/label-title-only?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/label-title-only?application=RuleDescription",
         "Description": "Ensures that every form element has a visible label and is not solely labeled using hidden labels, or the title or aria-describedby attributes",
         "Impact": "Serious",
         "Tags": "cat.forms, best-practice",
@@ -715,7 +715,7 @@
       {
         "implemented": "❌",
         "id": "landmark-banner-is-top-level",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/landmark-banner-is-top-level?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/landmark-banner-is-top-level?application=RuleDescription",
         "Description": "Ensures the banner landmark is at top level",
         "Impact": "Moderate",
         "Tags": "cat.semantics, best-practice",
@@ -725,7 +725,7 @@
       {
         "implemented": "❌",
         "id": "landmark-complementary-is-top-level",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/landmark-complementary-is-top-level?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/landmark-complementary-is-top-level?application=RuleDescription",
         "Description": "Ensures the complementary landmark or aside is at top level",
         "Impact": "Moderate",
         "Tags": "cat.semantics, best-practice",
@@ -735,7 +735,7 @@
       {
         "implemented": "❌",
         "id": "landmark-contentinfo-is-top-level",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/landmark-contentinfo-is-top-level?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/landmark-contentinfo-is-top-level?application=RuleDescription",
         "Description": "Ensures the contentinfo landmark is at top level",
         "Impact": "Moderate",
         "Tags": "cat.semantics, best-practice",
@@ -745,7 +745,7 @@
       {
         "implemented": "❌",
         "id": "landmark-main-is-top-level",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/landmark-main-is-top-level?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/landmark-main-is-top-level?application=RuleDescription",
         "Description": "Ensures the main landmark is at top level",
         "Impact": "Moderate",
         "Tags": "cat.semantics, best-practice",
@@ -755,7 +755,7 @@
       {
         "implemented": "❌",
         "id": "landmark-no-duplicate-banner",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/landmark-no-duplicate-banner?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/landmark-no-duplicate-banner?application=RuleDescription",
         "Description": "Ensures the document has at most one banner landmark",
         "Impact": "Moderate",
         "Tags": "cat.semantics, best-practice",
@@ -765,7 +765,7 @@
       {
         "implemented": "❌",
         "id": "landmark-no-duplicate-contentinfo",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/landmark-no-duplicate-contentinfo?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/landmark-no-duplicate-contentinfo?application=RuleDescription",
         "Description": "Ensures the document has at most one contentinfo landmark",
         "Impact": "Moderate",
         "Tags": "cat.semantics, best-practice",
@@ -775,7 +775,7 @@
       {
         "implemented": "❌",
         "id": "landmark-no-duplicate-main",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/landmark-no-duplicate-main?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/landmark-no-duplicate-main?application=RuleDescription",
         "Description": "Ensures the document has at most one main landmark",
         "Impact": "Moderate",
         "Tags": "cat.semantics, best-practice",
@@ -785,7 +785,7 @@
       {
         "implemented": "❌",
         "id": "landmark-one-main",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/landmark-one-main?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/landmark-one-main?application=RuleDescription",
         "Description": "Ensures the document has a main landmark",
         "Impact": "Moderate",
         "Tags": "cat.semantics, best-practice",
@@ -795,7 +795,7 @@
       {
         "implemented": "❌",
         "id": "landmark-unique",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/landmark-unique?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/landmark-unique?application=RuleDescription",
         "Description": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
         "Impact": "Moderate",
         "Tags": "cat.semantics, best-practice",
@@ -805,7 +805,7 @@
       {
         "implemented": "❌",
         "id": "meta-viewport-large",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/meta-viewport-large?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/meta-viewport-large?application=RuleDescription",
         "Description": "Ensures &lt;meta name=&quot;viewport&quot;&gt; can scale a significant amount",
         "Impact": "Minor",
         "Tags": "cat.sensory-and-visual-cues, best-practice",
@@ -815,7 +815,7 @@
       {
         "implemented": "✅",
         "id": "meta-viewport",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/meta-viewport?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/meta-viewport?application=RuleDescription",
         "Description": "Ensures &lt;meta name=&quot;viewport&quot;&gt; does not disable text scaling and zooming",
         "Impact": "Critical",
         "Tags": "cat.sensory-and-visual-cues, best-practice, ACT",
@@ -825,7 +825,7 @@
       {
         "implemented": "❌",
         "id": "page-has-heading-one",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/page-has-heading-one?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/page-has-heading-one?application=RuleDescription",
         "Description": "Ensure that the page, or at least one of its frames contains a level-one heading",
         "Impact": "Moderate",
         "Tags": "cat.semantics, best-practice",
@@ -835,7 +835,7 @@
       {
         "implemented": "❌",
         "id": "presentation-role-conflict",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/presentation-role-conflict?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/presentation-role-conflict?application=RuleDescription",
         "Description": "Flags elements whose role is none or presentation and which cause the role conflict resolution to trigger.",
         "Impact": "Minor",
         "Tags": "cat.aria, best-practice, ACT",
@@ -845,7 +845,7 @@
       {
         "implemented": "❌",
         "id": "region",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/region?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/region?application=RuleDescription",
         "Description": "Ensures all page content is contained by landmarks",
         "Impact": "Moderate",
         "Tags": "cat.keyboard, best-practice",
@@ -855,7 +855,7 @@
       {
         "implemented": "✅",
         "id": "scope-attr-valid",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/scope-attr-valid?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/scope-attr-valid?application=RuleDescription",
         "Description": "Ensures the scope attribute is used correctly on tables",
         "Impact": "Moderate, Critical",
         "Tags": "cat.tables, best-practice",
@@ -865,7 +865,7 @@
       {
         "implemented": "❌",
         "id": "skip-link",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/skip-link?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/skip-link?application=RuleDescription",
         "Description": "Ensure all skip links have a focusable target",
         "Impact": "Moderate",
         "Tags": "cat.keyboard, best-practice",
@@ -875,7 +875,7 @@
       {
         "implemented": "❌",
         "id": "tabindex",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/tabindex?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/tabindex?application=RuleDescription",
         "Description": "Ensures tabindex attribute values are not greater than 0",
         "Impact": "Serious",
         "Tags": "cat.keyboard, best-practice",
@@ -885,7 +885,7 @@
       {
         "implemented": "❌",
         "id": "table-duplicate-name",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/table-duplicate-name?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/table-duplicate-name?application=RuleDescription",
         "Description": "Ensure the &lt;caption&gt; element does not contain the same text as the summary attribute",
         "Impact": "Minor",
         "Tags": "cat.tables, best-practice",
@@ -900,7 +900,7 @@
       {
         "implemented": "❌",
         "id": "color-contrast-enhanced",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/color-contrast-enhanced?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/color-contrast-enhanced?application=RuleDescription",
         "Description": "Ensures the contrast between foreground and background colors meets WCAG 2 AAA contrast ratio thresholds",
         "Impact": "Serious",
         "Tags": "cat.color, wcag2aaa, wcag146, ACT",
@@ -910,7 +910,7 @@
       {
         "implemented": "❌",
         "id": "identical-links-same-purpose",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/identical-links-same-purpose?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/identical-links-same-purpose?application=RuleDescription",
         "Description": "Ensure that links with the same accessible name serve a similar purpose",
         "Impact": "Minor",
         "Tags": "cat.semantics, wcag2aaa, wcag249",
@@ -920,7 +920,7 @@
       {
         "implemented": "❌",
         "id": "meta-refresh-no-exceptions",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/meta-refresh-no-exceptions?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/meta-refresh-no-exceptions?application=RuleDescription",
         "Description": "Ensures &lt;meta http-equiv=&quot;refresh&quot;&gt; is not used for delayed refresh",
         "Impact": "Minor",
         "Tags": "cat.time-and-media, wcag2aaa, wcag224, wcag325",
@@ -935,7 +935,7 @@
       {
         "implemented": "❌",
         "id": "css-orientation-lock",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/css-orientation-lock?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/css-orientation-lock?application=RuleDescription",
         "Description": "Ensures content is not locked to any specific display orientation, and the content is operable in all display orientations",
         "Impact": "Serious",
         "Tags": "cat.structure, wcag134, wcag21aa, experimental",
@@ -945,7 +945,7 @@
       {
         "implemented": "✅",
         "id": "focus-order-semantics",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/focus-order-semantics?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/focus-order-semantics?application=RuleDescription",
         "Description": "Ensures elements in the focus order have a role appropriate for interactive content",
         "Impact": "Minor",
         "Tags": "cat.keyboard, best-practice, experimental",
@@ -955,7 +955,7 @@
       {
         "implemented": "❌",
         "id": "hidden-content",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/hidden-content?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/hidden-content?application=RuleDescription",
         "Description": "Informs users about hidden content.",
         "Impact": "Minor",
         "Tags": "cat.structure, experimental, review-item, best-practice",
@@ -965,7 +965,7 @@
       {
         "implemented": "❌",
         "id": "label-content-name-mismatch",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/label-content-name-mismatch?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/label-content-name-mismatch?application=RuleDescription",
         "Description": "Ensures that elements labelled through their content must have their visible text as part of their accessible name",
         "Impact": "Serious",
         "Tags": "cat.semantics, wcag21a, wcag253, experimental",
@@ -975,7 +975,7 @@
       {
         "implemented": "❌",
         "id": "link-in-text-block",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/link-in-text-block?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/link-in-text-block?application=RuleDescription",
         "Description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
         "Impact": "Serious",
         "Tags": "cat.color, experimental, wcag2a, wcag141",
@@ -985,7 +985,7 @@
       {
         "implemented": "❌",
         "id": "p-as-heading",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/p-as-heading?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/p-as-heading?application=RuleDescription",
         "Description": "Ensure bold, italic text and font-size is not used to style &lt;p&gt; elements as a heading",
         "Impact": "Serious",
         "Tags": "cat.semantics, wcag2a, wcag131, experimental",
@@ -995,7 +995,7 @@
       {
         "implemented": "✅",
         "id": "table-fake-caption",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/table-fake-caption?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/table-fake-caption?application=RuleDescription",
         "Description": "Ensure that tables with a caption use the &lt;caption&gt; element.",
         "Impact": "Serious",
         "Tags": "cat.tables, experimental, wcag2a, wcag131, section508, section508.22.g",
@@ -1005,7 +1005,7 @@
       {
         "implemented": "❌",
         "id": "td-has-header",
-        "url": "https://dequeuniversity.com/rules/axe/4.4/td-has-header?application=RuleDescription",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/td-has-header?application=RuleDescription",
         "Description": "Ensure that each non-empty data cell in a &lt;table&gt; larger than 3 by 3 has one or more table headers",
         "Impact": "Critical",
         "Tags": "cat.tables, experimental, wcag2a, wcag131, section508, section508.22.g",

@@ -161,7 +161,7 @@ describe("bypass", function () {
       expect(results).to.eql([
         {
           text: "Page must have means to bypass repeated blocks",
-          url: "https://dequeuniversity.com/rules/axe/4.4/bypass",
+          url: "https://dequeuniversity.com/rules/axe/4.11/bypass",
         },
       ]);
     });
@@ -187,7 +187,7 @@ describe("bypass", function () {
       expect(results).to.eql([
         {
           text: "Page must have means to bypass repeated blocks",
-          url: "https://dequeuniversity.com/rules/axe/4.4/bypass",
+          url: "https://dequeuniversity.com/rules/axe/4.11/bypass",
         },
       ]);
     });
@@ -217,7 +217,7 @@ describe("bypass", function () {
       expect(results).to.eql([
         {
           text: "Page must have means to bypass repeated blocks",
-          url: "https://dequeuniversity.com/rules/axe/4.4/bypass",
+          url: "https://dequeuniversity.com/rules/axe/4.11/bypass",
         },
       ]);
     });
@@ -247,7 +247,7 @@ describe("bypass", function () {
       expect(results).to.eql([
         {
           text: "Page must have means to bypass repeated blocks",
-          url: "https://dequeuniversity.com/rules/axe/4.4/bypass",
+          url: "https://dequeuniversity.com/rules/axe/4.11/bypass",
         },
       ]);
     });

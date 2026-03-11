@@ -20,7 +20,7 @@ describe("dlitem", function () {
       expect(results).to.eql([
         {
           text: "Ensures <dt> and <dd> elements are contained by a <dl>",
-          url: "https://dequeuniversity.com/rules/axe/4.4/dlitem",
+          url: "https://dequeuniversity.com/rules/axe/4.11/dlitem",
         },
       ]);
     });
@@ -39,7 +39,7 @@ describe("dlitem", function () {
       expect(results).to.eql([
         {
           text: "Ensures <dt> and <dd> elements are contained by a <dl>",
-          url: "https://dequeuniversity.com/rules/axe/4.4/dlitem",
+          url: "https://dequeuniversity.com/rules/axe/4.11/dlitem",
         },
       ]);
     });
@@ -54,7 +54,7 @@ describe("dlitem", function () {
       expect(results).to.eql([
         {
           text: "Ensures <dt> and <dd> elements are contained by a <dl>",
-          url: "https://dequeuniversity.com/rules/axe/4.4/dlitem",
+          url: "https://dequeuniversity.com/rules/axe/4.11/dlitem",
         },
       ]);
     });
@@ -69,7 +69,7 @@ describe("dlitem", function () {
       expect(results).to.eql([
         {
           text: "Ensures <dt> and <dd> elements are contained by a <dl>",
-          url: "https://dequeuniversity.com/rules/axe/4.4/dlitem",
+          url: "https://dequeuniversity.com/rules/axe/4.11/dlitem",
         },
       ]);
     });
@@ -88,7 +88,7 @@ describe("dlitem", function () {
       expect(results).to.eql([
         {
           text: "Ensures <dt> and <dd> elements are contained by a <dl>",
-          url: "https://dequeuniversity.com/rules/axe/4.4/dlitem",
+          url: "https://dequeuniversity.com/rules/axe/4.11/dlitem",
         },
       ]);
     });
@@ -107,7 +107,7 @@ describe("dlitem", function () {
       expect(results).to.eql([
         {
           text: "Ensures <dt> and <dd> elements are contained by a <dl>",
-          url: "https://dequeuniversity.com/rules/axe/4.4/dlitem",
+          url: "https://dequeuniversity.com/rules/axe/4.11/dlitem",
         },
       ]);
     });
@@ -129,19 +129,19 @@ describe("dlitem", function () {
       expect(results).to.eql([
         {
           text: "Ensures <dt> and <dd> elements are contained by a <dl>",
-          url: "https://dequeuniversity.com/rules/axe/4.4/dlitem",
+          url: "https://dequeuniversity.com/rules/axe/4.11/dlitem",
         },
         {
           text: "Ensures <dt> and <dd> elements are contained by a <dl>",
-          url: "https://dequeuniversity.com/rules/axe/4.4/dlitem",
+          url: "https://dequeuniversity.com/rules/axe/4.11/dlitem",
         },
         {
           text: "Ensures <dt> and <dd> elements are contained by a <dl>",
-          url: "https://dequeuniversity.com/rules/axe/4.4/dlitem",
+          url: "https://dequeuniversity.com/rules/axe/4.11/dlitem",
         },
         {
           text: "Ensures <dt> and <dd> elements are contained by a <dl>",
-          url: "https://dequeuniversity.com/rules/axe/4.4/dlitem",
+          url: "https://dequeuniversity.com/rules/axe/4.11/dlitem",
         },
       ]);
     });

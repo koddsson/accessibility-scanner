@@ -11,7 +11,7 @@ import { AccessibilityError } from "../scanner";
 
 const id = "aria-roles";
 const text = "ARIA roles used must conform to valid values";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
+const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 const validRoles = new Set([
   "article",

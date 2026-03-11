@@ -29,7 +29,7 @@ describe.skip("html-has-lang", function () {
     expect(results).to.eql([
       {
         text: "<html> element must have a lang attribute",
-        url: "https://dequeuniversity.com/rules/axe/4.4/html-has-lang",
+        url: "https://dequeuniversity.com/rules/axe/4.11/html-has-lang",
       },
     ]);
   });
@@ -46,7 +46,7 @@ describe.skip("html-has-lang", function () {
     expect(results).to.eql([
       {
         text: "<html> element must have a lang attribute",
-        url: "https://dequeuniversity.com/rules/axe/4.4/html-has-lang",
+        url: "https://dequeuniversity.com/rules/axe/4.11/html-has-lang",
       },
     ]);
   });
@@ -64,7 +64,7 @@ describe.skip("html-has-lang", function () {
     expect(results).to.eql([
       {
         text: "<html> element must have a lang attribute",
-        url: "https://dequeuniversity.com/rules/axe/4.4/html-has-lang",
+        url: "https://dequeuniversity.com/rules/axe/4.11/html-has-lang",
       },
     ]);
   });
@@ -83,7 +83,7 @@ describe.skip("html-has-lang", function () {
     expect(results).to.eql([
       {
         text: "<html> element must have a lang attribute",
-        url: "https://dequeuniversity.com/rules/axe/4.4/html-has-lang",
+        url: "https://dequeuniversity.com/rules/axe/4.11/html-has-lang",
       },
     ]);
   });

@@ -3,7 +3,7 @@ import { querySelectorAll } from "../utils";
 
 const id = "nested-interactive";
 const text = "Interactive controls must not be nested";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
+const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 const interactiveSelector = [
   "a",

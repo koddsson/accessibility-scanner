@@ -4,7 +4,7 @@ import { querySelectorAll, labelledByIsValid } from "../utils";
 const id = "svg-img-alt";
 const text =
   "Ensures <svg> elements with an img, graphics-document or graphics-symbol role have an accessible text";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
+const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 export default function (element: Element): AccessibilityError[] {
   const errors = [];
