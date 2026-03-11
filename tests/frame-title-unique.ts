@@ -112,11 +112,11 @@ describe("frame-title-unique", function () {
       expect(results).to.eql([
         {
           text: "Frames must have a unique title attribute",
-          url: "https://dequeuniversity.com/rules/axe/4.4/frame-title-unique",
+          url: "https://dequeuniversity.com/rules/axe/4.11/frame-title-unique",
         },
         {
           text: "Frames must have a unique title attribute",
-          url: "https://dequeuniversity.com/rules/axe/4.4/frame-title-unique",
+          url: "https://dequeuniversity.com/rules/axe/4.11/frame-title-unique",
         },
       ]);
     });
@@ -137,11 +137,11 @@ describe("frame-title-unique", function () {
       expect(results).to.eql([
         {
           text: "Frames must have a unique title attribute",
-          url: "https://dequeuniversity.com/rules/axe/4.4/frame-title-unique",
+          url: "https://dequeuniversity.com/rules/axe/4.11/frame-title-unique",
         },
         {
           text: "Frames must have a unique title attribute",
-          url: "https://dequeuniversity.com/rules/axe/4.4/frame-title-unique",
+          url: "https://dequeuniversity.com/rules/axe/4.11/frame-title-unique",
         },
       ]);
     });

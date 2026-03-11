@@ -11,7 +11,7 @@ import {
 
 const id = "color-contrast";
 const text = "Elements must have sufficient color contrast";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
+const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 interface ContrastError extends AccessibilityError {
   foregroundColor?: string;

@@ -1,11 +1,11 @@
-// https://dequeuniversity.com/rules/axe/4.4/td-headers-attr?application=RuleDescription
+// https://dequeuniversity.com/rules/axe/4.11/td-headers-attr?application=RuleDescription
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll } from "../utils";
 
 const id = "td-headers-attr";
 const text =
   "Ensure that each cell in a table that uses the headers attribute refers only to other cells in that table";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
+const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 /**
  * Check if a cell's headers attribute references only cells in the same table

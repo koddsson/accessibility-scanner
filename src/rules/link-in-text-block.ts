@@ -4,7 +4,7 @@ import { querySelectorAll } from "../utils";
 const id = "link-in-text-block";
 const text =
   "Links must be distinguished from surrounding text in a way that does not rely on color";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
+const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 // Threshold for determining if text content beyond link indicates a text block
 const TEXT_BLOCK_THRESHOLD = 10;

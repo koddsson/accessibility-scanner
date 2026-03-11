@@ -3,7 +3,7 @@ import { querySelectorAll } from "../utils";
 
 const id = "duplicate-id-active";
 const text = "IDs of active elements must be unique";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
+const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 // Active/interactive elements that can receive focus or user interaction
 const activeElementSelector = [

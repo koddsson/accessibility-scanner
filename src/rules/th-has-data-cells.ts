@@ -1,11 +1,11 @@
-// https://dequeuniversity.com/rules/axe/4.4/th-has-data-cells?application=RuleDescription
+// https://dequeuniversity.com/rules/axe/4.11/th-has-data-cells?application=RuleDescription
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll } from "../utils";
 
 const id = "th-has-data-cells";
 const text =
   "Ensure that <th> elements and elements with role=columnheader/rowheader have data cells they describe";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
+const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 /**
  * Check if a header cell has associated data cells

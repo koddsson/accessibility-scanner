@@ -2,7 +2,7 @@ import { AccessibilityError } from "../scanner";
 
 const id = "document-title";
 const text = "Documents must have <title> element to aid in navigation";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
+const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 export default function (element: Element): AccessibilityError[] {
   const document = element.ownerDocument;

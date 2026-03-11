@@ -3,7 +3,7 @@ import { querySelectorAll, labelledByIsValid } from "../utils";
 
 const id = "role-img-alt";
 const text = 'Elements containing role="img" have an alternative text';
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
+const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 export default function (element: Element): AccessibilityError[] {
   const errors = [];

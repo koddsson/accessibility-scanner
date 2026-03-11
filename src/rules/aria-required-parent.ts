@@ -3,7 +3,7 @@ import { querySelectorAll } from "../utils";
 
 const id = "aria-required-parent";
 const text = "Certain ARIA roles must be contained by particular parents";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
+const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 function getRole(el: Element): string | null {
   // 1. Explicit role always wins

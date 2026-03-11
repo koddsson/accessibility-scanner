@@ -4,7 +4,7 @@ import type { Info } from "../utils/aria-attrs";
 
 const id = "aria-valid-attr-value";
 export const text = "ARIA attributes must conform to valid values";
-export const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
+export const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 function valid(element: Element, attribute: string, info: Info) {
   // Special case `aria-errormessage`.

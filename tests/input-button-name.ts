@@ -48,7 +48,7 @@ describe("input-button-name", async function () {
       expect(results).to.eql([
         {
            text: 'Input buttons must have discernible text',
-           url: 'https://dequeuniversity.com/rules/axe/4.4/input-button-name'
+           url: 'https://dequeuniversity.com/rules/axe/4.11/input-button-name'
         },
       ]);
     });

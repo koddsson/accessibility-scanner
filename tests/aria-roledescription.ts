@@ -128,7 +128,7 @@ describe("aria-roledescription", async function () {
       expect(results).to.eql([
         {
           text: "Ensure aria-roledescription is only used on elements with an implicit or explicit role",
-          url: "https://dequeuniversity.com/rules/axe/4.4/aria-roledescription",
+          url: "https://dequeuniversity.com/rules/axe/4.11/aria-roledescription",
         },
       ]);
     });
@@ -144,11 +144,11 @@ describe("aria-roledescription", async function () {
       expect(results).to.eql([
         {
           text: "Ensure aria-roledescription is only used on elements with an implicit or explicit role",
-          url: "https://dequeuniversity.com/rules/axe/4.4/aria-roledescription",
+          url: "https://dequeuniversity.com/rules/axe/4.11/aria-roledescription",
         },
         {
           text: "Ensure aria-roledescription is only used on elements with an implicit or explicit role",
-          url: "https://dequeuniversity.com/rules/axe/4.4/aria-roledescription",
+          url: "https://dequeuniversity.com/rules/axe/4.11/aria-roledescription",
         },
       ]);
     });

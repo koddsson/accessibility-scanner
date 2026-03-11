@@ -2,7 +2,7 @@ import { AccessibilityError } from "../scanner";
 
 const id = "hidden-content";
 const text = "Informs users about hidden content.";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
+const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 export default function hiddenContent(element: Element): AccessibilityError[] {
   const errors: AccessibilityError[] = [];

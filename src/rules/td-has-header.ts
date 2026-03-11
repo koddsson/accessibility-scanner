@@ -1,11 +1,11 @@
-// https://dequeuniversity.com/rules/axe/4.4/td-has-header?application=RuleDescription
+// https://dequeuniversity.com/rules/axe/4.11/td-has-header?application=RuleDescription
 import { AccessibilityError } from "../scanner";
 import { querySelectorAll } from "../utils";
 
 const id = "td-has-header";
 const text =
   "Ensure that each non-empty data cell in a <table> larger than 3 by 3 has one or more table headers";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
+const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 /**
  * Check if a table is larger than 3x3

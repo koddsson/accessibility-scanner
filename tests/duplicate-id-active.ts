@@ -88,11 +88,11 @@ describe("duplicate-id-active", function () {
       expect(results).to.eql([
         {
           text: "IDs of active elements must be unique",
-          url: "https://dequeuniversity.com/rules/axe/4.4/duplicate-id-active",
+          url: "https://dequeuniversity.com/rules/axe/4.11/duplicate-id-active",
         },
         {
           text: "IDs of active elements must be unique",
-          url: "https://dequeuniversity.com/rules/axe/4.4/duplicate-id-active",
+          url: "https://dequeuniversity.com/rules/axe/4.11/duplicate-id-active",
         },
       ]);
     });
@@ -113,11 +113,11 @@ describe("duplicate-id-active", function () {
       expect(results).to.eql([
         {
           text: "IDs of active elements must be unique",
-          url: "https://dequeuniversity.com/rules/axe/4.4/duplicate-id-active",
+          url: "https://dequeuniversity.com/rules/axe/4.11/duplicate-id-active",
         },
         {
           text: "IDs of active elements must be unique",
-          url: "https://dequeuniversity.com/rules/axe/4.4/duplicate-id-active",
+          url: "https://dequeuniversity.com/rules/axe/4.11/duplicate-id-active",
         },
       ]);
     });

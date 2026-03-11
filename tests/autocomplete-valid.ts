@@ -111,15 +111,15 @@ describe("autocomplete-valid", function () {
     expect(results).to.eql([
       {
         text: "Ensure the autocomplete attribute is correct and suitable for the form field",
-        url: "https://dequeuniversity.com/rules/axe/4.4/autocomplete-valid",
+        url: "https://dequeuniversity.com/rules/axe/4.11/autocomplete-valid",
       },
       {
         text: "Ensure the autocomplete attribute is correct and suitable for the form field",
-        url: "https://dequeuniversity.com/rules/axe/4.4/autocomplete-valid",
+        url: "https://dequeuniversity.com/rules/axe/4.11/autocomplete-valid",
       },
       {
         text: "Ensure the autocomplete attribute is correct and suitable for the form field",
-        url: "https://dequeuniversity.com/rules/axe/4.4/autocomplete-valid",
+        url: "https://dequeuniversity.com/rules/axe/4.11/autocomplete-valid",
       },
     ]);
   });
@@ -140,15 +140,15 @@ describe("autocomplete-valid", function () {
     expect(results).to.eql([
       {
         text: "Ensure the autocomplete attribute is correct and suitable for the form field",
-        url: "https://dequeuniversity.com/rules/axe/4.4/autocomplete-valid",
+        url: "https://dequeuniversity.com/rules/axe/4.11/autocomplete-valid",
       },
       {
         text: "Ensure the autocomplete attribute is correct and suitable for the form field",
-        url: "https://dequeuniversity.com/rules/axe/4.4/autocomplete-valid",
+        url: "https://dequeuniversity.com/rules/axe/4.11/autocomplete-valid",
       },
       {
         text: "Ensure the autocomplete attribute is correct and suitable for the form field",
-        url: "https://dequeuniversity.com/rules/axe/4.4/autocomplete-valid",
+        url: "https://dequeuniversity.com/rules/axe/4.11/autocomplete-valid",
       },
     ]);
   });
@@ -168,11 +168,11 @@ describe("autocomplete-valid", function () {
     expect(results).to.eql([
       {
         text: "Ensure the autocomplete attribute is correct and suitable for the form field",
-        url: "https://dequeuniversity.com/rules/axe/4.4/autocomplete-valid",
+        url: "https://dequeuniversity.com/rules/axe/4.11/autocomplete-valid",
       },
       {
         text: "Ensure the autocomplete attribute is correct and suitable for the form field",
-        url: "https://dequeuniversity.com/rules/axe/4.4/autocomplete-valid",
+        url: "https://dequeuniversity.com/rules/axe/4.11/autocomplete-valid",
       },
     ]);
   });
@@ -207,11 +207,11 @@ describe("autocomplete-valid", function () {
     expect(results).to.eql([
       {
         text: "Ensure the autocomplete attribute is correct and suitable for the form field",
-        url: "https://dequeuniversity.com/rules/axe/4.4/autocomplete-valid",
+        url: "https://dequeuniversity.com/rules/axe/4.11/autocomplete-valid",
       },
       {
         text: "Ensure the autocomplete attribute is correct and suitable for the form field",
-        url: "https://dequeuniversity.com/rules/axe/4.4/autocomplete-valid",
+        url: "https://dequeuniversity.com/rules/axe/4.11/autocomplete-valid",
       },
     ]);
   });
@@ -284,11 +284,11 @@ describe("autocomplete-valid", function () {
     expect(results).to.eql([
       {
         text: "Ensure the autocomplete attribute is correct and suitable for the form field",
-        url: "https://dequeuniversity.com/rules/axe/4.4/autocomplete-valid",
+        url: "https://dequeuniversity.com/rules/axe/4.11/autocomplete-valid",
       },
       {
         text: "Ensure the autocomplete attribute is correct and suitable for the form field",
-        url: "https://dequeuniversity.com/rules/axe/4.4/autocomplete-valid",
+        url: "https://dequeuniversity.com/rules/axe/4.11/autocomplete-valid",
       },
     ]);
   });

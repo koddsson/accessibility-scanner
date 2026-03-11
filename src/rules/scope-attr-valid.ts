@@ -3,7 +3,7 @@ import { querySelectorAll } from "../utils";
 
 const id = "scope-attr-valid";
 const text = "Scope attribute should be used correctly on tables";
-const url = `https://dequeuniversity.com/rules/axe/4.4/${id}`;
+const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 function checkScopeElements(element: Element) {
   const errors = [];
