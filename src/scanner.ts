@@ -73,6 +73,7 @@ import objectAlt from "./rules/object-alt";
 import presentationRoleConflict from "./rules/presentation-role-conflict";
 import skipLink from "./rules/skip-link";
 import tabindex from "./rules/tabindex";
+import landmarkUnique from "./rules/landmark-unique";
 
 import { Logger } from "./logger";
 
@@ -139,6 +140,7 @@ export const allRules: Rule[] = [
   inputImageAlt,
   label,
   labelContentNameMismatch,
+  landmarkUnique,
   linkInTextBlock,
   linkName,
   list,
