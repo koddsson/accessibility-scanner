@@ -1,5 +1,6 @@
 import { areaAlt } from "./rules/area-alt";
 import { ariaAllowedAttr } from "./rules/aria-allowed-attr";
+import ariaAllowedRole from "./rules/aria-allowed-role";
 import ariaCommandName from "./rules/aria-command-name";
 import { ariaHiddenBody } from "./rules/aria-hidden-body";
 import ariaHiddenFocus from "./rules/aria-hidden-focus";
@@ -84,6 +85,7 @@ export const allRules: Rule[] = [
   accesskeys,
   areaAlt,
   ariaAllowedAttr,
+  ariaAllowedRole,
   ariaCommandName,
   ariaDialogName,
   ariaHiddenBody,
