@@ -6,6 +6,9 @@ const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 export default function (element: Element): AccessibilityError[] {
   const document = element.ownerDocument;
+  if (!document) {
+    return [];
+  }
   const titleElements = document.querySelectorAll("title");
 
   // Check if there is at least one <title> element

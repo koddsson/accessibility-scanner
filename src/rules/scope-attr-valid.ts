@@ -53,12 +53,10 @@ function checkTableHeaderElements(element: Element) {
 }
 
 export default function metaViewport(element: Element) {
-  const errors = [];
-
-  errors.push(
+  const errors = [
     ...checkScopeElements(element),
     ...checkTableHeaderElements(element),
-  );
+  ];
 
   return errors;
 }
