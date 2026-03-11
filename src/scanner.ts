@@ -75,6 +75,7 @@ import presentationRoleConflict from "./rules/presentation-role-conflict";
 import skipLink from "./rules/skip-link";
 import tabindex from "./rules/tabindex";
 import landmarkContentinfoIsTopLevel from "./rules/landmark-contentinfo-is-top-level";
+import landmarkNoDuplicateMain from "./rules/landmark-no-duplicate-main";
 
 import { Logger } from "./logger";
 
@@ -143,6 +144,7 @@ export const allRules: Rule[] = [
   label,
   labelContentNameMismatch,
   landmarkContentinfoIsTopLevel,
+  landmarkNoDuplicateMain,
   linkInTextBlock,
   linkName,
   list,
