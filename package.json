@@ -29,7 +29,7 @@
   "author": "Kristján Oddsson",
   "license": "MIT",
   "devDependencies": {
-    "@koddsson/eslint-config": "^2.0.1",
+    "@koddsson/eslint-config": "^4.0.0",
     "@open-wc/testing": "^4.0.0",
     "@types/mocha": "^10.0.6",
     "@web/dev-server": "^0.4.5",
@@ -43,5 +43,8 @@
     "tablemark": "^4.1.0",
     "tsx": "^4.15.4",
     "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@eslint/eslintrc": "^3.3.5"
   }
 }
