@@ -80,6 +80,7 @@ import objectAlt from "./rules/object-alt";
 import presentationRoleConflict from "./rules/presentation-role-conflict";
 import skipLink from "./rules/skip-link";
 import tabindex from "./rules/tabindex";
+import landmarkOneMain from "./rules/landmark-one-main";
 import landmarkBannerIsTopLevel from "./rules/landmark-banner-is-top-level";
 import landmarkUnique from "./rules/landmark-unique";
 import landmarkContentinfoIsTopLevel from "./rules/landmark-contentinfo-is-top-level";
@@ -156,6 +157,7 @@ export const allRules: Rule[] = [
   inputButtonName,
   inputImageAlt,
   label,
+  landmarkOneMain,
   labelContentNameMismatch,
   labelTitleOnly,
   landmarkBannerIsTopLevel,
