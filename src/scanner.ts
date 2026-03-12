@@ -16,6 +16,7 @@ import ariaTreeitemName from "./rules/aria-treeitem-name";
 import ariaValidAttr from "./rules/aria-valid-attr";
 import { ariaValidAttrValue } from "./rules/aria-valid-attr-value";
 import metaViewport from "./rules/meta-viewport";
+import metaViewportLarge from "./rules/meta-viewport-large";
 import scopeAttributeValid from "./rules/scope-attr-valid";
 import videoCaptions from "./rules/video-caption";
 import selectName from "./rules/select-name";
@@ -147,6 +148,7 @@ export const allRules: Rule[] = [
   metaRefresh,
   metaRefreshNoExceptions,
   metaViewport,
+  metaViewportLarge,
   nestedInteractive,
   noAutoplayAudio,
   pAsHeading,
