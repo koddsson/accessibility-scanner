@@ -7,8 +7,40 @@ export function isVisible(element: Element | null): boolean {
   if (!("style" in element)) {
     return true;
   }
-  // Check inline display style
-  return (element as HTMLElement).style.display !== "none";
+
+  // Walk up the DOM tree checking each element for visibility
+  let current: Element | null = element;
+  while (current) {
+    // Check the HTML hidden attribute
+    if (current.hasAttribute("hidden")) {
+      return false;
+    }
+
+    if ("style" in current) {
+      if (current.isConnected) {
+        // Use computed styles (accurate for elements in the DOM)
+        const style = ((current as HTMLElement).ownerDocument.defaultView || globalThis).getComputedStyle(current as HTMLElement);
+        if (style.display === "none") {
+          return false;
+        }
+        if (style.visibility === "hidden") {
+          return false;
+        }
+      } else {
+        // Fallback to inline styles for detached elements
+        if ((current as HTMLElement).style.display === "none") {
+          return false;
+        }
+        if ((current as HTMLElement).style.visibility === "hidden") {
+          return false;
+        }
+      }
+    }
+
+    current = current.parentElement;
+  }
+
+  return true;
 }
 
 /**
