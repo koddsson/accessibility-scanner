@@ -6,7 +6,7 @@ function parseContent(content: string): Record<string, string> {
   const object: Record<string, string> = {};
   for (const pair of content.split(",")) {
     const [key, value] = pair.split("=");
-    object[key.toLowerCase()] = value.toLowerCase();
+    object[key.trim().toLowerCase()] = value.trim().toLowerCase();
   }
   return object;
 }
