@@ -17,11 +17,10 @@ export default function (element_: Element): AccessibilityError[] {
   const elements = querySelectorAll(selector, element_);
   for (const element of [element_, ...elements]) {
     for (const attribute of element.attributes) {
+      const roleRestricted = validAriaAttributesWithRole[attribute.name];
       if (
-        attribute.name === "aria-errormessage" &&
-        validAriaAttributesWithRole["aria-errormessage"].includes(
-          element.getAttribute("role") || "",
-        )
+        roleRestricted &&
+        roleRestricted.includes(element.getAttribute("role") || "")
       ) {
         continue;
       }

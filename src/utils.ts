@@ -279,18 +279,73 @@ export const validAriaAttributes = [
   "aria-valuetext",
 ];
 
-export const validAriaAttributesWithRole = {
+export const validAriaAttributesWithRole: Record<string, string[]> = {
+  "aria-activedescendant": [
+    "combobox", "grid", "listbox", "menu", "menubar", "radiogroup", "tablist",
+    "tree", "treegrid", "application", "group",
+  ],
+  "aria-autocomplete": ["combobox", "textbox", "searchbox"],
+  "aria-checked": [
+    "checkbox", "menuitemcheckbox", "menuitemradio", "option", "radio", "switch",
+  ],
+  "aria-colcount": ["grid", "table", "treegrid"],
+  "aria-colindex": ["cell", "columnheader", "gridcell", "row", "rowheader"],
+  "aria-colspan": ["cell", "columnheader", "gridcell", "rowheader"],
   "aria-errormessage": [
-    "alert",
-    "application",
-    "banner",
-    "checkbox",
-    "contentinfo",
-    "doc-appendix",
-    "doc-glossary",
-    "group",
-    "log",
-    "menubar",
-    "scrollbar",
+    "alert", "application", "banner", "checkbox", "contentinfo",
+    "doc-appendix", "doc-glossary", "group", "log", "menubar", "scrollbar",
+  ],
+  "aria-expanded": [
+    "application", "button", "checkbox", "combobox", "gridcell", "link",
+    "listbox", "menuitem", "row", "rowheader", "tab", "treeitem",
+    "columnheader", "menuitemcheckbox", "menuitemradio",
+  ],
+  "aria-level": ["heading", "listitem", "row", "tablist", "treeitem", "comment"],
+  "aria-modal": ["alertdialog", "dialog"],
+  "aria-multiline": ["textbox", "searchbox"],
+  "aria-multiselectable": ["grid", "listbox", "tablist", "tree", "treegrid"],
+  "aria-orientation": [
+    "listbox", "menu", "menubar", "radiogroup", "scrollbar", "select",
+    "separator", "slider", "tablist", "toolbar", "tree", "treegrid", "combobox",
+  ],
+  "aria-placeholder": ["textbox", "searchbox"],
+  "aria-posinset": [
+    "article", "comment", "listitem", "menuitem", "menuitemcheckbox",
+    "menuitemradio", "option", "radio", "row", "tab", "treeitem",
+  ],
+  "aria-pressed": ["button"],
+  "aria-readonly": [
+    "checkbox", "combobox", "grid", "gridcell", "listbox", "radiogroup",
+    "slider", "spinbutton", "textbox", "treegrid", "columnheader", "rowheader",
+    "searchbox", "menuitemcheckbox", "menuitemradio",
+  ],
+  "aria-required": [
+    "checkbox", "combobox", "gridcell", "listbox", "radiogroup", "spinbutton",
+    "textbox", "tree", "columnheader", "rowheader", "searchbox", "select",
+    "treegrid",
+  ],
+  "aria-rowcount": ["grid", "table", "treegrid"],
+  "aria-rowindex": ["cell", "row", "columnheader", "gridcell", "rowheader"],
+  "aria-rowspan": ["cell", "columnheader", "gridcell", "rowheader"],
+  "aria-selected": [
+    "cell", "columnheader", "gridcell", "option", "row", "rowheader", "tab",
+    "treeitem",
+  ],
+  "aria-setsize": [
+    "article", "comment", "listitem", "menuitem", "menuitemcheckbox",
+    "menuitemradio", "option", "radio", "row", "tab", "treeitem",
+  ],
+  "aria-sort": ["columnheader", "rowheader"],
+  "aria-valuemax": [
+    "meter", "progressbar", "scrollbar", "separator", "slider", "spinbutton",
+  ],
+  "aria-valuemin": [
+    "meter", "progressbar", "scrollbar", "separator", "slider", "spinbutton",
+  ],
+  "aria-valuenow": [
+    "meter", "progressbar", "scrollbar", "separator", "slider", "spinbutton",
+  ],
+  "aria-valuetext": [
+    "meter", "progressbar", "scrollbar", "separator", "slider", "spinbutton",
   ],
 };
