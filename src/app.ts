@@ -16,17 +16,17 @@ async function ready(): Promise<void> {
   const errors = await scan(document.body);
   const endTime = performance.now();
 
-  for (const accessbilityError of errors) {
-    accessbilityError.element.setAttribute("style", "border: 5px solid red;");
+  for (const accessibilityError of errors) {
+    accessibilityError.element.setAttribute("style", "border: 5px solid red;");
     console.log(
-      accessbilityError.text,
-      accessbilityError.element,
-      accessbilityError.url,
+      accessibilityError.text,
+      accessibilityError.element,
+      accessibilityError.url,
     );
   }
   console.log(
     `Took ${(endTime - startTime).toPrecision(
       2,
-    )}ms to execute accessbility scans`,
+    )}ms to execute accessibility scans`,
   );
 })();
