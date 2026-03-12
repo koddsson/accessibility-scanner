@@ -1,4 +1,4 @@
-import { expect, fixture, html, nextFrame } from "@open-wc/testing";
+import { expect, fixture, html } from "@open-wc/testing";
 import { scan } from "../src/scanner";
 import landmarkOneMain from "../src/rules/landmark-one-main";
 
@@ -10,6 +10,15 @@ async function createHTMLElement(htmlString: string): Promise<HTMLElement> {
     html`<iframe srcdoc="<!DOCTYPE html>${htmlString}"></iframe>`,
   )) as HTMLIFrameElement;
 
+  // Wait for the iframe to finish loading its srcdoc content before accessing the document.
+  await new Promise<void>((resolve) => {
+    if (iframe.contentDocument?.readyState === "complete") {
+      resolve();
+    } else {
+      iframe.addEventListener("load", () => resolve(), { once: true });
+    }
+  });
+
   return iframe.contentDocument!.querySelector("html")!;
 }
 
@@ -20,8 +29,6 @@ describe("landmark-one-main", function () {
         "<html><body><main><h1>Main Content</h1></main></body></html>",
       );
 
-      await nextFrame();
-
       const results = await scan(container, [landmarkOneMain]);
       expect(results).to.be.empty;
     });
@@ -31,8 +38,6 @@ describe("landmark-one-main", function () {
         '<html><body><div role="main"><h1>Main Content</h1></div></body></html>',
       );
 
-      await nextFrame();
-
       const results = await scan(container, [landmarkOneMain]);
       expect(results).to.be.empty;
     });
@@ -41,8 +46,6 @@ describe("landmark-one-main", function () {
       const container = await createHTMLElement(
         '<html><body><main><h1>Main Content</h1></main><div role="main"><h1>Other Main</h1></div></body></html>',
       );
-
-      await nextFrame();
 
       const results = await scan(container, [landmarkOneMain]);
       expect(results).to.be.empty;
@@ -54,8 +57,6 @@ describe("landmark-one-main", function () {
       const container = await createHTMLElement(
         "<html><body><div><h1>Content without main</h1></div></body></html>",
       );
-
-      await nextFrame();
 
       const results = (await scan(container, [landmarkOneMain])).map(
         ({ text, url }) => {
