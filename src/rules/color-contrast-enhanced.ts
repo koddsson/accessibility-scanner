@@ -10,8 +10,7 @@ import {
 } from "../utils/color";
 
 const id = "color-contrast-enhanced";
-const text =
-  "Elements must meet enhanced color contrast ratio thresholds";
+const text = "Elements must meet enhanced color contrast ratio thresholds";
 const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 interface ContrastError extends AccessibilityError {

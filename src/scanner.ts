@@ -131,7 +131,6 @@ export const allRules: Rule[] = [
   autocompleteValid,
   avoidInlineSpacing,
   colorContrast,
-  colorContrastEnhanced,
   tdHasHeader,
   thHasDataCells,
   tdHeadersAttr,
