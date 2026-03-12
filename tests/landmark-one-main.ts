@@ -1,23 +1,20 @@
-import { expect, fixture, html } from "@open-wc/testing";
+import { expect } from "@open-wc/testing";
 import { scan } from "../src/scanner";
 import landmarkOneMain from "../src/rules/landmark-one-main";
 
 /**
  * Create a `<html></html>` in a iframe so that we aren't using the `<html>` element of the test runner.
+ * Creates the iframe manually to attach the load listener before DOM insertion,
+ * avoiding the race condition where the load event fires before we start listening.
  */
 async function createHTMLElement(htmlString: string): Promise<HTMLElement> {
-  const iframe = (await fixture(
-    html`<iframe srcdoc="<!DOCTYPE html>${htmlString}"></iframe>`,
-  )) as HTMLIFrameElement;
-
-  // Wait for the iframe to finish loading its srcdoc content before accessing the document.
-  await new Promise<void>((resolve) => {
-    if (iframe.contentDocument?.readyState === "complete") {
-      resolve();
-    } else {
-      iframe.addEventListener("load", () => resolve(), { once: true });
-    }
+  const iframe = document.createElement("iframe");
+  const loaded = new Promise<void>((resolve) => {
+    iframe.addEventListener("load", () => resolve(), { once: true });
   });
+  iframe.srcdoc = `<!DOCTYPE html>${htmlString}`;
+  document.body.appendChild(iframe);
+  await loaded;
 
   return iframe.contentDocument!.querySelector("html")!;
 }
