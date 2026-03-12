@@ -20,5 +20,7 @@ describe("[5f99a7]ARIA attribute is defined in WAI-ARIA", function () {
     });
 
     expect(results).to.not.be.empty;
+    const expectedUrls = ["https://dequeuniversity.com/rules/axe/4.11/aria-valid-attr"];
+    expect(results.some(r => expectedUrls.includes(r.url))).to.be.true;
   });
 });

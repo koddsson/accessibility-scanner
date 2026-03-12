@@ -20,5 +20,7 @@ describe("[bc659a]Meta element has no refresh delay", function () {
     });
 
     expect(results).to.not.be.empty;
+    const expectedUrls = ["https://dequeuniversity.com/rules/axe/4.11/meta-refresh"];
+    expect(results.some(r => expectedUrls.includes(r.url))).to.be.true;
   });
 });

@@ -21,5 +21,7 @@ describe("[de46e4]Element with lang attribute has valid language tag", function 
     });
 
     expect(results).to.not.be.empty;
+    const expectedUrls = ["https://dequeuniversity.com/rules/axe/4.11/valid-lang"];
+    expect(results.some(r => expectedUrls.includes(r.url))).to.be.true;
   });
 });
