@@ -79,6 +79,7 @@ import skipLink from "./rules/skip-link";
 import tabindex from "./rules/tabindex";
 import landmarkUnique from "./rules/landmark-unique";
 import landmarkContentinfoIsTopLevel from "./rules/landmark-contentinfo-is-top-level";
+import landmarkNoDuplicateContentinfo from "./rules/landmark-no-duplicate-contentinfo";
 import landmarkNoDuplicateMain from "./rules/landmark-no-duplicate-main";
 import landmarkMainIsTopLevel from "./rules/landmark-main-is-top-level";
 
@@ -153,6 +154,7 @@ export const allRules: Rule[] = [
   landmarkContentinfoIsTopLevel,
   landmarkNoDuplicateMain,
   landmarkComplementaryIsTopLevel,
+  landmarkNoDuplicateContentinfo,
   landmarkMainIsTopLevel,
   landmarkUnique,
   linkInTextBlock,
