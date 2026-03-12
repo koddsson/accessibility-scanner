@@ -70,6 +70,8 @@ import scrollableRegionFocusable from "./rules/scrollable-region-focusable";
 import serverSideImageMap from "./rules/server-side-image-map";
 import targetSize from "./rules/target-size";
 import objectAlt from "./rules/object-alt";
+import presentationRoleConflict from "./rules/presentation-role-conflict";
+import skipLink from "./rules/skip-link";
 import tabindex from "./rules/tabindex";
 
 import { Logger } from "./logger";
@@ -148,11 +150,13 @@ export const allRules: Rule[] = [
   nestedInteractive,
   noAutoplayAudio,
   pAsHeading,
+  presentationRoleConflict,
   roleImgAlt,
   scopeAttributeValid,
   scrollableRegionFocusable,
   selectName,
   serverSideImageMap,
+  skipLink,
   svgImgAlt,
   focusOrderSemantics,
   tableDuplicateName,
