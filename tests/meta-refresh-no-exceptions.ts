@@ -7,26 +7,20 @@ const scanner = new Scanner([metaRefreshNoExceptions]);
 /**
  * Create a meta element inside a sandboxed iframe to prevent the browser from
  * actually executing the meta refresh directive during testing.
- * The sandbox="allow-same-origin" allows accessing the iframe's contentDocument
- * while still blocking meta refresh navigation.
+ * Uses manual iframe creation to attach the load listener before DOM insertion,
+ * avoiding the race condition where the load event fires before we listen.
  */
 async function createMetaRefreshElement(
   metaHtml: string,
 ): Promise<HTMLMetaElement> {
-  const iframe = (await fixture(
-    html`<iframe
-      sandbox="allow-same-origin"
-      srcdoc="<!DOCTYPE html><html><head>${metaHtml}</head><body></body></html>"
-    ></iframe>`,
-  )) as HTMLIFrameElement;
-
-  await new Promise<void>((resolve) => {
-    if (iframe.contentDocument?.readyState === "complete") {
-      resolve();
-    } else {
-      iframe.addEventListener("load", () => resolve(), { once: true });
-    }
+  const iframe = document.createElement("iframe");
+  iframe.sandbox.add("allow-same-origin");
+  const loaded = new Promise<void>((resolve) => {
+    iframe.addEventListener("load", () => resolve(), { once: true });
   });
+  iframe.srcdoc = `<!DOCTYPE html><html><head>${metaHtml}</head><body></body></html>`;
+  document.body.appendChild(iframe);
+  await loaded;
 
   return iframe.contentDocument!.querySelector("meta")!;
 }
@@ -91,7 +85,7 @@ describe("meta-refresh-no-exceptions", function () {
   });
 
   it("does not return errors when there is no meta refresh element", async () => {
-    const div = await fixture(html` <div>No meta here</div> `);
+    const div = await fixture(html`<div>No meta here</div>`);
 
     const results = (await scanner.scan(div)).map(({ text, url }) => {
       return { text, url };
