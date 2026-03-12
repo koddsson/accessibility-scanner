@@ -898,7 +898,7 @@
     "description": "Rules that check for conformance to WCAG AAA success criteria that can be fully automated. These are disabled by default in axe-core.",
     "rules": [
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "color-contrast-enhanced",
         "url": "https://dequeuniversity.com/rules/axe/4.11/color-contrast-enhanced?application=RuleDescription",
         "Description": "Ensures the contrast between foreground and background colors meets WCAG 2 AAA contrast ratio thresholds",
