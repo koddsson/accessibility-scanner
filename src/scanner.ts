@@ -23,6 +23,7 @@ import selectName from "./rules/select-name";
 import metaRefresh from "./rules/meta-refresh";
 import marquee from "./rules/marquee";
 import imageAlt from "./rules/image-alt";
+import imageRedundantAlt from "./rules/image-redundant-alt";
 import buttonName from "./rules/button-name";
 import label from "./rules/label";
 import linkName from "./rules/link-name";
@@ -136,6 +137,7 @@ export const allRules: Rule[] = [
   htmlLangValid,
   htmlXmlLangMismatch,
   imageAlt,
+  imageRedundantAlt,
   inputButtonName,
   inputImageAlt,
   label,
