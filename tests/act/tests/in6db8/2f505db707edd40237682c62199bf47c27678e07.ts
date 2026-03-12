@@ -1,0 +1,36 @@
+import { expect } from "@open-wc/testing";
+import { scan } from "../../../../src/scanner";
+
+const parser = new DOMParser();
+
+describe("[in6db8]ARIA required ID references exist", function () {
+  it("Passed Example 2 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/in6db8/2f505db707edd40237682c62199bf47c27678e07.html)", async () => {
+    const document = parser.parseFromString(`<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Passed Example 2</title>
+</head>
+<body>
+	<label for="tag_combo" id="tag_label">Tag</label>
+	<input
+		type="text"
+		id="tag_combo"
+		role="combobox"
+		aria-expanded="true"
+		aria-controls="popup_listbox"
+		aria-activedescendant="selected_option"
+	/>
+	<ul role="listbox" id="popup_listbox" aria-labelledby="tag_label">
+		<li role="option">Zebra</li>
+		<li role="option" id="selected_option">Zoom</li>
+	</ul>
+</body>
+</html>`, 'text/html');
+
+    const results = (await scan(document.body)).map(({ text, url }) => {
+      return { text, url };
+    });
+
+    expect(results).to.be.empty;
+  });
+});

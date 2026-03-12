@@ -16,25 +16,44 @@ export default function metaViewport(element: Element) {
 
   // TODO: Do the same for all the other rules
   const selector = "meta[name=viewport]";
-  const elements = [...element.querySelectorAll<HTMLMetaElement>(selector)];
+  // meta[name=viewport] is in <head>, so search the full document if available
+  const searchRoot = element.ownerDocument ?? element;
+  const elements = [...searchRoot.querySelectorAll<HTMLMetaElement>(selector)];
   if (element.matches(selector)) elements.push(element as HTMLMetaElement);
   for (const element of elements) {
     const content = parseContent(element.content);
-    if (content["user-scalable"] === "no" || content["user-scalable"] === "0") {
-      errors.push({
-        id,
-        element,
-        text,
-        url,
-      });
+    // "yes" is the only value that clearly enables scaling.
+    // "no", "0", numeric values < 1 (e.g. "0.5"), and invalid values
+    // all potentially disable zooming.
+    const userScalable = content["user-scalable"];
+    if (
+      userScalable !== undefined &&
+      userScalable !== "yes" &&
+      userScalable !== "1"
+    ) {
+      const num = Number.parseFloat(userScalable);
+      if (Number.isNaN(num) || num < 1) {
+        errors.push({
+          id,
+          element,
+          text,
+          url,
+        });
+      }
     }
-    if (Number.parseFloat(content["maximum-scale"]) < 2) {
-      errors.push({
-        id,
-        element,
-        text,
-        url,
-      });
+    const maxScale = content["maximum-scale"];
+    if (maxScale !== undefined) {
+      const maxScaleNum = Number.parseFloat(maxScale);
+      // Only flag valid positive numeric values that are less than 2.
+      // Non-numeric values (NaN) and negative values don't restrict zooming.
+      if (!Number.isNaN(maxScaleNum) && maxScaleNum >= 0 && maxScaleNum < 2) {
+        errors.push({
+          id,
+          element,
+          text,
+          url,
+        });
+      }
     }
   }
   return errors;

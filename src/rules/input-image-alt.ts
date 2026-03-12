@@ -13,7 +13,11 @@ export default function (element: Element): AccessibilityError[] {
     elements.push(element as HTMLImageElement);
   }
   for (const element of elements) {
-    if (element.hasAttribute("alt") && element.alt === element.alt.trim())
+    if (
+      element.hasAttribute("alt") &&
+      element.alt.trim() !== "" &&
+      element.alt === element.alt.trim()
+    )
       continue;
     const label = element.getAttribute("aria-label");
     if (label && label.trim() !== "") continue;

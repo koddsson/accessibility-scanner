@@ -17,7 +17,9 @@ export default function metaViewportLarge(element: Element) {
   const errors = [];
 
   const selector = "meta[name=viewport]";
-  const elements = [...element.querySelectorAll<HTMLMetaElement>(selector)];
+  // meta[name=viewport] is in <head>, so search the full document if available
+  const searchRoot = element.ownerDocument ?? element;
+  const elements = [...searchRoot.querySelectorAll<HTMLMetaElement>(selector)];
   if (element.matches(selector)) elements.push(element as HTMLMetaElement);
   for (const element of elements) {
     const content = parseContent(element.content);
