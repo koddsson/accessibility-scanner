@@ -12,7 +12,7 @@ const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 export default function (element: Element): AccessibilityError[] {
   const errors = [];
-  const selector = ["input", "textarea"].map((x) => `form ${x}`).join(", ");
+  const selector = ["input", "textarea"].join(", ");
   const elements = querySelectorAll(selector, element) as HTMLInputElement[];
 
   if (element.matches(selector)) {
