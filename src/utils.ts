@@ -16,14 +16,24 @@ export function isVisible(element: Element | null): boolean {
       return false;
     }
 
-    // Check computed styles (catches CSS classes, not just inline styles)
     if (current instanceof HTMLElement) {
-      const style = (current.ownerDocument.defaultView || globalThis).getComputedStyle(current);
-      if (style.display === "none") {
-        return false;
-      }
-      if (style.visibility === "hidden") {
-        return false;
+      if (current.isConnected) {
+        // Use computed styles (accurate for elements in the DOM)
+        const style = (current.ownerDocument.defaultView || globalThis).getComputedStyle(current);
+        if (style.display === "none") {
+          return false;
+        }
+        if (style.visibility === "hidden") {
+          return false;
+        }
+      } else {
+        // Fallback to inline styles for detached elements
+        if (current.style.display === "none") {
+          return false;
+        }
+        if (current.style.visibility === "hidden") {
+          return false;
+        }
       }
     }
 
