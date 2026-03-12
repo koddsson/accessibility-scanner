@@ -81,6 +81,7 @@ import objectAlt from "./rules/object-alt";
 import presentationRoleConflict from "./rules/presentation-role-conflict";
 import skipLink from "./rules/skip-link";
 import tabindex from "./rules/tabindex";
+import landmarkNoDuplicateBanner from "./rules/landmark-no-duplicate-banner";
 import landmarkOneMain from "./rules/landmark-one-main";
 import landmarkBannerIsTopLevel from "./rules/landmark-banner-is-top-level";
 import landmarkUnique from "./rules/landmark-unique";
@@ -162,6 +163,7 @@ export const allRules: Rule[] = [
   landmarkOneMain,
   labelContentNameMismatch,
   labelTitleOnly,
+  landmarkNoDuplicateBanner,
   landmarkBannerIsTopLevel,
   landmarkContentinfoIsTopLevel,
   landmarkNoDuplicateMain,
