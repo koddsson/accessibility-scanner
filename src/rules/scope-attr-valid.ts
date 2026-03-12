@@ -52,7 +52,7 @@ function checkTableHeaderElements(element: Element) {
   return errors;
 }
 
-export default function metaViewport(element: Element) {
+export default function scopeAttributeValid(element: Element) {
   const errors = [
     ...checkScopeElements(element),
     ...checkTableHeaderElements(element),
