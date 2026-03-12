@@ -1,4 +1,4 @@
-# accessbility-scanner
+# accessibility-scanner
 
 ## AXE Rules
 
