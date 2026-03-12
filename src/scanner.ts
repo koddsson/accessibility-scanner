@@ -27,6 +27,7 @@ import imageAlt from "./rules/image-alt";
 import imageRedundantAlt from "./rules/image-redundant-alt";
 import buttonName from "./rules/button-name";
 import label from "./rules/label";
+import labelTitleOnly from "./rules/label-title-only";
 import linkName from "./rules/link-name";
 import listitem from "./rules/listitem";
 import list from "./rules/list";
@@ -154,6 +155,7 @@ export const allRules: Rule[] = [
   inputImageAlt,
   label,
   labelContentNameMismatch,
+  labelTitleOnly,
   landmarkBannerIsTopLevel,
   landmarkContentinfoIsTopLevel,
   landmarkNoDuplicateMain,
