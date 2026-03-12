@@ -77,6 +77,7 @@ import objectAlt from "./rules/object-alt";
 import presentationRoleConflict from "./rules/presentation-role-conflict";
 import skipLink from "./rules/skip-link";
 import tabindex from "./rules/tabindex";
+import landmarkUnique from "./rules/landmark-unique";
 import landmarkContentinfoIsTopLevel from "./rules/landmark-contentinfo-is-top-level";
 import landmarkMainIsTopLevel from "./rules/landmark-main-is-top-level";
 
@@ -151,6 +152,7 @@ export const allRules: Rule[] = [
   landmarkContentinfoIsTopLevel,
   landmarkComplementaryIsTopLevel,
   landmarkMainIsTopLevel,
+  landmarkUnique,
   linkInTextBlock,
   linkName,
   list,
