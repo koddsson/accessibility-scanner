@@ -82,6 +82,7 @@ import landmarkBannerIsTopLevel from "./rules/landmark-banner-is-top-level";
 import landmarkUnique from "./rules/landmark-unique";
 import landmarkContentinfoIsTopLevel from "./rules/landmark-contentinfo-is-top-level";
 import landmarkNoDuplicateContentinfo from "./rules/landmark-no-duplicate-contentinfo";
+import landmarkNoDuplicateMain from "./rules/landmark-no-duplicate-main";
 import landmarkMainIsTopLevel from "./rules/landmark-main-is-top-level";
 
 import { Logger } from "./logger";
@@ -155,6 +156,7 @@ export const allRules: Rule[] = [
   labelContentNameMismatch,
   landmarkBannerIsTopLevel,
   landmarkContentinfoIsTopLevel,
+  landmarkNoDuplicateMain,
   landmarkComplementaryIsTopLevel,
   landmarkNoDuplicateContentinfo,
   landmarkMainIsTopLevel,
