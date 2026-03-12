@@ -205,7 +205,6 @@ export const allRules: Rule[] = [
   videoCaptions,
   objectAlt,
   pageHasHeadingOne,
-  region,
 ];
 
 export async function requestIdleScan(
