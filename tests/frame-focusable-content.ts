@@ -19,9 +19,11 @@ async function waitForIframeLoad(iframe: HTMLIFrameElement): Promise<void> {
     const checkIframeReady = () => {
       // Check if iframe content is accessible and ready
       // For srcdoc iframes, contentDocument and body should be available even if readyState isn't 'complete'
+      // We also verify the body has child nodes to ensure srcdoc content has been fully parsed
       if (
         iframe.contentDocument &&
-        iframe.contentDocument.body
+        iframe.contentDocument.body &&
+        iframe.contentDocument.body.childNodes.length > 0
       ) {
         // Give it one more tick to ensure any dynamic content is rendered
         setTimeout(resolve, 10);
