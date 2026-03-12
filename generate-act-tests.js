@@ -151,10 +151,10 @@ for (const rule of applicableRules) {
   )
     continue;
 
-  const html = await readFile(
+  const html = (await readFile(
     `./tests/act/fixtures/${testcaseId}.html`,
     "utf8",
-  );
+  )).replace(/\\/g, '\\\\').replace(/`/g, '\\`').replace(/\$\{/g, '\\${');
 
   let assertion = undefined;
   if (expected === "passed") {
