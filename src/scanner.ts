@@ -40,6 +40,7 @@ import validLang from "./rules/valid-lang";
 import htmlLangValid from "./rules/html-lang-valid";
 import htmlXmlLangMismatch from "./rules/html-xml-lang-mismatch";
 import colorContrast from "./rules/color-contrast";
+import colorContrastEnhanced from "./rules/color-contrast-enhanced";
 import tdHasHeader from "./rules/td-has-header";
 import thHasDataCells from "./rules/th-has-data-cells";
 import tdHeadersAttr from "./rules/td-headers-attr";
@@ -130,6 +131,7 @@ export const allRules: Rule[] = [
   autocompleteValid,
   avoidInlineSpacing,
   colorContrast,
+  colorContrastEnhanced,
   tdHasHeader,
   thHasDataCells,
   tdHeadersAttr,
