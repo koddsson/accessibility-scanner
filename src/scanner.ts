@@ -1,5 +1,6 @@
 import { areaAlt } from "./rules/area-alt";
 import { ariaAllowedAttr } from "./rules/aria-allowed-attr";
+import ariaAllowedRole from "./rules/aria-allowed-role";
 import ariaCommandName from "./rules/aria-command-name";
 import { ariaHiddenBody } from "./rules/aria-hidden-body";
 import ariaHiddenFocus from "./rules/aria-hidden-focus";
@@ -23,10 +24,12 @@ import videoCaptions from "./rules/video-caption";
 import selectName from "./rules/select-name";
 import metaRefresh from "./rules/meta-refresh";
 import marquee from "./rules/marquee";
+import identicalLinksSamePurpose from "./rules/identical-links-same-purpose";
 import imageAlt from "./rules/image-alt";
 import imageRedundantAlt from "./rules/image-redundant-alt";
 import buttonName from "./rules/button-name";
 import label from "./rules/label";
+import labelTitleOnly from "./rules/label-title-only";
 import linkName from "./rules/link-name";
 import listitem from "./rules/listitem";
 import list from "./rules/list";
@@ -78,9 +81,11 @@ import objectAlt from "./rules/object-alt";
 import presentationRoleConflict from "./rules/presentation-role-conflict";
 import skipLink from "./rules/skip-link";
 import tabindex from "./rules/tabindex";
+import landmarkBannerIsTopLevel from "./rules/landmark-banner-is-top-level";
 import landmarkUnique from "./rules/landmark-unique";
 import landmarkContentinfoIsTopLevel from "./rules/landmark-contentinfo-is-top-level";
 import landmarkNoDuplicateContentinfo from "./rules/landmark-no-duplicate-contentinfo";
+import landmarkNoDuplicateMain from "./rules/landmark-no-duplicate-main";
 import landmarkMainIsTopLevel from "./rules/landmark-main-is-top-level";
 
 import { Logger } from "./logger";
@@ -100,6 +105,7 @@ export const allRules: Rule[] = [
   accesskeys,
   areaAlt,
   ariaAllowedAttr,
+  ariaAllowedRole,
   ariaCommandName,
   ariaDialogName,
   ariaHiddenBody,
@@ -146,13 +152,17 @@ export const allRules: Rule[] = [
   headingOrder,
   htmlLangValid,
   htmlXmlLangMismatch,
+  identicalLinksSamePurpose,
   imageAlt,
   imageRedundantAlt,
   inputButtonName,
   inputImageAlt,
   label,
   labelContentNameMismatch,
+  labelTitleOnly,
+  landmarkBannerIsTopLevel,
   landmarkContentinfoIsTopLevel,
+  landmarkNoDuplicateMain,
   landmarkComplementaryIsTopLevel,
   landmarkNoDuplicateContentinfo,
   landmarkMainIsTopLevel,
