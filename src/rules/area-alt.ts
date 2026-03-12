@@ -2,7 +2,7 @@ import { AccessibilityError } from "../scanner";
 import { querySelectorAll, labelledByIsValid } from "../utils";
 
 const id = "area-alt";
-const text = "Elements must only use allowed ARIA attributes";
+const text = "Ensures <area> elements of image maps have alternate text";
 const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 export function areaAlt(element_: Element): AccessibilityError[] {
