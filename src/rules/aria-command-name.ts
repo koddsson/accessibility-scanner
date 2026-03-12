@@ -23,7 +23,7 @@ export default function (el: Element): AccessibilityError[] {
   );
 
   if (el.matches('[role="link"], [role="button"], [role="menuitem"]')) {
-    elements.push(el as HTMLAudioElement);
+    elements.push(el as HTMLElement);
   }
 
   for (const element of elements) {
