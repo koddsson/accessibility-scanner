@@ -12,6 +12,7 @@ import ariaRequiredParent from "./rules/aria-required-parent";
 import ariaRoledescription from "./rules/aria-roledescription";
 import ariaToggleFieldName from "./rules/aria-toggle-field-name";
 import ariaTooltipName from "./rules/aria-tooltip-name";
+import ariaTreeitemName from "./rules/aria-treeitem-name";
 import ariaValidAttr from "./rules/aria-valid-attr";
 import { ariaValidAttrValue } from "./rules/aria-valid-attr-value";
 import metaViewport from "./rules/meta-viewport";
@@ -98,6 +99,7 @@ export const allRules: Rule[] = [
   ariaRoledescription,
   ariaToggleFieldName,
   ariaTooltipName,
+  ariaTreeitemName,
   ariaValidAttr,
   ariaValidAttrValue,
   audioCaptions,
