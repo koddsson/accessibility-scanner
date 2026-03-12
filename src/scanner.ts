@@ -135,12 +135,6 @@ export const allRules: Rule[] = [
   audioCaptions,
   autocompleteValid,
   avoidInlineSpacing,
-  colorContrast,
-  tdHasHeader,
-  thHasDataCells,
-  tdHeadersAttr,
-  labelContentNameMismatch,
-  documentTitle,
   blink,
   buttonName,
   bypass,
@@ -154,6 +148,7 @@ export const allRules: Rule[] = [
   duplicateIdAria,
   emptyHeading,
   emptyTableHeader,
+  focusOrderSemantics,
   formFieldMultipleLabels,
   frameFocusableContent,
   frameTested,
@@ -168,16 +163,16 @@ export const allRules: Rule[] = [
   inputButtonName,
   inputImageAlt,
   label,
-  landmarkOneMain,
   labelContentNameMismatch,
   labelTitleOnly,
-  landmarkNoDuplicateBanner,
   landmarkBannerIsTopLevel,
-  landmarkContentinfoIsTopLevel,
-  landmarkNoDuplicateMain,
   landmarkComplementaryIsTopLevel,
-  landmarkNoDuplicateContentinfo,
+  landmarkContentinfoIsTopLevel,
   landmarkMainIsTopLevel,
+  landmarkNoDuplicateBanner,
+  landmarkNoDuplicateContentinfo,
+  landmarkNoDuplicateMain,
+  landmarkOneMain,
   landmarkUnique,
   linkInTextBlock,
   linkName,
@@ -190,7 +185,9 @@ export const allRules: Rule[] = [
   metaViewportLarge,
   nestedInteractive,
   noAutoplayAudio,
+  objectAlt,
   pAsHeading,
+  pageHasHeadingOne,
   presentationRoleConflict,
   roleImgAlt,
   scopeAttributeValid,
@@ -199,17 +196,15 @@ export const allRules: Rule[] = [
   serverSideImageMap,
   skipLink,
   svgImgAlt,
-  focusOrderSemantics,
+  tabindex,
   tableDuplicateName,
   tableFakeCaption,
-  tabindex,
   targetSize,
   tdHasHeader,
   tdHeadersAttr,
+  thHasDataCells,
   validLang,
   videoCaptions,
-  objectAlt,
-  pageHasHeadingOne,
 ];
 
 export async function requestIdleScan(
@@ -217,23 +212,24 @@ export async function requestIdleScan(
   enabledRules: Rule[] = allRules,
 ): Promise<AccessibilityError[]> {
   const errors: AccessibilityError[] = [];
+  const rulesToProcess = [...enabledRules];
 
   return new Promise((resolve) => {
     requestIdleCallback(async function executeScan(deadline: IdleDeadline) {
       while (
         // eslint-disable-next-line tscompat/tscompat
         (deadline.timeRemaining() > 0 || deadline.didTimeout) &&
-        enabledRules.length > 0
+        rulesToProcess.length > 0
       ) {
         // eslint-disable-next-line tscompat/tscompat
         logger.log(deadline.timeRemaining(), deadline.didTimeout);
-        const rule = enabledRules.shift()!;
+        const rule = rulesToProcess.shift()!;
         logger.log(`Executing ${rule.name}`);
         errors.push(...rule(element));
       }
 
-      if (enabledRules.length > 0) {
-        console.log(`exited with ${enabledRules.length} left`);
+      if (rulesToProcess.length > 0) {
+        console.log(`exited with ${rulesToProcess.length} left`);
         requestIdleCallback(executeScan);
       } else {
         resolve(errors);

@@ -26,13 +26,6 @@ function valid(element: Element, attribute: string, info: Info) {
   } else if (info.type === "idref") {
     if (info.allowEmpty && value === "") return true;
     const referencedValue = document.querySelector<HTMLElement>(`#${value}`);
-    if (element.id === "pass169")
-      console.log(
-        element.id,
-        value,
-        referencedValue,
-        document.querySelectorAll("div"),
-      );
     if (!referencedValue) return false;
     if (
       referencedValue.hasAttribute("hidden") ||
