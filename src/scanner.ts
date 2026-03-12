@@ -75,6 +75,7 @@ import objectAlt from "./rules/object-alt";
 import presentationRoleConflict from "./rules/presentation-role-conflict";
 import skipLink from "./rules/skip-link";
 import tabindex from "./rules/tabindex";
+import landmarkContentinfoIsTopLevel from "./rules/landmark-contentinfo-is-top-level";
 
 import { Logger } from "./logger";
 
@@ -142,6 +143,7 @@ export const allRules: Rule[] = [
   inputImageAlt,
   label,
   labelContentNameMismatch,
+  landmarkContentinfoIsTopLevel,
   linkInTextBlock,
   linkName,
   list,
