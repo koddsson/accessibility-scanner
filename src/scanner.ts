@@ -23,6 +23,7 @@ import scopeAttributeValid from "./rules/scope-attr-valid";
 import videoCaptions from "./rules/video-caption";
 import selectName from "./rules/select-name";
 import metaRefresh from "./rules/meta-refresh";
+import metaRefreshNoExceptions from "./rules/meta-refresh-no-exceptions";
 import marquee from "./rules/marquee";
 import identicalLinksSamePurpose from "./rules/identical-links-same-purpose";
 import imageAlt from "./rules/image-alt";
@@ -177,6 +178,7 @@ export const allRules: Rule[] = [
   listitem,
   marquee,
   metaRefresh,
+  metaRefreshNoExceptions,
   metaViewport,
   metaViewportLarge,
   nestedInteractive,
