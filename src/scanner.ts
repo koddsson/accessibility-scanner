@@ -69,6 +69,7 @@ import scrollableRegionFocusable from "./rules/scrollable-region-focusable";
 import serverSideImageMap from "./rules/server-side-image-map";
 import targetSize from "./rules/target-size";
 import objectAlt from "./rules/object-alt";
+import skipLink from "./rules/skip-link";
 import tabindex from "./rules/tabindex";
 import landmarkBannerIsTopLevel from "./rules/landmark-banner-is-top-level";
 
@@ -153,6 +154,7 @@ export const allRules: Rule[] = [
   scrollableRegionFocusable,
   selectName,
   serverSideImageMap,
+  skipLink,
   svgImgAlt,
   focusOrderSemantics,
   tableDuplicateName,
