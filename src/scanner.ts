@@ -54,6 +54,7 @@ import formFieldMultipleLabels from "./rules/form-field-multiple-labels";
 import duplicateId from "./rules/duplicate-id";
 import duplicateIdActive from "./rules/duplicate-id-active";
 import duplicateIdAria from "./rules/duplicate-id-aria";
+import emptyHeading from "./rules/empty-heading";
 import cssOrientationLock from "./rules/css-orientation-lock";
 import autocompleteValid from "./rules/autocomplete-valid";
 import avoidInlineSpacing from "./rules/avoid-inline-spacing";
@@ -122,6 +123,7 @@ export const allRules: Rule[] = [
   duplicateId,
   duplicateIdActive,
   duplicateIdAria,
+  emptyHeading,
   formFieldMultipleLabels,
   frameFocusableContent,
   frameTested,
