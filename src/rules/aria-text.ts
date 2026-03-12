@@ -15,7 +15,7 @@ export default function (element: Element): AccessibilityError[] {
   if (element.matches(selector)) elements.push(element);
 
   for (const el of elements) {
-    const focusable = el.querySelectorAll(focusableSelector);
+    const focusable = querySelectorAll(focusableSelector, el);
     if (focusable.length > 0) {
       errors.push({ id, element: el, text, url });
     }
