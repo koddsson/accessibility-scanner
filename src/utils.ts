@@ -18,7 +18,7 @@ export function isVisible(element: Element | null): boolean {
 
     // Check computed styles (catches CSS classes, not just inline styles)
     if (current instanceof HTMLElement) {
-      const style = globalThis.getComputedStyle(current);
+      const style = (current.ownerDocument.defaultView || globalThis).getComputedStyle(current);
       if (style.display === "none") {
         return false;
       }
