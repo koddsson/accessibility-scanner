@@ -20,7 +20,7 @@ describe("area-alt", function () {
 
     expect(results).to.eql([
       {
-        text: "Elements must only use allowed ARIA attributes",
+        text: "Ensures <area> elements of image maps have alternate text",
         url: "https://dequeuniversity.com/rules/axe/4.11/area-alt",
       },
     ]);
@@ -78,7 +78,7 @@ describe("area-alt", function () {
 
     expect(results).to.eql([
       {
-        text: "Elements must only use allowed ARIA attributes",
+        text: "Ensures <area> elements of image maps have alternate text",
         url: "https://dequeuniversity.com/rules/axe/4.11/area-alt",
       },
     ]);
@@ -99,7 +99,7 @@ describe("area-alt", function () {
 
     expect(results).to.eql([
       {
-        text: "Elements must only use allowed ARIA attributes",
+        text: "Ensures <area> elements of image maps have alternate text",
         url: "https://dequeuniversity.com/rules/axe/4.11/area-alt",
       },
     ]);
@@ -120,7 +120,7 @@ describe("area-alt", function () {
 
     expect(results).to.eql([
       {
-        text: "Elements must only use allowed ARIA attributes",
+        text: "Ensures <area> elements of image maps have alternate text",
         url: "https://dequeuniversity.com/rules/axe/4.11/area-alt",
       },
     ]);
@@ -161,7 +161,7 @@ describe("area-alt", function () {
 
     expect(results).to.eql([
       {
-        text: "Elements must only use allowed ARIA attributes",
+        text: "Ensures <area> elements of image maps have alternate text",
         url: "https://dequeuniversity.com/rules/axe/4.11/area-alt",
       },
     ]);
