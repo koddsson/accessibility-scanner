@@ -8,9 +8,11 @@ import ariaDialogName from "./rules/aria-dialog-name";
 import ariaInputFieldName from "./rules/aria-input-field-name";
 import ariaMeterName from "./rules/aria-meter-name";
 import ariaProgressbarName from "./rules/aria-progressbar-name";
+import { ariaRequiredAttr } from "./rules/aria-required-attr";
 import ariaRequiredChildren from "./rules/aria-required-children";
 import ariaText from "./rules/aria-text";
 import ariaRequiredParent from "./rules/aria-required-parent";
+import ariaRoles from "./rules/aria-roles";
 import ariaRoledescription from "./rules/aria-roledescription";
 import ariaToggleFieldName from "./rules/aria-toggle-field-name";
 import ariaTooltipName from "./rules/aria-tooltip-name";
@@ -119,8 +121,10 @@ export const allRules: Rule[] = [
   ariaInputFieldName,
   ariaMeterName,
   ariaProgressbarName,
+  ariaRequiredAttr,
   ariaRequiredChildren,
   ariaRequiredParent,
+  ariaRoles,
   ariaRoledescription,
   ariaText,
   ariaToggleFieldName,
