@@ -92,6 +92,7 @@ import landmarkContentinfoIsTopLevel from "./rules/landmark-contentinfo-is-top-l
 import landmarkNoDuplicateContentinfo from "./rules/landmark-no-duplicate-contentinfo";
 import landmarkNoDuplicateMain from "./rules/landmark-no-duplicate-main";
 import landmarkMainIsTopLevel from "./rules/landmark-main-is-top-level";
+import region from "./rules/region";
 
 import { Logger } from "./logger";
 
