@@ -6,30 +6,36 @@ const scanner = new Scanner([ariaAllowedAttr]);
 
 describe("aria-allowed-attr", function () {
   describe("has no errors if", function () {
-    it("an HTML element has the document role", async () => {
+    it("elements have no ARIA attributes", async () => {
       const container = await fixture(
-        html`<div><span>no matching elements</span></div>`,
+        html`<div><button>Click</button></div>`,
       );
-      const results = (await scanner.scan(container)).map(({ text, url }) => ({
-        text,
-        url,
-      }));
+      const results = await scanner.scan(container);
       expect(results).to.be.empty;
     });
 
-    it("an element with a matching implicit role is present", async () => {
-      const container = await fixture(html`<div><span>safe</span></div>`);
-      const results = (await scanner.scan(container)).map(({ text, url }) => ({
-        text,
-        url,
-      }));
+    it("a role-specific ARIA attribute is used on an allowed role", async () => {
+      const container = await fixture(
+        html`<div role="checkbox" aria-checked="true">Check</div>`,
+      );
+      const results = await scanner.scan(container);
+      expect(results).to.be.empty;
+    });
+
+    it("a global ARIA attribute is used on any element", async () => {
+      const container = await fixture(
+        html`<div aria-label="description">Content</div>`,
+      );
+      const results = await scanner.scan(container);
       expect(results).to.be.empty;
     });
   });
 
   describe("has errors if", function () {
-    it("an <i> element is present without a matching role", async () => {
-      const container = await fixture(html`<div><i>italic</i></div>`);
+    it("a role-specific ARIA attribute is used on a disallowed role", async () => {
+      const container = await fixture(
+        html`<div><span aria-checked="true">Not a checkbox</span></div>`,
+      );
       const results = (await scanner.scan(container)).map(({ text, url }) => ({
         text,
         url,
@@ -43,7 +49,9 @@ describe("aria-allowed-attr", function () {
     });
 
     it("includes id in errors", async () => {
-      const container = await fixture(html`<div><i>text</i></div>`);
+      const container = await fixture(
+        html`<div><p aria-sort="ascending">text</p></div>`,
+      );
       const results = await scanner.scan(container);
 
       expect(results).to.have.lengthOf(1);
