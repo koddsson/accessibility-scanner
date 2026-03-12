@@ -1,5 +1,6 @@
 import { areaAlt } from "./rules/area-alt";
 import { ariaAllowedAttr } from "./rules/aria-allowed-attr";
+import ariaAllowedRole from "./rules/aria-allowed-role";
 import ariaCommandName from "./rules/aria-command-name";
 import { ariaHiddenBody } from "./rules/aria-hidden-body";
 import ariaHiddenFocus from "./rules/aria-hidden-focus";
@@ -78,6 +79,7 @@ import presentationRoleConflict from "./rules/presentation-role-conflict";
 import skipLink from "./rules/skip-link";
 import tabindex from "./rules/tabindex";
 import landmarkOneMain from "./rules/landmark-one-main";
+import landmarkBannerIsTopLevel from "./rules/landmark-banner-is-top-level";
 import landmarkUnique from "./rules/landmark-unique";
 import landmarkContentinfoIsTopLevel from "./rules/landmark-contentinfo-is-top-level";
 import landmarkNoDuplicateContentinfo from "./rules/landmark-no-duplicate-contentinfo";
@@ -100,6 +102,7 @@ export const allRules: Rule[] = [
   accesskeys,
   areaAlt,
   ariaAllowedAttr,
+  ariaAllowedRole,
   ariaCommandName,
   ariaDialogName,
   ariaHiddenBody,
@@ -152,6 +155,7 @@ export const allRules: Rule[] = [
   label,
   landmarkOneMain,
   labelContentNameMismatch,
+  landmarkBannerIsTopLevel,
   landmarkContentinfoIsTopLevel,
   landmarkComplementaryIsTopLevel,
   landmarkNoDuplicateContentinfo,
