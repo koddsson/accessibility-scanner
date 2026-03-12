@@ -843,7 +843,7 @@
         "ACT Rules": "[46ca7f](https://act-rules.github.io/rules/46ca7f)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "region",
         "url": "https://dequeuniversity.com/rules/axe/4.11/region?application=RuleDescription",
         "Description": "Ensures all page content is contained by landmarks",
