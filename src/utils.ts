@@ -16,10 +16,10 @@ export function isVisible(element: Element | null): boolean {
       return false;
     }
 
-    if (current instanceof HTMLElement) {
+    if ("style" in current) {
       if (current.isConnected) {
         // Use computed styles (accurate for elements in the DOM)
-        const style = (current.ownerDocument.defaultView || globalThis).getComputedStyle(current);
+        const style = ((current as HTMLElement).ownerDocument.defaultView || globalThis).getComputedStyle(current as HTMLElement);
         if (style.display === "none") {
           return false;
         }
@@ -28,10 +28,10 @@ export function isVisible(element: Element | null): boolean {
         }
       } else {
         // Fallback to inline styles for detached elements
-        if (current.style.display === "none") {
+        if ((current as HTMLElement).style.display === "none") {
           return false;
         }
-        if (current.style.visibility === "hidden") {
+        if ((current as HTMLElement).style.visibility === "hidden") {
           return false;
         }
       }
