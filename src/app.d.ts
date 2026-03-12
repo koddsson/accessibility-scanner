@@ -1,8 +1,10 @@
 import type { AccessibilityError } from "./scanner";
 interface CustomEventMap {
+  // TODO: Fix spelling of "accessbility-error" to "accessibility-error" in next major version (breaking change)
   "accessbility-error": AccessbilityErrorEvent;
 }
 declare global {
+  // TODO: Fix spelling of "AccessbilityErrorEvent" to "AccessibilityErrorEvent" in next major version (breaking change)
   type AccessbilityErrorEvent = CustomEvent<{
     errors: AccessibilityError[];
   }>;

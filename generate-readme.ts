@@ -30,7 +30,7 @@ for (const [name, { description, rules }] of Object.entries(sections)) {
 }
 
 const document = `
-# accessbility-scanner
+# accessibility-scanner
 
 ## AXE Rules
 
