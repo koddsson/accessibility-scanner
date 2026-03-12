@@ -17,9 +17,10 @@ export default function metaViewport(element: Element) {
   // TODO: Do the same for all the other rules
   const selector = "meta[name=viewport]";
   // meta[name=viewport] is in <head>, so search the full document if available
-  const searchRoot = element.ownerDocument ?? element;
+  const doc = element.ownerDocument;
+  const searchRoot = doc ?? element;
   const elements = [...searchRoot.querySelectorAll<HTMLMetaElement>(selector)];
-  if (element.matches(selector)) elements.push(element as HTMLMetaElement);
+  if (!doc && element.matches(selector)) elements.push(element as HTMLMetaElement);
   for (const element of elements) {
     const content = parseContent(element.content);
     // "yes" is the only value that clearly enables scaling.
