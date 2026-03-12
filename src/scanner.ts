@@ -50,6 +50,7 @@ import tableDuplicateName from "./rules/table-duplicate-name";
 import tableFakeCaption from "./rules/table-fake-caption";
 import frameFocusableContent from "./rules/frame-focusable-content";
 import frameTested from "./rules/frame-tested";
+import headingOrder from "./rules/heading-order";
 import frameTitle from "./rules/frame-title";
 import frameTitleUnique from "./rules/frame-title-unique";
 import noAutoplayAudio from "./rules/no-autoplay-audio";
@@ -77,6 +78,7 @@ import presentationRoleConflict from "./rules/presentation-role-conflict";
 import skipLink from "./rules/skip-link";
 import tabindex from "./rules/tabindex";
 import landmarkContentinfoIsTopLevel from "./rules/landmark-contentinfo-is-top-level";
+import landmarkMainIsTopLevel from "./rules/landmark-main-is-top-level";
 
 import { Logger } from "./logger";
 
@@ -137,6 +139,7 @@ export const allRules: Rule[] = [
   frameTested,
   frameTitle,
   frameTitleUnique,
+  headingOrder,
   htmlLangValid,
   htmlXmlLangMismatch,
   imageAlt,
@@ -147,6 +150,7 @@ export const allRules: Rule[] = [
   labelContentNameMismatch,
   landmarkContentinfoIsTopLevel,
   landmarkComplementaryIsTopLevel,
+  landmarkMainIsTopLevel,
   linkInTextBlock,
   linkName,
   list,
