@@ -19,19 +19,23 @@ export function isVisible(element: Element | null): boolean {
  * - aria-labelledby pointing to element with text which is discernible to screen reader users.
  */
 export function hasAccessibleText(el: Element): boolean {
+  if (el.hasAttribute("aria-labelledby")) {
+    return labelledByIsValid(el);
+  }
+
   if (el.hasAttribute("aria-label")) {
     return el.getAttribute("aria-label")!.trim() !== "";
+  }
+
+  if (el.textContent?.trim() !== "") {
+    return true;
   }
 
   if (el.getAttribute("title")) {
     return el.getAttribute("title")!.trim() !== "";
   }
 
-  if (el.hasAttribute("aria-labelledby")) {
-    return labelledByIsValid(el);
-  }
-
-  return el.textContent?.trim() !== "";
+  return false;
 }
 
 /**
