@@ -49,6 +49,7 @@ import tableDuplicateName from "./rules/table-duplicate-name";
 import tableFakeCaption from "./rules/table-fake-caption";
 import frameFocusableContent from "./rules/frame-focusable-content";
 import frameTested from "./rules/frame-tested";
+import headingOrder from "./rules/heading-order";
 import frameTitle from "./rules/frame-title";
 import frameTitleUnique from "./rules/frame-title-unique";
 import noAutoplayAudio from "./rules/no-autoplay-audio";
@@ -57,6 +58,7 @@ import duplicateId from "./rules/duplicate-id";
 import duplicateIdActive from "./rules/duplicate-id-active";
 import duplicateIdAria from "./rules/duplicate-id-aria";
 import emptyHeading from "./rules/empty-heading";
+import emptyTableHeader from "./rules/empty-table-header";
 import cssOrientationLock from "./rules/css-orientation-lock";
 import autocompleteValid from "./rules/autocomplete-valid";
 import avoidInlineSpacing from "./rules/avoid-inline-spacing";
@@ -70,11 +72,16 @@ import roleImgAlt from "./rules/role-img-alt";
 import scrollableRegionFocusable from "./rules/scrollable-region-focusable";
 import serverSideImageMap from "./rules/server-side-image-map";
 import targetSize from "./rules/target-size";
+import landmarkComplementaryIsTopLevel from "./rules/landmark-complementary-is-top-level";
 import objectAlt from "./rules/object-alt";
 import presentationRoleConflict from "./rules/presentation-role-conflict";
 import skipLink from "./rules/skip-link";
 import tabindex from "./rules/tabindex";
 import pageHasHeadingOne from "./rules/page-has-heading-one";
+import landmarkUnique from "./rules/landmark-unique";
+import landmarkContentinfoIsTopLevel from "./rules/landmark-contentinfo-is-top-level";
+import landmarkNoDuplicateContentinfo from "./rules/landmark-no-duplicate-contentinfo";
+import landmarkMainIsTopLevel from "./rules/landmark-main-is-top-level";
 
 import { Logger } from "./logger";
 
@@ -129,11 +136,13 @@ export const allRules: Rule[] = [
   duplicateIdActive,
   duplicateIdAria,
   emptyHeading,
+  emptyTableHeader,
   formFieldMultipleLabels,
   frameFocusableContent,
   frameTested,
   frameTitle,
   frameTitleUnique,
+  headingOrder,
   htmlLangValid,
   htmlXmlLangMismatch,
   imageAlt,
@@ -142,6 +151,11 @@ export const allRules: Rule[] = [
   inputImageAlt,
   label,
   labelContentNameMismatch,
+  landmarkContentinfoIsTopLevel,
+  landmarkComplementaryIsTopLevel,
+  landmarkNoDuplicateContentinfo,
+  landmarkMainIsTopLevel,
+  landmarkUnique,
   linkInTextBlock,
   linkName,
   list,
