@@ -82,6 +82,7 @@ import objectAlt from "./rules/object-alt";
 import presentationRoleConflict from "./rules/presentation-role-conflict";
 import skipLink from "./rules/skip-link";
 import tabindex from "./rules/tabindex";
+import pageHasHeadingOne from "./rules/page-has-heading-one";
 import landmarkNoDuplicateBanner from "./rules/landmark-no-duplicate-banner";
 import landmarkOneMain from "./rules/landmark-one-main";
 import landmarkBannerIsTopLevel from "./rules/landmark-banner-is-top-level";
@@ -202,6 +203,7 @@ export const allRules: Rule[] = [
   validLang,
   videoCaptions,
   objectAlt,
+  pageHasHeadingOne,
 ];
 
 export async function requestIdleScan(
