@@ -1,4 +1,4 @@
-import { expect, fixture, html, nextFrame } from "@open-wc/testing";
+import { expect, fixture, html } from "@open-wc/testing";
 import { scan } from "../src/scanner";
 import documentTitle from "../src/rules/document-title";
 
@@ -10,6 +10,15 @@ async function createHTMLElement(htmlString: string): Promise<HTMLElement> {
     html`<iframe srcdoc="<!DOCTYPE html>${htmlString}"></iframe>`,
   )) as HTMLIFrameElement;
 
+  // Wait for the iframe to finish loading its srcdoc content before accessing the document.
+  await new Promise<void>((resolve) => {
+    if (iframe.contentDocument?.readyState === "complete") {
+      resolve();
+    } else {
+      iframe.addEventListener("load", () => resolve(), { once: true });
+    }
+  });
+
   return iframe.contentDocument!.querySelector("html")!;
 }
 
@@ -17,9 +26,6 @@ describe("document-title", function () {
   describe("has errors if", function () {
     it("document has no <title> element", async () => {
       const container = await createHTMLElement("<html><head></head></html>");
-
-      // Not sure why there's a timing issue here but this seems to fix it
-      await nextFrame();
 
       const results = (await scan(container, [documentTitle])).map(
         ({ text, url }) => {
@@ -37,8 +43,6 @@ describe("document-title", function () {
         "<html><head><title></title></head></html>",
       );
 
-      await nextFrame();
-
       const results = (await scan(container, [documentTitle])).map(
         ({ text, url }) => {
           return { text, url };
@@ -54,8 +58,6 @@ describe("document-title", function () {
         "<html><head><title>    </title></head></html>",
       );
 
-      await nextFrame();
-
       const results = (await scan(container, [documentTitle])).map(
         ({ text, url }) => {
           return { text, url };
@@ -70,8 +72,6 @@ describe("document-title", function () {
       const container = await createHTMLElement(
         "<html><head><title>\n\n\n</title></head></html>",
       );
-
-      await nextFrame();
 
       const results = (await scan(container, [documentTitle])).map(
         ({ text, url }) => {
@@ -89,8 +89,6 @@ describe("document-title", function () {
         "<html><head><title>Valid Page Title</title></head></html>",
       );
 
-      await nextFrame();
-
       const results = await scan(container, [documentTitle]);
 
       expect(results).to.be.empty;
@@ -100,8 +98,6 @@ describe("document-title", function () {
       const container = await createHTMLElement(
         "<html><head><title>  Page Title  </title></head></html>",
       );
-
-      await nextFrame();
 
       const results = await scan(container, [documentTitle]);
 
@@ -113,8 +109,6 @@ describe("document-title", function () {
         "<html><head><title>Page Title - Section & More!</title></head></html>",
       );
 
-      await nextFrame();
-
       const results = await scan(container, [documentTitle]);
 
       expect(results).to.be.empty;
@@ -124,8 +118,6 @@ describe("document-title", function () {
       const container = await createHTMLElement(
         "<html><head><title>A</title></head></html>",
       );
-
-      await nextFrame();
 
       const results = await scan(container, [documentTitle]);
 

@@ -59,6 +59,7 @@ import duplicateId from "./rules/duplicate-id";
 import duplicateIdActive from "./rules/duplicate-id-active";
 import duplicateIdAria from "./rules/duplicate-id-aria";
 import emptyHeading from "./rules/empty-heading";
+import emptyTableHeader from "./rules/empty-table-header";
 import cssOrientationLock from "./rules/css-orientation-lock";
 import autocompleteValid from "./rules/autocomplete-valid";
 import avoidInlineSpacing from "./rules/avoid-inline-spacing";
@@ -77,7 +78,9 @@ import objectAlt from "./rules/object-alt";
 import presentationRoleConflict from "./rules/presentation-role-conflict";
 import skipLink from "./rules/skip-link";
 import tabindex from "./rules/tabindex";
+import landmarkUnique from "./rules/landmark-unique";
 import landmarkContentinfoIsTopLevel from "./rules/landmark-contentinfo-is-top-level";
+import landmarkNoDuplicateContentinfo from "./rules/landmark-no-duplicate-contentinfo";
 import landmarkMainIsTopLevel from "./rules/landmark-main-is-top-level";
 
 import { Logger } from "./logger";
@@ -134,6 +137,7 @@ export const allRules: Rule[] = [
   duplicateIdActive,
   duplicateIdAria,
   emptyHeading,
+  emptyTableHeader,
   formFieldMultipleLabels,
   frameFocusableContent,
   frameTested,
@@ -150,7 +154,9 @@ export const allRules: Rule[] = [
   labelContentNameMismatch,
   landmarkContentinfoIsTopLevel,
   landmarkComplementaryIsTopLevel,
+  landmarkNoDuplicateContentinfo,
   landmarkMainIsTopLevel,
+  landmarkUnique,
   linkInTextBlock,
   linkName,
   list,
