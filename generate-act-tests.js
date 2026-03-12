@@ -1,4 +1,8 @@
-import { mkdir, writeFile, readFile } from "node:fs/promises";
+import { mkdir, writeFile, readFile, rm } from "node:fs/promises";
+
+// Clean up previously generated test files to remove stale tests
+// when rules are added to the ignore list or test cases are removed.
+await rm("./tests/act/tests/", { recursive: true, force: true });
 
 const { testcases } = JSON.parse(await readFile("./testcases.json", "utf8"));
 
