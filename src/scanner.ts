@@ -23,6 +23,7 @@ import videoCaptions from "./rules/video-caption";
 import selectName from "./rules/select-name";
 import metaRefresh from "./rules/meta-refresh";
 import marquee from "./rules/marquee";
+import identicalLinksSamePurpose from "./rules/identical-links-same-purpose";
 import imageAlt from "./rules/image-alt";
 import imageRedundantAlt from "./rules/image-redundant-alt";
 import buttonName from "./rules/button-name";
@@ -150,6 +151,7 @@ export const allRules: Rule[] = [
   headingOrder,
   htmlLangValid,
   htmlXmlLangMismatch,
+  identicalLinksSamePurpose,
   imageAlt,
   imageRedundantAlt,
   inputButtonName,
