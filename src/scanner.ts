@@ -208,23 +208,24 @@ export async function requestIdleScan(
   enabledRules: Rule[] = allRules,
 ): Promise<AccessibilityError[]> {
   const errors: AccessibilityError[] = [];
+  const rulesToProcess = [...enabledRules];
 
   return new Promise((resolve) => {
     requestIdleCallback(async function executeScan(deadline: IdleDeadline) {
       while (
         // eslint-disable-next-line tscompat/tscompat
         (deadline.timeRemaining() > 0 || deadline.didTimeout) &&
-        enabledRules.length > 0
+        rulesToProcess.length > 0
       ) {
         // eslint-disable-next-line tscompat/tscompat
         logger.log(deadline.timeRemaining(), deadline.didTimeout);
-        const rule = enabledRules.shift()!;
+        const rule = rulesToProcess.shift()!;
         logger.log(`Executing ${rule.name}`);
         errors.push(...rule(element));
       }
 
-      if (enabledRules.length > 0) {
-        console.log(`exited with ${enabledRules.length} left`);
+      if (rulesToProcess.length > 0) {
+        console.log(`exited with ${rulesToProcess.length} left`);
         requestIdleCallback(executeScan);
       } else {
         resolve(errors);
