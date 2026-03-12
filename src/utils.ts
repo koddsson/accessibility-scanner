@@ -39,14 +39,19 @@ export function hasAccessibleText(el: Element): boolean {
  * value maps to a element in the DOM that has valid text
  **/
 export function labelledByIsValid(element: Element): boolean {
-  const id = element.getAttribute("aria-labelledby");
-  if (!id) return false;
-  const otherElement = querySelector(`#${id}`, element.ownerDocument);
-  if (!otherElement) return false;
+  const labelledBy = element.getAttribute("aria-labelledby");
+  if (!labelledBy) return false;
 
-  if (otherElement instanceof HTMLSelectElement) return false;
+  const ids = labelledBy.split(/\s+/);
+  for (const id of ids) {
+    const escapedId = CSS.escape(id);
+    const otherElement = querySelector(`#${escapedId}`, element.ownerDocument);
+    if (!otherElement) continue;
+    if (otherElement instanceof HTMLSelectElement) continue;
+    if (otherElement.textContent?.trim() !== "") return true;
+  }
 
-  return otherElement.textContent?.trim() !== "";
+  return false;
 }
 
 /**
