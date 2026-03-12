@@ -6,6 +6,10 @@ on:
     # Allows you to run this workflow manually from the Actions tab
     workflow_dispatch:
 
+permissions:
+  id-token: write  # Required for OIDC
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -46,9 +50,5 @@ jobs:
           TAG_NAME: ${{ github.ref_name }}
       - run: npm publish --provenance --access public --tag next
         if: "github.event.release.prerelease"
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_SECRET }}
       - run: npm publish --provenance --access public
         if: "!github.event.release.prerelease"
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_SECRET }}
