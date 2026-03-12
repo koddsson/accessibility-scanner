@@ -43,6 +43,7 @@ import bypass from "./rules/bypass";
 import definitionList from "./rules/definition-list";
 import linkInTextBlock from "./rules/link-in-text-block";
 import accesskeys from "./rules/accesskeys";
+import tableDuplicateName from "./rules/table-duplicate-name";
 import tableFakeCaption from "./rules/table-fake-caption";
 import frameFocusableContent from "./rules/frame-focusable-content";
 import frameTested from "./rules/frame-tested";
@@ -150,6 +151,7 @@ export const allRules: Rule[] = [
   serverSideImageMap,
   svgImgAlt,
   focusOrderSemantics,
+  tableDuplicateName,
   tableFakeCaption,
   tabindex,
   targetSize,
