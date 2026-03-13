@@ -43,7 +43,7 @@
         "ACT Rules": ""
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "aria-hidden-focus",
         "url": "https://dequeuniversity.com/rules/axe/4.11/aria-hidden-focus?application=RuleDescription",
         "Description": "Ensures aria-hidden elements are not focusable nor contain focusable elements",
@@ -293,7 +293,7 @@
         "ACT Rules": ""
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "frame-focusable-content",
         "url": "https://dequeuniversity.com/rules/axe/4.11/frame-focusable-content?application=RuleDescription",
         "Description": "Ensures &lt;frame&gt; and &lt;iframe&gt; elements with focusable content do not have tabindex=-1",
@@ -463,7 +463,7 @@
         "ACT Rules": "[80f0bf](https://act-rules.github.io/rules/80f0bf)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "object-alt",
         "url": "https://dequeuniversity.com/rules/axe/4.11/object-alt?application=RuleDescription",
         "Description": "Ensures &lt;object&gt; elements have alternate text",
