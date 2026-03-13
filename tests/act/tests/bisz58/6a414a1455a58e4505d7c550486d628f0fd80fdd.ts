@@ -4,7 +4,7 @@ import { scan } from "../../../../src/scanner";
 const parser = new DOMParser();
 
 describe("[bisz58]Meta element has no refresh delay (no exception)", function () {
-  it.skip("Passed Example 1 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/bisz58/6a414a1455a58e4505d7c550486d628f0fd80fdd.html)", async () => {
+  it("Passed Example 1 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/bisz58/6a414a1455a58e4505d7c550486d628f0fd80fdd.html)", async () => {
     const document = parser.parseFromString(`<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,9 +12,9 @@ describe("[bisz58]Meta element has no refresh delay (no exception)", function ()
 </head>
 </html>`, 'text/html');
 
-    const results = (await scan(document.body)).map(({ text, url }) => {
-      return { text, url };
-    });
+    const results = (await scan(document.body))
+      .filter(({ id }) => id === "meta-refresh-no-exceptions")
+      .map(({ text, url }) => ({ text, url }));
 
     expect(results).to.be.empty;
   });
