@@ -116,10 +116,6 @@ function getInputImplicitRole(element: Element): string | undefined {
       return "button";
     case "hidden":
       return undefined;
-    case "email":
-    case "tel":
-    case "text":
-    case "url":
     default:
       return "textbox";
   }
