@@ -1,6 +1,32 @@
 import { mkdir, writeFile, readFile } from "node:fs/promises";
 
 const { testcases } = JSON.parse(await readFile("./testcases.json", "utf8"));
+const rulesData = JSON.parse(await readFile("./rules.json", "utf8"));
+
+// Build a mapping from ACT rule ID to the set of scanner rule URLs that
+// reference it.  Each entry in rules.json can list one-or-more ACT rule IDs
+// inside its "ACT Rules" field (markdown links like "[id](url)").  The scanner
+// error URL for a rule is its `url` field without the query string.
+const actRuleIdToExpectedUrls = {};
+for (const section of Object.values(rulesData)) {
+  for (const rule of section.rules) {
+    const actField = rule["ACT Rules"];
+    if (!actField) continue;
+    // Extract all ACT rule IDs from markdown links like [5c01ea](...)
+    const matches = [...actField.matchAll(/\[([^\]]+)\]/g)];
+    for (const m of matches) {
+      const actId = m[1];
+      if (!actRuleIdToExpectedUrls[actId]) {
+        actRuleIdToExpectedUrls[actId] = [];
+      }
+      // Strip ?application=RuleDescription from the URL
+      const cleanUrl = rule.url.replace(/\?.*$/, "");
+      if (!actRuleIdToExpectedUrls[actId].includes(cleanUrl)) {
+        actRuleIdToExpectedUrls[actId].push(cleanUrl);
+      }
+    }
+  }
+}
 
 const applicableRules = testcases.filter(
   (rule) => rule.ruleAccessibilityRequirements,
@@ -175,11 +201,20 @@ for (const rule of applicableRules) {
     "utf8",
   );
 
+  // Look up the expected scanner rule URLs for this ACT rule ID so that
+  // "failed" assertions can verify the *right* rule triggered the error.
+  const expectedUrls = actRuleIdToExpectedUrls[ruleId] || [];
+
   let assertion = undefined;
   if (expected === "passed") {
     assertion = "expect(results).to.be.empty;";
   } else if (expected === "failed") {
-    assertion = "expect(results).to.not.be.empty;";
+    if (expectedUrls.length > 0) {
+      const urlsArray = JSON.stringify(expectedUrls);
+      assertion = `expect(results).to.not.be.empty;\n    const expectedUrls = ${urlsArray};\n    expect(results.some(r => expectedUrls.includes(r.url))).to.be.true;`;
+    } else {
+      assertion = "expect(results).to.not.be.empty;";
+    }
   } else {
     throw new Error(`Unknown expected state: ${expected}`);
   }

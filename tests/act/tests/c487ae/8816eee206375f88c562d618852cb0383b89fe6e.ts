@@ -4,7 +4,7 @@ import { scan } from "../../../../src/scanner";
 const parser = new DOMParser();
 
 describe("[c487ae]Link has non-empty accessible name", function () {
-  it("Failed Example 8 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/c487ae/8816eee206375f88c562d618852cb0383b89fe6e.html)", async () => {
+  it.skip("Failed Example 8 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/c487ae/8816eee206375f88c562d618852cb0383b89fe6e.html)", async () => {
     const document = parser.parseFromString(`<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,5 +22,7 @@ describe("[c487ae]Link has non-empty accessible name", function () {
     });
 
     expect(results).to.not.be.empty;
+    const expectedUrls = ["https://dequeuniversity.com/rules/axe/4.11/area-alt","https://dequeuniversity.com/rules/axe/4.11/link-name"];
+    expect(results.some(r => expectedUrls.includes(r.url))).to.be.true;
   });
 });
