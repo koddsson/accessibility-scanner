@@ -114,7 +114,6 @@ const rulesToIgnore = [
   "97a4e1", // Button has non-empty accessible name - not implemented
   "cae760", // Iframe element has non-empty accessible name - not implemented
   "e086e5", // Form field has non-empty accessible name - not implemented
-  "ffd0e9", // Heading has non-empty accessible name - not implemented
   "m6b1q3", // Menuitem has non-empty accessible name - not implemented
 
   // --- Not implemented - ARIA rules not yet fully supported ---
@@ -137,8 +136,6 @@ const rulesToIgnore = [
 
   // --- Not implemented - page-level and structural rules ---
   "2779a5", // HTML page has non-empty title - not implemented in ACT test format
-  "b5c3f8", // HTML page has lang attribute - not implemented in ACT test format
-  "bf051a", // HTML page lang attribute has valid language tag - not implemented in ACT test format
   "off6ek", // HTML element language subtag matches language - not implemented
   "ucwvc8", // HTML page language subtag matches default language - not implemented
   "c4a8a4", // HTML page title is descriptive - not implemented, requires human judgment
@@ -160,7 +157,6 @@ const rulesToIgnore = [
   "efbfc7", // Text content that changes automatically can be paused, stopped or hidden - not implemented
 
   // --- Unknown or deprecated ACT rules ---
-  "3ea0c8", // Unknown ACT rule - not in current testcases
   "e6952f", // Unknown ACT rule - not in current testcases
 ];
 

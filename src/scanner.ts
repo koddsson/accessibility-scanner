@@ -39,6 +39,7 @@ import list from "./rules/list";
 import dlitem from "./rules/dlitem";
 import nestedInteractive from "./rules/nested-interactive";
 import validLang from "./rules/valid-lang";
+import htmlHasLang from "./rules/html-has-lang";
 import htmlLangValid from "./rules/html-lang-valid";
 import htmlXmlLangMismatch from "./rules/html-xml-lang-mismatch";
 import colorContrast from "./rules/color-contrast";
@@ -156,6 +157,7 @@ export const allRules: Rule[] = [
   frameTitle,
   frameTitleUnique,
   headingOrder,
+  htmlHasLang,
   htmlLangValid,
   htmlXmlLangMismatch,
   identicalLinksSamePurpose,
