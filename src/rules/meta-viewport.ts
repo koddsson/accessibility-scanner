@@ -20,7 +20,8 @@ export default function metaViewport(element: Element) {
   const doc = element.ownerDocument;
   const searchRoot = doc ?? element;
   const elements = [...searchRoot.querySelectorAll<HTMLMetaElement>(selector)];
-  if (!doc && element.matches(selector)) elements.push(element as HTMLMetaElement);
+  if (!doc && element.matches(selector))
+    elements.push(element as HTMLMetaElement);
   for (const element of elements) {
     const content = parseContent(element.content);
     // "yes" is the only value that clearly enables scaling.

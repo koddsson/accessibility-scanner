@@ -21,7 +21,8 @@ export default function metaViewportLarge(element: Element) {
   const doc = element.ownerDocument;
   const searchRoot = doc ?? element;
   const elements = [...searchRoot.querySelectorAll<HTMLMetaElement>(selector)];
-  if (!doc && element.matches(selector)) elements.push(element as HTMLMetaElement);
+  if (!doc && element.matches(selector))
+    elements.push(element as HTMLMetaElement);
   for (const element of elements) {
     const content = parseContent(element.content);
     if (content["user-scalable"] === "no" || content["user-scalable"] === "0") {
