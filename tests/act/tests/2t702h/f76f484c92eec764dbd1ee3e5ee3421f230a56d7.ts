@@ -4,7 +4,7 @@ import { scan } from "../../../../src/scanner";
 const parser = new DOMParser();
 
 describe("[2t702h]Summary element has non-empty accessible name", function () {
-  it.skip("Failed Example 3 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/2t702h/f76f484c92eec764dbd1ee3e5ee3421f230a56d7.html)", async () => {
+  it("Failed Example 3 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/2t702h/f76f484c92eec764dbd1ee3e5ee3421f230a56d7.html)", async () => {
     const document = parser.parseFromString(`<!DOCTYPE html>
 <html lang="en">
 <head>
