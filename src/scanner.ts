@@ -70,6 +70,7 @@ import emptyTableHeader from "./rules/empty-table-header";
 import cssOrientationLock from "./rules/css-orientation-lock";
 import autocompleteValid from "./rules/autocomplete-valid";
 import avoidInlineSpacing from "./rules/avoid-inline-spacing";
+import summaryName from "./rules/summary-name";
 import svgImgAlt from "./rules/svg-img-alt";
 import focusOrderSemantics from "./rules/focus-order-semantics";
 import audioCaptions from "./rules/audio-caption";
@@ -195,6 +196,7 @@ export const allRules: Rule[] = [
   selectName,
   serverSideImageMap,
   skipLink,
+  summaryName,
   svgImgAlt,
   tabindex,
   tableDuplicateName,
