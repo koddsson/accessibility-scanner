@@ -3,20 +3,11 @@ import { scan } from "../../../../src/scanner";
 
 const parser = new DOMParser();
 
-describe("[2t702h]Summary element has non-empty accessible name", function () {
-  it("Passed Example 5 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/2t702h/d165641d4faa4b52b97ef661f94b9f7d039c63f7.html)", async () => {
+describe("[qt1vmo]Image accessible name is descriptive", function () {
+  it("Passed Example 1 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/qt1vmo/af4423575333947073fa3729f502ff0a0c6c2fbf.html)", async () => {
     const document = parser.parseFromString(`<!DOCTYPE html>
 <html lang="en">
-<head>
-	<title>Passed Example 5</title>
-</head>
-<body>
-	<details>
-		<summary>Opening times</summary>
-		<summary></summary>
-		<p>This is a website. We are available 24/7.</p>
-	</details>
-</body>
+	<img src="/WAI/content-assets/wcag-act-rules/test-assets/shared/w3c-logo.png" alt="W3C logo" />
 </html>`, 'text/html');
 
     const results = (await scan(document.body)).map(({ text, url }) => {
