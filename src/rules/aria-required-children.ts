@@ -72,25 +72,23 @@ function isInsideSeparateA11yTree(node: Element, container: Element): boolean {
 
 // Detect if a node is inside an intervening semantic role that should block
 // the descendant from being considered a child of the container. We treat
-// explicit roles "presentation", "none" and "generic" as transparent; any
-// other explicit role acts as an intervening semantic boundary.
+// roles "presentation", "none" and "generic" as transparent; any other
+// role (explicit or implicit) acts as an intervening semantic boundary.
 function isInsideInterveningSemanticRole(
   node: Element,
   container: Element,
 ): boolean {
   let cur: Element | null = node.parentElement;
   while (cur && cur !== container) {
-    if (cur.hasAttribute("role")) {
-      const role = cur.getAttribute("role");
-      // treat presentation/none/generic as non-semantic (transparent)
-      if (
-        role &&
-        role !== "presentation" &&
-        role !== "none" &&
-        role !== "generic"
-      ) {
-        return true;
-      }
+    const role = getRole(cur);
+    // treat presentation/none/generic as non-semantic (transparent)
+    if (
+      role &&
+      role !== "presentation" &&
+      role !== "none" &&
+      role !== "generic"
+    ) {
+      return true;
     }
     cur = cur.parentElement;
   }
@@ -131,12 +129,22 @@ export default function ariaRequiredChildren(
   element: Element,
 ): AccessibilityError[] {
   const errors = [];
+  // Match elements with explicit roles
   const selector = Object.keys(requiredChildrenRoles)
     .map((role) => `[role="${role}"]`)
     .join(", ");
-  const parents = querySelectorAll(selector, element);
-  if (element.matches(selector)) {
-    parents.push(element);
+  // Also match native elements with implicit roles that have required children
+  const nativeSelector = "ul, ol, table, tr, select, tbody, thead, tfoot";
+  const combinedSelector = `${selector}, ${nativeSelector}`;
+  const parents = querySelectorAll(combinedSelector, element).filter((el) => {
+    const role = getRole(el);
+    return role && requiredChildrenRoles[role];
+  });
+  if (element.matches(combinedSelector)) {
+    const role = getRole(element);
+    if (role && requiredChildrenRoles[role]) {
+      parents.push(element);
+    }
   }
   for (const parent of parents) {
     const isBusy = parent.getAttribute("aria-busy") === "true";
