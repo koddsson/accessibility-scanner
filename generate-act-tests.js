@@ -161,7 +161,6 @@ const rulesToIgnore = [
 
   // --- Unknown or deprecated ACT rules ---
   "3ea0c8", // Unknown ACT rule - not in current testcases
-  "5b7ae0", // Unknown ACT rule - not in current testcases
   "e6952f", // Unknown ACT rule - not in current testcases
 ];
 
