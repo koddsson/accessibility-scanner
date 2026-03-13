@@ -52,7 +52,7 @@ const implicitRoles: Record<string, string | undefined> = {
   HTML: "document",
   I: undefined,
   IMG: "img",
-  INPUT: "textbox",
+  // INPUT role is type-dependent; resolved dynamically in getImplicitRole()
   INS: "insertion",
   LI: "listitem",
   MAIN: "main",
@@ -94,11 +94,45 @@ const implicitRoles: Record<string, string | undefined> = {
   VAR: undefined,
 };
 
+// Returns the implicit ARIA role for an INPUT element based on its type attribute.
+// Reference: https://www.w3.org/TR/html-aria/#el-input-text
+function getInputImplicitRole(element: Element): string | undefined {
+  const type = (element.getAttribute("type") || "text").toLowerCase();
+  switch (type) {
+    case "checkbox":
+      return "checkbox";
+    case "radio":
+      return "radio";
+    case "range":
+      return "slider";
+    case "number":
+      return "spinbutton";
+    case "search":
+      return "searchbox";
+    case "button":
+    case "image":
+    case "reset":
+    case "submit":
+      return "button";
+    case "hidden":
+      return undefined;
+    case "email":
+    case "tel":
+    case "text":
+    case "url":
+    default:
+      return "textbox";
+  }
+}
+
 export function ariaAllowedAttr(element_: Element): AccessibilityError[] {
   const errors: AccessibilityError[] = [];
   for (const element of querySelectorAll("*", element_)) {
-    const effectiveRole =
-      element.getAttribute("role") || implicitRoles[element.tagName];
+    const implicitRole =
+      element.tagName === "INPUT"
+        ? getInputImplicitRole(element)
+        : implicitRoles[element.tagName];
+    const effectiveRole = element.getAttribute("role") || implicitRole;
     if (!effectiveRole) continue;
 
     for (const attribute of element.attributes) {
