@@ -95,7 +95,6 @@ const rulesToIgnore = [
   "c5a4ea", // Video element visual content has accessible alternative - requires media playback
   "d7ba54", // Video element visual-only content has audio track alternative - requires media playback
   "e7aa44", // Audio element content has text alternative - requires media playback
-  "eac66b", // Video element auditory content has accessible alternative - requires media playback
   "ee13b5", // Video element visual-only content has transcript - requires media playback
   "f51b46", // Video element auditory content has captions - requires media playback
 
@@ -207,6 +206,9 @@ const skippedExamples = [
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/c487ae/cc73351605ff3dc9766ad28a1a267a96976ad77b.html",
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/c487ae/e5b522e069394fa6666bef3746705b70b4628819.html",
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/c487ae/e729027165e293dc32ea88b7264e4c62c306fdd5.html",
+
+  // [eac66b] video-caption: scanner can't detect text transcript as alternative to captions
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/eac66b/47dd719ce35a9aef8dddd58fc3b1c08956d92889.html",
 
   // [de46e4] valid-lang: scanner doesn't detect invalid lang subtags on non-root elements
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/de46e4/49b66676ed867c75368e31c1e06b28255df8089e.html",
