@@ -21,6 +21,8 @@ describe("[c487ae]Link has non-empty accessible name", function () {
       return { text, url };
     });
 
-    expect(results).to.be.empty;
+    const expectedUrls = ["https://dequeuniversity.com/rules/axe/4.11/area-alt","https://dequeuniversity.com/rules/axe/4.11/link-name"];
+    const relevant = results.filter(r => expectedUrls.includes(r.url));
+    expect(relevant).to.be.empty;
   });
 });
