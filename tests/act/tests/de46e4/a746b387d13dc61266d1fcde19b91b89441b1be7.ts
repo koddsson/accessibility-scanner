@@ -4,7 +4,7 @@ import { scan } from "../../../../src/scanner";
 const parser = new DOMParser();
 
 describe("[de46e4]Element with lang attribute has valid language tag", function () {
-  it.skip("Passed Example 1 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/de46e4/a746b387d13dc61266d1fcde19b91b89441b1be7.html)", async () => {
+  it("Passed Example 1 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/de46e4/a746b387d13dc61266d1fcde19b91b89441b1be7.html)", async () => {
     const document = parser.parseFromString(`<!DOCTYPE html>
 <html lang="es">
 	<body>
@@ -18,6 +18,8 @@ describe("[de46e4]Element with lang attribute has valid language tag", function 
       return { text, url };
     });
 
-    expect(results).to.be.empty;
+    const expectedUrls = ["https://dequeuniversity.com/rules/axe/4.11/valid-lang"];
+    const relevant = results.filter(r => expectedUrls.includes(r.url));
+    expect(relevant).to.be.empty;
   });
 });

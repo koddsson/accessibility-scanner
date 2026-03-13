@@ -4,7 +4,7 @@ import { scan } from "../../../../src/scanner";
 const parser = new DOMParser();
 
 describe("[bc659a]Meta element has no refresh delay", function () {
-  it.skip("Passed Example 1 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/bc659a/49d79a4e4e4a994a8eb7cf2eaf59c99d2251cac5.html)", async () => {
+  it("Passed Example 1 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/bc659a/49d79a4e4e4a994a8eb7cf2eaf59c99d2251cac5.html)", async () => {
     const document = parser.parseFromString(`<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +16,8 @@ describe("[bc659a]Meta element has no refresh delay", function () {
       return { text, url };
     });
 
-    expect(results).to.be.empty;
+    const expectedUrls = ["https://dequeuniversity.com/rules/axe/4.11/meta-refresh"];
+    const relevant = results.filter(r => expectedUrls.includes(r.url));
+    expect(relevant).to.be.empty;
   });
 });

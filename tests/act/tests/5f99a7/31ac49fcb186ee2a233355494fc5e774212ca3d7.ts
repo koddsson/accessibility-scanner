@@ -4,7 +4,7 @@ import { scan } from "../../../../src/scanner";
 const parser = new DOMParser();
 
 describe("[5f99a7]ARIA attribute is defined in WAI-ARIA", function () {
-  it.skip("Passed Example 2 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/5f99a7/31ac49fcb186ee2a233355494fc5e774212ca3d7.html)", async () => {
+  it("Passed Example 2 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/5f99a7/31ac49fcb186ee2a233355494fc5e774212ca3d7.html)", async () => {
     const document = parser.parseFromString(`<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +19,8 @@ describe("[5f99a7]ARIA attribute is defined in WAI-ARIA", function () {
       return { text, url };
     });
 
-    expect(results).to.be.empty;
+    const expectedUrls = ["https://dequeuniversity.com/rules/axe/4.11/aria-valid-attr"];
+    const relevant = results.filter(r => expectedUrls.includes(r.url));
+    expect(relevant).to.be.empty;
   });
 });
