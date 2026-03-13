@@ -37,7 +37,9 @@ function hasAccessibleName(element: Element): boolean {
   }
 
   // Check for associated <label> element via for/id association
-  if (element.id) {
+  // Only applies to native labelable elements (input, select, textarea, etc.)
+  const labelableTags = ["INPUT", "SELECT", "TEXTAREA", "BUTTON", "METER", "OUTPUT", "PROGRESS"];
+  if (element.id && labelableTags.includes(element.tagName)) {
     const doc = element.ownerDocument;
     const label = doc.querySelector(`label[for="${CSS.escape(element.id)}"]`);
     if (label && label.textContent?.trim() !== "") {
