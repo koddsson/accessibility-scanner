@@ -110,7 +110,6 @@ const rulesToIgnore = [
   "23a2a8", // Image has non-empty accessible name - not implemented
   "59796f", // Image button has non-empty accessible name - not implemented
   "7d6734", // SVG element with explicit role has non-empty accessible name - not implemented
-  "8fc3b6", // Object element rendering non-text content has non-empty accessible name - not implemented
   "97a4e1", // Button has non-empty accessible name - not implemented
   "cae760", // Iframe element has non-empty accessible name - not implemented
   "e086e5", // Form field has non-empty accessible name - not implemented
@@ -122,7 +121,6 @@ const rulesToIgnore = [
   "5c01ea", // ARIA state or property is permitted - not implemented
   "674b10", // Role attribute has valid value - not implemented
   "6a7281", // ARIA state or property has valid value - not implemented
-  "6cfa84", // Element with aria-hidden has no content in sequential focus navigation - not implemented
   "bc4a75", // ARIA required owned elements - not implemented
   "ff89c9", // ARIA required context role - not implemented
   "307n5z", // Element with presentational children has no focusable content - not implemented
@@ -153,7 +151,6 @@ const rulesToIgnore = [
   "d0f69e", // Table header cell has assigned cells - not implemented
   "b4f0c3", // Meta viewport allows for zoom - not implemented in ACT test format
   "4b1c6c", // Iframe elements with identical accessible names have equivalent purpose - not implemented
-  "akn7bn", // Iframe with interactive elements is not excluded from tab-order - not implemented
   "e88epe", // Image not in the accessibility tree is decorative - not implemented
   "b49b2e", // Heading is descriptive - not implemented, requires human judgment
   "9bd38c", // Content has alternative for visual reference - not implemented, requires human judgment
@@ -200,6 +197,9 @@ const skippedExamples = [
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/c487ae/cc73351605ff3dc9766ad28a1a267a96976ad77b.html",
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/c487ae/e5b522e069394fa6666bef3746705b70b4628819.html",
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/c487ae/e729027165e293dc32ea88b7264e4c62c306fdd5.html",
+
+  // [6cfa84] aria-hidden-focus: focus sentinel relies on JS to redirect focus, scanner can't evaluate script behavior
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/6cfa84/d343bc6a2877b62d80153453c3781debc33e0b1d.html",
 
   // [eac66b] video-caption: scanner can't detect text transcript as alternative to captions
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/eac66b/47dd719ce35a9aef8dddd58fc3b1c08956d92889.html",
