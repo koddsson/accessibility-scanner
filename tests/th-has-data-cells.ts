@@ -136,7 +136,7 @@ describe("th-has-data-cells", function () {
       expect(results.length).to.equal(1);
     });
 
-    it("th in column with no data cells", async () => {
+    it("column header with explicit headers override has no assigned cells", async () => {
       const table = await fixture(html`
         <table>
           <tr>
@@ -145,13 +145,14 @@ describe("th-has-data-cells", function () {
           </tr>
           <tr>
             <td headers="header1">Data 1</td>
-            <th>Not a data cell</th>
+            <td headers="header1">Data 2</td>
           </tr>
         </table>
       `);
 
       const results = await scanner.scan(table);
-      // header2 has no data cells in its column
+      // header2 has no assigned cells: the td below it uses explicit
+      // headers="header1" which overrides the implicit column assignment
       expect(results.length).to.equal(1);
     });
   });
