@@ -20,6 +20,8 @@ export default function (element: Element): AccessibilityError[] {
   }
   for (const element of elements) {
     if (element.type === "hidden") continue;
+    // image inputs use alt attribute, not labels; button inputs use value
+    if (element.type === "image" || element.type === "button") continue;
     const labelId = element.getAttribute("id");
     const label = querySelector(
       `[for="${labelId}"]`,
@@ -37,8 +39,10 @@ export default function (element: Element): AccessibilityError[] {
     if (element.getAttribute("aria-label")) continue;
     if (labelledByIsValid(element)) continue;
     if (element.getAttribute("title")) continue;
+    if (element.getAttribute("placeholder")) continue;
     if (element.disabled) continue;
-    if (element.type === "submit" && element.value.trim() !== "") continue;
+    if (element.type === "submit") continue;
+    if (element.type === "reset") continue;
 
     errors.push({
       id,

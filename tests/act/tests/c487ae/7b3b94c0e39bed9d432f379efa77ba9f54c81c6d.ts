@@ -1,0 +1,26 @@
+import { expect } from "@open-wc/testing";
+import { scan } from "../../../../src/scanner";
+
+const parser = new DOMParser();
+
+describe("[c487ae]Link has non-empty accessible name", function () {
+  it("Failed Example 11 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/c487ae/7b3b94c0e39bed9d432f379efa77ba9f54c81c6d.html)", async () => {
+    const document = parser.parseFromString(`<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Failed Example 11</title>
+</head>
+<body>
+	See [<a href="https://act-rules.github.io/" role="doc-biblioref"
+		><img src="https://github.com/act-rules/act-rules.github.io/blob/develop/test-assets/shared/act-logo.png" alt=""/></a
+	>]
+</body>
+</html>`, 'text/html');
+
+    const results = (await scan(document.body)).map(({ text, url }) => {
+      return { text, url };
+    });
+
+    expect(results).to.not.be.empty;
+  });
+});

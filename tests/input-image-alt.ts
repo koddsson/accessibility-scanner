@@ -9,7 +9,6 @@ const scanner = new Scanner([inputImageAlt]);
 const passes = [
   await fixture(html`<input type="image" alt="monkeys" />`),
   await fixture(html`<input type="image" aria-label="monkeys" />`),
-  await fixture(html`<input type="image" alt="" />`),
   await fixture(html`<input type="image" title="monkey" />`),
 ];
 
@@ -19,6 +18,7 @@ const violations = [
   await fixture(html`<input type="image" aria-labelledby="nomatchy" />`),
   await fixture(html`<input type="image" aria-labelledby="" />`),
   await fixture(html`<input type="image" alt=" " />`),
+  await fixture(html`<input type="image" alt="" />`),
 ];
 
 describe("input-image-alt", async function () {

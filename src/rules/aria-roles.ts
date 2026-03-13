@@ -97,6 +97,10 @@ const validRoles = new Set([
   "tree",
   "treegrid",
   "treeitem",
+  // Graphics-AAM roles
+  "graphics-document",
+  "graphics-object",
+  "graphics-symbol",
   // DPUB-ARIA roles
   "doc-abstract",
   "doc-acknowledgments",
@@ -145,7 +149,15 @@ export default function (element_: Element): AccessibilityError[] {
   const errors = [];
   for (const element of querySelectorAll("[role]", element_)) {
     const role = element.getAttribute("role");
-    if (role && validRoles.has(role)) continue;
+    if (!role) {
+      errors.push({ id, element, text, url });
+      continue;
+    }
+    // The role attribute can contain multiple space-separated values.
+    // According to the spec, the first valid role in the token list is used.
+    // Only flag an error if none of the roles are valid.
+    const roles = role.trim().split(/\s+/);
+    if (roles.some((r) => validRoles.has(r))) continue;
     errors.push({
       id,
       element,

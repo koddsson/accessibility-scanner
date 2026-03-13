@@ -25,7 +25,8 @@ function valid(element: Element, attribute: string, info: Info) {
     return true;
   } else if (info.type === "idref") {
     if (info.allowEmpty && value === "") return true;
-    const referencedValue = document.querySelector<HTMLElement>(`#${value}`);
+    const doc = element.ownerDocument;
+    const referencedValue = doc.querySelector<HTMLElement>(`#${value}`);
     if (!referencedValue) return false;
     if (
       referencedValue.hasAttribute("hidden") ||
@@ -39,7 +40,8 @@ function valid(element: Element, attribute: string, info: Info) {
     if (info.allowEmpty && value === "") return true;
     const ids = value.trim().split(" ");
     const selector = ids.map((x) => `#${x}`).join(",");
-    const references = document.querySelectorAll<HTMLElement>(selector);
+    const doc = element.ownerDocument;
+    const references = doc.querySelectorAll<HTMLElement>(selector);
     if (references.length === 0) return false;
     //if (referencedValue.hasAttribute('hidden') || referencedValue.hasAttribute('aria-hidden')) return false
     //if (referencedValue.textContent?.trim() === '') return false
