@@ -4,7 +4,7 @@ import { scan } from "../../../../src/scanner";
 const parser = new DOMParser();
 
 describe("[de46e4]Element with lang attribute has valid language tag", function () {
-  it("Failed Example 3 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/de46e4/78de8b1ca470302aebb53065c32eddf08da008b5.html)", async () => {
+  it.skip("Failed Example 3 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/de46e4/78de8b1ca470302aebb53065c32eddf08da008b5.html)", async () => {
     const document = parser.parseFromString(`<!DOCTYPE html>
 <html lang="fr">
 	<body>

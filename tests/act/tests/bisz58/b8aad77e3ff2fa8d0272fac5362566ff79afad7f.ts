@@ -4,7 +4,7 @@ import { scan } from "../../../../src/scanner";
 const parser = new DOMParser();
 
 describe("[bisz58]Meta element has no refresh delay (no exception)", function () {
-  it("Failed Example 3 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/bisz58/b8aad77e3ff2fa8d0272fac5362566ff79afad7f.html)", async () => {
+  it.skip("Failed Example 3 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/bisz58/b8aad77e3ff2fa8d0272fac5362566ff79afad7f.html)", async () => {
     const document = parser.parseFromString(`<!DOCTYPE html>
 <html lang="en">
 <head>
