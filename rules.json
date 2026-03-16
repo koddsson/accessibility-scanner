@@ -93,7 +93,7 @@
         "ACT Rules": "[4e8ab6](https://act-rules.github.io/rules/4e8ab6)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "aria-required-children",
         "url": "https://dequeuniversity.com/rules/axe/4.11/aria-required-children?application=RuleDescription",
         "Description": "Ensures elements with an ARIA role that require child roles contain them",
@@ -103,7 +103,7 @@
         "ACT Rules": "[bc4a75](https://act-rules.github.io/rules/bc4a75)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "aria-required-parent",
         "url": "https://dequeuniversity.com/rules/axe/4.11/aria-required-parent?application=RuleDescription",
         "Description": "Ensures elements with an ARIA role that require parent roles are contained by them",
