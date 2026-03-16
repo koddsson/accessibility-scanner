@@ -523,7 +523,7 @@
         "ACT Rules": "[7d6734](https://act-rules.github.io/rules/7d6734)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "td-headers-attr",
         "url": "https://dequeuniversity.com/rules/axe/4.11/td-headers-attr?application=RuleDescription",
         "Description": "Ensure that each cell in a table that uses the headers attribute refers only to other cells in that table",
@@ -533,7 +533,7 @@
         "ACT Rules": "[a25f45](https://act-rules.github.io/rules/a25f45)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "th-has-data-cells",
         "url": "https://dequeuniversity.com/rules/axe/4.11/th-has-data-cells?application=RuleDescription",
         "Description": "Ensure that &lt;th&gt; elements and elements with role=columnheader/rowheader have data cells they describe",

@@ -37,6 +37,11 @@ function validateHeadersAttribute(cell: HTMLTableCellElement): boolean {
       return false;
     }
 
+    // A cell must not reference itself
+    if (referencedElement === cell) {
+      return false;
+    }
+
     // Check if it's a table cell (td or th)
     if (
       referencedElement.tagName !== "TD" &&
