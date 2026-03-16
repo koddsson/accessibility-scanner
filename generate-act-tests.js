@@ -149,8 +149,6 @@ const rulesToIgnore = [
   // --- Not implemented - various other rules ---
   "2ee8b8", // Visible label is part of accessible name - not implemented
   "73f2c2", // Autocomplete attribute has valid value - not implemented in ACT test format
-  "a25f45", // Headers attribute specified on a cell refers to cells in the same table element - not implemented
-  "d0f69e", // Table header cell has assigned cells - not implemented
   "b4f0c3", // Meta viewport allows for zoom - not implemented in ACT test format
   "4b1c6c", // Iframe elements with identical accessible names have equivalent purpose - not implemented
   "akn7bn", // Iframe with interactive elements is not excluded from tab-order - not implemented

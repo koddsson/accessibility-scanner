@@ -99,25 +99,33 @@ const implicitRoles: Record<string, string | undefined> = {
 function getInputImplicitRole(element: Element): string | undefined {
   const type = (element.getAttribute("type") || "text").toLowerCase();
   switch (type) {
-    case "checkbox":
+    case "checkbox": {
       return "checkbox";
-    case "radio":
+    }
+    case "radio": {
       return "radio";
-    case "range":
+    }
+    case "range": {
       return "slider";
-    case "number":
+    }
+    case "number": {
       return "spinbutton";
-    case "search":
+    }
+    case "search": {
       return "searchbox";
+    }
     case "button":
     case "image":
     case "reset":
-    case "submit":
+    case "submit": {
       return "button";
-    case "hidden":
+    }
+    case "hidden": {
       return undefined;
-    default:
+    }
+    default: {
       return "textbox";
+    }
   }
 }
 
