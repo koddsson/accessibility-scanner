@@ -5,12 +5,19 @@ const text = "The lang attribute of the <html> element must have a valid value";
 const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 function langIsValid(locale: string): boolean {
+  // Extract the primary language subtag (before any hyphen).
+  // BCP 47 requires only the primary subtag to be a valid ISO 639 code;
+  // additional subtags (region, variant, etc.) don't affect validity for
+  // this rule.
+  const primarySubtag = locale.split("-")[0];
+  if (!primarySubtag) return false;
+
   try {
-    const foundLocales = Intl.DisplayNames.supportedLocalesOf([locale], {
+    const foundLocales = Intl.DisplayNames.supportedLocalesOf([primarySubtag], {
       localeMatcher: "lookup",
     });
     if (foundLocales.length !== 1) return false;
-    return foundLocales[0].toLowerCase() === locale.toLowerCase();
+    return foundLocales[0].toLowerCase() === primarySubtag.toLowerCase();
   } catch {
     return false;
   }

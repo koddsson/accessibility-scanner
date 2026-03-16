@@ -24,7 +24,9 @@ describe("html-lang-valid", function () {
       ]);
     });
 
-    it("detects malformed lang attribute", () => {
+    it("passes for lang attribute with extra subtags (primary subtag is valid)", () => {
+      // BCP 47 validity only requires the primary language subtag to be valid.
+      // "en-US-GB" has a valid primary subtag "en", so it should pass.
       const parser = new DOMParser();
       const doc = parser.parseFromString(
         '<!DOCTYPE html><html lang="en-US-GB"><body></body></html>',
@@ -32,16 +34,8 @@ describe("html-lang-valid", function () {
       );
       const htmlElement = doc.documentElement;
 
-      const results = htmlLangValid(htmlElement).map(({ text, url }) => {
-        return { text, url };
-      });
-
-      expect(results).to.eql([
-        {
-          text: "The lang attribute of the <html> element must have a valid value",
-          url: "https://dequeuniversity.com/rules/axe/4.11/html-lang-valid",
-        },
-      ]);
+      const results = htmlLangValid(htmlElement);
+      expect(results).to.be.empty;
     });
 
     it("detects numeric lang attribute", () => {
