@@ -88,7 +88,6 @@ const rulesToIgnore = [
   "1ea59c", // Video element visual content has audio description - requires media playback
   "1ec09b", // Video element visual content has strict accessible alternative - requires media playback
   "4c31df", // Audio or video element that plays automatically has a control mechanism - requires media playback
-  "80f0bf", // Audio or video element avoids automatically playing audio - requires media playback
   "aaa1bf", // Audio or video element that plays automatically has no audio that lasts more than 3 seconds - requires media playback
   "c3232f", // Video element visual-only content has accessible alternative - requires media playback
   "c5a4ea", // Video element visual content has accessible alternative - requires media playback
@@ -141,11 +140,9 @@ const rulesToIgnore = [
   // "3e12e1", // Block of repeated content is collapsible — enabled for bypass rule ACT tests
 
   // --- Not implemented - various other rules ---
-  "2ee8b8", // Visible label is part of accessible name - not implemented
   "73f2c2", // Autocomplete attribute has valid value - not implemented in ACT test format
   "b4f0c3", // Meta viewport allows for zoom - not implemented in ACT test format
   "4b1c6c", // Iframe elements with identical accessible names have equivalent purpose - not implemented
-  "e88epe", // Image not in the accessibility tree is decorative - not implemented
   "b49b2e", // Heading is descriptive - not implemented, requires human judgment
   "9bd38c", // Content has alternative for visual reference - not implemented, requires human judgment
   "efbfc7", // Text content that changes automatically can be paused, stopped or hidden - not implemented
@@ -205,6 +202,28 @@ const skippedExamples = [
 
   // [ff89c9] aria-required-parent: shadow DOM + aria-owns not supported in DOMParser tests
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/ff89c9/f8e3dbe601969ab54954447e04ae384eb52d7082.html",
+
+  // [e88epe] decorative-image: scanner flags role="none" with non-empty alt as a contradiction;
+  // ACT considers this passed when the image is actually decorative (requires visual judgment)
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/e88epe/57982b4d5dad90f3f2c06d5e0233694c46842bd0.html",
+
+  // [e88epe] decorative-image: scanner cannot detect non-decorative content from image src alone
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/e88epe/e5b8fa7ab66409e7b52b335a8b6aebe11fd78635.html",
+
+  // [e88epe] decorative-image: scanner does not analyse SVG visual content
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/e88epe/0d0061ffdf406f0d9b21aaa00f5d557e4137e0b2.html",
+
+  // [e88epe] decorative-image: scanner does not analyse canvas visual content
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/e88epe/6d108d00cc7a54f66547f02d7e7606342b11f801.html",
+
+  // [80f0bf] no-autoplay-audio: scanner can't detect short media duration from URL fragment (#t=8,10)
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/80f0bf/e4d78b5074773ab0cbd8c72732e948c4608f5c9d.html",
+
+  // [80f0bf] no-autoplay-audio: scanner can't detect JavaScript-based control mechanisms
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/80f0bf/29ea904ef03f14401a7b43a5ffc9b30271697bc7.html",
+
+  // [2ee8b8] label-content-name-mismatch: scanner cannot detect icon fonts (requires CSS rendering)
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/2ee8b8/efa9543339cdad5412c7719b266a633a29ce149e.html",
 
   // [de46e4] valid-lang: scanner doesn't detect invalid lang subtags on non-root elements
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/de46e4/49b66676ed867c75368e31c1e06b28255df8089e.html",

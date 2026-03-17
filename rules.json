@@ -224,6 +224,16 @@
       },
       {
         "implemented": "✅",
+        "id": "decorative-image",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/decorative-image?application=RuleDescription",
+        "Description": "Ensures images excluded from the accessibility tree are decorative",
+        "Impact": "Serious",
+        "Tags": "cat.text-alternatives, wcag2a, wcag111",
+        "Issue Type": "failure",
+        "ACT Rules": "[e88epe](https://act-rules.github.io/rules/e88epe)"
+      },
+      {
+        "implemented": "✅",
         "id": "definition-list",
         "url": "https://dequeuniversity.com/rules/axe/4.11/definition-list?application=RuleDescription",
         "Description": "Ensures &lt;dl&gt; elements are structured correctly",
@@ -963,7 +973,7 @@
         "ACT Rules": ""
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "label-content-name-mismatch",
         "url": "https://dequeuniversity.com/rules/axe/4.11/label-content-name-mismatch?application=RuleDescription",
         "Description": "Ensures that elements labelled through their content must have their visible text as part of their accessible name",
