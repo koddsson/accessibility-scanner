@@ -684,6 +684,16 @@
       },
       {
         "implemented": "✅",
+        "id": "error-message",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/error-message?application=RuleDescription",
+        "Description": "Ensures that error messages are programmatically associated with form fields",
+        "Impact": "Moderate",
+        "Tags": "cat.forms, wcag2a, wcag331, ACT",
+        "Issue Type": "failure",
+        "ACT Rules": "[36b590](https://act-rules.github.io/rules/36b590)"
+      },
+      {
+        "implemented": "✅",
         "id": "frame-tested",
         "url": "https://dequeuniversity.com/rules/axe/4.11/frame-tested?application=RuleDescription",
         "Description": "Ensures &lt;iframe&gt; and &lt;frame&gt; elements contain the axe-core script",

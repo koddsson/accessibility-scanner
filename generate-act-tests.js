@@ -127,7 +127,6 @@ const rulesToIgnore = [
   "aizyf1", // Link is descriptive - not implemented, requires human judgment
   "b20e66", // Links with identical accessible names have equivalent purpose - not implemented
   "fd3a94", // Links with identical accessible names and same context serve equivalent purpose - not implemented
-  "36b590", // Error message describes invalid form field value - not implemented
   "cc0f0a", // Form field label is descriptive - not implemented, requires human judgment
 
   // --- Not implemented - page-level and structural rules ---

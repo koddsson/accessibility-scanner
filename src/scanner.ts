@@ -69,6 +69,7 @@ import duplicateIdActive from "./rules/duplicate-id-active";
 import duplicateIdAria from "./rules/duplicate-id-aria";
 import emptyHeading from "./rules/empty-heading";
 import emptyTableHeader from "./rules/empty-table-header";
+import errorMessage from "./rules/error-message";
 import cssOrientationLock from "./rules/css-orientation-lock";
 import autocompleteValid from "./rules/autocomplete-valid";
 import avoidInlineSpacing from "./rules/avoid-inline-spacing";
@@ -152,6 +153,7 @@ export const allRules: Rule[] = [
   duplicateIdAria,
   emptyHeading,
   emptyTableHeader,
+  errorMessage,
   focusOrderSemantics,
   formFieldMultipleLabels,
   frameFocusableContent,
