@@ -145,7 +145,6 @@ const rulesToIgnore = [
   "73f2c2", // Autocomplete attribute has valid value - not implemented in ACT test format
   "b4f0c3", // Meta viewport allows for zoom - not implemented in ACT test format
   "4b1c6c", // Iframe elements with identical accessible names have equivalent purpose - not implemented
-  "e88epe", // Image not in the accessibility tree is decorative - not implemented
   "b49b2e", // Heading is descriptive - not implemented, requires human judgment
   "9bd38c", // Content has alternative for visual reference - not implemented, requires human judgment
   "efbfc7", // Text content that changes automatically can be paused, stopped or hidden - not implemented
@@ -205,6 +204,19 @@ const skippedExamples = [
 
   // [ff89c9] aria-required-parent: shadow DOM + aria-owns not supported in DOMParser tests
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/ff89c9/f8e3dbe601969ab54954447e04ae384eb52d7082.html",
+
+  // [e88epe] decorative-image: scanner flags role="none" with non-empty alt as a contradiction;
+  // ACT considers this passed when the image is actually decorative (requires visual judgment)
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/e88epe/57982b4d5dad90f3f2c06d5e0233694c46842bd0.html",
+
+  // [e88epe] decorative-image: scanner cannot detect non-decorative content from image src alone
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/e88epe/e5b8fa7ab66409e7b52b335a8b6aebe11fd78635.html",
+
+  // [e88epe] decorative-image: scanner does not analyse SVG visual content
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/e88epe/0d0061ffdf406f0d9b21aaa00f5d557e4137e0b2.html",
+
+  // [e88epe] decorative-image: scanner does not analyse canvas visual content
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/e88epe/6d108d00cc7a54f66547f02d7e7606342b11f801.html",
 
   // [de46e4] valid-lang: scanner doesn't detect invalid lang subtags on non-root elements
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/de46e4/49b66676ed867c75368e31c1e06b28255df8089e.html",

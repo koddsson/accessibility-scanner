@@ -43,6 +43,7 @@ import htmlHasLang from "./rules/html-has-lang";
 import htmlLangValid from "./rules/html-lang-valid";
 import htmlXmlLangMismatch from "./rules/html-xml-lang-mismatch";
 import colorContrast from "./rules/color-contrast";
+import decorativeImage from "./rules/decorative-image";
 import colorContrastEnhanced from "./rules/color-contrast-enhanced";
 import tdHasHeader from "./rules/td-has-header";
 import thHasDataCells from "./rules/th-has-data-cells";
@@ -142,6 +143,7 @@ export const allRules: Rule[] = [
   bypass,
   colorContrast,
   cssOrientationLock,
+  decorativeImage,
   definitionList,
   dlitem,
   documentTitle,
