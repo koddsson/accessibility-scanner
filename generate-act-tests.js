@@ -102,8 +102,7 @@ const rulesToIgnore = [
   "c249d5", // Device motion based changes to the content can be disabled - requires device motion events
 
   // --- Not implemented - accessible name computation not yet fully supported ---
-  "23a2a8", // Image has non-empty accessible name - not implemented
-  "59796f", // Image button has non-empty accessible name - not implemented
+"59796f", // Image button has non-empty accessible name - not implemented
   "7d6734", // SVG element with explicit role has non-empty accessible name - not implemented
   "cae760", // Iframe element has non-empty accessible name - not implemented
   "e086e5", // Form field has non-empty accessible name - not implemented

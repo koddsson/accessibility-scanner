@@ -483,7 +483,7 @@
         "ACT Rules": "[8fc3b6](https://act-rules.github.io/rules/8fc3b6)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "role-img-alt",
         "url": "https://dequeuniversity.com/rules/axe/4.11/role-img-alt?application=RuleDescription",
         "Description": "Ensures [role=&apos;img&apos;] elements have alternate text",
