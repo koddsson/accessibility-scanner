@@ -3,20 +3,20 @@ import { scan } from "../../../../src/scanner";
 
 const parser = new DOMParser();
 
-describe("[ff89c9]ARIA required context role", function () {
-  it("Failed Example 2 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/ff89c9/2fb70cb7f44a01a2d75f4ef7ca7992cf3fb4fe1d.html)", async () => {
+describe("[36b590]Error message describes invalid form field value", function () {
+  it("Failed Example 2 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/36b590/a51e05dc7b64d927ff25bc493bb0aa069c963d29.html)", async () => {
     const document = parser.parseFromString(`<!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>Failed Example 2</title>
 </head>
 <body>
-	<div role="list">
-		<div role="tabpanel">
-			<div role="listitem">List item 1</div>
-			<div role="listitem">List item 2</div>
-		</div>
-	</div>
+	<form>
+		<label for="age">Age (years)</label>
+		<input type="number" id="age" />
+		<span id="error">Invalid value for age.</span><br />
+		<input type="button" value="Submit" />
+	</form>
 </body>
 </html>`, 'text/html');
 
@@ -25,7 +25,7 @@ describe("[ff89c9]ARIA required context role", function () {
     });
 
     expect(results).to.not.be.empty;
-    const expectedUrls = ["https://dequeuniversity.com/rules/axe/4.11/aria-required-parent"];
+    const expectedUrls = ["https://dequeuniversity.com/rules/axe/4.11/error-message"];
     expect(results.some(r => expectedUrls.includes(r.url))).to.be.true;
   });
 });
