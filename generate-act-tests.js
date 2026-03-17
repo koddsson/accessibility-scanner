@@ -105,10 +105,8 @@ const rulesToIgnore = [
   "23a2a8", // Image has non-empty accessible name - not implemented
   "59796f", // Image button has non-empty accessible name - not implemented
   "7d6734", // SVG element with explicit role has non-empty accessible name - not implemented
-  "97a4e1", // Button has non-empty accessible name - not implemented
   "cae760", // Iframe element has non-empty accessible name - not implemented
   "e086e5", // Form field has non-empty accessible name - not implemented
-  "m6b1q3", // Menuitem has non-empty accessible name - not implemented
 
   // --- Not implemented - ARIA rules not yet fully supported ---
   "4e8ab6", // Element with role attribute has required states and properties - not implemented
