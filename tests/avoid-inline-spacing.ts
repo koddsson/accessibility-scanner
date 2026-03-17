@@ -6,9 +6,9 @@ const scanner = new Scanner([avoidInlineSpacing]);
 
 describe("avoid-inline-spacing", function () {
   describe("has errors if", function () {
-    it("has !important line-height in inline style", async () => {
+    it("has !important line-height below threshold", async () => {
       const container = await fixture(
-        html`<p style="line-height: 1.5 !important">Text content</p>`,
+        html`<p style="line-height: 1.2 !important">Text content</p>`,
       );
       const results = await scanner.scan(container);
 
@@ -19,37 +19,69 @@ describe("avoid-inline-spacing", function () {
       expect(results[0].url).to.include("avoid-inline-spacing");
     });
 
-    it("has !important letter-spacing in inline style", async () => {
+    it("has !important letter-spacing below threshold", async () => {
+      const container = await fixture(
+        html`<p style="letter-spacing: 0.1em !important">Text content</p>`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.have.lengthOf(1);
+      expect(results[0].text).to.equal(
+        "Ensure that text spacing set through style attributes can be adjusted with custom stylesheets",
+      );
+    });
+
+    it("has !important word-spacing below threshold", async () => {
+      const container = await fixture(
+        html`<p style="word-spacing: 0.1em !important">Text content</p>`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.have.lengthOf(1);
+      expect(results[0].text).to.equal(
+        "Ensure that text spacing set through style attributes can be adjusted with custom stylesheets",
+      );
+    });
+
+    it("has !important letter-spacing with px value (cannot evaluate without font-size)", async () => {
       const container = await fixture(
         html`<p style="letter-spacing: 2px !important">Text content</p>`,
       );
       const results = await scanner.scan(container);
 
       expect(results).to.have.lengthOf(1);
-      expect(results[0].text).to.equal(
-        "Ensure that text spacing set through style attributes can be adjusted with custom stylesheets",
-      );
     });
 
-    it("has !important word-spacing in inline style", async () => {
+    it("has !important line-height with em value below threshold", async () => {
       const container = await fixture(
-        html`<p style="word-spacing: 5px !important">Text content</p>`,
+        html`<p style="line-height: 1em !important">Text content</p>`,
       );
       const results = await scanner.scan(container);
 
       expect(results).to.have.lengthOf(1);
-      expect(results[0].text).to.equal(
-        "Ensure that text spacing set through style attributes can be adjusted with custom stylesheets",
-      );
     });
 
-    it("has multiple !important spacing properties", async () => {
+    it("has !important line-height with percentage below threshold", async () => {
       const container = await fixture(
-        html`<p
-          style="line-height: 1.5 !important; letter-spacing: 2px !important"
-        >
-          Text content
-        </p>`,
+        html`<p style="line-height: 120% !important">Text content</p>`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.have.lengthOf(1);
+    });
+
+    it("has !important with 'normal' keyword", async () => {
+      const container = await fixture(
+        html`<p style="letter-spacing: normal !important">Text content</p>`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.have.lengthOf(1);
+    });
+
+    it("has !important with 'initial' keyword", async () => {
+      const container = await fixture(
+        html`<p style="word-spacing: initial !important">Text content</p>`,
       );
       const results = await scanner.scan(container);
 
@@ -58,7 +90,7 @@ describe("avoid-inline-spacing", function () {
 
     it("detects !important with various whitespace", async () => {
       const container = await fixture(
-        html`<p style="line-height:1.5!important">Text content</p>`,
+        html`<p style="letter-spacing:0.1em!important">Text content</p>`,
       );
       const results = await scanner.scan(container);
 
@@ -67,7 +99,7 @@ describe("avoid-inline-spacing", function () {
 
     it("detects !important in uppercase", async () => {
       const container = await fixture(
-        html`<p style="line-height: 1.5 !IMPORTANT">Text content</p>`,
+        html`<p style="letter-spacing: 0.1em !IMPORTANT">Text content</p>`,
       );
       const results = await scanner.scan(container);
 
@@ -77,13 +109,26 @@ describe("avoid-inline-spacing", function () {
     it("detects multiple elements with issues", async () => {
       const container = await fixture(
         html`<div>
-          <p style="line-height: 1.5 !important">First paragraph</p>
-          <p style="letter-spacing: 2px !important">Second paragraph</p>
+          <p style="line-height: 1.2 !important">First paragraph</p>
+          <p style="letter-spacing: 0.1em !important">Second paragraph</p>
         </div>`,
       );
       const results = await scanner.scan(container);
 
       expect(results).to.have.lengthOf(2);
+    });
+
+    it("uses last !important when duplicates exist and last is below threshold", async () => {
+      const container = await fixture(
+        html`<p
+          style="letter-spacing: 0.15em !important; letter-spacing: 0.1em !important"
+        >
+          Text content
+        </p>`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.have.lengthOf(1);
     });
   });
 
@@ -164,13 +209,102 @@ describe("avoid-inline-spacing", function () {
 
       expect(results).to.be.empty;
     });
+
+    it("has !important letter-spacing at or above threshold (0.12em)", async () => {
+      const container = await fixture(
+        html`<p style="letter-spacing: 0.15em !important">Text content</p>`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.be.empty;
+    });
+
+    it("has !important word-spacing at or above threshold (0.16em)", async () => {
+      const container = await fixture(
+        html`<p style="word-spacing: 0.2em !important">Text content</p>`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.be.empty;
+    });
+
+    it("has !important line-height at or above threshold (1.5)", async () => {
+      const container = await fixture(
+        html`<p style="line-height: 1.6 !important">Text content</p>`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.be.empty;
+    });
+
+    it("has !important line-height at threshold as em", async () => {
+      const container = await fixture(
+        html`<p style="line-height: 2em !important">Text content</p>`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.be.empty;
+    });
+
+    it("has !important line-height at threshold as percentage", async () => {
+      const container = await fixture(
+        html`<p style="line-height: 160% !important">Text content</p>`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.be.empty;
+    });
+
+    it("has !important with 'inherit' keyword (passthrough)", async () => {
+      const container = await fixture(
+        html`<p style="letter-spacing: inherit !important">Text content</p>`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.be.empty;
+    });
+
+    it("has !important with 'unset' keyword (passthrough)", async () => {
+      const container = await fixture(
+        html`<p style="word-spacing: unset !important">Text content</p>`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.be.empty;
+    });
+
+    it("uses last !important when duplicates exist and last is above threshold", async () => {
+      const container = await fixture(
+        html`<p
+          style="letter-spacing: 0.1em !important; letter-spacing: 0.15em !important"
+        >
+          Text content
+        </p>`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.be.empty;
+    });
+
+    it("last !important wins over earlier non-important value", async () => {
+      const container = await fixture(
+        html`<p
+          style="letter-spacing: 0.15em !important; letter-spacing: 0.1em"
+        >
+          Text content
+        </p>`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.be.empty;
+    });
   });
 
   describe("handles edge cases", function () {
     it("handles nested elements with mixed styles", async () => {
       const container = await fixture(
         html`<div style="color: blue">
-          <p style="line-height: 1.5 !important">Nested paragraph</p>
+          <p style="letter-spacing: 0.1em !important">Nested paragraph</p>
         </div>`,
       );
       const results = await scanner.scan(container);
@@ -178,20 +312,20 @@ describe("avoid-inline-spacing", function () {
       expect(results).to.have.lengthOf(1);
     });
 
-    it("ignores elements with no text content", async () => {
+    it("skips elements with no text content", async () => {
       const container = await fixture(
-        html`<div style="line-height: 1.5 !important"></div>`,
+        html`<div style="letter-spacing: 0.1em !important"></div>`,
       );
       const results = await scanner.scan(container);
 
-      // The rule should still report it even without text content
-      // as it's checking for the presence of !important inline styles
-      expect(results).to.have.lengthOf(1);
+      expect(results).to.be.empty;
     });
 
-    it("handles comments in style values (edge case)", async () => {
+    it("skips elements hidden with display: none", async () => {
       const container = await fixture(
-        html`<p style="line-height: 1.5">Text with normal spacing</p>`,
+        html`<p style="display: none; letter-spacing: 0.1em !important">
+          Text content
+        </p>`,
       );
       const results = await scanner.scan(container);
 
@@ -205,37 +339,6 @@ describe("avoid-inline-spacing", function () {
       const results = await scanner.scan(container);
 
       expect(results).to.be.empty;
-    });
-
-    it("handles CSS content property with !important text (not actual CSS important)", async () => {
-      // Note: content property is not commonly used in inline styles
-      // and this is an edge case that's unlikely in practice
-      const container = await fixture(
-        html`<p style="content: 'This is !important'">Text content</p>`,
-      );
-      const results = await scanner.scan(container);
-
-      // This will currently match, but it's acceptable since:
-      // 1. content property is rarely used in inline styles
-      // 2. The pattern is checking for accessibility violations
-      // 3. Being overly cautious is better than missing real violations
-      expect(results).to.be.empty;
-    });
-
-    it("handles CSS comments in inline style (browsers ignore these)", async () => {
-      // Note: Browsers ignore comments in inline style attributes
-      // so this is a theoretical edge case that doesn't occur in practice
-      const container = await fixture(
-        html`<p style="/* line-height: 1.5 !important */ color: red">
-          Text content
-        </p>`,
-      );
-      const results = await scanner.scan(container);
-
-      // This could match the comment, but inline style comments are ignored
-      // by browsers anyway, so it's not a practical concern
-      // If this becomes an issue, we can improve the regex
-      expect(results.length).to.be.at.least(0);
     });
   });
 });

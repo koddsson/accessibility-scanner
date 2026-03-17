@@ -588,7 +588,7 @@
         "ACT Rules": "[73f2c2](https://act-rules.github.io/rules/73f2c2)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "avoid-inline-spacing",
         "url": "https://dequeuniversity.com/rules/axe/4.11/avoid-inline-spacing?application=RuleDescription",
         "Description": "Ensure that text spacing set through style attributes can be adjusted with custom stylesheets",

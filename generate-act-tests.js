@@ -75,10 +75,7 @@ const rulesToIgnore = [
   // "047fe0", // Document Heading — enabled for bypass rule ACT tests
   "09o5cg", // Text Contrast - requires computed styles for color contrast calculation
   "0va7u6", // Image contains text - requires visual rendering to detect text in images
-  "24afc2", // Important letter spacing in style attributes is wide enough - requires computed styles
   "59br37", // Zoomed text node is not clipped with CSS overflow - requires visual rendering
-  "78fd32", // Important line height in style attributes is wide enough - requires computed styles
-  "9e45ec", // Important word spacing in style attributes is wide enough - requires computed styles
   "afw4f7", // Text has minimum contrast - requires computed styles for color contrast calculation
   "b33eff", // Orientation of the page is not restricted using CSS transforms - requires computed styles
   "oj04fd", // Element in sequential focus order has visible focus - requires visual rendering
@@ -264,6 +261,27 @@ const skippedExamples = [
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/ye5d6e/f75c1d3e3e4d3ef33020e90c115c6f4245170486.html",
   // [ye5d6e] bypass: skip link targets repeated content, scanner can't distinguish content areas
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/ye5d6e/91f4c9b8d66b5a30867b3eb329701acc604d79b9.html",
+
+  // [24afc2] avoid-inline-spacing: requires computed font-size to evaluate px values
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/24afc2/43f8fe88b8e7365db7aa251b263b5d00c7a47ae9.html",
+  // [24afc2] avoid-inline-spacing: inherited px spacing with different child font-size requires computed styles
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/24afc2/cabfcae45afac141b38fd9cac2e07a64fb6b9896.html",
+  // [24afc2] avoid-inline-spacing: parent !important overridden by child !important requires cascade analysis
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/24afc2/d6d5bf7c081939e64d10022dd29f5e31d2153d50.html",
+
+  // [9e45ec] avoid-inline-spacing: requires computed font-size to evaluate px values
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/9e45ec/2a2a14cc9bcb3fa7983e22f160ce9eeb6b832a8c.html",
+  // [9e45ec] avoid-inline-spacing: inherited px spacing with different child font-size requires computed styles
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/9e45ec/15905a239d6755102be6a60aa152ad963d5b1dbb.html",
+  // [9e45ec] avoid-inline-spacing: parent !important overridden by child !important requires cascade analysis
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/9e45ec/8d2baed183149375922c23a9a5f42b52b627d713.html",
+
+  // [78fd32] avoid-inline-spacing: requires computed font-size to evaluate px values
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/78fd32/203a13b314695fc2abc6163b3ac7940ab1c4a9ed.html",
+  // [78fd32] avoid-inline-spacing: inherited px spacing with different child font-size requires computed styles
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/78fd32/78034759a1086c7ffa8037b6e6e2327ece4a19d7.html",
+  // [78fd32] avoid-inline-spacing: parent !important overridden by child !important requires cascade analysis
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/78fd32/9280b9961f4e24943080fabb67c041b65036f69c.html",
 ];
 
 // ACT rules where the scanner rule requires the document element (not body)
