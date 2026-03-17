@@ -53,7 +53,7 @@
         "ACT Rules": "[6cfa84](https://act-rules.github.io/rules/6cfa84)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "aria-input-field-name",
         "url": "https://dequeuniversity.com/rules/axe/4.11/aria-input-field-name?application=RuleDescription",
         "Description": "Ensures every ARIA input field has an accessible name",
@@ -133,7 +133,7 @@
         "ACT Rules": "[674b10](https://act-rules.github.io/rules/674b10)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "aria-toggle-field-name",
         "url": "https://dequeuniversity.com/rules/axe/4.11/aria-toggle-field-name?application=RuleDescription",
         "Description": "Ensures every ARIA toggle field has an accessible name",

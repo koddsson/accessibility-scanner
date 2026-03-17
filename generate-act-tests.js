@@ -102,10 +102,9 @@ const rulesToIgnore = [
   "c249d5", // Device motion based changes to the content can be disabled - requires device motion events
 
   // --- Not implemented - accessible name computation not yet fully supported ---
-"59796f", // Image button has non-empty accessible name - not implemented
+  "59796f", // Image button has non-empty accessible name - not implemented
   "7d6734", // SVG element with explicit role has non-empty accessible name - not implemented
   "cae760", // Iframe element has non-empty accessible name - not implemented
-  "e086e5", // Form field has non-empty accessible name - not implemented
 
   // --- Not implemented - ARIA rules not yet fully supported ---
   "4e8ab6", // Element with role attribute has required states and properties - not implemented
@@ -208,6 +207,9 @@ const skippedExamples = [
 
   // [e88epe] decorative-image: scanner does not analyse canvas visual content
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/e88epe/6d108d00cc7a54f66547f02d7e7606342b11f801.html",
+
+  // [e086e5] form-field-name: label rule intentionally skips disabled inputs
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/e086e5/5c0ba53d53cc9fd8627f224b39db30bd9ffa5757.html",
 
   // [80f0bf] no-autoplay-audio: scanner can't detect short media duration from URL fragment (#t=8,10)
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/80f0bf/e4d78b5074773ab0cbd8c72732e948c4608f5c9d.html",

@@ -34,6 +34,11 @@ function hasAccessibleName(element: Element): boolean {
     return element.getAttribute("title")!.trim() !== "";
   }
 
+  // Check for text content (toggle fields can derive their name from content)
+  if (element.textContent && element.textContent.trim() !== "") {
+    return true;
+  }
+
   return false;
 }
 
