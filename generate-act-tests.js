@@ -74,7 +74,6 @@ const rulesToIgnore = [
   // --- Requires visual rendering / computed styles ---
   "047fe0", // Document Heading - requires heading structure analysis beyond current scope
   "09o5cg", // Text Contrast - requires computed styles for color contrast calculation
-  "0ssw9k", // Scrollable element - requires computed styles to detect scrollability
   "0va7u6", // Image contains text - requires visual rendering to detect text in images
   "24afc2", // Important letter spacing in style attributes is wide enough - requires computed styles
   "59br37", // Zoomed text node is not clipped with CSS overflow - requires visual rendering
@@ -215,6 +214,11 @@ const skippedExamples = [
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/de46e4/915cdae554a817caa4792101fde1adf14563227d.html",
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/de46e4/b1765660b28464b5a73e502ef30b7370ba294ff5.html",
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/de46e4/d8ba52b5fa5e123def1f778821219aaec20ca0fe.html",
+
+  // [0ssw9k] scrollable-region-focusable: DOMParser has no layout engine so
+  // getComputedStyle and scrollHeight/clientHeight cannot detect scrollability
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/0ssw9k/5fa34d0a7eea03109cd12c0e7c21fce793c268db.html",
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/0ssw9k/731acbc281943f3fef81aee32f6a553fc426e20f.html",
 ];
 
 for (const rule of applicableRules) {
