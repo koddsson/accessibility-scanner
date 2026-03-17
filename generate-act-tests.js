@@ -127,7 +127,7 @@ const rulesToIgnore = [
   "aizyf1", // Link is descriptive - not implemented, requires human judgment
   "b20e66", // Links with identical accessible names have equivalent purpose - not implemented
   "fd3a94", // Links with identical accessible names and same context serve equivalent purpose - not implemented
-  "36b590", // Error message describes invalid form field value - not implemented
+  // "36b590" — now implemented as error-message rule
   "cc0f0a", // Form field label is descriptive - not implemented, requires human judgment
 
   // --- Not implemented - page-level and structural rules ---
@@ -222,6 +222,13 @@ const skippedExamples = [
 
   // [80f0bf] no-autoplay-audio: scanner can't detect JavaScript-based control mechanisms
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/80f0bf/29ea904ef03f14401a7b43a5ffc9b30271697bc7.html",
+
+  // [36b590] error-message: scanner can't judge whether error text adequately identifies the field or describes the error
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/36b590/3bb6b76d2dd823e02cace7c6be2a7ebe535d1d97.html",
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/36b590/a51e05dc7b64d927ff25bc493bb0aa069c963d29.html",
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/36b590/e76345ab4164567a24c0dc9dece56cee1794dc0c.html",
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/36b590/ddcd6a3065a711139251df4ab4777ae096856c58.html",
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/36b590/d7863608ff2aab99c43663cb3701c65c28b75c23.html",
 
   // [de46e4] valid-lang: scanner doesn't detect invalid lang subtags on non-root elements
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/de46e4/49b66676ed867c75368e31c1e06b28255df8089e.html",
