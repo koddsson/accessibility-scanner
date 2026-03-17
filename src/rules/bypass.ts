@@ -62,15 +62,15 @@ export default function (element: Element): AccessibilityError[] {
   }
 
   // Check for heading structure
-  // Note: This checks for presence of multiple headings, not hierarchy.
-  // Proper heading hierarchy (H1->H2->H3) is a separate concern covered by other rules.
-  // For bypass purposes, having multiple headings allows users to navigate the page structure.
-  const headings = querySelectorAll(
-    "h1, h2, h3, h4, h5, h6",
-    doc.body || element,
-  );
-  if (headings.length >= 2) {
-    // Multiple headings provide a navigation structure
+  // A heading allows screen reader users to navigate directly to content.
+  // Both native heading elements and elements with role="heading" count,
+  // but headings hidden from assistive technology (aria-hidden="true") do not.
+  const headings = [
+    ...querySelectorAll("h1, h2, h3, h4, h5, h6", doc.body || element),
+    ...querySelectorAll('[role="heading"]', doc.body || element),
+  ].filter((h) => h.getAttribute("aria-hidden") !== "true");
+  if (headings.length > 0) {
+    // At least one heading provides a navigation mechanism for assistive technology
     return [];
   }
 
