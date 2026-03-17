@@ -88,7 +88,6 @@ const rulesToIgnore = [
   "1ea59c", // Video element visual content has audio description - requires media playback
   "1ec09b", // Video element visual content has strict accessible alternative - requires media playback
   "4c31df", // Audio or video element that plays automatically has a control mechanism - requires media playback
-  "80f0bf", // Audio or video element avoids automatically playing audio - requires media playback
   "aaa1bf", // Audio or video element that plays automatically has no audio that lasts more than 3 seconds - requires media playback
   "c3232f", // Video element visual-only content has accessible alternative - requires media playback
   "c5a4ea", // Video element visual content has accessible alternative - requires media playback
@@ -217,6 +216,12 @@ const skippedExamples = [
 
   // [e88epe] decorative-image: scanner does not analyse canvas visual content
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/e88epe/6d108d00cc7a54f66547f02d7e7606342b11f801.html",
+
+  // [80f0bf] no-autoplay-audio: scanner can't detect short media duration from URL fragment (#t=8,10)
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/80f0bf/e4d78b5074773ab0cbd8c72732e948c4608f5c9d.html",
+
+  // [80f0bf] no-autoplay-audio: scanner can't detect JavaScript-based control mechanisms
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/80f0bf/29ea904ef03f14401a7b43a5ffc9b30271697bc7.html",
 
   // [de46e4] valid-lang: scanner doesn't detect invalid lang subtags on non-root elements
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/de46e4/49b66676ed867c75368e31c1e06b28255df8089e.html",
