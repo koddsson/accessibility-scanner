@@ -36,7 +36,7 @@ export default function (element: Element): AccessibilityError[] {
     )
       continue;
 
-    if (element.getAttribute("aria-label")) continue;
+    if (element.getAttribute("aria-label")?.trim()) continue;
     if (labelledByIsValid(element)) continue;
     if (element.getAttribute("title")) continue;
     if (element.getAttribute("placeholder")) continue;
