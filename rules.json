@@ -23,7 +23,7 @@
         "ACT Rules": "[5c01ea](https://act-rules.github.io/rules/5c01ea)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "aria-command-name",
         "url": "https://dequeuniversity.com/rules/axe/4.11/aria-command-name?application=RuleDescription",
         "Description": "Ensures every ARIA button, link and menuitem has an accessible name",
