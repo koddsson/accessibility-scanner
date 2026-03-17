@@ -72,7 +72,7 @@ const testCasesThatRedirect = [
 
 const rulesToIgnore = [
   // --- Requires visual rendering / computed styles ---
-  "047fe0", // Document Heading - requires heading structure analysis beyond current scope
+  // "047fe0", // Document Heading — enabled for bypass rule ACT tests
   "09o5cg", // Text Contrast - requires computed styles for color contrast calculation
   "0va7u6", // Image contains text - requires visual rendering to detect text in images
   "24afc2", // Important letter spacing in style attributes is wide enough - requires computed styles
@@ -135,9 +135,9 @@ const rulesToIgnore = [
   "off6ek", // HTML element language subtag matches language - not implemented
   "ucwvc8", // HTML page language subtag matches default language - not implemented
   "c4a8a4", // HTML page title is descriptive - not implemented, requires human judgment
-  "cf77f2", // Bypass Blocks of Repeated Content - not implemented
-  "ye5d6e", // Document has an instrument to move focus to non-repeated content - not implemented
-  "3e12e1", // Block of repeated content is collapsible - not implemented
+  // "cf77f2", // Bypass Blocks of Repeated Content — enabled for bypass rule ACT tests
+  // "ye5d6e", // Document has an instrument to move focus to non-repeated content — enabled for bypass rule ACT tests
+  // "3e12e1", // Block of repeated content is collapsible — enabled for bypass rule ACT tests
 
   // --- Not implemented - various other rules ---
   "73f2c2", // Autocomplete attribute has valid value - not implemented in ACT test format
@@ -240,6 +240,40 @@ const skippedExamples = [
   // getComputedStyle and scrollHeight/clientHeight cannot detect scrollability
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/0ssw9k/5fa34d0a7eea03109cd12c0e7c21fce793c268db.html",
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/0ssw9k/731acbc281943f3fef81aee32f6a553fc426e20f.html",
+
+  // [047fe0] bypass/heading: scanner can't distinguish repeated vs non-repeated content areas
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/047fe0/4e34cac08353c5383b8743bffada2aaf3a780149.html",
+  // [047fe0] bypass/heading: page has no repeated content so rule is inapplicable, but scanner flags it
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/047fe0/4f112d2707661d579bb0e364ef6241ea6217d3e8.html",
+  // [047fe0] bypass/heading: heading hidden via CSS (off-screen class), scanner can't detect computed styles
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/047fe0/81d501e52085d9e5712e241bdd24708e7cb4a301.html",
+
+  // [3e12e1] bypass/collapsible: JS-based toggle mechanism requires script execution (DOMParser limitation)
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/3e12e1/fa30de1d9c2d3a313f7f18bc4e2cf6843ea10a89.html",
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/3e12e1/01ade7567b9b4be243f4b693e30071596c2f515f.html",
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/3e12e1/be05e4899572cc95d2a56d058ef873f90a979fe2.html",
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/3e12e1/61c51eb3361b472d8bd7cecd205db7bf895f484f.html",
+
+  // [cf77f2] bypass: JS-based skip/toggle mechanism requires script execution (DOMParser limitation)
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/cf77f2/fa30de1d9c2d3a313f7f18bc4e2cf6843ea10a89.html",
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/cf77f2/1c8d17ef6a69be1bbc5b28f432d2b7192e0f65c9.html",
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/cf77f2/f937af9c794522e5f421d5cfc3937d34fad2a9e7.html",
+  // [cf77f2] bypass: page has no semantic landmarks or headings (only div#main), scanner can't detect
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/cf77f2/c039d5c0794751aa5944724b45df214c0e8cc827.html",
+
+  // [ye5d6e] bypass: JS-based skip link (onclick location.assign) requires script execution
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/ye5d6e/f75c1d3e3e4d3ef33020e90c115c6f4245170486.html",
+  // [ye5d6e] bypass: skip link targets repeated content, scanner can't distinguish content areas
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/ye5d6e/91f4c9b8d66b5a30867b3eb329701acc604d79b9.html",
+];
+
+// ACT rules where the scanner rule requires the document element (not body)
+// as input, because they perform page-level checks.
+const rulesRequiringDocumentElement = [
+  "047fe0", // Document has heading
+  "3e12e1", // Block of repeated content is collapsible
+  "cf77f2", // Bypass blocks of content
+  "ye5d6e", // Document has an instrument to move focus to non-repeated content
 ];
 
 for (const rule of applicableRules) {
@@ -301,6 +335,9 @@ for (const rule of applicableRules) {
   }
 
   const itFn = skippedExamples.includes(exampleURL) ? "it.skip" : "it";
+  const scanTarget = rulesRequiringDocumentElement.includes(ruleId)
+    ? "document.documentElement"
+    : "document.body";
 
   const suite = `import { expect } from "@open-wc/testing";
 import { scan } from "../../../../src/scanner";
@@ -311,7 +348,7 @@ describe("[${ruleId}]${ruleName}", function () {
   ${itFn}("${testcaseTitle} (${exampleURL})", async () => {
     const document = parser.parseFromString(\`${html}\`, 'text/html');
 
-    const results = (await scan(document.body)).map(({ text, url }) => {
+    const results = (await scan(${scanTarget})).map(({ text, url }) => {
       return { text, url };
     });
 
