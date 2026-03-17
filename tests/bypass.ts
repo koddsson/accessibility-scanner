@@ -178,18 +178,9 @@ describe("bypass", function () {
         </html>
       `);
 
-      const results = (await scanner.scan(container.ownerDocument.documentElement)).map(
-        ({ text, url }) => {
-          return { text, url };
-        },
-      );
-
-      expect(results).to.eql([
-        {
-          text: "Page must have means to bypass repeated blocks",
-          url: "https://dequeuniversity.com/rules/axe/4.11/bypass",
-        },
-      ]);
+      const results = await scanner.scan(container.ownerDocument.documentElement);
+      // A single heading is sufficient for AT navigation, so no bypass error
+      expect(results).to.be.empty;
     });
 
     it("page has skip link without accessible text", async () => {
