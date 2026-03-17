@@ -973,7 +973,7 @@
         "ACT Rules": ""
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "label-content-name-mismatch",
         "url": "https://dequeuniversity.com/rules/axe/4.11/label-content-name-mismatch?application=RuleDescription",
         "Description": "Ensures that elements labelled through their content must have their visible text as part of their accessible name",

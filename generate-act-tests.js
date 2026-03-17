@@ -140,7 +140,6 @@ const rulesToIgnore = [
   "3e12e1", // Block of repeated content is collapsible - not implemented
 
   // --- Not implemented - various other rules ---
-  "2ee8b8", // Visible label is part of accessible name - not implemented
   "73f2c2", // Autocomplete attribute has valid value - not implemented in ACT test format
   "b4f0c3", // Meta viewport allows for zoom - not implemented in ACT test format
   "4b1c6c", // Iframe elements with identical accessible names have equivalent purpose - not implemented
@@ -222,6 +221,9 @@ const skippedExamples = [
 
   // [80f0bf] no-autoplay-audio: scanner can't detect JavaScript-based control mechanisms
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/80f0bf/29ea904ef03f14401a7b43a5ffc9b30271697bc7.html",
+
+  // [2ee8b8] label-content-name-mismatch: scanner cannot detect icon fonts (requires CSS rendering)
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/2ee8b8/efa9543339cdad5412c7719b266a633a29ce149e.html",
 
   // [de46e4] valid-lang: scanner doesn't detect invalid lang subtags on non-root elements
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/de46e4/49b66676ed867c75368e31c1e06b28255df8089e.html",
