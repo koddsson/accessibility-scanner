@@ -5,6 +5,27 @@ import targetSize from "../src/rules/target-size";
 const scanner = new Scanner([targetSize]);
 
 describe("target-size", function () {
+  let originalMatchMedia: typeof globalThis.matchMedia;
+
+  beforeEach(() => {
+    originalMatchMedia = globalThis.matchMedia;
+    // Simulate coarse pointer so the rule runs in tests
+    globalThis.matchMedia = ((query: string) => ({
+      matches: query === "(pointer: coarse)",
+      media: query,
+      onchange: null,
+      addListener: () => {},
+      removeListener: () => {},
+      addEventListener: () => {},
+      removeEventListener: () => {},
+      dispatchEvent: () => false,
+    })) as typeof globalThis.matchMedia;
+  });
+
+  afterEach(() => {
+    globalThis.matchMedia = originalMatchMedia;
+  });
+
   describe("has errors if", function () {
     it("button is smaller than 24x24px", async () => {
       const container = await fixture(
