@@ -8,7 +8,7 @@ describe("avoid-inline-spacing", function () {
   describe("has errors if", function () {
     it("has !important line-height in inline style", async () => {
       const container = await fixture(
-        html`<p style="line-height: 1.5 !important">Text content</p>`,
+        html`<p style="line-height: 1.2 !important">Text content</p>`,
       );
       const results = await scanner.scan(container);
 
@@ -46,7 +46,7 @@ describe("avoid-inline-spacing", function () {
     it("has multiple !important spacing properties", async () => {
       const container = await fixture(
         html`<p
-          style="line-height: 1.5 !important; letter-spacing: 2px !important"
+          style="line-height: 1.2 !important; letter-spacing: 0.05em !important"
         >
           Text content
         </p>`,
@@ -58,7 +58,7 @@ describe("avoid-inline-spacing", function () {
 
     it("detects !important with various whitespace", async () => {
       const container = await fixture(
-        html`<p style="line-height:1.5!important">Text content</p>`,
+        html`<p style="line-height:1.2!important">Text content</p>`,
       );
       const results = await scanner.scan(container);
 
@@ -67,7 +67,7 @@ describe("avoid-inline-spacing", function () {
 
     it("detects !important in uppercase", async () => {
       const container = await fixture(
-        html`<p style="line-height: 1.5 !IMPORTANT">Text content</p>`,
+        html`<p style="line-height: 1.2 !IMPORTANT">Text content</p>`,
       );
       const results = await scanner.scan(container);
 
@@ -77,7 +77,7 @@ describe("avoid-inline-spacing", function () {
     it("detects multiple elements with issues", async () => {
       const container = await fixture(
         html`<div>
-          <p style="line-height: 1.5 !important">First paragraph</p>
+          <p style="line-height: 1.2 !important">First paragraph</p>
           <p style="letter-spacing: 2px !important">Second paragraph</p>
         </div>`,
       );
@@ -170,7 +170,7 @@ describe("avoid-inline-spacing", function () {
     it("handles nested elements with mixed styles", async () => {
       const container = await fixture(
         html`<div style="color: blue">
-          <p style="line-height: 1.5 !important">Nested paragraph</p>
+          <p style="line-height: 1.2 !important">Nested paragraph</p>
         </div>`,
       );
       const results = await scanner.scan(container);
@@ -180,7 +180,7 @@ describe("avoid-inline-spacing", function () {
 
     it("ignores elements with no text content", async () => {
       const container = await fixture(
-        html`<div style="line-height: 1.5 !important"></div>`,
+        html`<div style="line-height: 1.2 !important"></div>`,
       );
       const results = await scanner.scan(container);
 
@@ -226,7 +226,7 @@ describe("avoid-inline-spacing", function () {
       // Note: Browsers ignore comments in inline style attributes
       // so this is a theoretical edge case that doesn't occur in practice
       const container = await fixture(
-        html`<p style="/* line-height: 1.5 !important */ color: red">
+        html`<p style="/* line-height: 1.2 !important */ color: red">
           Text content
         </p>`,
       );
