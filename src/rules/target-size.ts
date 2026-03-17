@@ -84,6 +84,14 @@ function meetsTargetSize(element: Element): boolean {
 export default function (element: Element): AccessibilityError[] {
   const errors: AccessibilityError[] = [];
 
+  // WCAG 2.5.8 target size only applies to coarse pointers (touch devices)
+  if (
+    typeof globalThis.matchMedia === "function" &&
+    !globalThis.matchMedia("(pointer: coarse)").matches
+  ) {
+    return errors;
+  }
+
   // Find all interactive elements using the selector
   const interactiveElements = [
     ...querySelectorAll(interactiveSelector, element),
