@@ -47,6 +47,34 @@ describe("list", function () {
       }));
       expect(results).to.be.empty;
     });
+
+    it("a native ul with role='list' containing li children", async () => {
+      const container = await fixture(html`
+        <ul role="list">
+          <li>Item 1</li>
+          <li>Item 2</li>
+        </ul>
+      `);
+      const results = (await scanner.scan(container)).map(({ text, url }) => ({
+        text,
+        url,
+      }));
+      expect(results).to.be.empty;
+    });
+
+    it("a native ol with role='list' containing li children", async () => {
+      const container = await fixture(html`
+        <ol role="list">
+          <li>Item 1</li>
+          <li>Item 2</li>
+        </ol>
+      `);
+      const results = (await scanner.scan(container)).map(({ text, url }) => ({
+        text,
+        url,
+      }));
+      expect(results).to.be.empty;
+    });
   });
 
   describe("has errors if", function () {
