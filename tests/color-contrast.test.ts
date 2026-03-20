@@ -282,6 +282,47 @@ describe("color-contrast", function () {
     });
   });
 
+  describe("modern color formats", function () {
+    it("handles oklch() foreground color", async () => {
+      // oklch(1 0 0) is white — sufficient contrast against black
+      const container = await fixture(
+        html`<div
+          style="color: oklch(1 0 0); background-color: rgb(0, 0, 0);"
+        >
+          oklch white on black
+        </div>`,
+      );
+      const results = await scanner.scan(container);
+      expect(results).to.be.empty;
+    });
+
+    it("handles oklch() background color", async () => {
+      // White text on oklch(0.514 0.222 16.935) ≈ rose-700 — contrast ~6:1
+      const container = await fixture(
+        html`<div
+          style="color: rgb(255, 255, 255); background-color: oklch(0.514 0.222 16.935);"
+        >
+          White on rose
+        </div>`,
+      );
+      const results = await scanner.scan(container);
+      expect(results).to.be.empty;
+    });
+
+    it("detects insufficient contrast with oklch() colors", async () => {
+      // oklch(0.9 0 0) is very light gray — low contrast against white
+      const container = await fixture(
+        html`<div
+          style="color: oklch(0.9 0 0); background-color: rgb(255, 255, 255);"
+        >
+          Light gray on white
+        </div>`,
+      );
+      const results = await scanner.scan(container);
+      expect(results.length).to.be.greaterThan(0);
+    });
+  });
+
   describe("result data fields", function () {
     it("includes detailed contrast information in error", async () => {
       const container = await fixture(
