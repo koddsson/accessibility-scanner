@@ -34,6 +34,35 @@ const structuralSelector =
   "input, select, textarea, button, label, legend, fieldset";
 
 /**
+ * ARIA widget roles that are clearly not error message containers.
+ * Elements with these roles should be excluded from candidate error elements.
+ */
+const widgetRoles = new Set([
+  "tab",
+  "tabpanel",
+  "tablist",
+  "menu",
+  "menubar",
+  "menuitem",
+  "toolbar",
+  "dialog",
+  "alertdialog",
+  "tree",
+  "treeitem",
+  "treegrid",
+  "grid",
+  "row",
+  "rowgroup",
+  "separator",
+  "scrollbar",
+  "navigation",
+  "banner",
+  "contentinfo",
+  "complementary",
+  "search",
+]);
+
+/**
  * Check whether an element is hidden via an inline `display:none` style.
  * In a DOMParser context there is no computed style, so we fall back to
  * inspecting the `style` attribute string.
@@ -77,6 +106,9 @@ function findCandidateErrorElements(form: Element): Element[] {
   for (const el of allWithId) {
     // Skip structural form elements
     if (el.matches(structuralSelector)) continue;
+    // Skip elements with ARIA widget/landmark roles
+    const role = el.getAttribute("role");
+    if (role && widgetRoles.has(role)) continue;
     // Must have text content
     if (!el.textContent?.trim()) continue;
     candidates.push(el);
