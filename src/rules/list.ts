@@ -38,9 +38,13 @@ export default function (element: Element): AccessibilityError[] {
     // For ARIA lists, check if they contain listitem children or use aria-owns
     const hasAriaOwns = list.hasAttribute("aria-owns");
     const directListItems = [...list.children].filter(
-      (child) => child.getAttribute("role") === "listitem",
+      (child) =>
+        child.getAttribute("role") === "listitem" || child.tagName === "LI",
     );
-    const nestedListItems = querySelectorAll('[role="listitem"]', list);
+    const nestedListItems = [
+      ...querySelectorAll('[role="listitem"]', list),
+      ...querySelectorAll("li", list),
+    ];
 
     // If no aria-owns and no listitem children, it's an error
     if (
