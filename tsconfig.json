@@ -2,18 +2,18 @@
   "include": ["src", "tests"],
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
     "declaration": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "lib": ["esnext", "dom", "dom.iterable"],
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "outDir": "dist",
     "preserveConstEnums": true,
     "removeComments": true,
     "sourceMap": true,
     "strict": true,
-    "target": "esnext"
+    "target": "esnext",
+    "types": ["mocha"]
   }
 }
