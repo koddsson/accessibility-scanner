@@ -4,7 +4,7 @@ import { querySelectorAll } from "../utils";
 const id = "error-message";
 const text =
   "Ensures that error messages are programmatically associated with form fields";
-const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
+const url = "https://act-rules.github.io/rules/36b590";
 
 /**
  * Form field selector — covers native form controls and ARIA widget roles

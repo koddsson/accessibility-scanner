@@ -685,7 +685,7 @@
       {
         "implemented": "✅",
         "id": "error-message",
-        "url": "https://dequeuniversity.com/rules/axe/4.11/error-message?application=RuleDescription",
+        "url": "https://act-rules.github.io/rules/36b590",
         "Description": "Ensures that error messages are programmatically associated with form fields",
         "Impact": "Moderate",
         "Tags": "cat.forms, wcag2a, wcag331, ACT",
