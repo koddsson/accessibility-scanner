@@ -1,5 +1,6 @@
 import { expect } from "@open-wc/testing";
 import { scan } from "../../../../src/scanner";
+import errorMessage from "../../../../src/rules/error-message";
 
 const parser = new DOMParser();
 
@@ -20,11 +21,11 @@ describe("[36b590]Error message describes invalid form field value", function ()
 </body>
 </html>`, 'text/html');
 
-    const results = (await scan(document.body)).map(({ text, url }) => {
+    const results = (await scan(document.body, [errorMessage])).map(({ text, url }) => {
       return { text, url };
     });
 
-    const expectedUrls = ["https://dequeuniversity.com/rules/axe/4.11/error-message"];
+    const expectedUrls = ["https://act-rules.github.io/rules/36b590"];
     const relevant = results.filter(r => expectedUrls.includes(r.url));
     expect(relevant).to.be.empty;
   });

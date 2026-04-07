@@ -140,3 +140,19 @@ Rules we are still testing and developing. They are disabled by default in axe-c
 | ✅          | p-as-heading                | https://dequeuniversity.com/rules/axe/4.11/p-as-heading?application=RuleDescription                | Ensure bold, italic text and font-size is not used to style &lt;p&gt; elements as a heading                                | Serious  | cat.semantics, wcag2a, wcag131, experimental                           | failure, needs&nbsp;review |                                                    |
 | ✅          | table-fake-caption          | https://dequeuniversity.com/rules/axe/4.11/table-fake-caption?application=RuleDescription          | Ensure that tables with a caption use the &lt;caption&gt; element.                                                         | Serious  | cat.tables, experimental, wcag2a, wcag131, section508, section508.22.g | failure                    |                                                    |
 | ✅          | td-has-header               | https://dequeuniversity.com/rules/axe/4.11/td-has-header?application=RuleDescription               | Ensure that each non-empty data cell in a &lt;table&gt; larger than 3 by 3 has one or more table headers                   | Critical | cat.tables, experimental, wcag2a, wcag131, section508, section508.22.g | failure                    |                                                    |
+
+
+### Custom Rules (Experimental)
+
+Rules that are not part of axe-core but are implemented in this scanner. These are **not included in the default rule set** due to higher false-positive rates. To use them, import and pass them explicitly:
+
+```js
+import { Scanner } from "@koddsson/accessibility-scanner";
+import errorMessage from "@koddsson/accessibility-scanner/rules/error-message";
+
+const scanner = new Scanner([...allRules, errorMessage]);
+```
+
+| Implemented | Id            | Url                                                  | Description                                                                        | Impact   | Tags                          | Issue type | Act rules                                          |
+| :---------- | :------------ | :--------------------------------------------------- | :--------------------------------------------------------------------------------- | :------- | :---------------------------- | :--------- | :------------------------------------------------- |
+| ✅          | error-message | https://act-rules.github.io/rules/36b590             | Ensures that error messages are programmatically associated with form fields        | Moderate | cat.forms, wcag2a, wcag331, ACT | failure    | [36b590](https://act-rules.github.io/rules/36b590) |
