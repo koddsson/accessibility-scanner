@@ -13,7 +13,6 @@ accessibility-scanner/
 ├── src/
 │   ├── app.ts              # Main application entry point
 │   ├── scanner.ts          # Core scanner implementation
-│   ├── logger.ts           # Logging utilities
 │   ├── utils.ts            # Utility functions
 │   ├── utils/              # Additional utility modules
 │   │   └── aria-attrs.ts   # ARIA attribute utilities
