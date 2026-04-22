@@ -99,8 +99,6 @@ import landmarkNoDuplicateMain from "./rules/landmark-no-duplicate-main";
 import landmarkMainIsTopLevel from "./rules/landmark-main-is-top-level";
 import region from "./rules/region";
 
-import { Logger } from "./logger";
-
 export interface AccessibilityError {
   id: string;
   text: string;
@@ -108,7 +106,7 @@ export interface AccessibilityError {
   element: Element;
 }
 
-const logger = new Logger();
+export type LogFn = (...data: unknown[]) => void;
 
 type Rule = (element: Element) => AccessibilityError[];
 
@@ -216,6 +214,7 @@ export const allRules: Rule[] = [
 export async function requestIdleScan(
   element: Element,
   enabledRules: Rule[] = allRules,
+  log?: LogFn,
 ): Promise<AccessibilityError[]> {
   const errors: AccessibilityError[] = [];
   const rulesToProcess = [...enabledRules];
@@ -228,14 +227,14 @@ export async function requestIdleScan(
         rulesToProcess.length > 0
       ) {
         // eslint-disable-next-line tscompat/tscompat
-        logger.log(deadline.timeRemaining(), deadline.didTimeout);
+        log?.(deadline.timeRemaining(), deadline.didTimeout);
         const rule = rulesToProcess.shift()!;
-        logger.log(`Executing ${rule.name}`);
+        log?.(`Executing ${rule.name}`);
         errors.push(...rule(element));
       }
 
       if (rulesToProcess.length > 0) {
-        console.log(`exited with ${rulesToProcess.length} left`);
+        log?.(`exited with ${rulesToProcess.length} left`);
         requestIdleCallback(executeScan);
       } else {
         resolve(errors);
