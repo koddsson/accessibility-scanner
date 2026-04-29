@@ -10,6 +10,22 @@ async function fileExists(path: string): Promise<boolean> {
   }
 }
 
+const ACT_URL = /\((https:\/\/act-rules\.github\.io\/rules\/[a-z0-9]+)\)/;
+
+function deriveUrl(rule: Record<string, unknown>): string {
+  const actMatch = String(rule["ACT Rules"] ?? "").match(ACT_URL);
+  if (actMatch) return actMatch[1];
+  return String(rule.url ?? "");
+}
+
+function cleanTags(tags: string): string {
+  return tags
+    .split(",")
+    .map((t) => t.trim())
+    .filter((t) => t && !t.startsWith("cat.") && t !== "review-item")
+    .join(", ");
+}
+
 const sections: Record<
   string,
   { description: string; rules: Array<Record<string, unknown>> }
@@ -20,6 +36,8 @@ for (const [name, { description, rules }] of Object.entries(sections)) {
   for (const rule of rules) {
     const implemented = await fileExists(`./src/rules/${rule.id}.ts`);
     rule.implemented = implemented ? "✅" : "❌";
+    rule.url = deriveUrl(rule);
+    rule.Tags = cleanTags(String(rule.Tags ?? ""));
   }
   const table = tablemark(rules);
   tables.push({
@@ -32,11 +50,9 @@ for (const [name, { description, rules }] of Object.entries(sections)) {
 const document = `
 # accessibility-scanner
 
-## AXE Rules
-
 ${tables
   .map(({ name, description, table }) => {
-    return `### ${name}\n\n${description}\n\n${table}\n`;
+    return `## ${name}\n\n${description}\n\n${table}\n`;
   })
   .join("\n")}`.trim();
 

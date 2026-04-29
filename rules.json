@@ -684,19 +684,9 @@
       },
       {
         "implemented": "✅",
-        "id": "error-message",
-        "url": "https://act-rules.github.io/rules/36b590",
-        "Description": "Ensures that error messages are programmatically associated with form fields",
-        "Impact": "Moderate",
-        "Tags": "cat.forms, wcag2a, wcag331, ACT",
-        "Issue Type": "failure",
-        "ACT Rules": "[36b590](https://act-rules.github.io/rules/36b590)"
-      },
-      {
-        "implemented": "✅",
         "id": "frame-tested",
         "url": "https://dequeuniversity.com/rules/axe/4.11/frame-tested?application=RuleDescription",
-        "Description": "Ensures &lt;iframe&gt; and &lt;frame&gt; elements contain the axe-core script",
+        "Description": "Ensures &lt;iframe&gt; and &lt;frame&gt; elements have been tested for accessibility",
         "Impact": "Critical",
         "Tags": "cat.structure, review-item, best-practice",
         "Issue Type": "failure, needs&nbsp;review",
@@ -915,7 +905,7 @@
     ]
   },
   "WCAG 2.0 and 2.1 level AAA rules": {
-    "description": "Rules that check for conformance to WCAG AAA success criteria that can be fully automated. These are disabled by default in axe-core.",
+    "description": "Rules that check for conformance to WCAG AAA success criteria that can be fully automated. These are disabled by default.",
     "rules": [
       {
         "implemented": "✅",
@@ -950,7 +940,7 @@
     ]
   },
   "Experimental Rules": {
-    "description": "Rules we are still testing and developing. They are disabled by default in axe-core, but are enabled for the axe browser extensions.",
+    "description": "Rules we are still testing and developing. They are disabled by default.",
     "rules": [
       {
         "implemented": "❌",
@@ -1031,6 +1021,21 @@
         "Tags": "cat.tables, experimental, wcag2a, wcag131, section508, section508.22.g",
         "Issue Type": "failure",
         "ACT Rules": ""
+      }
+    ]
+  },
+  "Custom Rules (Experimental)": {
+    "description": "Rules implemented in this scanner that are not drawn from any external rule set. These are **not included in the default rule set** due to higher false-positive rates. To use them, import and pass them explicitly:\n\n```js\nimport { Scanner } from \"@koddsson/accessibility-scanner\";\nimport errorMessage from \"@koddsson/accessibility-scanner/rules/error-message\";\n\nconst scanner = new Scanner([...allRules, errorMessage]);\n```",
+    "rules": [
+      {
+        "implemented": "✅",
+        "id": "error-message",
+        "url": "https://act-rules.github.io/rules/36b590",
+        "Description": "Ensures that error messages are programmatically associated with form fields",
+        "Impact": "Moderate",
+        "Tags": "cat.forms, wcag2a, wcag331, ACT",
+        "Issue Type": "failure",
+        "ACT Rules": "[36b590](https://act-rules.github.io/rules/36b590)"
       }
     ]
   }
