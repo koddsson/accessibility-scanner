@@ -1,6 +1,6 @@
-# AGENTS.md
+# CLAUDE.md
 
-This file provides guidance for AI agents working with the accessibility-scanner repository.
+This file provides guidance to Claude Code when working with the accessibility-scanner repository.
 
 ## Project Overview
 
