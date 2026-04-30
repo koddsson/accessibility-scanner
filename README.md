@@ -6,7 +6,11 @@ A TypeScript accessibility scanner aimed at being [W3C ACT (Accessibility Confor
 
 Implementation status against the [ACT Rules Community Group](https://act-rules.github.io/) catalogue. Each rule links to its ACT specification. The **Test cases** column shows how many of the ACT-supplied test cases this scanner runs and passes — out of the total applicable cases for that rule. Test cases that depend on visual rendering, media playback, keyboard interaction, or other capabilities outside the scanner's scope are intentionally not generated.
 
-- **54 / 90** ACT rules have a scanner implementation.
+The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines/act/implementations/) only counts a rule as "consistently implemented" when the implementation passes every published ACT test case for it. By that measure:
+
+- **12** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
+- **18** more rules pass at least one test case but not all.
+- **54 / 90** ACT rules have some scanner implementation, even if untested.
 - **230 / 835** ACT test cases (28%) are exercised against the scanner.
 
 | Implemented | ACT Rule                                                                                                                                         | WCAG                | axe-core rule(s)                                                          | Test cases |

@@ -142,6 +142,8 @@ type ActRow = Record<string, string>;
 
 const actRows: ActRow[] = [];
 let implementedCount = 0;
+let consistentCount = 0;
+let partialCount = 0;
 let totalApplicableCases = 0;
 let totalRunningCases = 0;
 for (const ruleId of allActRuleIds) {
@@ -175,6 +177,11 @@ for (const ruleId of allActRuleIds) {
   const exercised = implemented ? running : 0;
   totalApplicableCases += applicableCases;
   totalRunningCases += exercised;
+
+  if (implemented && applicableCases > 0) {
+    if (exercised === applicableCases) consistentCount++;
+    else if (exercised > 0) partialCount++;
+  }
 
   const testCell = applicableCases === 0
     ? "—"
@@ -256,7 +263,11 @@ A TypeScript accessibility scanner aimed at being [W3C ACT (Accessibility Confor
 
 Implementation status against the [ACT Rules Community Group](https://act-rules.github.io/) catalogue. Each rule links to its ACT specification. The **Test cases** column shows how many of the ACT-supplied test cases this scanner runs and passes — out of the total applicable cases for that rule. Test cases that depend on visual rendering, media playback, keyboard interaction, or other capabilities outside the scanner's scope are intentionally not generated.
 
-- **${implementedCount} / ${totalActRules}** ACT rules have a scanner implementation.
+The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines/act/implementations/) only counts a rule as "consistently implemented" when the implementation passes every published ACT test case for it. By that measure:
+
+- **${consistentCount}** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
+- **${partialCount}** more rules pass at least one test case but not all.
+- **${implementedCount} / ${totalActRules}** ACT rules have some scanner implementation, even if untested.
 - **${totalRunningCases} / ${totalApplicableCases}** ACT test cases (${passRate}%) are exercised against the scanner.
 
 ${tablemark(actRows, { headerCase: "preserve" })}
