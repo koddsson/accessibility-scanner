@@ -11,7 +11,7 @@ The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines
 - **16** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
 - **14** more rules pass at least one test case but not all.
 - **53 / 88** ACT rules have some scanner implementation, even if untested.
-- **249 / 843** ACT test cases (30%) are exercised against the scanner.
+- **250 / 843** ACT test cases (30%) are exercised against the scanner.
 
 | Implemented | ACT Rule                                                                                                                                         | WCAG                | axe-core rule(s)                                                          | Test cases |
 | :---------- | :----------------------------------------------------------------------------------------------------------------------------------------------- | :------------------ | :------------------------------------------------------------------------ | :--------- |
