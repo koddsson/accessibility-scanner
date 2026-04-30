@@ -354,16 +354,6 @@
       },
       {
         "implemented": "✅",
-        "id": "html-xml-lang-mismatch",
-        "url": "https://dequeuniversity.com/rules/axe/4.11/html-xml-lang-mismatch?application=RuleDescription",
-        "Description": "Ensure that HTML elements with both valid lang and xml:lang attributes agree on the base language of the page",
-        "Impact": "Moderate",
-        "Tags": "cat.language, wcag2a, wcag311, ACT",
-        "Issue Type": "failure",
-        "ACT Rules": "[5b7ae0](https://act-rules.github.io/rules/5b7ae0)"
-      },
-      {
-        "implemented": "✅",
         "id": "image-alt",
         "url": "https://dequeuniversity.com/rules/axe/4.11/image-alt?application=RuleDescription",
         "Description": "Ensures &lt;img&gt; elements have alternate text or a role of none or presentation",
@@ -521,6 +511,16 @@
         "Tags": "cat.text-alternatives, wcag2a, wcag211, section508, section508.22.f",
         "Issue Type": "needs&nbsp;review",
         "ACT Rules": ""
+      },
+      {
+        "implemented": "✅",
+        "id": "summary-name",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/summary-name?application=RuleDescription",
+        "Description": "Ensures &lt;summary&gt; elements have discernible text",
+        "Impact": "Serious",
+        "Tags": "cat.name-role-value, wcag2a, wcag412, ACT",
+        "Issue Type": "failure",
+        "ACT Rules": "[2t702h](https://act-rules.github.io/rules/2t702h)"
       },
       {
         "implemented": "✅",

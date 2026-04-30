@@ -23,6 +23,34 @@ interface ContrastError extends AccessibilityError {
 }
 
 /**
+ * Detect screen-reader-only patterns (visually clipped, not rendered).
+ */
+function isVisuallyHidden(computed: CSSStyleDeclaration): boolean {
+  const clipPath = computed.clipPath;
+  if (clipPath === "inset(50%)" || clipPath === "inset(100%)") return true;
+
+  const clip = computed.clip;
+  if (
+    clip === "rect(0px, 0px, 0px, 0px)" ||
+    clip === "rect(1px, 1px, 1px, 1px)"
+  ) {
+    return true;
+  }
+
+  // 1x1 absolutely-positioned with overflow:hidden — classic sr-only fallback.
+  if (
+    computed.position === "absolute" &&
+    computed.overflow === "hidden" &&
+    parseFloat(computed.width) <= 1 &&
+    parseFloat(computed.height) <= 1
+  ) {
+    return true;
+  }
+
+  return false;
+}
+
+/**
  * Check if element has visible text content
  */
 function hasTextContent(element: Element): boolean {
@@ -39,6 +67,10 @@ function hasTextContent(element: Element): boolean {
     return false;
   }
 
+  if (isVisuallyHidden(computed)) {
+    return false;
+  }
+
   // Check if element has zero dimensions
   const rect = (element as HTMLElement).getBoundingClientRect();
   if (rect.width === 0 || rect.height === 0) {
@@ -46,6 +78,20 @@ function hasTextContent(element: Element): boolean {
   }
 
   return true;
+}
+
+/**
+ * True if the element has a non-empty direct text-node child.
+ * Wrappers that only aggregate descendant text are not checked — axe checks
+ * the element that *directly* contains the rendered text, not every ancestor.
+ */
+function hasOwnTextNode(element: Element): boolean {
+  for (const node of element.childNodes) {
+    if (node.nodeType === Node.TEXT_NODE && node.textContent?.trim()) {
+      return true;
+    }
+  }
+  return false;
 }
 
 /**
@@ -64,16 +110,13 @@ function shouldCheckContrast(element: Element): boolean {
     return false;
   }
 
-  // Check for text content
-  if (!hasTextContent(element)) {
+  // Only check elements that directly contain text — avoid double-flagging
+  // wrappers that aggregate descendant text via element.textContent.
+  if (!hasOwnTextNode(element)) {
     return false;
   }
 
-  // Check if element contains only images (text-as-image)
-  const hasOnlyImages =
-    element.children.length > 0 &&
-    [...element.children].every((child) => child.tagName === "IMG");
-  if (hasOnlyImages && !element.textContent?.trim()) {
+  if (!hasTextContent(element)) {
     return false;
   }
 

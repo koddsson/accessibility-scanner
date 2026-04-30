@@ -41,7 +41,6 @@ import nestedInteractive from "./rules/nested-interactive";
 import validLang from "./rules/valid-lang";
 import htmlHasLang from "./rules/html-has-lang";
 import htmlLangValid from "./rules/html-lang-valid";
-import htmlXmlLangMismatch from "./rules/html-xml-lang-mismatch";
 import colorContrast from "./rules/color-contrast";
 import decorativeImage from "./rules/decorative-image";
 import colorContrastEnhanced from "./rules/color-contrast-enhanced";
@@ -159,7 +158,6 @@ export const allRules: Rule[] = [
   headingOrder,
   htmlHasLang,
   htmlLangValid,
-  htmlXmlLangMismatch,
   identicalLinksSamePurpose,
   imageAlt,
   imageRedundantAlt,
