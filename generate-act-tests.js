@@ -306,9 +306,11 @@ for (const rule of applicableRules) {
 
   console.log({ ruleId, testcaseId });
 
+  // Accept WCAG-mapped requirements and ARIA name-calculation requirements
+  // (ARIA 1.2 §5.2.8 corresponds to WCAG SC 4.1.2 Name, Role, Value).
   if (
     Object.keys(ruleAccessibilityRequirements).every(
-      (x) => !x.startsWith("wcag"),
+      (x) => !x.startsWith("wcag") && !x.startsWith("aria"),
     )
   )
     continue;
