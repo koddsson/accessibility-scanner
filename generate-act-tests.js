@@ -152,7 +152,6 @@ const rulesToIgnore = [
 
   // --- Not implemented - various other rules ---
   "73f2c2", // Autocomplete attribute has valid value - not implemented in ACT test format
-  "b4f0c3", // Meta viewport allows for zoom - not implemented in ACT test format
   "4b1c6c", // Iframe elements with identical accessible names have equivalent purpose - not implemented
   "b49b2e", // Heading is descriptive - not implemented, requires human judgment
   "9bd38c", // Content has alternative for visual reference - not implemented, requires human judgment

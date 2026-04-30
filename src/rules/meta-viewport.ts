@@ -46,15 +46,16 @@ export default function metaViewport(element: Element) {
     const maxScale = content["maximum-scale"];
     if (maxScale !== undefined) {
       const maxScaleNum = Number.parseFloat(maxScale);
-      // Only flag valid positive numeric values that are less than 2.
-      // Non-numeric values (NaN) and negative values don't restrict zooming.
-      if (!Number.isNaN(maxScaleNum) && maxScaleNum >= 0 && maxScaleNum < 2) {
-        errors.push({
-          id,
-          element,
-          text,
-          url,
-        });
+      if (Number.isNaN(maxScaleNum)) {
+        // Non-numeric values restrict zoom (browsers fall back to 1.0)
+        // except `device-width`/`device-height`, which resolve to the
+        // device's pixel dimensions and effectively allow unrestricted zoom.
+        if (maxScale !== "device-width" && maxScale !== "device-height") {
+          errors.push({ id, element, text, url });
+        }
+      } else if (maxScaleNum >= 0 && maxScaleNum < 2) {
+        // Negative numbers are invalid and ignored by browsers (default >=2).
+        errors.push({ id, element, text, url });
       }
     }
   }

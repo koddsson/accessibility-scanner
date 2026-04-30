@@ -8,10 +8,10 @@ Implementation status against the [ACT Rules Community Group](https://act-rules.
 
 The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines/act/implementations/) only counts a rule as "consistently implemented" when the implementation passes every published ACT test case for it. By that measure:
 
-- **18** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
+- **19** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
 - **14** more rules pass at least one test case but not all.
 - **53 / 88** ACT rules have some scanner implementation, even if untested.
-- **275 / 843** ACT test cases (33%) are exercised against the scanner.
+- **287 / 843** ACT test cases (34%) are exercised against the scanner.
 
 | Implemented | ACT Rule                                                                                                                                         | WCAG                | axe-core rule(s)                                                          | Test cases |
 | :---------- | :----------------------------------------------------------------------------------------------------------------------------------------------- | :------------------ | :------------------------------------------------------------------------ | :--------- |
@@ -79,7 +79,7 @@ The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines
 | ✅          | [m6b1q3](https://act-rules.github.io/rules/m6b1q3) — Menuitem has non-empty accessible name                                                      | 4.1.2               | `button-name`                                                             | 6 / 6      |
 | ✅          | [bc659a](https://act-rules.github.io/rules/bc659a) — Meta element has no refresh delay                                                           | 2.2.1, 2.2.4, 3.2.5 | `meta-refresh`                                                            | 7 / 7      |
 | ✅          | [bisz58](https://act-rules.github.io/rules/bisz58) — Meta element has no refresh delay (no exception)                                            | 2.2.1, 2.2.4, 3.2.5 | `meta-refresh-no-exceptions`                                              | 5 / 5      |
-| ✅          | [b4f0c3](https://act-rules.github.io/rules/b4f0c3) — Meta viewport allows for zoom                                                               | 1.4.10, 1.4.4       | `meta-viewport`                                                           | 0 / 12     |
+| ✅          | [b4f0c3](https://act-rules.github.io/rules/b4f0c3) — Meta viewport allows for zoom                                                               | 1.4.10, 1.4.4       | `meta-viewport`                                                           | 12 / 12    |
 | ❌          | [ffbc54](https://act-rules.github.io/rules/ffbc54) — No keyboard shortcut uses only printable characters                                         | 2.1.4               | —                                                                         | 0 / 8      |
 | ✅          | [8fc3b6](https://act-rules.github.io/rules/8fc3b6) — Object element rendering non-text content has non-empty accessible name                     | 1.1.1               | `object-alt`                                                              | 10 / 10    |
 | ✅          | [b33eff](https://act-rules.github.io/rules/b33eff) — Orientation of the page is not restricted using CSS transforms                              | 1.3.4               | `css-orientation-lock`                                                    | 0 / 7      |
