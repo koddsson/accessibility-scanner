@@ -24,5 +24,7 @@ describe("[2t702h]Summary element has non-empty accessible name", function () {
     });
 
     expect(results).to.not.be.empty;
+    const expectedUrls = ["https://dequeuniversity.com/rules/axe/4.11/summary-name"];
+    expect(results.some(r => expectedUrls.includes(r.url))).to.be.true;
   });
 });

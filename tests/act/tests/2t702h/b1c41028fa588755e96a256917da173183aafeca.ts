@@ -22,7 +22,8 @@ describe("[2t702h]Summary element has non-empty accessible name", function () {
       return { text, url };
     });
 
-    // No scanner rule maps to this ACT rule yet — nothing to assert.
-    expect([]).to.be.empty;
+    const expectedUrls = ["https://dequeuniversity.com/rules/axe/4.11/summary-name"];
+    const relevant = results.filter(r => expectedUrls.includes(r.url));
+    expect(relevant).to.be.empty;
   });
 });
