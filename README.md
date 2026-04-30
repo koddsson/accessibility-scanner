@@ -8,10 +8,10 @@ Implementation status against the [ACT Rules Community Group](https://act-rules.
 
 The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines/act/implementations/) only counts a rule as "consistently implemented" when the implementation passes every published ACT test case for it. By that measure:
 
-- **12** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
-- **18** more rules pass at least one test case but not all.
+- **14** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
+- **16** more rules pass at least one test case but not all.
 - **53 / 88** ACT rules have some scanner implementation, even if untested.
-- **230 / 843** ACT test cases (27%) are exercised against the scanner.
+- **242 / 843** ACT test cases (29%) are exercised against the scanner.
 
 | Implemented | ACT Rule                                                                                                                                         | WCAG                | axe-core rule(s)                                                          | Test cases |
 | :---------- | :----------------------------------------------------------------------------------------------------------------------------------------------- | :------------------ | :------------------------------------------------------------------------ | :--------- |
@@ -41,14 +41,14 @@ The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines
 | ❌          | [oj04fd](https://act-rules.github.io/rules/oj04fd) — Element in sequential focus order has visible focus                                         | 2.4.7               | —                                                                         | 0 / 6      |
 | ✅          | [46ca7f](https://act-rules.github.io/rules/46ca7f) — Element marked as decorative is not exposed                                                 | —                   | `presentation-role-conflict`                                              | 0 / 9      |
 | ✅          | [6cfa84](https://act-rules.github.io/rules/6cfa84) — Element with aria-hidden has no content in sequential focus navigation                      | 4.1.2               | `aria-hidden-focus`                                                       | 11 / 12    |
-| ✅          | [de46e4](https://act-rules.github.io/rules/de46e4) — Element with lang attribute has valid language tag                                          | 3.1.2               | `valid-lang`                                                              | 5 / 14     |
+| ✅          | [de46e4](https://act-rules.github.io/rules/de46e4) — Element with lang attribute has valid language tag                                          | 3.1.2               | `valid-lang`                                                              | 14 / 14    |
 | ✅          | [307n5z](https://act-rules.github.io/rules/307n5z) — Element with presentational children has no focusable content                               | 4.1.2               | `nested-interactive`                                                      | 0 / 9      |
 | ✅          | [4e8ab6](https://act-rules.github.io/rules/4e8ab6) — Element with role attribute has required states and properties                              | 1.3.1, 4.1.2        | `aria-required-attr`                                                      | 0 / 11     |
 | ✅          | [36b590](https://act-rules.github.io/rules/36b590) — Error message describes invalid form field value                                            | 3.3.1               | `error-message`                                                           | 8 / 8      |
 | ❌          | [80af7b](https://act-rules.github.io/rules/80af7b) — Focusable element has no keyboard trap                                                      | 2.1.2               | —                                                                         | 0 / 12     |
 | ❌          | [ebe86a](https://act-rules.github.io/rules/ebe86a) — Focusable element has no keyboard trap via non-standard navigation                          | —                   | —                                                                         | 0 / 6      |
 | ❌          | [a1b64e](https://act-rules.github.io/rules/a1b64e) — Focusable element has no keyboard trap via standard navigation                              | —                   | —                                                                         | 0 / 7      |
-| ✅          | [e086e5](https://act-rules.github.io/rules/e086e5) — Form field has non-empty accessible name                                                    | 1.3.1, 2.5.3, 4.1.2 | `aria-input-field-name`, `aria-toggle-field-name`, `label`, `select-name` | 16 / 19    |
+| ✅          | [e086e5](https://act-rules.github.io/rules/e086e5) — Form field has non-empty accessible name                                                    | 1.3.1, 2.5.3, 4.1.2 | `aria-input-field-name`, `aria-toggle-field-name`, `label`, `select-name` | 19 / 19    |
 | ❌          | [cc0f0a](https://act-rules.github.io/rules/cc0f0a) — Form field label is descriptive                                                             | 2.4.6               | —                                                                         | 0 / 13     |
 | ✅          | [a25f45](https://act-rules.github.io/rules/a25f45) — Headers attribute specified on a cell refers to cells in the same table element             | 1.3.1               | `td-headers-attr`                                                         | 12 / 12    |
 | ✅          | [ffd0e9](https://act-rules.github.io/rules/ffd0e9) — Heading has non-empty accessible name                                                       | —                   | `empty-heading`                                                           | 0 / 13     |

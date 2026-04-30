@@ -133,6 +133,7 @@ const rulesToIgnore = [
   "bc4a75", // ARIA required owned elements - not implemented
   "ff89c9", // ARIA required context role - not implemented
   "307n5z", // Element with presentational children has no focusable content - not implemented
+  "kb1m8s", // ARIA global properties not used where prohibited - not implemented
 
   // --- Not implemented - link and form rules ---
   "5effbb", // Link in context is descriptive - not implemented, requires human judgment

@@ -12,14 +12,38 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
-      contents: read
+      contents: write
       checks: write
       id-token: write
     steps:
       - uses: actions/checkout@v6
+        with:
+          # On PRs, check out the head ref directly (not the merge commit) so
+          # any regenerated files can be pushed back to the source branch.
+          ref: ${{ github.head_ref || github.ref }}
       - uses: actions/setup-node@v6
         with:
           node-version: 22
       - run: npm ci
+      - name: Sync ACT testcases and fixtures from upstream
+        run: npm run sync:testcases
+      - name: Regenerate ACT test files
+        run: node generate-act-tests.js
+      - name: Regenerate README
+        run: npm run build:readme
       - run: npx playwright install --with-deps
-      - run: npm run test
+      - run: npm test
+      - name: Commit refreshed ACT data to PR branch
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        env:
+          BRANCH: ${{ github.head_ref }}
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No regenerated files to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A testcases.json README.md tests/act/fixtures tests/act/tests
+          git commit -m "Sync ACT testcases and regenerate tests / README"
+          git push origin "HEAD:${BRANCH}"
