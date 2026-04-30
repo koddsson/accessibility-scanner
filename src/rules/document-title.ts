@@ -5,28 +5,19 @@ const text = "Documents must have <title> element to aid in navigation";
 const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 export default function (element: Element): AccessibilityError[] {
-  if (!element) {
-    return [];
-  }
   const document = element.ownerDocument;
-  if (!document) {
-    return [];
-  }
-  const titleElements = document.querySelectorAll("title");
+  if (!document) return [];
 
-  // Check if there is at least one <title> element
-  if (titleElements.length === 0) {
+  // ACT 2779a5 considers only the first <title> in document order — a later
+  // non-empty <title> can't compensate for an empty first one.
+  const firstTitle = document.querySelector("title");
+  if (!firstTitle) {
     return [{ id, element: document.documentElement, url, text }];
   }
 
-  // Check that at least one <title> element has non-empty text content
-  for (const titleElement of titleElements) {
-    const titleText = titleElement.textContent?.trim();
-    if (titleText && titleText.length > 0) {
-      return [];
-    }
+  if ((firstTitle.textContent ?? "").trim().length === 0) {
+    return [{ id, element: document.documentElement, url, text }];
   }
 
-  // All <title> elements are empty
-  return [{ id, element: document.documentElement, url, text }];
+  return [];
 }

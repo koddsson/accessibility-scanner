@@ -8,10 +8,10 @@ Implementation status against the [ACT Rules Community Group](https://act-rules.
 
 The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines/act/implementations/) only counts a rule as "consistently implemented" when the implementation passes every published ACT test case for it. By that measure:
 
-- **17** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
+- **18** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
 - **14** more rules pass at least one test case but not all.
 - **53 / 88** ACT rules have some scanner implementation, even if untested.
-- **263 / 843** ACT test cases (31%) are exercised against the scanner.
+- **275 / 843** ACT test cases (33%) are exercised against the scanner.
 
 | Implemented | ACT Rule                                                                                                                                         | WCAG                | axe-core rule(s)                                                          | Test cases |
 | :---------- | :----------------------------------------------------------------------------------------------------------------------------------------------- | :------------------ | :------------------------------------------------------------------------ | :--------- |
@@ -57,7 +57,7 @@ The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines
 | ❌          | [0va7u6](https://act-rules.github.io/rules/0va7u6) — HTML images contain no text                                                                 | 1.4.5, 1.4.9        | —                                                                         | 0 / 13     |
 | ✅          | [bf051a](https://act-rules.github.io/rules/bf051a) — HTML page `lang` attribute has valid language tag                                           | 3.1.1               | `html-lang-valid`                                                         | 6 / 6      |
 | ✅          | [b5c3f8](https://act-rules.github.io/rules/b5c3f8) — HTML page has lang attribute                                                                | 3.1.1               | `html-has-lang`                                                           | 5 / 5      |
-| ✅          | [2779a5](https://act-rules.github.io/rules/2779a5) — HTML page has non-empty title                                                               | 2.4.2               | `document-title`                                                          | 0 / 12     |
+| ✅          | [2779a5](https://act-rules.github.io/rules/2779a5) — HTML page has non-empty title                                                               | 2.4.2               | `document-title`                                                          | 12 / 12    |
 | ❌          | [ucwvc8](https://act-rules.github.io/rules/ucwvc8) — HTML page language subtag matches default language                                          | 3.1.1               | —                                                                         | 0 / 9      |
 | ❌          | [c4a8a4](https://act-rules.github.io/rules/c4a8a4) — HTML page title is descriptive                                                              | 2.4.2               | —                                                                         | 0 / 6      |
 | ✅          | [cae760](https://act-rules.github.io/rules/cae760) — Iframe element has non-empty accessible name                                                | 4.1.2               | `frame-title`                                                             | 0 / 7      |

@@ -143,7 +143,6 @@ const rulesToIgnore = [
   "cc0f0a", // Form field label is descriptive - not implemented, requires human judgment
 
   // --- Not implemented - page-level and structural rules ---
-  "2779a5", // HTML page has non-empty title - not implemented in ACT test format
   "off6ek", // HTML element language subtag matches language - not implemented
   "ucwvc8", // HTML page language subtag matches default language - not implemented
   "c4a8a4", // HTML page title is descriptive - not implemented, requires human judgment
@@ -279,6 +278,7 @@ const skippedExamples = [
 // as input, because they perform page-level checks.
 const rulesRequiringDocumentElement = [
   "047fe0", // Document has heading
+  "2779a5", // HTML page has non-empty title (lives in <head>)
   "3e12e1", // Block of repeated content is collapsible
   "bc659a", // Meta element has no refresh delay (lives in <head>)
   "bisz58", // Meta element has no refresh delay, no exception (lives in <head>)
