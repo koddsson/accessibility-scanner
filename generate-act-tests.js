@@ -11,8 +11,14 @@ const rulesData = JSON.parse(await readFile("./rules.json", "utf8"));
 // reference it.  Each entry in rules.json can list one-or-more ACT rule IDs
 // inside its "ACT Rules" field (markdown links like "[id](url)").  The scanner
 // error URL for a rule is its `url` field without the query string.
+//
+// Rules in the "Custom Rules (Experimental)" section are not part of the
+// default rule set, so generated tests must explicitly import and pass them
+// to `scan`.  Track those scanner rule IDs per ACT rule ID.
 const actRuleIdToExpectedUrls = {};
-for (const section of Object.values(rulesData)) {
+const actRuleIdToCustomRuleIds = {};
+const CUSTOM_SECTION = "Custom Rules (Experimental)";
+for (const [sectionName, section] of Object.entries(rulesData)) {
   for (const rule of section.rules) {
     const actField = rule["ACT Rules"];
     if (!actField) continue;
@@ -28,8 +34,21 @@ for (const section of Object.values(rulesData)) {
       if (!actRuleIdToExpectedUrls[actId].includes(cleanUrl)) {
         actRuleIdToExpectedUrls[actId].push(cleanUrl);
       }
+      if (sectionName === CUSTOM_SECTION) {
+        if (!actRuleIdToCustomRuleIds[actId]) {
+          actRuleIdToCustomRuleIds[actId] = [];
+        }
+        if (!actRuleIdToCustomRuleIds[actId].includes(rule.id)) {
+          actRuleIdToCustomRuleIds[actId].push(rule.id);
+        }
+      }
     }
   }
+}
+
+// Convert a scanner rule id (kebab-case) to a JS identifier (camelCase).
+function ruleIdToIdent(ruleId) {
+  return ruleId.replace(/-([a-z0-9])/g, (_, c) => c.toUpperCase());
 }
 
 const applicableRules = testcases.filter(
@@ -208,9 +227,6 @@ const skippedExamples = [
   // [e88epe] decorative-image: scanner does not analyse canvas visual content
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/e88epe/6d108d00cc7a54f66547f02d7e7606342b11f801.html",
 
-  // [e086e5] form-field-name: label rule intentionally skips disabled inputs
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/e086e5/5c0ba53d53cc9fd8627f224b39db30bd9ffa5757.html",
-
   // [80f0bf] no-autoplay-audio: scanner can't detect short media duration from URL fragment (#t=8,10)
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/80f0bf/e4d78b5074773ab0cbd8c72732e948c4608f5c9d.html",
 
@@ -219,17 +235,6 @@ const skippedExamples = [
 
   // [2ee8b8] label-content-name-mismatch: scanner cannot detect icon fonts (requires CSS rendering)
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/2ee8b8/efa9543339cdad5412c7719b266a633a29ce149e.html",
-
-  // [de46e4] valid-lang: scanner doesn't detect invalid lang subtags on non-root elements
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/de46e4/49b66676ed867c75368e31c1e06b28255df8089e.html",
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/de46e4/50e733e0c505a556fc53e6265eb5b432823570f7.html",
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/de46e4/5ba0306adadd581e4331b9415c2ef9f8ecccc0f2.html",
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/de46e4/61f81c57325a77a89481f036e4e2116399fb6714.html",
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/de46e4/78de8b1ca470302aebb53065c32eddf08da008b5.html",
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/de46e4/795698c08fc5d404b649d0c367bedc3e83462d43.html",
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/de46e4/915cdae554a817caa4792101fde1adf14563227d.html",
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/de46e4/b1765660b28464b5a73e502ef30b7370ba294ff5.html",
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/de46e4/d8ba52b5fa5e123def1f778821219aaec20ca0fe.html",
 
   // [0ssw9k] scrollable-region-focusable: DOMParser has no layout engine so
   // getComputedStyle and scrollHeight/clientHeight cannot detect scrollability
@@ -355,8 +360,26 @@ for (const rule of applicableRules) {
     ? "document.documentElement"
     : "document.body";
 
+  // Custom (experimental) rules aren't part of the default rule set, so they
+  // must be imported and passed explicitly to `scan` for these test cases.
+  const customRuleIds = actRuleIdToCustomRuleIds[ruleId] || [];
+  const customImports = customRuleIds
+    .map(
+      (rid) =>
+        `import ${ruleIdToIdent(rid)} from "../../../../src/rules/${rid}";`,
+    )
+    .join("\n");
+  const scanRulesArg =
+    customRuleIds.length > 0
+      ? `, [...allRules, ${customRuleIds.map(ruleIdToIdent).join(", ")}]`
+      : "";
+  const baseImport =
+    customRuleIds.length > 0
+      ? `import { scan, allRules } from "../../../../src/scanner";`
+      : `import { scan } from "../../../../src/scanner";`;
+
   const suite = `import { expect } from "@open-wc/testing";
-import { scan } from "../../../../src/scanner";
+${baseImport}${customImports ? "\n" + customImports : ""}
 
 const parser = new DOMParser();
 
@@ -364,7 +387,7 @@ describe("[${ruleId}]${ruleName}", function () {
   ${itFn}("${testcaseTitle} (${exampleURL})", async () => {
     const document = parser.parseFromString(\`${html}\`, 'text/html');
 
-    const results = (await scan(${scanTarget})).map(({ text, url }) => {
+    const results = (await scan(${scanTarget}${scanRulesArg})).map(({ text, url }) => {
       return { text, url };
     });
 

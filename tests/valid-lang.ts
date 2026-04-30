@@ -50,7 +50,7 @@ describe("valid-lang", function () {
       expect(results).to.eql([
         {
           text: "Ensures lang attributes have valid values",
-          url: "https://act-rules.github.io/rules/de46e4",
+          url: "https://dequeuniversity.com/rules/axe/4.11/valid-lang",
         },
       ]);
     });
@@ -66,7 +66,7 @@ describe("valid-lang", function () {
       expect(results).to.eql([
         {
           text: "Ensures lang attributes have valid values",
-          url: "https://act-rules.github.io/rules/de46e4",
+          url: "https://dequeuniversity.com/rules/axe/4.11/valid-lang",
         },
       ]);
     });
@@ -78,7 +78,7 @@ describe("valid-lang", function () {
       const results = await scanner.scan(container);
 
       expect(results).to.have.lengthOf(1);
-      expect(results[0]).to.have.property("id", "de46e4");
+      expect(results[0]).to.have.property("id", "valid-lang");
       expect(results[0]).to.have.property("text");
       expect(results[0]).to.have.property("url");
       expect(results[0]).to.have.property("element");

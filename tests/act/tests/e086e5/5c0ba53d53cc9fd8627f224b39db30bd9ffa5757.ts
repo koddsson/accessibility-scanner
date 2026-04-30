@@ -4,7 +4,7 @@ import { scan } from "../../../../src/scanner";
 const parser = new DOMParser();
 
 describe("[e086e5]Form field has non-empty accessible name", function () {
-  it.skip("Failed Example 2 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/e086e5/5c0ba53d53cc9fd8627f224b39db30bd9ffa5757.html)", async () => {
+  it("Failed Example 2 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/e086e5/5c0ba53d53cc9fd8627f224b39db30bd9ffa5757.html)", async () => {
     const document = parser.parseFromString(`<!DOCTYPE html>
 <html lang="en">
 <head>
