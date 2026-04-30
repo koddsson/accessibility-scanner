@@ -21,6 +21,12 @@ jobs:
           # On PRs, check out the head ref directly (not the merge commit) so
           # any regenerated files can be pushed back to the source branch.
           ref: ${{ github.head_ref || github.ref }}
+          # Use a PAT (when configured) so the auto-commit push triggers a
+          # follow-up CI run. Pushes authenticated with the default
+          # GITHUB_TOKEN deliberately don't trigger workflows, which leaves
+          # PRs stuck without status checks on the regenerated commit. Falls
+          # back to GITHUB_TOKEN on forks where the secret is unavailable.
+          token: ${{ secrets.CI_AUTOCOMMIT_PAT || secrets.GITHUB_TOKEN }}
       - uses: actions/setup-node@v6
         with:
           node-version: 22
