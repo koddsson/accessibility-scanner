@@ -7,6 +7,50 @@ const text =
 const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 const MAX_ALLOWED_DURATION_SECONDS = 3;
 
+// Parse a Media Fragments URI temporal range from a URL fragment, e.g.
+// "video.mp4#t=8,10". Returns the playback duration cap in seconds when both
+// start and end are provided, or `null` when the fragment doesn't bound the
+// playback length (open-ended, malformed, or absent).
+function durationFromMediaFragment(src: string | null): number | null {
+  if (!src) return null;
+  const hashIdx = src.indexOf("#");
+  if (hashIdx === -1) return null;
+  for (const param of src.slice(hashIdx + 1).split("&")) {
+    if (!param.startsWith("t=")) continue;
+    const [startStr, endStr] = param.slice(2).split(",");
+    if (endStr === undefined) return null;
+    const start = startStr === "" ? 0 : parseFloat(startStr);
+    const end = parseFloat(endStr);
+    if (isNaN(start) || isNaN(end)) return null;
+    return Math.max(0, end - start);
+  }
+  return null;
+}
+
+function getEffectiveDuration(
+  el: HTMLAudioElement | HTMLVideoElement,
+): number | null {
+  if (el.duration > 0 && !isNaN(el.duration)) return el.duration;
+
+  const srcs: string[] = [];
+  const ownSrc = el.getAttribute("src");
+  if (ownSrc) srcs.push(ownSrc);
+  for (const source of el.querySelectorAll<HTMLSourceElement>("source")) {
+    const s = source.getAttribute("src");
+    if (s) srcs.push(s);
+  }
+  if (srcs.length === 0) return null;
+
+  let maxDuration = 0;
+  for (const src of srcs) {
+    const dur = durationFromMediaFragment(src);
+    // If any source lacks a bounded fragment we can't prove the clip is short.
+    if (dur === null) return null;
+    if (dur > maxDuration) maxDuration = dur;
+  }
+  return maxDuration;
+}
+
 function hasAutoplayViolation(
   el: HTMLAudioElement | HTMLVideoElement,
 ): boolean {
@@ -25,10 +69,10 @@ function hasAutoplayViolation(
     return false;
   }
 
-  // If duration is 3 seconds or less, it's okay
-  // Note: duration might not be available until metadata is loaded
-  // For static analysis, we need to flag it as needing review
-  if (el.duration > 0 && el.duration <= MAX_ALLOWED_DURATION_SECONDS) {
+  // If duration is 3 seconds or less, it's okay. Falls back to the temporal
+  // media fragment range when metadata-derived duration is unavailable.
+  const duration = getEffectiveDuration(el);
+  if (duration !== null && duration <= MAX_ALLOWED_DURATION_SECONDS) {
     return false;
   }
 
