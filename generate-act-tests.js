@@ -217,9 +217,6 @@ const skippedExamples = [
   // [e88epe] decorative-image: scanner does not analyse canvas visual content
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/e88epe/6d108d00cc7a54f66547f02d7e7606342b11f801.html",
 
-  // [80f0bf] no-autoplay-audio: scanner can't detect short media duration from URL fragment (#t=8,10)
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/80f0bf/e4d78b5074773ab0cbd8c72732e948c4608f5c9d.html",
-
   // [80f0bf] no-autoplay-audio: scanner can't detect JavaScript-based control mechanisms
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/80f0bf/29ea904ef03f14401a7b43a5ffc9b30271697bc7.html",
 

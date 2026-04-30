@@ -4,7 +4,7 @@ import { scan } from "../../../../src/scanner";
 const parser = new DOMParser();
 
 describe("[80f0bf]Audio or video element avoids automatically playing audio", function () {
-  it.skip("Passed Example 2 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/80f0bf/e4d78b5074773ab0cbd8c72732e948c4608f5c9d.html)", async () => {
+  it("Passed Example 2 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/80f0bf/e4d78b5074773ab0cbd8c72732e948c4608f5c9d.html)", async () => {
     const document = parser.parseFromString(`<!DOCTYPE html>
 <html lang="en">
 <head>
