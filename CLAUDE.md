@@ -169,8 +169,17 @@ Compiled files are output to the `dist/src/` directory as specified in `package.
 - **Rules Data**: `rules.json` contains metadata about implemented rules
 - **Test Cases**: `testcases.json` contains test scenarios
 
+## ACT Test Cases — Source of Truth
+
+`testcases.json` is the **canonical source of truth** for which ACT rules and test cases this scanner is measured against. It is mirrored from the W3C ACT Task Force feed (`https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases.json`).
+
+- **Run `npm run sync:testcases` before starting work.** This pulls the latest upstream `testcases.json` so any rule additions, removals, or test case changes from the ACT Task Force are reflected before you make decisions about what to implement, skip, or update.
+- **Never hand-edit `testcases.json`.** It must only be modified by `npm run sync:testcases`. If something looks wrong, fix it upstream — do not patch the local file. The scanner's correctness is measured against this file, so editing it directly invalidates that signal.
+
 ## Notes for AI Agents
 
+- Always run `npm run sync:testcases` at the start of a session that touches ACT rules — it's the guiding light for what's correct.
+- Never modify `testcases.json` by hand. Treat it as read-only output of the sync script.
 - Always run `npm run format`, `npm test` and `npm run build:readme` before committing changes
 - The project follows TypeScript strict mode
 - Accessibility rules should follow WCAG 2.0 Level A & AA standards
