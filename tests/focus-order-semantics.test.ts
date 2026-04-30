@@ -251,6 +251,43 @@ describe("focus-order-semantics", function () {
 
       expect(results).to.be.empty;
     });
+
+    it("scrollable region with tabindex='0' (overflow: auto)", async () => {
+      // Per WCAG 2.1 SC 2.1.1, scrollable regions need to be focusable so
+      // keyboard users can scroll them — axe has a separate rule that
+      // *requires* this and exempts these from focus-order-semantics.
+      const container = await fixture(
+        html`<div tabindex="0" style="overflow: auto; max-height: 200px;">
+          Scrollable content
+        </div>`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.be.empty;
+    });
+
+    it("scrollable region with tabindex='0' (overflow-y: scroll)", async () => {
+      const container = await fixture(
+        html`<div
+          tabindex="0"
+          style="overflow-y: scroll; max-height: 200px;"
+        ></div>`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.be.empty;
+    });
+
+    it("scrollable region with tabindex='0' (overflow-x: auto)", async () => {
+      const container = await fixture(
+        html`<div tabindex="0" style="overflow-x: auto; max-width: 200px;">
+          Wide content
+        </div>`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.be.empty;
+    });
   });
 
   describe("edge cases", function () {

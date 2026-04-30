@@ -117,6 +117,25 @@ function getRole(element: Element): string | null {
 }
 
 /**
+ * A scrollable region (overflow: auto/scroll) intentionally needs tabindex="0"
+ * so keyboard users can scroll it (WCAG 2.1 SC 2.1.1). Exempt these from the
+ * rule — axe-core has a separate `scrollable-region-focusable` check that
+ * *requires* the tabindex here.
+ */
+function isScrollableOverflow(value: string): boolean {
+  return value === "auto" || value === "scroll";
+}
+
+function isScrollableRegion(element: Element): boolean {
+  if (!(element instanceof HTMLElement)) return false;
+  const computed = globalThis.getComputedStyle(element);
+  return (
+    isScrollableOverflow(computed.overflowY) ||
+    isScrollableOverflow(computed.overflowX)
+  );
+}
+
+/**
  * Check if an element is in the focus order
  */
 function isInFocusOrder(element: Element): boolean {
@@ -194,6 +213,10 @@ export default function focusOrderSemantics(
   for (const el of elementsWithTabindex) {
     // Only check elements that are in the focus order
     if (!isInFocusOrder(el)) {
+      continue;
+    }
+
+    if (isScrollableRegion(el)) {
       continue;
     }
 
