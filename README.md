@@ -11,7 +11,7 @@ The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines
 - **14** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
 - **16** more rules pass at least one test case but not all.
 - **53 / 88** ACT rules have some scanner implementation, even if untested.
-- **242 / 843** ACT test cases (29%) are exercised against the scanner.
+- **243 / 843** ACT test cases (29%) are exercised against the scanner.
 
 | Implemented | ACT Rule                                                                                                                                         | WCAG                | axe-core rule(s)                                                          | Test cases |
 | :---------- | :----------------------------------------------------------------------------------------------------------------------------------------------- | :------------------ | :------------------------------------------------------------------------ | :--------- |
@@ -26,7 +26,7 @@ The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines
 | ❌          | [e7aa44](https://act-rules.github.io/rules/e7aa44) — Audio element content has text alternative                                                  | 1.2.1               | —                                                                         | 0 / 5      |
 | ✅          | [2eb176](https://act-rules.github.io/rules/2eb176) — Audio element content has transcript                                                        | —                   | `audio-caption`                                                           | 0 / 9      |
 | ✅          | [afb423](https://act-rules.github.io/rules/afb423) — Audio element content is media alternative for text                                         | —                   | `audio-caption`                                                           | 0 / 5      |
-| ✅          | [80f0bf](https://act-rules.github.io/rules/80f0bf) — Audio or video element avoids automatically playing audio                                   | 1.4.2               | `no-autoplay-audio`                                                       | 3 / 5      |
+| ✅          | [80f0bf](https://act-rules.github.io/rules/80f0bf) — Audio or video element avoids automatically playing audio                                   | 1.4.2               | `no-autoplay-audio`                                                       | 4 / 5      |
 | ❌          | [4c31df](https://act-rules.github.io/rules/4c31df) — Audio or video element that plays automatically has a control mechanism                     | —                   | —                                                                         | 0 / 8      |
 | ❌          | [aaa1bf](https://act-rules.github.io/rules/aaa1bf) — Audio or video element that plays automatically has no audio that lasts more than 3 seconds | —                   | —                                                                         | 0 / 4      |
 | ✅          | [3e12e1](https://act-rules.github.io/rules/3e12e1) — Block of repeated content is collapsible                                                    | —                   | `bypass`                                                                  | 3 / 7      |
