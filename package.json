@@ -20,7 +20,8 @@
     "test": "npm run format && web-test-runner",
     "test:watch": "npm run format && web-test-runner --watch",
     "start": "web-dev-server",
-    "build:readme": "tsx generate-readme.ts"
+    "build:readme": "tsx generate-readme.ts",
+    "sync:testcases": "tsx scripts/sync-act-testcases.ts"
   },
   "files": [
     "dist/src/*"
@@ -39,7 +40,6 @@
     "@web/test-runner-junit-reporter": "^0.8.0",
     "@web/test-runner-playwright": "^0.11.0",
     "bottleneck": "^2.19.5",
-    "cheerio": "^1.0.0-rc.12",
     "eslint": "^10.0.3",
     "tablemark": "^4.1.0",
     "tsx": "^4.15.4",
