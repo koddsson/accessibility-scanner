@@ -184,6 +184,60 @@ describe("color-contrast", function () {
 
       expect(results).to.be.empty;
     });
+
+    it("does not flag wrappers that only aggregate descendant text", async () => {
+      // Decorative dot whose only "text" comes from a screen-reader-only span.
+      // Axe checks the element directly containing the text, not every ancestor.
+      const container = await fixture(
+        html`<div
+          style="background-color: oklch(0.546 0.245 262.881); width: 8px; height: 8px;"
+        >
+          <span
+            style="clip-path: inset(50%); position: absolute; width: 1px; height: 1px; overflow: hidden;"
+            >Click here to add devices</span
+          >
+        </div>`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.be.empty;
+    });
+
+    it("skips screen-reader-only elements (clip-path: inset(50%))", async () => {
+      const container = await fixture(
+        html`<span
+          style="clip-path: inset(50%); position: absolute; width: 1px; height: 1px; overflow: hidden; color: rgb(150, 150, 150); background-color: rgb(255, 255, 255);"
+          >Screen reader only text</span
+        >`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.be.empty;
+    });
+
+    it("skips screen-reader-only elements (clip: rect(0,0,0,0))", async () => {
+      const container = await fixture(
+        html`<span
+          style="clip: rect(0, 0, 0, 0); position: absolute; width: 1px; height: 1px; overflow: hidden; color: rgb(150, 150, 150); background-color: rgb(255, 255, 255);"
+          >Screen reader only text</span
+        >`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.be.empty;
+    });
+
+    it("skips 1x1 absolutely-positioned overflow:hidden elements", async () => {
+      const container = await fixture(
+        html`<span
+          style="position: absolute; width: 1px; height: 1px; overflow: hidden; color: rgb(150, 150, 150); background-color: rgb(255, 255, 255);"
+          >Screen reader only text</span
+        >`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.be.empty;
+    });
   });
 
   describe("handles edge cases", function () {
@@ -203,14 +257,14 @@ describe("color-contrast", function () {
     it("handles transparent background by inheriting from parent", async () => {
       const container = await fixture(
         html`<div style="background-color: rgb(0, 0, 0);">
-          <div style="color: rgb(150, 150, 150); background-color: transparent;">
+          <div style="color: rgb(50, 50, 50); background-color: transparent;">
             Text on transparent
           </div>
         </div>`,
       );
       const results = await scanner.scan(container);
 
-      // Against black background, gray text should have low contrast
+      // Dark gray text on (inherited) black background — low contrast.
       expect(results.length).to.be.greaterThan(0);
     });
 
