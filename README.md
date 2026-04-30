@@ -8,10 +8,10 @@ Implementation status against the [ACT Rules Community Group](https://act-rules.
 
 The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines/act/implementations/) only counts a rule as "consistently implemented" when the implementation passes every published ACT test case for it. By that measure:
 
-- **19** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
+- **20** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
 - **14** more rules pass at least one test case but not all.
 - **53 / 88** ACT rules have some scanner implementation, even if untested.
-- **287 / 843** ACT test cases (34%) are exercised against the scanner.
+- **296 / 843** ACT test cases (35%) are exercised against the scanner.
 
 | Implemented | ACT Rule                                                                                                                                         | WCAG                | axe-core rule(s)                                                          | Test cases |
 | :---------- | :----------------------------------------------------------------------------------------------------------------------------------------------- | :------------------ | :------------------------------------------------------------------------ | :--------- |
@@ -39,7 +39,7 @@ The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines
 | ✅          | [ye5d6e](https://act-rules.github.io/rules/ye5d6e) — Document has an instrument to move focus to non-repeated content                            | —                   | `bypass`                                                                  | 9 / 11     |
 | ✅          | [047fe0](https://act-rules.github.io/rules/047fe0) — Document has heading for non-repeated content                                               | —                   | `bypass`                                                                  | 10 / 13    |
 | ❌          | [oj04fd](https://act-rules.github.io/rules/oj04fd) — Element in sequential focus order has visible focus                                         | 2.4.7               | —                                                                         | 0 / 6      |
-| ✅          | [46ca7f](https://act-rules.github.io/rules/46ca7f) — Element marked as decorative is not exposed                                                 | —                   | `presentation-role-conflict`                                              | 0 / 9      |
+| ✅          | [46ca7f](https://act-rules.github.io/rules/46ca7f) — Element marked as decorative is not exposed                                                 | —                   | `presentation-role-conflict`                                              | 9 / 9      |
 | ✅          | [6cfa84](https://act-rules.github.io/rules/6cfa84) — Element with aria-hidden has no content in sequential focus navigation                      | 4.1.2               | `aria-hidden-focus`                                                       | 11 / 12    |
 | ✅          | [de46e4](https://act-rules.github.io/rules/de46e4) — Element with lang attribute has valid language tag                                          | 3.1.2               | `valid-lang`                                                              | 14 / 14    |
 | ✅          | [307n5z](https://act-rules.github.io/rules/307n5z) — Element with presentational children has no focusable content                               | 4.1.2               | `nested-interactive`                                                      | 0 / 9      |

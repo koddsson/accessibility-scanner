@@ -51,9 +51,12 @@ function ruleIdToIdent(ruleId) {
   return ruleId.replace(/-([a-z0-9])/g, (_, c) => c.toUpperCase());
 }
 
-const applicableRules = testcases.filter(
-  (rule) => rule.ruleAccessibilityRequirements,
-);
+// Some ACT rules ship with `ruleAccessibilityRequirements: null` (e.g.
+// 46ca7f, b40fd1) — they encode correctness of ARIA/landmark usage rather
+// than mapping directly to a WCAG SC. Keep them in the candidate set so
+// rules with a scanner mapping still get exercised; the per-testcase filter
+// below is what gates on `wcag*`/`aria*` keys when requirements exist.
+const applicableRules = testcases;
 
 const testCasesThatRedirect = [
   "0ae68e88f61e1bc6cc56f7a4ae1bcf852d68cde2",
@@ -151,6 +154,13 @@ const rulesToIgnore = [
   // "3e12e1", // Block of repeated content is collapsible — enabled for bypass rule ACT tests
 
   // --- Not implemented - various other rules ---
+  "2eb176", // Audio element content has transcript - not implemented
+  "a1b64e", // Focusable element has no keyboard trap via standard navigation - not implemented
+  "ab4d13", // Video element content is media alternative for text - not implemented
+  "afb423", // Audio element content is media alternative for text - not implemented
+  "b40fd1", // Document has a landmark with non-repeated content - bypass impl doesn't cover landmarks
+  "ebe86a", // Focusable element has no keyboard trap via non-standard navigation - not implemented
+  "fd26cf", // Video element visual-only content is media alternative for text - not implemented
   "73f2c2", // Autocomplete attribute has valid value - not implemented in ACT test format
   "4b1c6c", // Iframe elements with identical accessible names have equivalent purpose - not implemented
   "b49b2e", // Heading is descriptive - not implemented, requires human judgment
@@ -307,7 +317,10 @@ for (const rule of applicableRules) {
 
   // Accept WCAG-mapped requirements and ARIA name-calculation requirements
   // (ARIA 1.2 §5.2.8 corresponds to WCAG SC 4.1.2 Name, Role, Value).
+  // Null requirements fall through (handled via `applicableRules` widening
+  // above); when present, accept WCAG- and ARIA-mapped keys.
   if (
+    ruleAccessibilityRequirements &&
     Object.keys(ruleAccessibilityRequirements).every(
       (x) => !x.startsWith("wcag") && !x.startsWith("aria"),
     )
