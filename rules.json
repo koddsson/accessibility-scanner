@@ -524,6 +524,16 @@
       },
       {
         "implemented": "✅",
+        "id": "summary-name",
+        "url": "https://dequeuniversity.com/rules/axe/4.11/summary-name?application=RuleDescription",
+        "Description": "Ensures &lt;summary&gt; elements have discernible text",
+        "Impact": "Serious",
+        "Tags": "cat.name-role-value, wcag2a, wcag412, ACT",
+        "Issue Type": "failure",
+        "ACT Rules": "[2t702h](https://act-rules.github.io/rules/2t702h)"
+      },
+      {
+        "implemented": "✅",
         "id": "svg-img-alt",
         "url": "https://dequeuniversity.com/rules/axe/4.11/svg-img-alt?application=RuleDescription",
         "Description": "Ensures &lt;svg&gt; elements with an img, graphics-document or graphics-symbol role have an accessible text",
