@@ -8,10 +8,10 @@ Implementation status against the [ACT Rules Community Group](https://act-rules.
 
 The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines/act/implementations/) only counts a rule as "consistently implemented" when the implementation passes every published ACT test case for it. By that measure:
 
-- **16** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
+- **17** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
 - **14** more rules pass at least one test case but not all.
 - **53 / 88** ACT rules have some scanner implementation, even if untested.
-- **250 / 843** ACT test cases (30%) are exercised against the scanner.
+- **263 / 843** ACT test cases (31%) are exercised against the scanner.
 
 | Implemented | ACT Rule                                                                                                                                         | WCAG                | axe-core rule(s)                                                          | Test cases |
 | :---------- | :----------------------------------------------------------------------------------------------------------------------------------------------- | :------------------ | :------------------------------------------------------------------------ | :--------- |
@@ -51,7 +51,7 @@ The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines
 | ✅          | [e086e5](https://act-rules.github.io/rules/e086e5) — Form field has non-empty accessible name                                                    | 1.3.1, 2.5.3, 4.1.2 | `aria-input-field-name`, `aria-toggle-field-name`, `label`, `select-name` | 19 / 19    |
 | ❌          | [cc0f0a](https://act-rules.github.io/rules/cc0f0a) — Form field label is descriptive                                                             | 2.4.6               | —                                                                         | 0 / 13     |
 | ✅          | [a25f45](https://act-rules.github.io/rules/a25f45) — Headers attribute specified on a cell refers to cells in the same table element             | 1.3.1               | `td-headers-attr`                                                         | 12 / 12    |
-| ✅          | [ffd0e9](https://act-rules.github.io/rules/ffd0e9) — Heading has non-empty accessible name                                                       | —                   | `empty-heading`                                                           | 0 / 13     |
+| ✅          | [ffd0e9](https://act-rules.github.io/rules/ffd0e9) — Heading has non-empty accessible name                                                       | —                   | `empty-heading`                                                           | 13 / 13    |
 | ❌          | [b49b2e](https://act-rules.github.io/rules/b49b2e) — Heading is descriptive                                                                      | 2.4.6               | —                                                                         | 0 / 10     |
 | ❌          | [off6ek](https://act-rules.github.io/rules/off6ek) — HTML element language subtag matches language                                               | 3.1.2               | —                                                                         | 0 / 9      |
 | ❌          | [0va7u6](https://act-rules.github.io/rules/0va7u6) — HTML images contain no text                                                                 | 1.4.5, 1.4.9        | —                                                                         | 0 / 13     |
