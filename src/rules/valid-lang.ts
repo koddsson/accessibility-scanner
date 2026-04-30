@@ -17,8 +17,8 @@ function langIsValid(locale: string): boolean {
   }
 }
 
-const id = "de46e4";
-const url = `https://act-rules.github.io/rules/${id}`;
+const id = "valid-lang";
+const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 const text = "Ensures lang attributes have valid values";
 
 function getTexts(element: Element): string[] {

@@ -40,7 +40,8 @@ export default function (element: Element): AccessibilityError[] {
     if (labelledByIsValid(element)) continue;
     if (element.getAttribute("title")) continue;
     if (element.getAttribute("placeholder")) continue;
-    if (element.disabled) continue;
+    const role = element.getAttribute("role");
+    if (role === "none" || role === "presentation") continue;
     if (element.type === "submit") continue;
     if (element.type === "reset") continue;
 
