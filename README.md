@@ -10,7 +10,7 @@ The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines
 
 - **12** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
 - **18** more rules pass at least one test case but not all.
-- **54 / 90** ACT rules have some scanner implementation, even if untested.
+- **53 / 89** ACT rules have some scanner implementation, even if untested.
 - **230 / 835** ACT test cases (28%) are exercised against the scanner.
 
 | Implemented | ACT Rule                                                                                                                                         | WCAG                | axe-core rule(s)                                                          | Test cases |
@@ -59,7 +59,6 @@ The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines
 | ✅          | [bf051a](https://act-rules.github.io/rules/bf051a) — HTML page `lang` attribute has valid language tag                                           | 3.1.1               | `html-lang-valid`                                                         | 6 / 6      |
 | ✅          | [b5c3f8](https://act-rules.github.io/rules/b5c3f8) — HTML page has lang attribute                                                                | 3.1.1               | `html-has-lang`                                                           | 5 / 5      |
 | ✅          | [2779a5](https://act-rules.github.io/rules/2779a5) — HTML page has non-empty title                                                               | 2.4.2               | `document-title`                                                          | 0 / 12     |
-| ✅          | [5b7ae0](https://act-rules.github.io/rules/5b7ae0) — HTML page lang and xml:lang attributes have matching values _(deprecated)_                  | 3.1.1               | `html-xml-lang-mismatch`                                                  | —          |
 | ❌          | [ucwvc8](https://act-rules.github.io/rules/ucwvc8) — HTML page language subtag matches default language                                          | 3.1.1               | —                                                                         | 0 / 9      |
 | ❌          | [c4a8a4](https://act-rules.github.io/rules/c4a8a4) — HTML page title is descriptive                                                              | 2.4.2               | —                                                                         | 0 / 6      |
 | ✅          | [cae760](https://act-rules.github.io/rules/cae760) — Iframe element has non-empty accessible name                                                | 4.1.2               | `frame-title`                                                             | 0 / 7      |

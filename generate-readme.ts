@@ -79,12 +79,6 @@ const extraActRules: {
   status: "deprecated" | "proposed";
 }[] = [
   {
-    id: "5b7ae0",
-    name: "HTML page lang and xml:lang attributes have matching values",
-    wcag: ["3.1.1"],
-    status: "deprecated",
-  },
-  {
     id: "9eb3f6",
     name: "Image filename is accessible name for image",
     wcag: ["1.1.1"],
