@@ -177,17 +177,6 @@ const ignoredExamples = [
 // document what the scanner doesn't handle yet.  Unlike ignoredExamples
 // (which omit the test entirely), these remain visible as pending work.
 const skippedExamples = [
-  // [bc659a] meta-refresh: scanner doesn't detect meta refresh delays
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/bc659a/56857820788db21498e95a5cbba65d59a9a2b892.html",
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/bc659a/5d4d5b214459c8a0779600ab39a5668003271c62.html",
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/bc659a/96c7657d21888cd05edd297d44a8fd554b21c908.html",
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/bc659a/b2e7f3e00ffce0a2a1078f860452814e6445445d.html",
-
-  // [bisz58] letter-spacing-not-important: scanner doesn't detect !important style conflicts
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/bisz58/b8aad77e3ff2fa8d0272fac5362566ff79afad7f.html",
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/bisz58/d0672e81d17313f7ef156f3bc6e43c68143a5f45.html",
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/bisz58/ecc787569c06640f3748ae90e2b57fb51c1e22d8.html",
-
   // [c487ae] link-in-text-block: scanner doesn't detect links distinguished only by color
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/c487ae/3f34996d204260b1b0b50fc8f77b10ab640ba303.html",
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/c487ae/633d9136ef3e040b7653b287651c65e4302fe417.html",
@@ -291,6 +280,8 @@ const skippedExamples = [
 const rulesRequiringDocumentElement = [
   "047fe0", // Document has heading
   "3e12e1", // Block of repeated content is collapsible
+  "bc659a", // Meta element has no refresh delay (lives in <head>)
+  "bisz58", // Meta element has no refresh delay, no exception (lives in <head>)
   "cf77f2", // Bypass blocks of content
   "ye5d6e", // Document has an instrument to move focus to non-repeated content
 ];

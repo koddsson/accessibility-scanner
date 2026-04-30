@@ -12,7 +12,7 @@ describe("[bc659a]Meta element has no refresh delay", function () {
 </head>
 </html>`, 'text/html');
 
-    const results = (await scan(document.body)).map(({ text, url }) => {
+    const results = (await scan(document.documentElement)).map(({ text, url }) => {
       return { text, url };
     });
 

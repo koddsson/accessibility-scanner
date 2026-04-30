@@ -4,7 +4,7 @@ import { scan } from "../../../../src/scanner";
 const parser = new DOMParser();
 
 describe("[bc659a]Meta element has no refresh delay", function () {
-  it.skip("Failed Example 4 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/bc659a/5d4d5b214459c8a0779600ab39a5668003271c62.html)", async () => {
+  it("Failed Example 4 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/bc659a/5d4d5b214459c8a0779600ab39a5668003271c62.html)", async () => {
     const document = parser.parseFromString(`<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +15,7 @@ describe("[bc659a]Meta element has no refresh delay", function () {
 </body>
 </html>`, 'text/html');
 
-    const results = (await scan(document.body)).map(({ text, url }) => {
+    const results = (await scan(document.documentElement)).map(({ text, url }) => {
       return { text, url };
     });
 
