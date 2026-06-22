@@ -16,7 +16,7 @@ jobs:
       checks: write
       id-token: write
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           # On PRs, check out the head ref directly (not the merge commit) so
           # any regenerated files can be pushed back to the source branch.
