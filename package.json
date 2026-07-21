@@ -34,7 +34,7 @@
     "@koddsson/eslint-config": "^4.0.0",
     "@open-wc/testing": "^4.0.0",
     "@types/mocha": "^10.0.10",
-    "@web/dev-server": "^0.4.5",
+    "@web/dev-server": "^1.0.0",
     "@web/dev-server-esbuild": "^2.0.0",
     "@web/test-runner": "^1.0.0",
     "@web/test-runner-junit-reporter": "^0.8.0",
