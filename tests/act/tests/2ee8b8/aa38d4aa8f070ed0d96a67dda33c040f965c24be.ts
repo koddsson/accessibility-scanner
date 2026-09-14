@@ -4,14 +4,17 @@ import { scan } from "../../../../src/scanner";
 const parser = new DOMParser();
 
 describe("[2ee8b8]Visible label is part of accessible name", function () {
-  it("Failed Example 6 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/2ee8b8/20a5e321fc6a5cb2bfcd520acb8cda21e6925254.html)", async () => {
+  it("Passed Example 7 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/2ee8b8/aa38d4aa8f070ed0d96a67dda33c040f965c24be.html)", async () => {
     const document = parser.parseFromString(`<!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Failed Example 3</title>
+	<title>Passed Example 7</title>
 </head>
 <body>
-	<a href="/" aria-label="Proof of two multiplied by two is four">Proof of 2&times;2=4</a>
+	<button aria-label="Hello world">
+		<p>Hello</p>
+		<p>world</p>
+	</button>
 </body>
 </html>`, 'text/html');
 
@@ -19,8 +22,8 @@ describe("[2ee8b8]Visible label is part of accessible name", function () {
       return { text, url };
     });
 
-    expect(results).to.not.be.empty;
     const expectedUrls = ["https://dequeuniversity.com/rules/axe/4.11/label-content-name-mismatch"];
-    expect(results.some(r => expectedUrls.includes(r.url))).to.be.true;
+    const relevant = results.filter(r => expectedUrls.includes(r.url));
+    expect(relevant).to.be.empty;
   });
 });

@@ -4,7 +4,7 @@ import { scan } from "../../../../src/scanner";
 const parser = new DOMParser();
 
 describe("[0ssw9k]Scrollable content can be reached with sequential focus navigation", function () {
-  it("Passed Example 3 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/0ssw9k/c5f649f91ebe4979270972db7c42279a74efc6c5.html)", async () => {
+  it("Passed Example 3 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/0ssw9k/fa27b58829c18976ac66f3874f40c5be712fe64b.html)", async () => {
     const document = parser.parseFromString(`<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +13,7 @@ describe("[0ssw9k]Scrollable content can be reached with sequential focus naviga
 <body>
 	<style>
 		dialog:-internal-dialog-in-top-layer::backdrop {
-	    		background: rgba(1, 1, 1, 0.8);
+			background: rgba(1, 1, 1, 0.8);
 		}
 	</style>
 	<section style="height: 100px; width: 500px; overflow: scroll;" tabindex="0">
@@ -38,11 +38,11 @@ describe("[0ssw9k]Scrollable content can be reached with sequential focus naviga
 	</dialog>
 	<script>
 		const openDialog = () => {
-			ppDialog.showModal();
+			ppDialog.showModal()
 			myFrame.tabIndex = '-1'
 		}
-		ppDialog.addEventListener('close', () => myFrame.tabIndex = 0)
-		window.addEventListener('DOMContentLoaded', openDialog);
+		ppDialog.addEventListener('close', () => (myFrame.tabIndex = 0))
+		window.addEventListener('DOMContentLoaded', openDialog)
 	</script>
 </body>
 </html>`, 'text/html');

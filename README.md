@@ -11,7 +11,7 @@ The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines
 - **20** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
 - **14** more rules pass at least one test case but not all.
 - **53 / 88** ACT rules have some scanner implementation, even if untested.
-- **296 / 843** ACT test cases (35%) are exercised against the scanner.
+- **317 / 865** ACT test cases (37%) are exercised against the scanner.
 
 | Implemented | ACT Rule                                                                                                                                         | WCAG                | axe-core rule(s)                                                          | Test cases |
 | :---------- | :----------------------------------------------------------------------------------------------------------------------------------------------- | :------------------ | :------------------------------------------------------------------------ | :--------- |
@@ -43,7 +43,7 @@ The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines
 | ✅          | [6cfa84](https://act-rules.github.io/rules/6cfa84) — Element with aria-hidden has no content in sequential focus navigation                      | 4.1.2               | `aria-hidden-focus`                                                       | 11 / 12    |
 | ✅          | [de46e4](https://act-rules.github.io/rules/de46e4) — Element with lang attribute has valid language tag                                          | 3.1.2               | `valid-lang`                                                              | 14 / 14    |
 | ✅          | [307n5z](https://act-rules.github.io/rules/307n5z) — Element with presentational children has no focusable content                               | 4.1.2               | `nested-interactive`                                                      | 0 / 9      |
-| ✅          | [4e8ab6](https://act-rules.github.io/rules/4e8ab6) — Element with role attribute has required states and properties                              | 1.3.1, 4.1.2        | `aria-required-attr`                                                      | 0 / 11     |
+| ✅          | [4e8ab6](https://act-rules.github.io/rules/4e8ab6) — Element with role attribute has required states and properties                              | 1.3.1, 4.1.2        | `aria-required-attr`                                                      | 0 / 12     |
 | ✅          | [36b590](https://act-rules.github.io/rules/36b590) — Error message describes invalid form field value                                            | 3.3.1               | `error-message`                                                           | 8 / 8      |
 | ❌          | [80af7b](https://act-rules.github.io/rules/80af7b) — Focusable element has no keyboard trap                                                      | 2.1.2               | —                                                                         | 0 / 12     |
 | ❌          | [ebe86a](https://act-rules.github.io/rules/ebe86a) — Focusable element has no keyboard trap via non-standard navigation                          | —                   | —                                                                         | 0 / 6      |
@@ -101,7 +101,7 @@ The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines
 | ❌          | [d7ba54](https://act-rules.github.io/rules/d7ba54) — Video element visual-only content has audio track alternative                               | —                   | —                                                                         | 0 / 3      |
 | ❌          | [ee13b5](https://act-rules.github.io/rules/ee13b5) — Video element visual-only content has transcript                                            | 1.2.1, 1.3.1        | —                                                                         | 0 / 6      |
 | ❌          | [fd26cf](https://act-rules.github.io/rules/fd26cf) — Video element visual-only content is media alternative for text                             | —                   | —                                                                         | 0 / 5      |
-| ✅          | [2ee8b8](https://act-rules.github.io/rules/2ee8b8) — Visible label is part of accessible name                                                    | 2.5.3               | `label-content-name-mismatch`                                             | 10 / 11    |
+| ✅          | [2ee8b8](https://act-rules.github.io/rules/2ee8b8) — Visible label is part of accessible name                                                    | 2.5.3               | `label-content-name-mismatch`                                             | 31 / 32    |
 | ❌          | [59br37](https://act-rules.github.io/rules/59br37) — Zoomed text node is not clipped with CSS overflow                                           | 1.4.4               | —                                                                         | 0 / 9      |
 
 
