@@ -4,14 +4,14 @@ import { scan } from "../../../../src/scanner";
 const parser = new DOMParser();
 
 describe("[2ee8b8]Visible label is part of accessible name", function () {
-  it("Failed Example 6 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/2ee8b8/20a5e321fc6a5cb2bfcd520acb8cda21e6925254.html)", async () => {
+  it("Failed Example 16 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/2ee8b8/40838e577307be46e8de7e090faf04da7787f8b0.html)", async () => {
     const document = parser.parseFromString(`<!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Failed Example 3</title>
+	<title>Failed Example 16</title>
 </head>
 <body>
-	<a href="/" aria-label="Proof of two multiplied by two is four">Proof of 2&times;2=4</a>
+	<a aria-label="Download specification" href="#">Download <span aria-hidden="true">gizmo</span> specification</a>
 </body>
 </html>`, 'text/html');
 
