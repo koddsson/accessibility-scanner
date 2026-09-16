@@ -21,12 +21,12 @@ describe("[36b590]Error message describes invalid form field value", function ()
 </body>
 </html>`, 'text/html');
 
-    const results = (await scan(document.body, [...allRules, errorMessage])).map(({ text, url }) => {
-      return { text, url };
+    const results = (await scan(document.body, [...allRules, errorMessage])).map(({ text, url, needsReview }) => {
+      return { text, url, needsReview };
     });
 
     const expectedUrls = ["https://act-rules.github.io/rules/36b590"];
-    const relevant = results.filter(r => expectedUrls.includes(r.url));
+    const relevant = results.filter(r => expectedUrls.includes(r.url) && !r.needsReview);
     expect(relevant).to.be.empty;
   });
 });

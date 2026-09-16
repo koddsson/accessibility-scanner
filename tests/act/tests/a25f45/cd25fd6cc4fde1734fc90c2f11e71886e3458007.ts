@@ -27,8 +27,8 @@ describe("[a25f45]Headers attribute specified on a cell refers to cells in the s
 </body>
 </html>`, 'text/html');
 
-    const results = (await scan(document.body)).map(({ text, url }) => {
-      return { text, url };
+    const results = (await scan(document.body)).map(({ text, url, needsReview }) => {
+      return { text, url, needsReview };
     });
 
     expect(results).to.not.be.empty;

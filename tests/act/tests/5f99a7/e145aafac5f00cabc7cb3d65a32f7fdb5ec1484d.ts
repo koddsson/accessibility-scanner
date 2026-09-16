@@ -15,8 +15,8 @@ describe("[5f99a7]ARIA attribute is defined in WAI-ARIA", function () {
 </body>
 </html>`, 'text/html');
 
-    const results = (await scan(document.body)).map(({ text, url }) => {
-      return { text, url };
+    const results = (await scan(document.body)).map(({ text, url, needsReview }) => {
+      return { text, url, needsReview };
     });
 
     expect(results).to.not.be.empty;

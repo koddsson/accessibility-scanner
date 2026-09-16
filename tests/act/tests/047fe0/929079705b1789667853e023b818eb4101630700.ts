@@ -28,8 +28,8 @@ describe("[047fe0]Document has heading for non-repeated content", function () {
 	</body>
 </html>`, 'text/html');
 
-    const results = (await scan(document.documentElement)).map(({ text, url }) => {
-      return { text, url };
+    const results = (await scan(document.documentElement)).map(({ text, url, needsReview }) => {
+      return { text, url, needsReview };
     });
 
     expect(results).to.not.be.empty;

@@ -10,8 +10,8 @@ describe("[2779a5]HTML page has non-empty title", function () {
 	<iframe src="/WAI/content-assets/wcag-act-rules/test-assets/sc2-4-2-title-page-with-title.html"></iframe>
 </html>`, 'text/html');
 
-    const results = (await scan(document.documentElement)).map(({ text, url }) => {
-      return { text, url };
+    const results = (await scan(document.documentElement)).map(({ text, url, needsReview }) => {
+      return { text, url, needsReview };
     });
 
     expect(results).to.not.be.empty;

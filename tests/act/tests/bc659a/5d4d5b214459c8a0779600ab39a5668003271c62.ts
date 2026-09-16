@@ -15,8 +15,8 @@ describe("[bc659a]Meta element has no refresh delay", function () {
 </body>
 </html>`, 'text/html');
 
-    const results = (await scan(document.documentElement)).map(({ text, url }) => {
-      return { text, url };
+    const results = (await scan(document.documentElement)).map(({ text, url, needsReview }) => {
+      return { text, url, needsReview };
     });
 
     expect(results).to.not.be.empty;

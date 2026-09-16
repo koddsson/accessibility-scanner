@@ -15,8 +15,8 @@ describe("[akn7bn]Iframe with interactive elements is not excluded from tab-orde
 </body>
 </html>`, 'text/html');
 
-    const results = (await scan(document.body)).map(({ text, url }) => {
-      return { text, url };
+    const results = (await scan(document.body)).map(({ text, url, needsReview }) => {
+      return { text, url, needsReview };
     });
 
     expect(results).to.not.be.empty;

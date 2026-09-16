@@ -21,8 +21,8 @@ describe("[qt1vmo]Image accessible name is descriptive", function () {
 	</svg>
 </html>`, 'text/html');
 
-    const results = (await scan(document.body)).map(({ text, url }) => {
-      return { text, url };
+    const results = (await scan(document.body)).map(({ text, url, needsReview }) => {
+      return { text, url, needsReview };
     });
 
     expect(results).to.not.be.empty;

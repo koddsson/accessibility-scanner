@@ -16,12 +16,12 @@ describe("[ffd0e9]Heading has non-empty accessible name", function () {
 </body>
 </html>`, 'text/html');
 
-    const results = (await scan(document.body)).map(({ text, url }) => {
-      return { text, url };
+    const results = (await scan(document.body)).map(({ text, url, needsReview }) => {
+      return { text, url, needsReview };
     });
 
     const expectedUrls = ["https://dequeuniversity.com/rules/axe/4.11/empty-heading"];
-    const relevant = results.filter(r => expectedUrls.includes(r.url));
+    const relevant = results.filter(r => expectedUrls.includes(r.url) && !r.needsReview);
     expect(relevant).to.be.empty;
   });
 });

@@ -12,8 +12,8 @@ describe("[bisz58]Meta element has no refresh delay (no exception)", function ()
 </head>
 </html>`, 'text/html');
 
-    const results = (await scan(document.documentElement)).map(({ text, url }) => {
-      return { text, url };
+    const results = (await scan(document.documentElement)).map(({ text, url, needsReview }) => {
+      return { text, url, needsReview };
     });
 
     expect(results).to.not.be.empty;

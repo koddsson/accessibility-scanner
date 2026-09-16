@@ -31,8 +31,8 @@ describe("[3e12e1]Block of repeated content is collapsible", function () {
 	</body>
 </html>`, 'text/html');
 
-    const results = (await scan(document.documentElement)).map(({ text, url }) => {
-      return { text, url };
+    const results = (await scan(document.documentElement)).map(({ text, url, needsReview }) => {
+      return { text, url, needsReview };
     });
 
     expect(results).to.not.be.empty;

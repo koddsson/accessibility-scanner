@@ -21,8 +21,8 @@ describe("[36b590]Error message describes invalid form field value", function ()
 </body>
 </html>`, 'text/html');
 
-    const results = (await scan(document.body, [...allRules, errorMessage])).map(({ text, url }) => {
-      return { text, url };
+    const results = (await scan(document.body, [...allRules, errorMessage])).map(({ text, url, needsReview }) => {
+      return { text, url, needsReview };
     });
 
     expect(results).to.not.be.empty;

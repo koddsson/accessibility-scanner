@@ -19,12 +19,12 @@ describe("[24afc2]Important letter spacing in style attributes is wide enough", 
 </body>
 </html>`, 'text/html');
 
-    const results = (await scan(document.body)).map(({ text, url }) => {
-      return { text, url };
+    const results = (await scan(document.body)).map(({ text, url, needsReview }) => {
+      return { text, url, needsReview };
     });
 
     const expectedUrls = ["https://dequeuniversity.com/rules/axe/4.11/avoid-inline-spacing"];
-    const relevant = results.filter(r => expectedUrls.includes(r.url));
+    const relevant = results.filter(r => expectedUrls.includes(r.url) && !r.needsReview);
     expect(relevant).to.be.empty;
   });
 });

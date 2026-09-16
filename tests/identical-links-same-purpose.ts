@@ -44,6 +44,50 @@ describe("identical-links-same-purpose", function () {
       });
     });
 
+    it("marks results as needing review", async () => {
+      const element = await fixture(html`
+        <div>
+          <a href="/devices?ids=1,2,3">3 Devices</a>
+          <a href="/devices?ids=4,5,6">3 Devices</a>
+        </div>
+      `);
+
+      const results = await scanner.scan(element);
+
+      expect(results).to.have.lengthOf(1);
+      expect(results[0].needsReview).to.be.true;
+    });
+
+    it("compares the accessible name rather than raw text content", async () => {
+      const element = await fixture(html`
+        <div>
+          <a href="/users">Users</a>
+          <a href="/settings/users">Users <span aria-hidden="true">3</span></a>
+          <a href="/all-users"><img src="x.png" alt="Users" /></a>
+          <span id="lbl">Users</span>
+          <a href="/other-users" aria-labelledby="lbl">Ignored text</a>
+        </div>
+      `);
+
+      const results = await scanner.scan(element);
+
+      expect(results).to.have.lengthOf(3);
+    });
+
+    it("elements with role=link and no href have an unknown target", async () => {
+      const element = await fixture(html`
+        <div>
+          <span role="link" tabindex="0">Contact</span>
+          <a href="/contact">Contact</a>
+        </div>
+      `);
+
+      const results = await scanner.scan(element);
+
+      expect(results).to.have.lengthOf(1);
+      expect(results[0].needsReview).to.be.true;
+    });
+
     it("multiple links with same text but different hrefs flags all duplicates", async () => {
       const element = await fixture(html`
         <div>
@@ -73,6 +117,35 @@ describe("identical-links-same-purpose", function () {
       const results = (await scanner.scan(element)).map(({ text, url }) => {
         return { text, url };
       });
+
+      expect(results).to.be.empty;
+    });
+
+    it("hrefs differ textually but resolve to the same URL", async () => {
+      const element = await fixture(html`
+        <div>
+          <a href="/settings/users">Users</a>
+          <a href="${location.origin}/settings/users">Users</a>
+          <a href="/settings/users/">Users</a>
+          <a href="/settings/users/index.html">Users</a>
+        </div>
+      `);
+
+      const results = await scanner.scan(element);
+
+      expect(results).to.be.empty;
+    });
+
+    it("visible badge text differs but the accessible name is the same", async () => {
+      const element = await fixture(html`
+        <div>
+          <a href="/users">Users <span>3</span></a>
+          <a href="/users">Users <span>4</span></a>
+          <a href="/users" aria-label="Users">Members</a>
+        </div>
+      `);
+
+      const results = await scanner.scan(element);
 
       expect(results).to.be.empty;
     });
