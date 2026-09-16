@@ -22,6 +22,8 @@ const passes = [
       <article>Some sectioning content</article>
     </a>`,
   ),
+  await fixture(html`<a href="#" id="pass6" role="button"></a>`),
+  await fixture(html`<a href="#" id="pass7" role="tab"></a>`),
 ];
 
 const violations = [

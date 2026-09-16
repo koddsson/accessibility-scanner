@@ -106,6 +106,27 @@ describe("identical-links-same-purpose", function () {
       expect(results).to.be.empty;
     });
 
+    it("anchors have a role other than link", async () => {
+      const element = await fixture(html`
+        <div>
+          <nav><a href="/users">Users</a></nav>
+          <ul role="tablist">
+            <li role="presentation">
+              <a href="?tab=users" role="tab" aria-selected="true">Users</a>
+            </li>
+            <li role="presentation">
+              <a href="?tab=groups" role="tab">Groups</a>
+            </li>
+          </ul>
+          <a href="/open" role="button">Users</a>
+        </div>
+      `);
+
+      const results = await scanner.scan(element);
+
+      expect(results).to.be.empty;
+    });
+
     it("there are no links", async () => {
       const element = await fixture(html`
         <div>

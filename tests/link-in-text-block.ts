@@ -60,6 +60,19 @@ describe("link-in-text-block", function () {
   });
 
   describe("has no errors if", function () {
+    it("anchor has a role other than link", async () => {
+      const container = await fixture(html`
+        <p>
+          This is some text with a
+          <a href="#" role="button" style="text-decoration: none;">button</a>
+          that relies only on color.
+        </p>
+      `);
+      const results = await scanner.scan(container);
+
+      expect(results).to.be.empty;
+    });
+
     it("link has underline text decoration", async () => {
       const container = await fixture(html`
         <p>

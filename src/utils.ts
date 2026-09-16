@@ -45,6 +45,20 @@ export function isVisible(element: Element | null): boolean {
 }
 
 /**
+ * Whether the element is exposed with the `link` role. An explicit `role`
+ * attribute wins over the implicit role of `a[href]` / `area[href]`, so an
+ * anchor repurposed as a tab, button or menuitem is not a link.
+ */
+export function hasLinkRole(element: Element): boolean {
+  const isNativeLink = element.matches("a[href], area[href]");
+  const explicit = element.getAttribute("role")?.trim().split(/\s+/)[0];
+  if (!explicit) return isNativeLink;
+  if (explicit === "link") return true;
+  // Presentational roles are ignored on focusable elements, so a[href] stays a link.
+  return isNativeLink && (explicit === "none" || explicit === "presentation");
+}
+
+/**
  * Make sure that a elements text is "visible" to a screenreader user.
  *
  * - Inner text that is discernible to screen reader users.
