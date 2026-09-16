@@ -9,9 +9,9 @@ Implementation status against the [ACT Rules Community Group](https://act-rules.
 The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines/act/implementations/) only counts a rule as "consistently implemented" when the implementation passes every published ACT test case for it. By that measure:
 
 - **21** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
-- **14** more rules pass at least one test case but not all.
+- **15** more rules pass at least one test case but not all.
 - **53 / 88** ACT rules have some scanner implementation, even if untested.
-- **335 / 865** ACT test cases (39%) are exercised against the scanner.
+- **354 / 865** ACT test cases (41%) are exercised against the scanner.
 
 | Implemented | ACT Rule                                                                                                                                         | WCAG                | axe-core rule(s)                                                          | Test cases |
 | :---------- | :----------------------------------------------------------------------------------------------------------------------------------------------- | :------------------ | :------------------------------------------------------------------------ | :--------- |
@@ -19,7 +19,7 @@ The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines
 | ✅          | [5f99a7](https://act-rules.github.io/rules/5f99a7) — ARIA attribute is defined in WAI-ARIA                                                       | 1.3.1, 4.1.2        | `aria-valid-attr`                                                         | 7 / 7      |
 | ❌          | [kb1m8s](https://act-rules.github.io/rules/kb1m8s) — ARIA global properties not used where prohibited                                            | 1.3.1               | —                                                                         | 0 / 8      |
 | ✅          | [ff89c9](https://act-rules.github.io/rules/ff89c9) — ARIA required context role                                                                  | 1.3.1               | `aria-required-parent`                                                    | 0 / 10     |
-| ✅          | [bc4a75](https://act-rules.github.io/rules/bc4a75) — ARIA required owned elements                                                                | 1.3.1               | `aria-required-children`                                                  | 0 / 20     |
+| ✅          | [bc4a75](https://act-rules.github.io/rules/bc4a75) — ARIA required owned elements                                                                | 1.3.1               | `aria-required-children`                                                  | 19 / 20    |
 | ✅          | [6a7281](https://act-rules.github.io/rules/6a7281) — ARIA state or property has valid value                                                      | 1.3.1, 4.1.2        | `aria-valid-attr-value`                                                   | 0 / 17     |
 | ✅          | [5c01ea](https://act-rules.github.io/rules/5c01ea) — ARIA state or property is permitted                                                         | 1.3.1, 4.1.2        | `aria-allowed-attr`                                                       | 0 / 15     |
 | ❌          | [1a02b0](https://act-rules.github.io/rules/1a02b0) — Audio and visuals of video element have transcript                                          | 1.2.1, 1.2.8, 1.3.1 | —                                                                         | 0 / 8      |
