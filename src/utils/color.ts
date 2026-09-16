@@ -183,37 +183,92 @@ export function getContrastRatio(foreground: RGB, background: RGB): number {
   return (lighter + 0.05) / (darker + 0.05);
 }
 
+export interface EffectiveBackground {
+  color: RGB;
+  /** Element whose background-color was used, or null for the canvas. */
+  source: Element | null;
+  /** True when the element or an ancestor paints a background-image. */
+  hasImage: boolean;
+}
+
+// Approximation of the dark canvas browsers paint for `color-scheme: dark`
+// (Chromium uses #121212, Firefox #1c1b22, WebKit #1e1e1e).
+const DARK_CANVAS: RGB = { r: 18, g: 18, b: 18, a: 1 };
+const LIGHT_CANVAS: RGB = { r: 255, g: 255, b: 255, a: 1 };
+
+function getCanvasColor(document: Document): RGB {
+  const root = document.documentElement;
+  const view = document.defaultView;
+  if (!root || !view) return LIGHT_CANVAS;
+  const scheme = view.getComputedStyle(root).colorScheme?.split(/\s+/) ?? [];
+  const supportsDark = scheme.includes("dark");
+  const supportsLight = scheme.includes("light");
+  if (!supportsDark) return LIGHT_CANVAS;
+  if (!supportsLight) return DARK_CANVAS;
+  return view.matchMedia("(prefers-color-scheme: dark)").matches
+    ? DARK_CANVAS
+    : LIGHT_CANVAS;
+}
+
+function parentOrHost(element: Element): Element | null {
+  if (element.parentElement) return element.parentElement;
+  const root = element.getRootNode();
+  return root instanceof ShadowRoot ? root.host : null;
+}
+
 /**
- * Get the effective background color by traversing up the DOM tree
+ * Get the effective background by walking up the DOM (and out of shadow
+ * roots) until an opaque background-color is found, flattening any
+ * translucent layers on the way. Falls back to the canvas colour, which
+ * depends on the root element's color-scheme.
  */
-export function getEffectiveBackgroundColor(element: Element): RGB {
+export function getEffectiveBackground(element: Element): EffectiveBackground {
+  const translucentLayers: RGB[] = [];
+  let hasImage = false;
   let current: Element | null = element;
 
   while (current) {
     const computed = globalThis.getComputedStyle(current as HTMLElement);
-    const bgColor = computed.backgroundColor;
+    const bgImage = computed.backgroundImage;
+    if (bgImage && bgImage !== "none") hasImage = true;
 
-    if (
-      bgColor &&
-      bgColor !== "rgba(0, 0, 0, 0)" &&
-      bgColor !== "transparent"
-    ) {
-      const parsed = parseColor(bgColor);
-      if (parsed && (parsed.a === undefined || parsed.a > 0)) {
-        // If alpha is not fully opaque, we need to flatten against parent
-        if (parsed.a && parsed.a < 1 && current.parentElement) {
-          const parentBg = getEffectiveBackgroundColor(current.parentElement);
-          return flattenColor(parsed, parentBg);
-        }
-        return parsed;
+    const parsed = parseColor(computed.backgroundColor);
+    const alpha = parsed?.a ?? 1;
+    if (parsed && alpha > 0) {
+      if (alpha >= 1) {
+        return {
+          color: flattenLayers(translucentLayers, parsed),
+          source: current,
+          hasImage,
+        };
       }
+      translucentLayers.push(parsed);
     }
 
-    current = current.parentElement;
+    current = parentOrHost(current);
   }
 
-  // Default to white if no background is found
-  return { r: 255, g: 255, b: 255, a: 1 };
+  const canvas = getCanvasColor(element.ownerDocument);
+  return {
+    color: flattenLayers(translucentLayers, canvas),
+    source: null,
+    hasImage,
+  };
+}
+
+function flattenLayers(layers: RGB[], base: RGB): RGB {
+  let result = base;
+  for (let i = layers.length - 1; i >= 0; i--) {
+    result = flattenColor(layers[i], result);
+  }
+  return result;
+}
+
+/**
+ * Get the effective background color by traversing up the DOM tree
+ */
+export function getEffectiveBackgroundColor(element: Element): RGB {
+  return getEffectiveBackground(element).color;
 }
 
 /**

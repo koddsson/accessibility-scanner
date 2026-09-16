@@ -414,4 +414,68 @@ describe("color-contrast", function () {
       }
     });
   });
+
+  describe("background resolution", function () {
+    afterEach(() => {
+      document.documentElement.style.colorScheme = "";
+    });
+
+    it("uses the dark canvas when the root has color-scheme: dark", async () => {
+      document.documentElement.style.colorScheme = "dark";
+      const container = await fixture(
+        html`<span style="color: rgb(142, 128, 255)">Link</span>`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.be.empty;
+    });
+
+    it("uses a white canvas when no ancestor has a background", async () => {
+      const container = await fixture(
+        html`<span style="color: rgb(142, 128, 255)">Link</span>`,
+      );
+      const results = (await scanner.scan(container)) as any[];
+
+      expect(results).to.have.lengthOf(1);
+      expect(results[0].backgroundColor).to.equal("rgb(255, 255, 255)");
+      expect(results[0].backgroundSource).to.be.null;
+    });
+
+    it("reports which element supplied the background colour", async () => {
+      const container = await fixture(
+        html`<div id="bg" style="background-color: rgb(255, 255, 255);">
+          <p style="color: rgb(150, 150, 150);">Low contrast</p>
+        </div>`,
+      );
+      const results = (await scanner.scan(container)) as any[];
+
+      expect(results).to.have.lengthOf(1);
+      expect(results[0].backgroundSource).to.equal(container);
+    });
+
+    it("marks text over an ancestor's background image for review", async () => {
+      const container = await fixture(
+        html`<div
+          style="background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255));"
+        >
+          <p style="color: rgb(150, 150, 150);">Text on a gradient card</p>
+        </div>`,
+      );
+      const results = (await scanner.scan(container)) as any[];
+
+      expect(results).to.have.lengthOf(1);
+      expect(results[0].needsReview).to.be.true;
+    });
+
+    it("walks out of a shadow root to the host's background", async () => {
+      const host = await fixture(
+        html`<div style="background-color: rgb(0, 0, 0);"></div>`,
+      );
+      host.attachShadow({ mode: "open" }).innerHTML =
+        '<span style="color: rgb(200, 200, 200)">Shadow text</span>';
+      const results = await scanner.scan(host);
+
+      expect(results).to.be.empty;
+    });
+  });
 });
