@@ -15,7 +15,7 @@ function parseRefreshDelay(content: string | null): number | null {
   return parseInt(match[1], 10);
 }
 
-export default function (element: Element): AccessibilityError[] {
+export default function metaRefresh(element: Element): AccessibilityError[] {
   const selector = 'meta[http-equiv="refresh"]';
   const elements: HTMLMetaElement[] = element.matches(selector)
     ? [element as HTMLMetaElement]
@@ -31,3 +31,5 @@ export default function (element: Element): AccessibilityError[] {
   }
   return [];
 }
+
+metaRefresh.includeHidden = true;

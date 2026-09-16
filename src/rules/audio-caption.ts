@@ -5,7 +5,7 @@ const id = "audio-caption";
 const text = "<audio> elements must have a captions <track>";
 const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
-export default function (element: Element): AccessibilityError[] {
+export default function audioCaption(element: Element): AccessibilityError[] {
   const errors = [];
   const elements = querySelectorAll("audio", element);
   if (element.matches("audio")) {
@@ -23,3 +23,5 @@ export default function (element: Element): AccessibilityError[] {
 
   return errors;
 }
+
+audioCaption.includeHidden = true;

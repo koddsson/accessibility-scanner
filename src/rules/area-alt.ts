@@ -21,3 +21,5 @@ export function areaAlt(element_: Element): AccessibilityError[] {
   }
   return errors;
 }
+
+areaAlt.includeHidden = true;

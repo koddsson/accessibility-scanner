@@ -61,3 +61,5 @@ export default function metaViewport(element: Element) {
   }
   return errors;
 }
+
+metaViewport.includeHidden = true;

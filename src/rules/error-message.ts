@@ -116,7 +116,7 @@ function findCandidateErrorElements(form: Element): Element[] {
   return candidates;
 }
 
-export default function (element: Element): AccessibilityError[] {
+export default function errorMessage(element: Element): AccessibilityError[] {
   const errors: AccessibilityError[] = [];
 
   // Find all forms that contain at least one form field.
@@ -162,3 +162,5 @@ export default function (element: Element): AccessibilityError[] {
 
   return errors;
 }
+
+errorMessage.includeHidden = true;

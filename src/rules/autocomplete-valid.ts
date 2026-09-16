@@ -112,7 +112,9 @@ function isValidAutocomplete(value: string): boolean {
   return index === tokens.length;
 }
 
-export default function (element: Element): AccessibilityError[] {
+export default function autocompleteValid(
+  element: Element,
+): AccessibilityError[] {
   const errors: AccessibilityError[] = [];
 
   // Check input, select, and textarea elements
@@ -147,3 +149,5 @@ export default function (element: Element): AccessibilityError[] {
 
   return errors;
 }
+
+autocompleteValid.includeHidden = true;
