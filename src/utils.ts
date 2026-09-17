@@ -1,3 +1,5 @@
+import { getExplicitRole } from "./utils/roles";
+
 export function isVisible(element: Element | null): boolean {
   // Return false for null/undefined
   if (!element) {
@@ -51,7 +53,7 @@ export function isVisible(element: Element | null): boolean {
  */
 export function hasLinkRole(element: Element): boolean {
   const isNativeLink = element.matches("a[href], area[href]");
-  const explicit = element.getAttribute("role")?.trim().split(/\s+/)[0];
+  const explicit = getExplicitRole(element);
   if (!explicit) return isNativeLink;
   if (explicit === "link") return true;
   // Presentational roles are ignored on focusable elements, so a[href] stays a link.
