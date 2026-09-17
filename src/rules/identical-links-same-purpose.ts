@@ -1,5 +1,5 @@
 import { AccessibilityError } from "../scanner";
-import { querySelectorAll } from "../utils";
+import { hasLinkRole, querySelectorAll } from "../utils";
 
 const id = "identical-links-same-purpose";
 const text =
@@ -17,11 +17,12 @@ export default function (element: Element): AccessibilityError[] {
   const selector = "a[href]";
   const elements = querySelectorAll(selector, element);
   if (element.matches(selector)) elements.push(element);
+  const links = elements.filter((el) => hasLinkRole(el));
 
   // Group links by accessible name
   const linksByName = new Map<string, Array<{ el: Element; href: string }>>();
 
-  for (const el of elements) {
+  for (const el of links) {
     const name = getAccessibleName(el);
     if (!name) continue;
 

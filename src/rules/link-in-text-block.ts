@@ -1,5 +1,5 @@
 import { AccessibilityError } from "../scanner";
-import { querySelectorAll } from "../utils";
+import { hasLinkRole, querySelectorAll } from "../utils";
 
 const id = "link-in-text-block";
 const text =
@@ -154,6 +154,10 @@ export default function (element: Element): AccessibilityError[] {
 
   for (const link of links) {
     const anchor = link as HTMLAnchorElement;
+
+    if (!hasLinkRole(anchor)) {
+      continue;
+    }
 
     // Skip links inside navigation elements — navigation links are not
     // "links in text blocks" and should not be required to have non-color

@@ -1,3 +1,5 @@
+import { getExplicitRole } from "./utils/roles";
+
 export function isVisible(element: Element | null): boolean {
   // Return false for null/undefined
   if (!element) {
@@ -42,6 +44,20 @@ export function isVisible(element: Element | null): boolean {
   }
 
   return true;
+}
+
+/**
+ * Whether the element is exposed with the `link` role. An explicit `role`
+ * attribute wins over the implicit role of `a[href]` / `area[href]`, so an
+ * anchor repurposed as a tab, button or menuitem is not a link.
+ */
+export function hasLinkRole(element: Element): boolean {
+  const isNativeLink = element.matches("a[href], area[href]");
+  const explicit = getExplicitRole(element);
+  if (!explicit) return isNativeLink;
+  if (explicit === "link") return true;
+  // Presentational roles are ignored on focusable elements, so a[href] stays a link.
+  return isNativeLink && (explicit === "none" || explicit === "presentation");
 }
 
 /**

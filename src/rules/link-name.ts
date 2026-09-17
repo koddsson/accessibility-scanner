@@ -2,6 +2,7 @@ import { AccessibilityError } from "../scanner";
 import {
   querySelector,
   querySelectorAll,
+  hasLinkRole,
   isVisible,
   labelledByIsValid,
 } from "../utils";
@@ -18,6 +19,7 @@ export default function (element_: Element): AccessibilityError[] {
   }
   for (const element of elements) {
     if (!isVisible(element)) continue;
+    if (element.hasAttribute("role") && !hasLinkRole(element)) continue;
 
     if (
       element.hasAttribute("aria-label") &&
