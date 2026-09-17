@@ -46,3 +46,5 @@ export default function hiddenContent(element: Element): AccessibilityError[] {
 
   return errors;
 }
+
+hiddenContent.includeHidden = true;

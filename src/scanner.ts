@@ -97,6 +97,7 @@ import landmarkNoDuplicateContentinfo from "./rules/landmark-no-duplicate-conten
 import landmarkNoDuplicateMain from "./rules/landmark-no-duplicate-main";
 import landmarkMainIsTopLevel from "./rules/landmark-main-is-top-level";
 import region from "./rules/region";
+import { isVisible } from "./utils";
 
 export interface AccessibilityError {
   id: string;
@@ -109,7 +110,21 @@ export interface AccessibilityError {
 
 export type LogFn = (...data: unknown[]) => void;
 
-type Rule = (element: Element) => AccessibilityError[];
+export type Rule = ((element: Element) => AccessibilityError[]) & {
+  /**
+   * Findings on content that is not rendered (display: none, [hidden], a
+   * closed dialog) are dropped by default, since such content is not in the
+   * accessibility tree. Rules whose findings hold regardless, such as
+   * duplicate ids or head metadata, set this to true.
+   */
+  includeHidden?: boolean;
+};
+
+function runRule(rule: Rule, element: Element): AccessibilityError[] {
+  const errors = rule(element);
+  if (rule.includeHidden) return errors;
+  return errors.filter((error) => isVisible(error.element));
+}
 
 export const allRules: Rule[] = [
   accesskeys,
@@ -230,7 +245,7 @@ export async function requestIdleScan(
         log?.(deadline.timeRemaining(), deadline.didTimeout);
         const rule = rulesToProcess.shift()!;
         log?.(`Executing ${rule.name}`);
-        errors.push(...rule(element));
+        errors.push(...runRule(rule, element));
       }
 
       if (rulesToProcess.length > 0) {
@@ -249,7 +264,7 @@ export async function scan(
 ): Promise<AccessibilityError[]> {
   const errors: AccessibilityError[] = [];
   for (const rule of enabledRules) {
-    errors.push(...rule(element));
+    errors.push(...runRule(rule, element));
   }
 
   return errors;

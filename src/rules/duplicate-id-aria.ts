@@ -5,7 +5,9 @@ const id = "duplicate-id-aria";
 const text = "IDs used in ARIA and labels must be unique";
 const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
-export default function (element: Element): AccessibilityError[] {
+export default function duplicateIdAria(
+  element: Element,
+): AccessibilityError[] {
   const selector = "[aria-labelledby]";
   const errors = [];
   const elements = querySelectorAll(selector, element);
@@ -24,3 +26,5 @@ export default function (element: Element): AccessibilityError[] {
   }
   return errors;
 }
+
+duplicateIdAria.includeHidden = true;

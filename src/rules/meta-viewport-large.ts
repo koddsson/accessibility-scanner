@@ -44,3 +44,5 @@ export default function metaViewportLarge(element: Element) {
   }
   return errors;
 }
+
+metaViewportLarge.includeHidden = true;

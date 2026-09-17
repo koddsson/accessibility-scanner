@@ -4,7 +4,7 @@ const id = "document-title";
 const text = "Documents must have <title> element to aid in navigation";
 const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
-export default function (element: Element): AccessibilityError[] {
+export default function documentTitle(element: Element): AccessibilityError[] {
   const document = element.ownerDocument;
   if (!document) return [];
 
@@ -21,3 +21,5 @@ export default function (element: Element): AccessibilityError[] {
 
   return [];
 }
+
+documentTitle.includeHidden = true;

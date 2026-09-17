@@ -80,7 +80,9 @@ function hasAutoplayViolation(
   return true;
 }
 
-export default function (element: Element): AccessibilityError[] {
+export default function noAutoplayAudio(
+  element: Element,
+): AccessibilityError[] {
   const errors = [];
 
   // Query for both audio and video elements
@@ -122,3 +124,5 @@ export default function (element: Element): AccessibilityError[] {
 
   return errors;
 }
+
+noAutoplayAudio.includeHidden = true;

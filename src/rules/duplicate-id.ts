@@ -5,7 +5,7 @@ const id = "duplicate-id";
 const text = "IDs must be unique";
 const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
-export default function (element: Element): AccessibilityError[] {
+export default function duplicateId(element: Element): AccessibilityError[] {
   const selector = "[id]";
   const errors = [];
   const elements = querySelectorAll(selector, element);
@@ -44,3 +44,5 @@ export default function (element: Element): AccessibilityError[] {
 
   return errors;
 }
+
+duplicateId.includeHidden = true;

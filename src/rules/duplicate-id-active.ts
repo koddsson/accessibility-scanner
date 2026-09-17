@@ -20,7 +20,9 @@ const activeElementSelector = [
   "[tabindex]:not([tabindex='-1'])",
 ].join(",");
 
-export default function (element: Element): AccessibilityError[] {
+export default function duplicateIdActive(
+  element: Element,
+): AccessibilityError[] {
   const errors: AccessibilityError[] = [];
 
   // Get all active elements with IDs
@@ -64,3 +66,5 @@ export default function (element: Element): AccessibilityError[] {
 
   return errors;
 }
+
+duplicateIdActive.includeHidden = true;

@@ -20,7 +20,7 @@ const noRoleAllowed = new Set([
   "noscript",
 ]);
 
-export default function (el: Element): AccessibilityError[] {
+export default function ariaAllowedRole(el: Element): AccessibilityError[] {
   const errors: AccessibilityError[] = [];
   const selector = "[role]";
   const elements = querySelectorAll(selector, el);
@@ -38,3 +38,5 @@ export default function (el: Element): AccessibilityError[] {
   }
   return errors;
 }
+
+ariaAllowedRole.includeHidden = true;
