@@ -39,6 +39,8 @@ const violations = [
   ),
   await fixture(html`<a href="#" id="violation4" role="none"></a>`),
   await fixture(html`<a href="#" id="violation5" role="presentation"></a>`),
+  await fixture(html`<a href="#" id="violation6" role="typo"></a>`),
+  await fixture(html`<a href="#" id="violation7" role="typo link"></a>`),
 
   // await fixture(html`<span id="inapplicable1" role="link">Does not apply</span>`),
 ];

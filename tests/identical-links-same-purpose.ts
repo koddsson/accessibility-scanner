@@ -44,6 +44,20 @@ describe("identical-links-same-purpose", function () {
       });
     });
 
+    it("anchors with an unrecognised role keep their native link role", async () => {
+      const element = await fixture(html`
+        <div>
+          <a href="/page1">Click here</a>
+          <a href="/page2" role="typo">Click here</a>
+          <a href="/page3" role="typo link">Click here</a>
+        </div>
+      `);
+
+      const results = await scanner.scan(element);
+
+      expect(results).to.have.lengthOf(2);
+    });
+
     it("multiple links with same text but different hrefs flags all duplicates", async () => {
       const element = await fixture(html`
         <div>
