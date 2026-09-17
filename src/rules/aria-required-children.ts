@@ -1,53 +1,10 @@
 import { AccessibilityError } from "../scanner";
 import { querySelector, querySelectorAll } from "../utils";
+import { getRole } from "../utils/roles";
 
 const id = "aria-required-children";
 const text = "Certain ARIA roles must contain particular children";
 const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
-
-function getRole(el: Element): string | null {
-  // 1. Explicit role always wins
-  const explicit = el.getAttribute("role");
-  if (explicit) return explicit;
-
-  // 2. Common implicit role mappings
-  const tag = el.tagName.toLowerCase();
-  switch (tag) {
-    case "li": {
-      return "listitem";
-    }
-    case "ul":
-    case "ol": {
-      return "list";
-    }
-    case "table": {
-      return "table";
-    }
-    case "tr": {
-      return "row";
-    }
-    case "td": {
-      return "cell";
-    }
-    case "th": {
-      return el.getAttribute("scope") === "row" ? "rowheader" : "columnheader";
-    }
-    case "option": {
-      return "option";
-    }
-    case "select": {
-      return "listbox";
-    }
-    case "tbody":
-    case "thead":
-    case "tfoot": {
-      return "rowgroup";
-    }
-    default: {
-      return null;
-    }
-  }
-}
 
 // New helper to detect accessibility-tree boundaries
 function isInsideSeparateA11yTree(node: Element, container: Element): boolean {

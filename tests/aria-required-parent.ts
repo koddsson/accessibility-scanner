@@ -206,6 +206,22 @@ const passes = [
 
   // Element without required parent (e.g., button doesn't need parent)
   await fixture(html`<div role="button" id="pass23">Button</div>`),
+
+  // option wrapped in an li whose list role has been overridden
+  await fixture(
+    html`<ul role="listbox">
+      <li><a role="option" href="/a" id="pass-li-listbox">A</a></li>
+    </ul>`,
+  ),
+
+  // option in a table whose role has been overridden
+  await fixture(
+    html`<table role="listbox">
+      <tr>
+        <td role="option" id="pass-td-listbox">A</td>
+      </tr>
+    </table>`,
+  ),
 ];
 
 const violations = [

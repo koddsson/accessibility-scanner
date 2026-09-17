@@ -133,7 +133,6 @@ const rulesToIgnore = [
   "5c01ea", // ARIA state or property is permitted - not implemented
   "674b10", // Role attribute has valid value - not implemented
   "6a7281", // ARIA state or property has valid value - not implemented
-  "bc4a75", // ARIA required owned elements - not implemented
   "ff89c9", // ARIA required context role - not implemented
   "307n5z", // Element with presentational children has no focusable content - not implemented
   "kb1m8s", // ARIA global properties not used where prohibited - not implemented

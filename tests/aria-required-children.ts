@@ -145,6 +145,31 @@ const passes = [
       </div>
     </div>`,
   ),
+
+  await fixture(
+    html`<ul role="listbox" id="pass20">
+      <li><a role="option" href="/a">A</a></li>
+      <li><a role="option" href="/b">B</a></li>
+    </ul>`,
+  ),
+
+  await fixture(
+    html`<table role="listbox" id="pass21">
+      <tbody>
+        <tr>
+          <td role="option">A</td>
+        </tr>
+      </tbody>
+    </table>`,
+  ),
+
+  await fixture(
+    html`<table role="treegrid" id="pass22">
+      <tr>
+        <td>Item 1</td>
+      </tr>
+    </table>`,
+  ),
 ];
 
 const violations = [
@@ -212,6 +237,16 @@ const violations = [
     html`<div role="list" id="fail13" aria-busy="true">
       <div role="alert">unallowed role</div>
     </div>`,
+  ),
+  await fixture(
+    html`<ol role="tablist" id="fail14">
+      <li role="listitem">Item 1</li>
+    </ol>`,
+  ),
+  await fixture(
+    html`<ul role="tablist" id="fail15">
+      <li><span>Not a tab</span></li>
+    </ul>`,
   ),
 ];
 
