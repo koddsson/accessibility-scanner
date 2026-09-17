@@ -3,7 +3,7 @@ import { querySelectorAll } from "../utils";
 import {
   parseColor,
   getContrastRatio,
-  getEffectiveBackgroundColor,
+  getEffectiveBackground,
   isLargeText,
   formatColor,
   flattenColor,
@@ -20,6 +20,8 @@ interface ContrastError extends AccessibilityError {
   expectedRatio?: number;
   needsReview?: boolean;
   reviewReason?: string;
+  /** Element that supplied the background colour; null when it came from the canvas. */
+  backgroundSource?: Element | null;
 }
 
 /**
@@ -123,16 +125,6 @@ function shouldCheckContrast(element: Element): boolean {
   return true;
 }
 
-/**
- * Check if background might have image or gradient (needs manual review)
- */
-function hasComplexBackground(element: Element): boolean {
-  const computed = globalThis.getComputedStyle(element as HTMLElement);
-  const bgImage = computed.backgroundImage;
-
-  return bgImage !== "none" && bgImage !== "";
-}
-
 export default function (element: Element): ContrastError[] {
   const errors: ContrastError[] = [];
 
@@ -157,8 +149,8 @@ export default function (element: Element): ContrastError[] {
         continue;
       }
 
-      // Get effective background color
-      const bgColor = getEffectiveBackgroundColor(textElement);
+      const background = getEffectiveBackground(textElement);
+      const bgColor = background.color;
 
       // Flatten foreground color if it has alpha
       const flattenedFg =
@@ -175,7 +167,7 @@ export default function (element: Element): ContrastError[] {
 
       // Check if contrast meets threshold
       if (contrastRatio < threshold) {
-        const hasComplex = hasComplexBackground(textElement);
+        const hasComplex = background.hasImage;
 
         errors.push({
           id,
@@ -188,8 +180,9 @@ export default function (element: Element): ContrastError[] {
           expectedRatio: threshold,
           needsReview: hasComplex,
           reviewReason: hasComplex
-            ? "Element has background image or gradient - manual review recommended"
+            ? "Element or an ancestor has a background image or gradient - manual review recommended"
             : undefined,
+          backgroundSource: background.source,
         });
       }
     } catch {
