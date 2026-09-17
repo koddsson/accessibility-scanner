@@ -16,12 +16,12 @@ describe("[eac66b]Video element auditory content has accessible alternative", fu
 	<video src="/WAI/content-assets/wcag-act-rules/test-assets/perspective-video/perspective-video.mp4" controls></video>
 </html>`, 'text/html');
 
-    const results = (await scan(document.body)).map(({ text, url }) => {
-      return { text, url };
+    const results = (await scan(document.body)).map(({ text, url, needsReview }) => {
+      return { text, url, needsReview };
     });
 
     const expectedUrls = ["https://dequeuniversity.com/rules/axe/4.11/video-caption"];
-    const relevant = results.filter(r => expectedUrls.includes(r.url));
+    const relevant = results.filter(r => expectedUrls.includes(r.url) && !r.needsReview);
     expect(relevant).to.be.empty;
   });
 });

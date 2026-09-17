@@ -8,10 +8,10 @@ Implementation status against the [ACT Rules Community Group](https://act-rules.
 
 The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines/act/implementations/) only counts a rule as "consistently implemented" when the implementation passes every published ACT test case for it. By that measure:
 
-- **20** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
+- **21** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
 - **14** more rules pass at least one test case but not all.
 - **53 / 88** ACT rules have some scanner implementation, even if untested.
-- **317 / 865** ACT test cases (37%) are exercised against the scanner.
+- **335 / 865** ACT test cases (39%) are exercised against the scanner.
 
 | Implemented | ACT Rule                                                                                                                                         | WCAG                | axe-core rule(s)                                                          | Test cases |
 | :---------- | :----------------------------------------------------------------------------------------------------------------------------------------------- | :------------------ | :------------------------------------------------------------------------ | :--------- |
@@ -75,7 +75,7 @@ The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines
 | ❌          | [5effbb](https://act-rules.github.io/rules/5effbb) — Link in context is descriptive                                                              | 2.4.4, 2.4.9        | —                                                                         | 0 / 15     |
 | ❌          | [aizyf1](https://act-rules.github.io/rules/aizyf1) — Link is descriptive                                                                         | 2.4.9               | —                                                                         | 0 / 9      |
 | ❌          | [fd3a94](https://act-rules.github.io/rules/fd3a94) — Links with identical accessible names and same context serve equivalent purpose             | 2.4.4, 2.4.9        | —                                                                         | 0 / 17     |
-| ✅          | [b20e66](https://act-rules.github.io/rules/b20e66) — Links with identical accessible names have equivalent purpose                               | 2.4.9               | `identical-links-same-purpose`                                            | 0 / 18     |
+| ✅          | [b20e66](https://act-rules.github.io/rules/b20e66) — Links with identical accessible names have equivalent purpose                               | 2.4.9               | `identical-links-same-purpose`                                            | 18 / 18    |
 | ✅          | [m6b1q3](https://act-rules.github.io/rules/m6b1q3) — Menuitem has non-empty accessible name                                                      | 4.1.2               | `button-name`                                                             | 6 / 6      |
 | ✅          | [bc659a](https://act-rules.github.io/rules/bc659a) — Meta element has no refresh delay                                                           | 2.2.1, 2.2.4, 3.2.5 | `meta-refresh`                                                            | 7 / 7      |
 | ✅          | [bisz58](https://act-rules.github.io/rules/bisz58) — Meta element has no refresh delay (no exception)                                            | 2.2.1, 2.2.4, 3.2.5 | `meta-refresh-no-exceptions`                                              | 5 / 5      |

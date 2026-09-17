@@ -103,6 +103,8 @@ export interface AccessibilityError {
   text: string;
   url: string;
   element: Element;
+  /** The scanner could not decide on its own; a human should verify. */
+  needsReview?: boolean;
 }
 
 export type LogFn = (...data: unknown[]) => void;

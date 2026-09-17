@@ -26,12 +26,12 @@ describe("[a25f45]Headers attribute specified on a cell refers to cells in the s
 </body>
 </html>`, 'text/html');
 
-    const results = (await scan(document.body)).map(({ text, url }) => {
-      return { text, url };
+    const results = (await scan(document.body)).map(({ text, url, needsReview }) => {
+      return { text, url, needsReview };
     });
 
     const expectedUrls = ["https://dequeuniversity.com/rules/axe/4.11/td-headers-attr"];
-    const relevant = results.filter(r => expectedUrls.includes(r.url));
+    const relevant = results.filter(r => expectedUrls.includes(r.url) && !r.needsReview);
     expect(relevant).to.be.empty;
   });
 });

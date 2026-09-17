@@ -10,8 +10,8 @@ describe("[qt1vmo]Image accessible name is descriptive", function () {
 	<img src="/WAI/content-assets/wcag-act-rules/test-assets/shared/w3c-logo.png" alt="W3C logo" />
 </html>`, 'text/html');
 
-    const results = (await scan(document.body)).map(({ text, url }) => {
-      return { text, url };
+    const results = (await scan(document.body)).map(({ text, url, needsReview }) => {
+      return { text, url, needsReview };
     });
 
     // No scanner rule maps to this ACT rule yet — nothing to assert.

@@ -918,7 +918,7 @@
         "ACT Rules": "[09o5cg](https://act-rules.github.io/rules/09o5cg)"
       },
       {
-        "implemented": "❌",
+        "implemented": "✅",
         "id": "identical-links-same-purpose",
         "url": "https://dequeuniversity.com/rules/axe/4.11/identical-links-same-purpose?application=RuleDescription",
         "Description": "Ensure that links with the same accessible name serve a similar purpose",

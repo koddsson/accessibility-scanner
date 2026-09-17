@@ -60,6 +60,76 @@ export function hasLinkRole(element: Element): boolean {
   return isNativeLink && (explicit === "none" || explicit === "presentation");
 }
 
+type NameTraversal = "root" | "content" | "labelledby";
+
+/**
+ * Compute an element's accessible name, following the main steps of the
+ * accname algorithm: aria-labelledby, aria-label, host-language labels (alt,
+ * SVG title), name from content, then title. Whitespace is collapsed.
+ * Name from content is always computed, so callers should only use this for
+ * roles that allow it (links, buttons, headings, ...).
+ */
+export function getAccessibleName(element: Element): string {
+  return computeName(element, new Set(), "root")
+    .replaceAll(/\s+/g, " ")
+    .trim();
+}
+
+function computeName(
+  element: Element,
+  visited: Set<Element>,
+  traversal: NameTraversal,
+): string {
+  if (visited.has(element)) return "";
+  visited.add(element);
+
+  if (traversal !== "root") {
+    if (element.getAttribute("aria-hidden") === "true") return "";
+    if (!isVisible(element)) return "";
+  }
+
+  const labelledBy = element.getAttribute("aria-labelledby");
+  if (labelledBy && traversal !== "labelledby") {
+    const root = element.getRootNode() as Document | ShadowRoot;
+    const name = labelledBy
+      .split(/\s+/)
+      .filter(Boolean)
+      .map((id) => root.getElementById?.(id))
+      .filter((el): el is HTMLElement => el !== null && el !== undefined)
+      .map((el) => computeName(el, new Set(visited), "labelledby"))
+      .join(" ");
+    if (name.trim()) return name;
+  }
+
+  const ariaLabel = element.getAttribute("aria-label");
+  if (ariaLabel?.trim()) return ariaLabel;
+
+  if (element.matches("img, area, input[type='image']")) {
+    const alt = element.getAttribute("alt");
+    if (alt !== null) return alt;
+  }
+  if (element.matches("input[type='button'], input[type='submit'], input[type='reset']")) {
+    const value = element.getAttribute("value");
+    if (value?.trim()) return value;
+  }
+  if (element.namespaceURI === "http://www.w3.org/2000/svg") {
+    const title = [...element.children].find((c) => c.localName === "title");
+    if (title?.textContent?.trim()) return title.textContent;
+  }
+
+  let content = "";
+  for (const node of element.childNodes) {
+    if (node.nodeType === Node.TEXT_NODE) {
+      content += node.textContent ?? "";
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      content += " " + computeName(node as Element, visited, "content") + " ";
+    }
+  }
+  if (content.trim()) return content;
+
+  return element.getAttribute("title") ?? "";
+}
+
 /**
  * Make sure that a elements text is "visible" to a screenreader user.
  *

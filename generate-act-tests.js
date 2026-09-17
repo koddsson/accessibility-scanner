@@ -141,7 +141,6 @@ const rulesToIgnore = [
   // --- Not implemented - link and form rules ---
   "5effbb", // Link in context is descriptive - not implemented, requires human judgment
   "aizyf1", // Link is descriptive - not implemented, requires human judgment
-  "b20e66", // Links with identical accessible names have equivalent purpose - not implemented
   "fd3a94", // Links with identical accessible names and same context serve equivalent purpose - not implemented
   "cc0f0a", // Form field label is descriptive - not implemented, requires human judgment
 
@@ -340,7 +339,9 @@ for (const rule of applicableRules) {
   if (expected === "passed") {
     if (expectedUrls.length > 0) {
       const urlsArray = JSON.stringify(expectedUrls);
-      assertion = `const expectedUrls = ${urlsArray};\n    const relevant = results.filter(r => expectedUrls.includes(r.url));\n    expect(relevant).to.be.empty;`;
+      // Results flagged needsReview are "cantTell" outcomes, which ACT
+      // treats as consistent with a passed example.
+      assertion = `const expectedUrls = ${urlsArray};\n    const relevant = results.filter(r => expectedUrls.includes(r.url) && !r.needsReview);\n    expect(relevant).to.be.empty;`;
     } else {
       // No known scanner rules map to this ACT rule — filter is empty so
       // no results are relevant; assert passes trivially.  This avoids
@@ -390,8 +391,8 @@ describe("[${ruleId}]${ruleName}", function () {
   ${itFn}("${testcaseTitle} (${exampleURL})", async () => {
     const document = parser.parseFromString(\`${html}\`, 'text/html');
 
-    const results = (await scan(${scanTarget}${scanRulesArg})).map(({ text, url }) => {
-      return { text, url };
+    const results = (await scan(${scanTarget}${scanRulesArg})).map(({ text, url, needsReview }) => {
+      return { text, url, needsReview };
     });
 
     ${assertion}

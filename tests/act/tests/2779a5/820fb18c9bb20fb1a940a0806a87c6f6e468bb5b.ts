@@ -10,8 +10,8 @@ describe("[2779a5]HTML page has non-empty title", function () {
 	<h1>this page has no title</h1>
 </html>`, 'text/html');
 
-    const results = (await scan(document.documentElement)).map(({ text, url }) => {
-      return { text, url };
+    const results = (await scan(document.documentElement)).map(({ text, url, needsReview }) => {
+      return { text, url, needsReview };
     });
 
     expect(results).to.not.be.empty;
