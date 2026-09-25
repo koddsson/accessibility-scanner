@@ -12,6 +12,8 @@ const passes = [
   `<div><div id="hidden-match" style="display:none">Banana bombs</div><div role="img" aria-labelledby="hidden-match" id="pass3"></div></div>`,
   `<div role="img" aria-label="blah" id="pass1"></div>`,
   `<div role="img" title="title" id="pass4"></div>`,
+  `<div role="img" aria-hidden="true" id="pass5"></div>`,
+  `<div aria-hidden="true"><div role="img" id="pass6"></div></div>`,
 ];
 
 const violations = [
@@ -22,6 +24,9 @@ const violations = [
     html`<div role="img" aria-labelledby="no-match" id="violation4"></div>`,
   ),
   await fixture(html`<div role="img" title="" id="violation5"></div>`),
+  await fixture(
+    html`<div role="img" aria-hidden="false" id="violation6"></div>`,
+  ),
 ];
 
 describe("role-img-alt", async function () {

@@ -15,6 +15,7 @@ export default function (element: Element): AccessibilityError[] {
     elements.push(element as HTMLImageElement);
   }
   for (const element of elements) {
+    if (element.closest('[aria-hidden="true"]')) continue;
     const label = element.getAttribute("aria-label");
     if (label && label.trim() !== "") continue;
     if (labelledByIsValid(element)) continue;
