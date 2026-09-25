@@ -15,7 +15,9 @@ const interactiveSelector = [
   "[role=radio]",
 ].join(",");
 
-export default function (element: Element): AccessibilityError[] {
+export default function nestedInteractive(
+  element: Element,
+): AccessibilityError[] {
   const errors = [];
   const elements = [...querySelectorAll(interactiveSelector, element)];
   if (element.matches(interactiveSelector)) {
@@ -39,3 +41,5 @@ export default function (element: Element): AccessibilityError[] {
 
   return errors;
 }
+
+nestedInteractive.includeAriaHidden = true;

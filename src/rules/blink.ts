@@ -4,7 +4,7 @@ const id = "blink";
 const text = "Ensure <blink> elements are not used";
 const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
-export default function (element: Element): AccessibilityError[] {
+export default function blink(element: Element): AccessibilityError[] {
   const errors = [];
   const elements = [...element.querySelectorAll("blink")];
   if (element.matches("blink")) {
@@ -20,3 +20,5 @@ export default function (element: Element): AccessibilityError[] {
   }
   return errors;
 }
+
+blink.includeAriaHidden = true;

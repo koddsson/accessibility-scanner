@@ -4,7 +4,7 @@ const id = "marquee";
 const text = "<marquee> elements are not used";
 const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
-export default function (element: Element): AccessibilityError[] {
+export default function marquee(element: Element): AccessibilityError[] {
   const errors = [];
   const elements = [...element.querySelectorAll<HTMLElement>("marquee")];
   if (element.matches("marquee")) {
@@ -20,3 +20,5 @@ export default function (element: Element): AccessibilityError[] {
   }
   return errors;
 }
+
+marquee.includeAriaHidden = true;

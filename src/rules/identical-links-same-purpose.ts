@@ -24,7 +24,9 @@ function resolveTarget(link: Element): string | null {
   }
 }
 
-export default function (element: Element): AccessibilityError[] {
+export default function identicalLinksSamePurpose(
+  element: Element,
+): AccessibilityError[] {
   const errors: AccessibilityError[] = [];
   const candidates = querySelectorAll(selector, element);
   if (element.matches(selector)) candidates.push(element);
@@ -52,3 +54,5 @@ export default function (element: Element): AccessibilityError[] {
   }
   return errors;
 }
+
+identicalLinksSamePurpose.includeAriaHidden = true;

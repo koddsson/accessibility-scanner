@@ -105,3 +105,5 @@ export default function ariaHiddenFocus(
 
   return errors;
 }
+
+ariaHiddenFocus.includeAriaHidden = true;

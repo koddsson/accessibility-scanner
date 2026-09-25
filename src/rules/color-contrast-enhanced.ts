@@ -82,7 +82,9 @@ function shouldCheckContrast(element: Element): boolean {
   return true;
 }
 
-export default function (element: Element): ContrastError[] {
+export default function colorContrastEnhanced(
+  element: Element,
+): ContrastError[] {
   const errors: ContrastError[] = [];
 
   // Get all text elements
@@ -151,3 +153,5 @@ export default function (element: Element): ContrastError[] {
 
   return errors;
 }
+
+colorContrastEnhanced.includeAriaHidden = true;
