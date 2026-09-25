@@ -143,7 +143,9 @@ function isInTextBlock(link: HTMLAnchorElement): boolean {
   return parentText.length > linkText.length + TEXT_BLOCK_THRESHOLD;
 }
 
-export default function (element: Element): AccessibilityError[] {
+export default function linkInTextBlock(
+  element: Element,
+): AccessibilityError[] {
   const errors: AccessibilityError[] = [];
 
   // Get all links
@@ -194,3 +196,5 @@ export default function (element: Element): AccessibilityError[] {
 
   return errors;
 }
+
+linkInTextBlock.includeAriaHidden = true;

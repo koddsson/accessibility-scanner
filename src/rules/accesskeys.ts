@@ -4,7 +4,7 @@ const id = "accesskeys";
 const text = "Ensures every accesskey attribute value is unique";
 const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
-export default function (element: Element): AccessibilityError[] {
+export default function accesskeys(element: Element): AccessibilityError[] {
   const errors: AccessibilityError[] = [];
   const elements = [...element.querySelectorAll("[accesskey]")];
   if (element.hasAttribute("accesskey")) {
@@ -44,3 +44,5 @@ export default function (element: Element): AccessibilityError[] {
 
   return errors;
 }
+
+accesskeys.includeAriaHidden = true;

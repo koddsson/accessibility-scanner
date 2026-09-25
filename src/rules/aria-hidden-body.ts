@@ -18,3 +18,5 @@ export function ariaHiddenBody(element_: Element): AccessibilityError[] {
   }
   return [];
 }
+
+ariaHiddenBody.includeAriaHidden = true;

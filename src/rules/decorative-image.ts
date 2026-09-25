@@ -53,3 +53,5 @@ export default function decorativeImage(
 
   return errors;
 }
+
+decorativeImage.includeAriaHidden = true;

@@ -118,12 +118,23 @@ export type Rule = ((element: Element) => AccessibilityError[]) & {
    * duplicate ids or head metadata, set this to true.
    */
   includeHidden?: boolean;
+  /**
+   * Content inside `aria-hidden="true"` is not in the accessibility tree, so
+   * findings on it are dropped by default. Rules about rendered appearance or
+   * about aria-hidden itself, such as colour contrast, set this to true.
+   */
+  includeAriaHidden?: boolean;
 };
 
 function runRule(rule: Rule, element: Element): AccessibilityError[] {
   const errors = rule(element);
   if (rule.includeHidden) return errors;
-  return errors.filter((error) => isVisible(error.element));
+  return errors.filter(
+    (error) =>
+      isVisible(error.element) &&
+      (rule.includeAriaHidden ||
+        !error.element.closest('[aria-hidden="true"]')),
+  );
 }
 
 export const allRules: Rule[] = [
