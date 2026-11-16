@@ -1,6 +1,6 @@
 // https://dequeuniversity.com/rules/axe/4.11/table-duplicate-name?application=RuleDescription
-import { AccessibilityError } from "../scanner";
-import { querySelectorAll } from "../utils";
+import { AccessibilityError } from "../scanner.js";
+import { querySelectorAll } from "../utils.js";
 
 const id = "table-duplicate-name";
 const text = "tables should not have the same summary and caption";

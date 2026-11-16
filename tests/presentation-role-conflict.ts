@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import presentationRoleConflict from "../src/rules/presentation-role-conflict";
+import { Scanner } from "../src/scanner.js";
+import presentationRoleConflict from "../src/rules/presentation-role-conflict.js";
 
 const scanner = new Scanner([presentationRoleConflict]);
 

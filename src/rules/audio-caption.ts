@@ -1,5 +1,5 @@
-import { querySelectorAll, querySelector } from "../utils";
-import { AccessibilityError } from "../scanner";
+import { querySelectorAll, querySelector } from "../utils.js";
+import { AccessibilityError } from "../scanner.js";
 
 const id = "audio-caption";
 const text = "<audio> elements must have a captions <track>";

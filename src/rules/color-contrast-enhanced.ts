@@ -1,5 +1,5 @@
-import { AccessibilityError } from "../scanner";
-import { querySelectorAll } from "../utils";
+import { AccessibilityError } from "../scanner.js";
+import { querySelectorAll } from "../utils.js";
 import {
   parseColor,
   getContrastRatio,
@@ -7,7 +7,7 @@ import {
   isLargeText,
   formatColor,
   flattenColor,
-} from "../utils/color";
+} from "../utils/color.js";
 
 const id = "color-contrast-enhanced";
 const text = "Elements must meet enhanced color contrast ratio thresholds";

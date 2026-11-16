@@ -1,5 +1,5 @@
 import { expect } from "@open-wc/testing";
-import htmlLangValid from "../src/rules/html-lang-valid";
+import htmlLangValid from "../src/rules/html-lang-valid.js";
 
 describe("html-lang-valid", function () {
   describe("validation function", function () {

@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import tableFakeCaption from "../src/rules/table-fake-caption";
+import { Scanner } from "../src/scanner.js";
+import tableFakeCaption from "../src/rules/table-fake-caption.js";
 
 const scanner = new Scanner([tableFakeCaption]);
 

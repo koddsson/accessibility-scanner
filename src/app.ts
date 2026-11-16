@@ -1,4 +1,4 @@
-import { scan } from "./scanner";
+import { scan } from "./scanner.js";
 
 async function ready(): Promise<void> {
   return document.readyState === "interactive" ||

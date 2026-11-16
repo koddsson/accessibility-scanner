@@ -1,9 +1,9 @@
-import { AccessibilityError } from "../scanner";
+import { AccessibilityError } from "../scanner.js";
 import {
   querySelectorAll,
   validAriaAttributes,
   validAriaAttributesWithRole,
-} from "../utils";
+} from "../utils.js";
 
 const id = "aria-valid-attr";
 const text = "ARIA attributes must conform to valid names";

@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import tabindex from "../src/rules/tabindex";
+import { Scanner } from "../src/scanner.js";
+import tabindex from "../src/rules/tabindex.js";
 
 const scanner = new Scanner([tabindex]);
 

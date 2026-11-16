@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import ariaRoles from "../src/rules/aria-roles";
+import { Scanner } from "../src/scanner.js";
+import ariaRoles from "../src/rules/aria-roles.js";
 
 const scanner = new Scanner([ariaRoles]);
 

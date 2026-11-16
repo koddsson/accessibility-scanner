@@ -1,4 +1,4 @@
-import { AccessibilityError } from "../scanner";
+import { AccessibilityError } from "../scanner.js";
 
 const id = "accesskeys";
 const text = "Ensures every accesskey attribute value is unique";

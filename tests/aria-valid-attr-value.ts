@@ -1,10 +1,10 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
+import { Scanner } from "../src/scanner.js";
 import {
   ariaValidAttrValue,
   text,
   url,
-} from "../src/rules/aria-valid-attr-value";
+} from "../src/rules/aria-valid-attr-value.js";
 
 const scanner = new Scanner([ariaValidAttrValue]);
 

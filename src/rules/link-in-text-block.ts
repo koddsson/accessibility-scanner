@@ -1,5 +1,5 @@
-import { AccessibilityError } from "../scanner";
-import { hasLinkRole, querySelectorAll } from "../utils";
+import { AccessibilityError } from "../scanner.js";
+import { hasLinkRole, querySelectorAll } from "../utils.js";
 
 const id = "link-in-text-block";
 const text =

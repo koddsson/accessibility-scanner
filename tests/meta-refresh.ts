@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import metaRefresh from "../src/rules/meta-refresh";
+import { Scanner } from "../src/scanner.js";
+import metaRefresh from "../src/rules/meta-refresh.js";
 
 const scanner = new Scanner([metaRefresh]);
 

@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import objectAlt from "../src/rules/object-alt";
+import { Scanner } from "../src/scanner.js";
+import objectAlt from "../src/rules/object-alt.js";
 
 const scanner = new Scanner([objectAlt]);
 

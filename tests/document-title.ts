@@ -1,6 +1,6 @@
 import { expect } from "@open-wc/testing";
-import { scan } from "../src/scanner";
-import documentTitle from "../src/rules/document-title";
+import { scan } from "../src/scanner.js";
+import documentTitle from "../src/rules/document-title.js";
 
 /**
  * Create a `<html></html>` in a iframe so that we aren't using the `<html>` element of the test runner.

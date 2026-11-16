@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import accesskeys from "../src/rules/accesskeys";
+import { Scanner } from "../src/scanner.js";
+import accesskeys from "../src/rules/accesskeys.js";
 
 const scanner = new Scanner([accesskeys]);
 

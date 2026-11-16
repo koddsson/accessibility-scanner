@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import ariaHiddenFocus from "../src/rules/aria-hidden-focus";
+import { Scanner } from "../src/scanner.js";
+import ariaHiddenFocus from "../src/rules/aria-hidden-focus.js";
 
 const scanner = new Scanner([ariaHiddenFocus]);
 

@@ -1,5 +1,5 @@
-import { AccessibilityError } from "../scanner";
-import { querySelectorAll, isVisible } from "../utils";
+import { AccessibilityError } from "../scanner.js";
+import { querySelectorAll, isVisible } from "../utils.js";
 
 const id = "aria-hidden-focus";
 const text = "aria-hidden elements do not contain focusable elements";

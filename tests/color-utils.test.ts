@@ -1,5 +1,5 @@
 import { expect } from "@open-wc/testing";
-import { parseColor } from "../src/utils/color";
+import { parseColor } from "../src/utils/color.js";
 
 function renderWithCanvas(color: string) {
   const ctx = document.createElement("canvas").getContext("2d")!;

@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import hiddenContent from "../src/rules/hidden-content";
+import { Scanner } from "../src/scanner.js";
+import hiddenContent from "../src/rules/hidden-content.js";
 
 const scanner = new Scanner([hiddenContent]);
 

@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import linkInTextBlock from "../src/rules/link-in-text-block";
+import { Scanner } from "../src/scanner.js";
+import linkInTextBlock from "../src/rules/link-in-text-block.js";
 
 const scanner = new Scanner([linkInTextBlock]);
 

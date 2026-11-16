@@ -1,5 +1,5 @@
-import { querySelectorAll, validAriaAttributesWithRole } from "../utils";
-import { AccessibilityError } from "../scanner";
+import { querySelectorAll, validAriaAttributesWithRole } from "../utils.js";
+import { AccessibilityError } from "../scanner.js";
 
 const id = "aria-allowed-attr";
 const text = "Elements must only use allowed ARIA attributes";

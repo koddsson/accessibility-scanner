@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import skipLink from "../src/rules/skip-link";
+import { Scanner } from "../src/scanner.js";
+import skipLink from "../src/rules/skip-link.js";
 
 const scanner = new Scanner([skipLink]);
 

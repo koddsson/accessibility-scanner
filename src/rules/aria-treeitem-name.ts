@@ -1,5 +1,5 @@
-import { AccessibilityError } from "../scanner";
-import { labelledByIsValid, querySelectorAll } from "../utils";
+import { AccessibilityError } from "../scanner.js";
+import { labelledByIsValid, querySelectorAll } from "../utils.js";
 
 // Metadata
 const id = "aria-treeitem-name";

@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import avoidInlineSpacing from "../src/rules/avoid-inline-spacing";
+import { Scanner } from "../src/scanner.js";
+import avoidInlineSpacing from "../src/rules/avoid-inline-spacing.js";
 
 const scanner = new Scanner([avoidInlineSpacing]);
 

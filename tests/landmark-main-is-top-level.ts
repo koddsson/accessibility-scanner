@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import landmarkMainIsTopLevel from "../src/rules/landmark-main-is-top-level";
+import { Scanner } from "../src/scanner.js";
+import landmarkMainIsTopLevel from "../src/rules/landmark-main-is-top-level.js";
 
 const scanner = new Scanner([landmarkMainIsTopLevel]);
 

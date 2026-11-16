@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import buttonName from "../src/rules/button-name";
+import { Scanner } from "../src/scanner.js";
+import buttonName from "../src/rules/button-name.js";
 
 const scanner = new Scanner([buttonName]);
 

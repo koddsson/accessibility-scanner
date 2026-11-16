@@ -6,9 +6,9 @@
 // presentation (to cancel the native role of the element)
 // math, definition, note, directory
 // command, composite, input, landmark, range, section, sectionhead, select, structure, widget
-import { querySelectorAll } from "../utils";
-import { validRoles } from "../utils/roles";
-import { AccessibilityError } from "../scanner";
+import { querySelectorAll } from "../utils.js";
+import { validRoles } from "../utils/roles.js";
+import { AccessibilityError } from "../scanner.js";
 
 const id = "aria-roles";
 const text = "ARIA roles used must conform to valid values";

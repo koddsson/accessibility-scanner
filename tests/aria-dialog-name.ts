@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import ariaDialogName from "../src/rules/aria-dialog-name";
+import { Scanner } from "../src/scanner.js";
+import ariaDialogName from "../src/rules/aria-dialog-name.js";
 
 const scanner = new Scanner([ariaDialogName]);
 

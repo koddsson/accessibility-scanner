@@ -1,5 +1,5 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner, allRules } from "../src/scanner";
+import { Scanner, allRules } from "../src/scanner.js";
 
 describe("scanner", function () {
   it("does not mutate the document while scanning", async () => {

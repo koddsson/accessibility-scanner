@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import validLang from "../src/rules/valid-lang";
+import { Scanner } from "../src/scanner.js";
+import validLang from "../src/rules/valid-lang.js";
 
 const scanner = new Scanner([validLang]);
 

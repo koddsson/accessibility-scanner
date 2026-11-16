@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import colorContrast from "../src/rules/color-contrast";
+import { Scanner } from "../src/scanner.js";
+import colorContrast from "../src/rules/color-contrast.js";
 
 const scanner = new Scanner([colorContrast]);
 

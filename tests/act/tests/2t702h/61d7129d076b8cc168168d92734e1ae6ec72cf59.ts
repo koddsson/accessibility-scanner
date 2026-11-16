@@ -1,5 +1,5 @@
 import { expect } from "@open-wc/testing";
-import { scan } from "../../../../src/scanner";
+import { scan } from "../../../../src/scanner.js";
 
 const parser = new DOMParser();
 

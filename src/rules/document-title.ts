@@ -1,4 +1,4 @@
-import { AccessibilityError } from "../scanner";
+import { AccessibilityError } from "../scanner.js";
 
 const id = "document-title";
 const text = "Documents must have <title> element to aid in navigation";

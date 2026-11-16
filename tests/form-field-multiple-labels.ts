@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import formFieldMultipleLabels from "../src/rules/form-field-multiple-labels";
+import { Scanner } from "../src/scanner.js";
+import formFieldMultipleLabels from "../src/rules/form-field-multiple-labels.js";
 
 const scanner = new Scanner([formFieldMultipleLabels]);
 

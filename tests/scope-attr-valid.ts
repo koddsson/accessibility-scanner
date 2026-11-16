@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import scopeAttributeValid from "../src/rules/scope-attr-valid";
+import { Scanner } from "../src/scanner.js";
+import scopeAttributeValid from "../src/rules/scope-attr-valid.js";
 
 const scanner = new Scanner([scopeAttributeValid]);
 

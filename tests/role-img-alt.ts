@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import roleImgAlt from "../src/rules/role-img-alt";
+import { Scanner } from "../src/scanner.js";
+import roleImgAlt from "../src/rules/role-img-alt.js";
 
 const scanner = new Scanner([roleImgAlt]);
 const parser = new DOMParser();

@@ -1,6 +1,6 @@
-import { AccessibilityError } from "../scanner";
-import ariaAttributes from "../utils/aria-attrs";
-import type { Info } from "../utils/aria-attrs";
+import { AccessibilityError } from "../scanner.js";
+import ariaAttributes from "../utils/aria-attrs.js";
+import type { Info } from "../utils/aria-attrs.js";
 
 const id = "aria-valid-attr-value";
 export const text = "ARIA attributes must conform to valid values";

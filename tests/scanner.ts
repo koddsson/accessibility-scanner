@@ -1,9 +1,9 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner, Rule } from "../src/scanner";
-import ariaRequiredChildren from "../src/rules/aria-required-children";
-import emptyHeading from "../src/rules/empty-heading";
-import duplicateId from "../src/rules/duplicate-id";
-import roleImgAlt from "../src/rules/role-img-alt";
+import { Scanner, Rule } from "../src/scanner.js";
+import ariaRequiredChildren from "../src/rules/aria-required-children.js";
+import emptyHeading from "../src/rules/empty-heading.js";
+import duplicateId from "../src/rules/duplicate-id.js";
+import roleImgAlt from "../src/rules/role-img-alt.js";
 
 describe("scanner", function () {
   describe("hidden content", function () {

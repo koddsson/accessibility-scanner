@@ -1,5 +1,5 @@
 // https://www.w3.org/TR/WCAG20-TECHS/H63.html
-import { querySelectorAll } from "../utils";
+import { querySelectorAll } from "../utils.js";
 
 const id = "scope-attr-valid";
 const text = "Scope attribute should be used correctly on tables";

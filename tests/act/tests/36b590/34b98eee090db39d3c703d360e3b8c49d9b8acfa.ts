@@ -1,6 +1,6 @@
 import { expect } from "@open-wc/testing";
-import { scan, allRules } from "../../../../src/scanner";
-import errorMessage from "../../../../src/rules/error-message";
+import { scan, allRules } from "../../../../src/scanner.js";
+import errorMessage from "../../../../src/rules/error-message.js";
 
 const parser = new DOMParser();
 

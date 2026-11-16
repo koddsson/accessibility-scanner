@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import ariaTreeitemName from "../src/rules/aria-treeitem-name";
+import { Scanner } from "../src/scanner.js";
+import ariaTreeitemName from "../src/rules/aria-treeitem-name.js";
 
 const scanner = new Scanner([ariaTreeitemName]);
 

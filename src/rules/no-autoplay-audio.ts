@@ -1,5 +1,5 @@
-import { querySelectorAll } from "../utils";
-import { AccessibilityError } from "../scanner";
+import { querySelectorAll } from "../utils.js";
+import { AccessibilityError } from "../scanner.js";
 
 const id = "no-autoplay-audio";
 const text =

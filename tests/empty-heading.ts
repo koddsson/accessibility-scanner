@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import emptyHeading from "../src/rules/empty-heading";
+import { Scanner } from "../src/scanner.js";
+import emptyHeading from "../src/rules/empty-heading.js";
 
 const scanner = new Scanner([emptyHeading]);
 

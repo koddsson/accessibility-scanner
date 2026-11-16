@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import duplicateIdActive from "../src/rules/duplicate-id-active";
+import { Scanner } from "../src/scanner.js";
+import duplicateIdActive from "../src/rules/duplicate-id-active.js";
 
 const scanner = new Scanner([duplicateIdActive]);
 

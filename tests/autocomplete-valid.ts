@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import autocompleteValid from "../src/rules/autocomplete-valid";
+import { Scanner } from "../src/scanner.js";
+import autocompleteValid from "../src/rules/autocomplete-valid.js";
 
 const scanner = new Scanner([autocompleteValid]);
 

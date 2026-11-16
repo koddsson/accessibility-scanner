@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import headingOrder from "../src/rules/heading-order";
+import { Scanner } from "../src/scanner.js";
+import headingOrder from "../src/rules/heading-order.js";
 
 const scanner = new Scanner([headingOrder]);
 

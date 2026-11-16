@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import audioCaption from "../src/rules/audio-caption";
+import { Scanner } from "../src/scanner.js";
+import audioCaption from "../src/rules/audio-caption.js";
 
 const scanner = new Scanner([audioCaption]);
 

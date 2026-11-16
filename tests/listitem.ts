@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import listitem from "../src/rules/listitem";
+import { Scanner } from "../src/scanner.js";
+import listitem from "../src/rules/listitem.js";
 
 const scanner = new Scanner([listitem]);
 

@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import targetSize from "../src/rules/target-size";
+import { Scanner } from "../src/scanner.js";
+import targetSize from "../src/rules/target-size.js";
 
 const scanner = new Scanner([targetSize]);
 

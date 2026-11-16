@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import thHasDataCells from "../src/rules/th-has-data-cells";
+import { Scanner } from "../src/scanner.js";
+import thHasDataCells from "../src/rules/th-has-data-cells.js";
 
 const scanner = new Scanner([thHasDataCells]);
 

@@ -1,4 +1,4 @@
-import type { AccessibilityError } from "./scanner";
+import type { AccessibilityError } from "./scanner.js";
 interface CustomEventMap {
   // TODO: Fix spelling of "accessbility-error" to "accessibility-error" in next major version (breaking change)
   "accessbility-error": AccessbilityErrorEvent;

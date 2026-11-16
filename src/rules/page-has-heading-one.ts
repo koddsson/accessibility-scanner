@@ -1,4 +1,4 @@
-import { AccessibilityError } from "../scanner";
+import { AccessibilityError } from "../scanner.js";
 
 const id = "page-has-heading-one";
 const text = "Page should contain a level-one heading";

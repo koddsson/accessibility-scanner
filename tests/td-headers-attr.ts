@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import tdHeadersAttr from "../src/rules/td-headers-attr";
+import { Scanner } from "../src/scanner.js";
+import tdHeadersAttr from "../src/rules/td-headers-attr.js";
 
 const scanner = new Scanner([tdHeadersAttr]);
 

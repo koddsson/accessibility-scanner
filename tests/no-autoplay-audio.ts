@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import noAutoplayAudio from "../src/rules/no-autoplay-audio";
+import { Scanner } from "../src/scanner.js";
+import noAutoplayAudio from "../src/rules/no-autoplay-audio.js";
 
 const scanner = new Scanner([noAutoplayAudio]);
 

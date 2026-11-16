@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import serverSideImageMap from "../src/rules/server-side-image-map";
+import { Scanner } from "../src/scanner.js";
+import serverSideImageMap from "../src/rules/server-side-image-map.js";
 
 const scanner = new Scanner([serverSideImageMap]);
 

@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import landmarkNoDuplicateBanner from "../src/rules/landmark-no-duplicate-banner";
+import { Scanner } from "../src/scanner.js";
+import landmarkNoDuplicateBanner from "../src/rules/landmark-no-duplicate-banner.js";
 
 const scanner = new Scanner([landmarkNoDuplicateBanner]);
 
