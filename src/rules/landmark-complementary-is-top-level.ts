@@ -1,5 +1,5 @@
-import { AccessibilityError } from "../scanner";
-import { querySelectorAll } from "../utils";
+import { AccessibilityError } from "../scanner.js";
+import { querySelectorAll } from "../utils.js";
 
 const id = "landmark-complementary-is-top-level";
 const text = "Aside should not be contained in another landmark";

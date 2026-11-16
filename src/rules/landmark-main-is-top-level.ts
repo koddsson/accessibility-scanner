@@ -1,5 +1,5 @@
-import { AccessibilityError } from "../scanner";
-import { querySelectorAll } from "../utils";
+import { AccessibilityError } from "../scanner.js";
+import { querySelectorAll } from "../utils.js";
 
 const id = "landmark-main-is-top-level";
 const text = "Main landmark should be at top level";

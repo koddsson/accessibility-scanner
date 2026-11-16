@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import imageRedundantAlt from "../src/rules/image-redundant-alt";
+import { Scanner } from "../src/scanner.js";
+import imageRedundantAlt from "../src/rules/image-redundant-alt.js";
 
 const scanner = new Scanner([imageRedundantAlt]);
 

@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import blink from "../src/rules/blink";
+import { Scanner } from "../src/scanner.js";
+import blink from "../src/rules/blink.js";
 
 const scanner = new Scanner([blink]);
 

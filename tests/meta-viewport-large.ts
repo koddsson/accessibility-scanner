@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import metaViewportLarge from "../src/rules/meta-viewport-large";
+import { Scanner } from "../src/scanner.js";
+import metaViewportLarge from "../src/rules/meta-viewport-large.js";
 
 const scanner = new Scanner([metaViewportLarge]);
 

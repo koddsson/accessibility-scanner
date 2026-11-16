@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import cssOrientationLock from "../src/rules/css-orientation-lock";
+import { Scanner } from "../src/scanner.js";
+import cssOrientationLock from "../src/rules/css-orientation-lock.js";
 
 const scanner = new Scanner([cssOrientationLock]);
 

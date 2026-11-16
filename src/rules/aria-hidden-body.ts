@@ -1,4 +1,4 @@
-import { AccessibilityError } from "../scanner";
+import { AccessibilityError } from "../scanner.js";
 
 const id = "aria-hidden-body";
 const text = 'aria-hidden="true" must not be present on the document <body>';

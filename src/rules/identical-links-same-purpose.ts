@@ -1,5 +1,5 @@
-import { AccessibilityError } from "../scanner";
-import { getAccessibleName, hasLinkRole, querySelectorAll } from "../utils";
+import { AccessibilityError } from "../scanner.js";
+import { getAccessibleName, hasLinkRole, querySelectorAll } from "../utils.js";
 
 const id = "identical-links-same-purpose";
 const text =

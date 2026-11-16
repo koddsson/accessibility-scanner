@@ -1,6 +1,6 @@
 // https://dequeuniversity.com/rules/axe/4.11/td-has-header?application=RuleDescription
-import { AccessibilityError } from "../scanner";
-import { querySelectorAll } from "../utils";
+import { AccessibilityError } from "../scanner.js";
+import { querySelectorAll } from "../utils.js";
 
 const id = "td-has-header";
 const text =

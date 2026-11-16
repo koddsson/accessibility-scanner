@@ -1,4 +1,4 @@
-import { AccessibilityError } from "../scanner";
+import { AccessibilityError } from "../scanner.js";
 
 const id = "meta-refresh-no-exceptions";
 const text = "Delayed refresh under 20 hours must not be used";

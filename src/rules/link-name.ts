@@ -1,11 +1,11 @@
-import { AccessibilityError } from "../scanner";
+import { AccessibilityError } from "../scanner.js";
 import {
   querySelector,
   querySelectorAll,
   hasLinkRole,
   isVisible,
   labelledByIsValid,
-} from "../utils";
+} from "../utils.js";
 
 const id = "c487ae";
 const url = `https://act-rules.github.io/rules/${id}`;

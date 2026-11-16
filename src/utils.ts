@@ -1,4 +1,4 @@
-import { getExplicitRole } from "./utils/roles";
+import { getExplicitRole } from "./utils/roles.js";
 
 export function isVisible(element: Element | null): boolean {
   // Return false for null/undefined

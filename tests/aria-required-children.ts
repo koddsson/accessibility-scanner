@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import ariaRequiredChildren from "../src/rules/aria-required-children";
+import { Scanner } from "../src/scanner.js";
+import ariaRequiredChildren from "../src/rules/aria-required-children.js";
 
 const scanner = new Scanner([ariaRequiredChildren]);
 

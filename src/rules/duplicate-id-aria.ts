@@ -1,5 +1,5 @@
-import { AccessibilityError } from "../scanner";
-import { querySelectorAll, labelledByIsValid } from "../utils";
+import { AccessibilityError } from "../scanner.js";
+import { querySelectorAll, labelledByIsValid } from "../utils.js";
 
 const id = "duplicate-id-aria";
 const text = "IDs used in ARIA and labels must be unique";

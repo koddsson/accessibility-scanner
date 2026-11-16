@@ -1,5 +1,5 @@
-import { AccessibilityError } from "../scanner";
-import { querySelectorAll, hasAccessibleText } from "../utils";
+import { AccessibilityError } from "../scanner.js";
+import { querySelectorAll, hasAccessibleText } from "../utils.js";
 
 const id = "aria-command-name";
 const text = "ARIA button, link, and menuitem must have an accessible name";

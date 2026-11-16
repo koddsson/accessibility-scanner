@@ -1,6 +1,6 @@
 import { expect } from "@open-wc/testing";
-import { scan } from "../src/scanner";
-import pageHasHeadingOne from "../src/rules/page-has-heading-one";
+import { scan } from "../src/scanner.js";
+import pageHasHeadingOne from "../src/rules/page-has-heading-one.js";
 
 /**
  * Create a `<html></html>` in a iframe so that we aren't using the `<html>` element of the test runner.

@@ -1,5 +1,5 @@
-import { AccessibilityError } from "../scanner";
-import { querySelectorAll } from "../utils";
+import { AccessibilityError } from "../scanner.js";
+import { querySelectorAll } from "../utils.js";
 
 const id = "form-field-multiple-labels";
 const text = "Ensures form field does not have multiple label elements";

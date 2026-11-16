@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import ariaToggleFieldName from "../src/rules/aria-toggle-field-name";
+import { Scanner } from "../src/scanner.js";
+import ariaToggleFieldName from "../src/rules/aria-toggle-field-name.js";
 
 const scanner = new Scanner([ariaToggleFieldName]);
 

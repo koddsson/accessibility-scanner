@@ -1,6 +1,6 @@
 import { expect } from "@open-wc/testing";
-import { scan } from "../src/scanner";
-import landmarkOneMain from "../src/rules/landmark-one-main";
+import { scan } from "../src/scanner.js";
+import landmarkOneMain from "../src/rules/landmark-one-main.js";
 
 /**
  * Create a `<html></html>` in a iframe so that we aren't using the `<html>` element of the test runner.

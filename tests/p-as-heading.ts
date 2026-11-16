@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import pAsHeading from "../src/rules/p-as-heading";
+import { Scanner } from "../src/scanner.js";
+import pAsHeading from "../src/rules/p-as-heading.js";
 
 const scanner = new Scanner([pAsHeading]);
 

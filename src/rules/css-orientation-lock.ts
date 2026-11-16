@@ -1,4 +1,4 @@
-import { AccessibilityError } from "../scanner";
+import { AccessibilityError } from "../scanner.js";
 
 const id = "css-orientation-lock";
 const text =

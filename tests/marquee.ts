@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import marquee from "../src/rules/marquee";
+import { Scanner } from "../src/scanner.js";
+import marquee from "../src/rules/marquee.js";
 
 const scanner = new Scanner([marquee]);
 

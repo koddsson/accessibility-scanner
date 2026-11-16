@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import ariaInputFieldName from "../src/rules/aria-input-field-name";
+import { Scanner } from "../src/scanner.js";
+import ariaInputFieldName from "../src/rules/aria-input-field-name.js";
 
 const scanner = new Scanner([ariaInputFieldName]);
 

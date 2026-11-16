@@ -1,6 +1,6 @@
 // import { fixture, expect } from "@open-wc/testing";
-// import { Scanner } from "../src/scanner";
-// import ariaValidAttr from "../src/rules/aria-valid-attr";
+// import { Scanner } from "../src/scanner.js";
+// import ariaValidAttr from "../src/rules/aria-valid-attr.js";
 //
 // const scanner = new Scanner([ariaValidAttr]);
 //

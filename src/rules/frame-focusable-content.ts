@@ -1,5 +1,5 @@
-import { AccessibilityError } from "../scanner";
-import { querySelectorAll, isVisible } from "../utils";
+import { AccessibilityError } from "../scanner.js";
+import { querySelectorAll, isVisible } from "../utils.js";
 
 const id = "frame-focusable-content";
 const text = "Frames with focusable content must not have tabindex=-1";

@@ -1,5 +1,5 @@
-import { AccessibilityError } from "../scanner";
-import { querySelectorAll, hasAccessibleText } from "../utils";
+import { AccessibilityError } from "../scanner.js";
+import { querySelectorAll, hasAccessibleText } from "../utils.js";
 
 const id = "bypass";
 const text = "Page must have means to bypass repeated blocks";

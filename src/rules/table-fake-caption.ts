@@ -1,6 +1,6 @@
 // https://dequeuniversity.com/rules/axe/4.11/table-fake-caption?application=RuleDescription
-import { AccessibilityError } from "../scanner";
-import { querySelectorAll } from "../utils";
+import { AccessibilityError } from "../scanner.js";
+import { querySelectorAll } from "../utils.js";
 
 const id = "table-fake-caption";
 const text = "Ensure that tables with a caption use the <caption> element.";

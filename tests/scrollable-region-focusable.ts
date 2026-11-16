@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import scrollableRegionFocusable from "../src/rules/scrollable-region-focusable";
+import { Scanner } from "../src/scanner.js";
+import scrollableRegionFocusable from "../src/rules/scrollable-region-focusable.js";
 
 const scanner = new Scanner([scrollableRegionFocusable]);
 

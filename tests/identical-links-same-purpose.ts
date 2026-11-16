@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import identicalLinksSamePurpose from "../src/rules/identical-links-same-purpose";
+import { Scanner } from "../src/scanner.js";
+import identicalLinksSamePurpose from "../src/rules/identical-links-same-purpose.js";
 
 const scanner = new Scanner([identicalLinksSamePurpose]);
 

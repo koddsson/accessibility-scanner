@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import ariaProgressbarName from "../src/rules/aria-progressbar-name";
+import { Scanner } from "../src/scanner.js";
+import ariaProgressbarName from "../src/rules/aria-progressbar-name.js";
 
 const scanner = new Scanner([ariaProgressbarName]);
 

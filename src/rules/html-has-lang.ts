@@ -1,4 +1,4 @@
-import { AccessibilityError } from "../scanner";
+import { AccessibilityError } from "../scanner.js";
 
 const id = "html-has-lang";
 const text = "<html> element must have a lang attribute";

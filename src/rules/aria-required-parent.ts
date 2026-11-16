@@ -1,6 +1,6 @@
-import { AccessibilityError } from "../scanner";
-import { querySelectorAll } from "../utils";
-import { getRole } from "../utils/roles";
+import { AccessibilityError } from "../scanner.js";
+import { querySelectorAll } from "../utils.js";
+import { getRole } from "../utils/roles.js";
 
 const id = "aria-required-parent";
 const text = "Certain ARIA roles must be contained by particular parents";

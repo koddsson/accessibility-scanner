@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import frameTitle from "../src/rules/frame-title";
+import { Scanner } from "../src/scanner.js";
+import frameTitle from "../src/rules/frame-title.js";
 
 const scanner = new Scanner([frameTitle]);
 

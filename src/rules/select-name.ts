@@ -1,10 +1,10 @@
-import { AccessibilityError } from "../scanner";
+import { AccessibilityError } from "../scanner.js";
 import {
   querySelector,
   querySelectorAll,
   labelledByIsValid,
   labelReadableText,
-} from "../utils";
+} from "../utils.js";
 
 const id = "select-name";
 const text = "select element must have an accessible name";

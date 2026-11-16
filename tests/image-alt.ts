@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import imageAlt from "../src/rules/image-alt";
+import { Scanner } from "../src/scanner.js";
+import imageAlt from "../src/rules/image-alt.js";
 
 const scanner = new Scanner([imageAlt]);
 const parser = new DOMParser();

@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import labelContentNameMismatch from "../src/rules/label-content-name-mismatch";
+import { Scanner } from "../src/scanner.js";
+import labelContentNameMismatch from "../src/rules/label-content-name-mismatch.js";
 
 const scanner = new Scanner([labelContentNameMismatch]);
 

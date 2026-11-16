@@ -1,7 +1,7 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
+import { Scanner } from "../src/scanner.js";
 
-import { areaAlt } from "../src/rules/area-alt";
+import { areaAlt } from "../src/rules/area-alt.js";
 
 const scanner = new Scanner([areaAlt]);
 describe("area-alt", function () {

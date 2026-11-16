@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import frameFocusableContent from "../src/rules/frame-focusable-content";
+import { Scanner } from "../src/scanner.js";
+import frameFocusableContent from "../src/rules/frame-focusable-content.js";
 
 const scanner = new Scanner([frameFocusableContent]);
 

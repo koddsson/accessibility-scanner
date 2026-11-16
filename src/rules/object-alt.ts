@@ -1,5 +1,5 @@
-import { AccessibilityError } from "../scanner";
-import { querySelectorAll, labelledByIsValid } from "../utils";
+import { AccessibilityError } from "../scanner.js";
+import { querySelectorAll, labelledByIsValid } from "../utils.js";
 
 const id = "object-alt";
 const text = "<object> elements must have alternative text";

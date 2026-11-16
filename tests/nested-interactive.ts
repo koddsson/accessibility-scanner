@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import nestedInteractive from "../src/rules/nested-interactive";
+import { Scanner } from "../src/scanner.js";
+import nestedInteractive from "../src/rules/nested-interactive.js";
 
 const scanner = new Scanner([nestedInteractive]);
 

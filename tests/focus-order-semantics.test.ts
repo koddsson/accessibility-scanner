@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import focusOrderSemantics from "../src/rules/focus-order-semantics";
+import { Scanner } from "../src/scanner.js";
+import focusOrderSemantics from "../src/rules/focus-order-semantics.js";
 
 const scanner = new Scanner([focusOrderSemantics]);
 

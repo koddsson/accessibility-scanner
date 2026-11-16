@@ -369,7 +369,7 @@ for (const rule of applicableRules) {
   const customImports = customRuleIds
     .map(
       (rid) =>
-        `import ${ruleIdToIdent(rid)} from "../../../../src/rules/${rid}";`,
+        `import ${ruleIdToIdent(rid)} from "../../../../src/rules/${rid}.js";`,
     )
     .join("\n");
   const scanRulesArg =
@@ -378,8 +378,8 @@ for (const rule of applicableRules) {
       : "";
   const baseImport =
     customRuleIds.length > 0
-      ? `import { scan, allRules } from "../../../../src/scanner";`
-      : `import { scan } from "../../../../src/scanner";`;
+      ? `import { scan, allRules } from "../../../../src/scanner.js";`
+      : `import { scan } from "../../../../src/scanner.js";`;
 
   const suite = `import { expect } from "@open-wc/testing";
 ${baseImport}${customImports ? "\n" + customImports : ""}

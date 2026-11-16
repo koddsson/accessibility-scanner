@@ -1,6 +1,6 @@
 import { expect, fixture, html, nextFrame } from "@open-wc/testing";
-import { scan } from "../src/scanner";
-import htmlHasLang from "../src/rules/html-has-lang";
+import { scan } from "../src/scanner.js";
+import htmlHasLang from "../src/rules/html-has-lang.js";
 
 /**
  * Create a `<html></html>` in a iframe so that we aren't using the `<html>` element of the test runner.

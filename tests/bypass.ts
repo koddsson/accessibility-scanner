@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import bypass from "../src/rules/bypass";
+import { Scanner } from "../src/scanner.js";
+import bypass from "../src/rules/bypass.js";
 
 const scanner = new Scanner([bypass]);
 

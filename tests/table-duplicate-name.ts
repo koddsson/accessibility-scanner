@@ -1,6 +1,6 @@
 import { fixture, html, expect } from "@open-wc/testing";
-import { Scanner } from "../src/scanner";
-import tableDuplicateName from "../src/rules/table-duplicate-name";
+import { Scanner } from "../src/scanner.js";
+import tableDuplicateName from "../src/rules/table-duplicate-name.js";
 
 const scanner = new Scanner([tableDuplicateName]);
 

@@ -1,4 +1,4 @@
-import { AccessibilityError } from "../scanner";
+import { AccessibilityError } from "../scanner.js";
 
 const id = "server-side-image-map";
 const text = "Ensures that server-side image maps are not used";

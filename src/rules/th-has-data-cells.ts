@@ -1,6 +1,6 @@
 // https://dequeuniversity.com/rules/axe/4.11/th-has-data-cells?application=RuleDescription
-import { AccessibilityError } from "../scanner";
-import { querySelectorAll } from "../utils";
+import { AccessibilityError } from "../scanner.js";
+import { querySelectorAll } from "../utils.js";
 
 const id = "th-has-data-cells";
 const text =
