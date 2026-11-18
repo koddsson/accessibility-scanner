@@ -68,6 +68,8 @@ const autofillFieldNames = new Set([
 
 const contactTokens = new Set(["home", "work", "mobile", "fax", "pager"]);
 
+const excludedInputTypes = new Set(["hidden", "submit", "reset", "button"]);
+
 function isValidAutocomplete(value: string): boolean {
   if (!value || value.trim() === "") {
     return true; // Empty is valid (no autocomplete)
@@ -133,8 +135,12 @@ export default function autocompleteValid(
       continue;
     }
 
-    // Check if element is visible/applicable
-    // Hidden inputs and disabled fields should still be checked according to ACT rules
+    if (
+      el instanceof HTMLInputElement &&
+      excludedInputTypes.has(el.type.toLowerCase())
+    ) {
+      continue;
+    }
 
     // Validate the autocomplete value
     if (!isValidAutocomplete(autocompleteAttr)) {
@@ -150,4 +156,4 @@ export default function autocompleteValid(
   return errors;
 }
 
-autocompleteValid.includeHidden = true;
+autocompleteValid.includeAriaHidden = true;
