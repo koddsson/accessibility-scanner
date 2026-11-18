@@ -269,10 +269,37 @@ describe("autocomplete-valid", function () {
     expect(results).to.be.empty;
   });
 
-  it("checks hidden and disabled inputs", async function () {
+  it("ignores hidden, submit, reset and button inputs", async function () {
     const form = await fixture(html`
       <form>
-        <input type="hidden" autocomplete="invalid-value" />
+        <input type="hidden" name="_method" autocomplete="something" />
+        <input type="submit" autocomplete="email" />
+        <input type="reset" autocomplete="invalid-value" />
+        <input type="button" autocomplete="invalid-value" />
+        <input type="HIDDEN" autocomplete="invalid-value" />
+      </form>
+    `);
+
+    const results = await scanner.scan(form);
+    expect(results).to.be.empty;
+  });
+
+  it("ignores fields that are not rendered", async function () {
+    const form = await fixture(html`
+      <form>
+        <input type="text" autocomplete="badname" style="display: none" />
+        <div hidden><input type="text" autocomplete="badname" /></div>
+      </form>
+    `);
+
+    const results = await scanner.scan(form);
+    expect(results).to.be.empty;
+  });
+
+  it("checks aria-hidden and disabled fields", async function () {
+    const form = await fixture(html`
+      <form>
+        <input type="text" autocomplete="invalid-value" aria-hidden="true" />
         <input type="text" autocomplete="bad-token" disabled />
       </form>
     `);
