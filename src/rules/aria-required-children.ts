@@ -82,10 +82,37 @@ const requiredChildrenRoles: Record<string, string[]> = {
   treegrid: ["rowgroup", "row"],
 };
 
+const reviewEmptyRoles = new Set([
+  "grid",
+  "list",
+  "listbox",
+  "menu",
+  "menubar",
+  "rowgroup",
+  "table",
+  "tablist",
+  "tree",
+  "treegrid",
+]);
+
+function hasTextContent(element: Element): boolean {
+  const walker = element.ownerDocument.createTreeWalker(
+    element,
+    NodeFilter.SHOW_TEXT,
+  );
+  for (let node = walker.nextNode(); node; node = walker.nextNode()) {
+    if (!node.textContent?.trim()) continue;
+    const parent = node.parentElement;
+    if (parent?.closest("script, style, [aria-hidden='true']")) continue;
+    return true;
+  }
+  return false;
+}
+
 export default function ariaRequiredChildren(
   element: Element,
 ): AccessibilityError[] {
-  const errors = [];
+  const errors: AccessibilityError[] = [];
   // Match elements with explicit roles
   const selector = Object.keys(requiredChildrenRoles)
     .map((role) => `[role="${role}"]`)
@@ -113,6 +140,9 @@ export default function ariaRequiredChildren(
     }
     const parentRole = getRole(parent);
     if (!parentRole || !requiredChildrenRoles[parentRole]) continue;
+
+    const hasExplicitRole = Boolean(parent.getAttribute("role"));
+    if (!hasExplicitRole && !hasAnyChildren) continue;
 
     // Collect all descendants and filter by their (explicit or implicit) role
     // Exclude descendants that are inside an intervening accessibility tree OR
@@ -152,10 +182,12 @@ export default function ariaRequiredChildren(
       return !requiredChildrenRoles[parentRole].includes(childRole);
     });
 
+    const ownedElements: Element[] = [];
     const ariaOwns = parent.getAttribute("aria-owns")?.split(" ") || [];
     for (const ownedId of ariaOwns) {
       const ownedElement = querySelector(`#${ownedId}`, element);
       if (!ownedElement) continue;
+      ownedElements.push(ownedElement);
 
       // Treat aria-owns targets as owned regardless of intervening semantic/a11y-tree checks.
       const ownedRole = getRole(ownedElement);
@@ -228,15 +260,15 @@ export default function ariaRequiredChildren(
       }
     }
 
-    // If there are no allowed children OR there exists a forbidden descendant,
-    // report an error.
-    if (children.length === 0 || forbidden.length > 0) {
-      errors.push({
-        id,
-        element: parent,
-        text,
-        url,
-      });
+    if (forbidden.length > 0) {
+      errors.push({ id, element: parent, text, url });
+    } else if (children.length === 0) {
+      const isEmpty = ![parent, ...ownedElements].some((el) =>
+        hasTextContent(el),
+      );
+      const needsReview =
+        hasExplicitRole && reviewEmptyRoles.has(parentRole) && isEmpty;
+      errors.push({ id, element: parent, text, url, needsReview });
     }
   }
   return errors;

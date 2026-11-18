@@ -170,6 +170,27 @@ const passes = [
       </tr>
     </table>`,
   ),
+
+  await fixture(html`<ul id="pass23"></ul>`),
+  await fixture(html`<ol class="toasts" id="pass24"></ol>`),
+  await fixture(html`<ol id="pass25"> </ol>`),
+  await fixture(html`<table id="pass26"></table>`),
+  await fixture(html`<select id="pass27"></select>`),
+];
+
+const needsReview = [
+  await fixture(html`<div role="list" id="review1"></div>`),
+  await fixture(html`<div role="list" id="review2" aria-owns="ingore4"></div>`),
+  await fixture(
+    html`<div role="list" id="review3">
+      <div aria-busy="true"></div>
+    </div>`,
+  ),
+  await fixture(html`<div role="listbox" id="review4"></div>`),
+  await fixture(html`<div role="menu" id="review5"></div>`),
+  await fixture(html`<div role="tablist" id="review6"></div>`),
+  await fixture(html`<div role="tree" id="review7"></div>`),
+  await fixture(html`<ul role="list" id="review8"></ul>`),
 ];
 
 const violations = [
@@ -178,7 +199,6 @@ const violations = [
       <div role="menuitem" id="ignore3"></div>
     </div>`,
   ),
-  await fixture(html`<div role="list" id="fail2" aria-owns="ingore4"></div>`),
   await fixture(html`<div role="row" id="fail3"></div>`),
 
   await fixture(
@@ -228,12 +248,6 @@ const violations = [
   ),
 
   await fixture(
-    html`<div role="list" id="fail12">
-      <div aria-busy="true"></div>
-    </div>`,
-  ),
-
-  await fixture(
     html`<div role="list" id="fail13" aria-busy="true">
       <div role="alert">unallowed role</div>
     </div>`,
@@ -248,9 +262,17 @@ const violations = [
       <li><span>Not a tab</span></li>
     </ul>`,
   ),
+  await fixture(
+    html`<ul id="fail16">
+      <div></div>
+      <div></div>
+    </ul>`,
+  ),
+  await fixture(html`<div role="list" id="fail17">Item 1</div>`),
+  await fixture(html`<div role="list" id="fail18"><span>Item 1</span></div>`),
 ];
 
-describe("aria-valid-attr", async function () {
+describe("aria-required-children", async function () {
   for (const el of passes) {
     it(el.outerHTML, async () => {
       const results = (await scanner.scan(el)).map(({ text, url }) => {
@@ -261,16 +283,37 @@ describe("aria-valid-attr", async function () {
     });
   }
 
-  for (const el of violations) {
+  for (const el of needsReview) {
     it(el.outerHTML, async () => {
-      const results = (await scanner.scan(el)).map(({ text, url }) => {
-        return { text, url };
-      });
+      const results = (await scanner.scan(el)).map(
+        ({ text, url, needsReview }) => {
+          return { text, url, needsReview };
+        },
+      );
 
       expect(results).to.eql([
         {
           text: "Certain ARIA roles must contain particular children",
           url: `https://dequeuniversity.com/rules/axe/4.11/aria-required-children`,
+          needsReview: true,
+        },
+      ]);
+    });
+  }
+
+  for (const el of violations) {
+    it(el.outerHTML, async () => {
+      const results = (await scanner.scan(el)).map(
+        ({ text, url, needsReview }) => {
+          return { text, url, needsReview: Boolean(needsReview) };
+        },
+      );
+
+      expect(results).to.eql([
+        {
+          text: "Certain ARIA roles must contain particular children",
+          url: `https://dequeuniversity.com/rules/axe/4.11/aria-required-children`,
+          needsReview: false,
         },
       ]);
     });
