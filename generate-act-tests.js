@@ -201,9 +201,6 @@ const skippedExamples = [
   // [eac66b] video-caption: scanner can't detect text transcript as alternative to captions
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/eac66b/47dd719ce35a9aef8dddd58fc3b1c08956d92889.html",
 
-  // [bc4a75] aria-required-children: scanner doesn't validate children of nested group roles
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/bc4a75/5e0e88f9ed776c89735d7db606c1381a7a1fb877.html",
-
   // [ff89c9] aria-required-parent: scanner doesn't treat aria-live as a context role boundary
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/ff89c9/52508dc0ac389108301d7cbd7f931be45a45741f.html",
 

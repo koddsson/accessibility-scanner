@@ -176,6 +176,16 @@ const passes = [
   await fixture(html`<ol id="pass25"> </ol>`),
   await fixture(html`<table id="pass26"></table>`),
   await fixture(html`<select id="pass27"></select>`),
+  await fixture(
+    html`<div role="tree" id="pass28">
+      <div role="group">
+        <div role="treeitem">Item 1</div>
+        <div role="group">
+          <div role="treeitem">Item 2</div>
+        </div>
+      </div>
+    </div>`,
+  ),
 ];
 
 const needsReview = [
@@ -270,6 +280,24 @@ const violations = [
   ),
   await fixture(html`<div role="list" id="fail17">Item 1</div>`),
   await fixture(html`<div role="list" id="fail18"><span>Item 1</span></div>`),
+  await fixture(
+    html`<div role="menu" id="fail19">
+      <div role="group">
+        <div role="menuitem">Item 1</div>
+        <div role="treeitem">Item 2</div>
+      </div>
+    </div>`,
+  ),
+  await fixture(
+    html`<div role="listbox" id="fail20">
+      <div role="group">
+        <div role="option">Item 1</div>
+        <div role="group">
+          <div role="menuitem">Item 2</div>
+        </div>
+      </div>
+    </div>`,
+  ),
 ];
 
 describe("aria-required-children", async function () {
