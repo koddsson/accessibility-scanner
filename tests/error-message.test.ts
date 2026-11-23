@@ -78,9 +78,68 @@ describe("error-message", function () {
       const results = await scanner.scan(container);
       expect(results).to.have.lengthOf(0);
     });
+
+    it("elements referenced by aria-controls inside a form are not flagged", async () => {
+      const container = await fixture(
+        html`<form>
+          <button
+            type="button"
+            id="dropdown-button-filters"
+            aria-expanded="false"
+            aria-controls="dropdown-menu-filters"
+          >
+            Filters
+          </button>
+          <div
+            id="dropdown-menu-filters"
+            aria-labelledby="dropdown-button-filters"
+          >
+            <ul>
+              <li>
+                <input type="checkbox" id="filter-1" />
+                <label for="filter-1">Option 1</label>
+              </li>
+              <li>
+                <input type="checkbox" id="filter-2" />
+                <label for="filter-2">Option 2</label>
+              </li>
+            </ul>
+          </div>
+        </form>`,
+      );
+      const results = await scanner.scan(container);
+      expect(results).to.have.lengthOf(0);
+    });
+
+    it("elements referenced by a multi-id aria-controls are not flagged", async () => {
+      const container = await fixture(
+        html`<form>
+          <button type="button" aria-controls="panel-a panel-b">Toggle</button>
+          <div id="panel-a">First panel</div>
+          <div id="panel-b">Second panel</div>
+          <input type="text" name="field" />
+        </form>`,
+      );
+      const results = await scanner.scan(container);
+      expect(results).to.have.lengthOf(0);
+    });
   });
 
   describe("still has errors if", function () {
+    it("an unassociated element sits next to an aria-controls target", async () => {
+      const container = await fixture(
+        html`<form>
+          <button type="button" aria-controls="panel">Toggle</button>
+          <div id="panel">Panel content</div>
+          <input type="text" name="email" />
+          <span id="email-error">Please enter a valid email</span>
+        </form>`,
+      );
+      const results = await scanner.scan(container);
+      expect(results).to.have.lengthOf(1);
+      expect(results[0].element.id).to.equal("email-error");
+    });
+
     it("a non-widget element with id is not associated with a form field", async () => {
       const container = await fixture(
         html`<form>
