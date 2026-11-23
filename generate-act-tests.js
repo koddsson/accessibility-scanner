@@ -124,14 +124,11 @@ const rulesToIgnore = [
   "c249d5", // Device motion based changes to the content can be disabled - requires device motion events
 
   // --- Not implemented - accessible name computation not yet fully supported ---
-  "59796f", // Image button has non-empty accessible name - not implemented
   "7d6734", // SVG element with explicit role has non-empty accessible name - not implemented
-  "cae760", // Iframe element has non-empty accessible name - not implemented
 
   // --- Not implemented - ARIA rules not yet fully supported ---
   "4e8ab6", // Element with role attribute has required states and properties - not implemented
   "5c01ea", // ARIA state or property is permitted - not implemented
-  "674b10", // Role attribute has valid value - not implemented
   "6a7281", // ARIA state or property has valid value - not implemented
   "ff89c9", // ARIA required context role - not implemented
   "307n5z", // Element with presentational children has no focusable content - not implemented
