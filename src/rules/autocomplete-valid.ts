@@ -68,6 +68,19 @@ const autofillFieldNames = new Set([
 
 const contactTokens = new Set(["home", "work", "mobile", "fax", "pager"]);
 
+const contactFieldNames = new Set([
+  "tel",
+  "tel-country-code",
+  "tel-national",
+  "tel-area-code",
+  "tel-local",
+  "tel-local-prefix",
+  "tel-local-suffix",
+  "tel-extension",
+  "email",
+  "impp",
+]);
+
 const excludedInputTypes = new Set(["hidden", "submit", "reset", "button"]);
 
 function isValidAutocomplete(value: string): boolean {
@@ -94,16 +107,19 @@ function isValidAutocomplete(value: string): boolean {
     index++;
   }
 
-  // Required: field name (must be present for autofill)
-  if (index >= tokens.length || !autofillFieldNames.has(tokens[index])) {
+  const hasContactToken = contactTokens.has(tokens[index]);
+  if (hasContactToken) {
+    index++;
+  }
+
+  const fieldName = tokens[index];
+  if (index >= tokens.length || !autofillFieldNames.has(fieldName)) {
+    return false;
+  }
+  if (hasContactToken && !contactFieldNames.has(fieldName)) {
     return false;
   }
   index++;
-
-  // Optional: contact type (home, work, mobile, fax, pager)
-  if (index < tokens.length && contactTokens.has(tokens[index])) {
-    index++;
-  }
 
   // Optional: webauthn
   if (index < tokens.length && tokens[index] === "webauthn") {

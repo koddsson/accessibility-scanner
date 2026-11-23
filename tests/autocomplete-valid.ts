@@ -44,9 +44,9 @@ describe("autocomplete-valid", function () {
         <input type="text" autocomplete="shipping name" />
         <input type="text" autocomplete="billing street-address" />
         <input type="text" autocomplete="section-blue shipping address-line1" />
-        <input type="tel" autocomplete="tel home" />
-        <input type="tel" autocomplete="tel work" />
-        <input type="tel" autocomplete="tel mobile" />
+        <input type="tel" autocomplete="home tel" />
+        <input type="email" autocomplete="work email" />
+        <input type="tel" autocomplete="mobile tel" />
       </form>
     `);
 
@@ -157,7 +157,7 @@ describe("autocomplete-valid", function () {
     const form = await fixture(html`
       <form>
         <input type="text" autocomplete="name shipping" />
-        <input type="text" autocomplete="home tel" />
+        <input type="text" autocomplete="tel home" />
       </form>
     `);
 
@@ -260,7 +260,7 @@ describe("autocomplete-valid", function () {
   it("passes for complex valid autocomplete with all optional tokens", async function () {
     const form = await fixture(html`
       <form>
-        <input type="tel" autocomplete="section-contact shipping tel mobile" />
+        <input type="tel" autocomplete="section-contact shipping mobile tel" />
         <input type="text" autocomplete="section-blue billing address-line1" />
       </form>
     `);
