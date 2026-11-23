@@ -311,6 +311,15 @@ const violations = [
       </div>
     </div>`,
   ),
+
+  // listitem with intervening live region
+  await fixture(
+    html`<div role="list">
+      <div aria-live="polite">
+        <div role="listitem" id="fail20">Item 1</div>
+      </div>
+    </div>`,
+  ),
 ];
 
 describe("aria-required-parent", async function () {

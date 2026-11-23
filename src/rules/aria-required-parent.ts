@@ -54,6 +54,8 @@ function findRequiredParent(
       return true;
     }
 
+    if (current.hasAttribute("aria-live")) return false;
+
     // Stop at explicit roles that would break the parent-child relationship
     // (except presentation/none/generic which are transparent)
     if (

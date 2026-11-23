@@ -133,7 +133,6 @@ const rulesToIgnore = [
   "5c01ea", // ARIA state or property is permitted - not implemented
   "674b10", // Role attribute has valid value - not implemented
   "6a7281", // ARIA state or property has valid value - not implemented
-  "ff89c9", // ARIA required context role - not implemented
   "307n5z", // Element with presentational children has no focusable content - not implemented
   "kb1m8s", // ARIA global properties not used where prohibited - not implemented
 
@@ -203,9 +202,6 @@ const skippedExamples = [
 
   // [bc4a75] aria-required-children: scanner doesn't validate children of nested group roles
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/bc4a75/5e0e88f9ed776c89735d7db606c1381a7a1fb877.html",
-
-  // [ff89c9] aria-required-parent: scanner doesn't treat aria-live as a context role boundary
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/ff89c9/52508dc0ac389108301d7cbd7f931be45a45741f.html",
 
   // [ff89c9] aria-required-parent: shadow DOM + aria-owns not supported in DOMParser tests
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/ff89c9/f8e3dbe601969ab54954447e04ae384eb52d7082.html",
