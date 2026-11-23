@@ -93,6 +93,19 @@ function collectReferencedIds(container: Element): Set<string> {
   return ids;
 }
 
+function collectControlledIds(container: Element): Set<string> {
+  const ids = new Set<string>();
+  const controllers = querySelectorAll("[aria-controls]", container);
+  if (container.hasAttribute("aria-controls")) controllers.push(container);
+  for (const el of controllers) {
+    const value = el.getAttribute("aria-controls") || "";
+    for (const token of value.split(/\s+/)) {
+      if (token) ids.add(token);
+    }
+  }
+  return ids;
+}
+
 /**
  * Find candidate error-message elements inside a form.  A candidate is an
  * element that:
@@ -103,7 +116,9 @@ function collectReferencedIds(container: Element): Set<string> {
 function findCandidateErrorElements(form: Element): Element[] {
   const candidates: Element[] = [];
   const allWithId = querySelectorAll("[id]", form);
+  const controlledIds = collectControlledIds(form);
   for (const el of allWithId) {
+    if (controlledIds.has(el.getAttribute("id") || "")) continue;
     // Skip structural form elements
     if (el.matches(structuralSelector)) continue;
     // Skip elements with ARIA widget/landmark roles
