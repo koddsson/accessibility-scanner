@@ -151,7 +151,7 @@ for (const ruleId of allActRuleIds) {
   if (implemented) implementedCount++;
 
   const wcag = cases.length > 0 ? wcagCriteriaFor(cases) : extra?.wcag ?? [];
-  const applicableCases = cases.filter((c) => c.expected !== "inapplicable").length;
+  const applicableCases = cases.length;
   const { generated, skipped } = await countActTests(ruleId);
   const running = generated - skipped;
 
@@ -255,7 +255,7 @@ A TypeScript accessibility scanner aimed at being [W3C ACT (Accessibility Confor
 
 ## ACT Rules
 
-Implementation status against the [ACT Rules Community Group](https://act-rules.github.io/) catalogue. Each rule links to its ACT specification. The **Test cases** column shows how many of the ACT-supplied test cases this scanner runs and passes — out of the total applicable cases for that rule. Test cases that depend on visual rendering, media playback, keyboard interaction, or other capabilities outside the scanner's scope are intentionally not generated.
+Implementation status against the [ACT Rules Community Group](https://act-rules.github.io/) catalogue. Each rule links to its ACT specification. The **Test cases** column shows how many of the ACT-supplied test cases this scanner runs and passes — out of all cases for that rule, including the inapplicable ones. Test cases that depend on visual rendering, media playback, keyboard interaction, or other capabilities outside the scanner's scope are intentionally not generated.
 
 The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines/act/implementations/) only counts a rule as "consistently implemented" when the implementation passes every published ACT test case for it. By that measure:
 

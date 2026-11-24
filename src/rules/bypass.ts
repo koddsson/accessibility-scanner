@@ -18,6 +18,7 @@ export default function (element: Element): AccessibilityError[] {
   if (!doc || element !== doc.documentElement) {
     return [];
   }
+  if (element.localName !== "html") return [];
 
   // Check for skip links - internal anchor links that are visible or become visible on focus
   // Get all links once for efficiency

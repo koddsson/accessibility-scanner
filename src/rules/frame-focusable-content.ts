@@ -39,7 +39,12 @@ function hasFocusableContent(element: Element): boolean {
     element instanceof HTMLFrameElement
   ) {
     try {
-      const contentDocument = element.contentDocument;
+      const srcdoc = element.getAttribute("srcdoc");
+      const contentDocument =
+        element.contentDocument ??
+        (srcdoc === null
+          ? null
+          : new DOMParser().parseFromString(srcdoc, "text/html"));
       if (contentDocument && contentDocument.body) {
         // Check if the iframe's document has focusable elements
         const focusableElements = querySelectorAll(
@@ -113,6 +118,8 @@ export default function frameFocusableContent(
     if (tabindex !== "-1") {
       continue;
     }
+
+    if (frame.closest("[inert]")) continue;
 
     // Check if the frame has focusable content
     if (hasFocusableContent(frame)) {

@@ -18,10 +18,7 @@ export default function (element_: Element): AccessibilityError[] {
   const errors = [];
   for (const element of querySelectorAll("[role]", element_)) {
     const role = element.getAttribute("role");
-    if (!role) {
-      errors.push({ id, element, text, url });
-      continue;
-    }
+    if (!role?.trim()) continue;
     // The role attribute can contain multiple space-separated values.
     // According to the spec, the first valid role in the token list is used.
     // Only flag an error if none of the roles are valid.

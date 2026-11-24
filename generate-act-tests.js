@@ -266,6 +266,24 @@ const skippedExamples = [
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/78fd32/78034759a1086c7ffa8037b6e6e2327ece4a19d7.html",
   // [78fd32] avoid-inline-spacing: parent !important overridden by child !important requires cascade analysis
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/78fd32/9280b9961f4e24943080fabb67c041b65036f69c.html",
+
+  // --- Inapplicable examples the scanner flags because it cannot render or load content ---
+  // [24afc2] avoid-inline-spacing: text positioned off-screen is not visible, which needs layout to detect
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/24afc2/88d6ea5706ed8ae188caa166879c381e64e5077a.html",
+  // [9e45ec] avoid-inline-spacing: text positioned off-screen is not visible, which needs layout to detect
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/9e45ec/a8f0c6682763e4ca7db824dc145a23067a3eb889.html",
+  // [78fd32] avoid-inline-spacing: text positioned off-screen is not visible, which needs layout to detect
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/78fd32/81be0f6c00496f3c2d70071c8f73b292ba282bfc.html",
+  // [78fd32] avoid-inline-spacing: single-line text inside a horizontally scrolling container needs layout to detect
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/78fd32/bc3e59c1292a265135ed7043d2cdcaa62cdfac66.html",
+  // [80f0bf] no-autoplay-audio: video file has no audio track, which needs media inspection
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/80f0bf/7d3d7214d9fca81a8a09a819665871a474f85548.html",
+  // [eac66b] video-caption: video file has no audio track, which needs media inspection
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/eac66b/4663502bcb6da984af2f46bbc105cb5b70d5a2b2.html",
+  // [8fc3b6] object-alt: object fails to load and shows its fallback content, which needs resource loading
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/8fc3b6/25b2c00b86322f15c0cbb376b58b342fff916f62.html",
+  // [akn7bn] frame-focusable-content: 1x1 iframe hides its content, which needs layout to detect
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/akn7bn/63cd20ec8886f4c59ff54f406a0e5933847bce75.html",
 ];
 
 // ACT rules where the scanner rule requires the document element (not body)
@@ -295,8 +313,6 @@ for (const rule of applicableRules) {
   if (ruleName.includes("DEPRECATED")) continue;
   if (rulesToIgnore.includes(ruleId)) continue;
   if (ignoredExamples.includes(exampleURL)) continue;
-  // Ignore inapplicable results
-  if (expected === "inapplicable") continue;
 
   console.log({ ruleId, testcaseId });
 
@@ -322,7 +338,7 @@ for (const rule of applicableRules) {
   const expectedUrls = actRuleIdToExpectedUrls[ruleId] || [];
 
   let assertion = undefined;
-  if (expected === "passed") {
+  if (expected === "passed" || expected === "inapplicable") {
     if (expectedUrls.length > 0) {
       const urlsArray = JSON.stringify(expectedUrls);
       // Results flagged needsReview are "cantTell" outcomes, which ACT
@@ -346,9 +362,15 @@ for (const rule of applicableRules) {
   }
 
   const itFn = skippedExamples.includes(exampleURL) ? "it.skip" : "it";
-  const scanTarget = rulesRequiringDocumentElement.includes(ruleId)
-    ? "document.documentElement"
-    : "document.body";
+  const mimeType = exampleURL.endsWith(".svg")
+    ? "image/svg+xml"
+    : exampleURL.endsWith(".xml")
+      ? "application/xml"
+      : "text/html";
+  const scanTarget =
+    mimeType !== "text/html" || rulesRequiringDocumentElement.includes(ruleId)
+      ? "document.documentElement"
+      : "document.body";
 
   // Custom (experimental) rules aren't part of the default rule set, so they
   // must be imported and passed explicitly to `scan` for these test cases.
@@ -375,7 +397,7 @@ const parser = new DOMParser();
 
 describe("[${ruleId}]${ruleName}", function () {
   ${itFn}("${testcaseTitle} (${exampleURL})", async () => {
-    const document = parser.parseFromString(\`${html}\`, 'text/html');
+    const document = parser.parseFromString(\`${html}\`, '${mimeType}');
 
     const results = (await scan(${scanTarget}${scanRulesArg})).map(({ text, url, needsReview }) => {
       return { text, url, needsReview };

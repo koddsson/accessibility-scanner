@@ -60,6 +60,8 @@ function validateHeadersAttribute(cell: HTMLTableCellElement): boolean {
   return true;
 }
 
+const tableRoles = new Set(["table", "grid", "treegrid"]);
+
 export default function tdHeadersAttr(element: Element): AccessibilityError[] {
   const errors: AccessibilityError[] = [];
 
@@ -74,6 +76,9 @@ export default function tdHeadersAttr(element: Element): AccessibilityError[] {
     if (cell.tagName !== "TD" && cell.tagName !== "TH") {
       continue;
     }
+
+    const tableRole = cell.closest("table")?.getAttribute("role")?.trim();
+    if (tableRole && !tableRoles.has(tableRole)) continue;
 
     const tableCell = cell as HTMLTableCellElement;
 

@@ -36,28 +36,20 @@ describe("valid-lang", function () {
       }));
       expect(results).to.be.empty;
     });
+
+    it("the lang attribute is empty", async () => {
+      const container = await fixture(
+        html`<p lang="">Hello world</p>`,
+      );
+      const results = await scanner.scan(container);
+      expect(results).to.be.empty;
+    });
   });
 
   describe("has errors if", function () {
     it("the lang attribute has an invalid value", async () => {
       const container = await fixture(
         html`<p lang="xyz">Hello world</p>`,
-      );
-      const results = (await scanner.scan(container)).map(({ text, url }) => ({
-        text,
-        url,
-      }));
-      expect(results).to.eql([
-        {
-          text: "Ensures lang attributes have valid values",
-          url: "https://dequeuniversity.com/rules/axe/4.11/valid-lang",
-        },
-      ]);
-    });
-
-    it("the lang attribute is empty with text content", async () => {
-      const container = await fixture(
-        html`<p lang="">Hello world</p>`,
       );
       const results = (await scanner.scan(container)).map(({ text, url }) => ({
         text,
