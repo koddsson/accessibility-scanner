@@ -5,7 +5,7 @@ import { scan } from "../../../../src/scanner.js";
 describe("[9e45ec]Important word spacing in style attributes is wide enough", function () {
   afterEach(cleanup);
 
-  it.skip("Passed Example 2 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/9e45ec/2a2a14cc9bcb3fa7983e22f160ce9eeb6b832a8c.html)", async () => {
+  it("Passed Example 2 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/9e45ec/2a2a14cc9bcb3fa7983e22f160ce9eeb6b832a8c.html)", async () => {
     const document = await render(`<!DOCTYPE html>
 <html lang="en">
 <head>
