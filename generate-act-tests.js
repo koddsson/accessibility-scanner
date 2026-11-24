@@ -190,9 +190,6 @@ const skippedExamples = [
   // [eac66b] video-caption: scanner can't detect text transcript as alternative to captions
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/eac66b/47dd719ce35a9aef8dddd58fc3b1c08956d92889.html",
 
-  // [ff89c9] aria-required-parent: shadow DOM + aria-owns not supported in DOMParser tests
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/ff89c9/f8e3dbe601969ab54954447e04ae384eb52d7082.html",
-
   // [e88epe] decorative-image: scanner flags role="none" with non-empty alt as a contradiction;
   // ACT considers this passed when the image is actually decorative (requires visual judgment)
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/e88epe/57982b4d5dad90f3f2c06d5e0233694c46842bd0.html",
@@ -211,11 +208,6 @@ const skippedExamples = [
 
   // [2ee8b8] label-content-name-mismatch: scanner cannot detect icon fonts (requires CSS rendering)
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/2ee8b8/efa9543339cdad5412c7719b266a633a29ce149e.html",
-
-  // [0ssw9k] scrollable-region-focusable: DOMParser has no layout engine so
-  // getComputedStyle and scrollHeight/clientHeight cannot detect scrollability
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/0ssw9k/5fa34d0a7eea03109cd12c0e7c21fce793c268db.html",
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/0ssw9k/731acbc281943f3fef81aee32f6a553fc426e20f.html",
 
   // [047fe0] bypass/heading: scanner can't distinguish repeated vs non-repeated content areas
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/047fe0/4e34cac08353c5383b8743bffada2aaf3a780149.html",
@@ -387,13 +379,14 @@ for (const rule of applicableRules) {
       : `import { scan } from "../../../../src/scanner.js";`;
 
   const suite = `import { expect } from "@open-wc/testing";
+import { cleanup, render } from "../../render.js";
 ${baseImport}${customImports ? "\n" + customImports : ""}
 
-const parser = new DOMParser();
-
 describe("[${ruleId}]${ruleName}", function () {
+  afterEach(cleanup);
+
   ${itFn}("${testcaseTitle} (${exampleURL})", async () => {
-    const document = parser.parseFromString(\`${html}\`, '${mimeType}');
+    const document = await render(\`${html}\`, '${mimeType}');
 
     const results = (await scan(${scanTarget}${scanRulesArg})).map(({ text, url, needsReview }) => {
       return { text, url, needsReview };

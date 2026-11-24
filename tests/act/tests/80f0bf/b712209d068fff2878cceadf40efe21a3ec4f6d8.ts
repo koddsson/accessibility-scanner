@@ -1,11 +1,12 @@
 import { expect } from "@open-wc/testing";
+import { cleanup, render } from "../../render.js";
 import { scan } from "../../../../src/scanner.js";
 
-const parser = new DOMParser();
-
 describe("[80f0bf]Audio or video element avoids automatically playing audio", function () {
+  afterEach(cleanup);
+
   it("Failed Example 2 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/80f0bf/b712209d068fff2878cceadf40efe21a3ec4f6d8.html)", async () => {
-    const document = parser.parseFromString(`<!DOCTYPE html>
+    const document = await render(`<!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>Failed Example 2</title>

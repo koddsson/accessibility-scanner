@@ -1,11 +1,12 @@
 import { expect } from "@open-wc/testing";
+import { cleanup, render } from "../../render.js";
 import { scan } from "../../../../src/scanner.js";
 
-const parser = new DOMParser();
-
 describe("[d0f69e]Table header cell has assigned cells", function () {
+  afterEach(cleanup);
+
   it("Passed Example 4 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/d0f69e/4dba1a02d3852eecca6f2f50e1812bce802a42de.html)", async () => {
-    const document = parser.parseFromString(`<!DOCTYPE html>
+    const document = await render(`<!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>Passed Example 4</title>

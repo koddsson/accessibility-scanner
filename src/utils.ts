@@ -1,4 +1,5 @@
 import { getExplicitRole } from "./utils/roles.js";
+import { isDocument, isHTMLElement, isHTMLTag } from "./utils/dom.js";
 
 export function isVisible(element: Element | null): boolean {
   // Return false for null/undefined
@@ -170,7 +171,7 @@ export function labelledByIsValid(element: Element): boolean {
     const escapedId = CSS.escape(id);
     const otherElement = querySelector(`#${escapedId}`, element.ownerDocument);
     if (!otherElement) continue;
-    if (otherElement instanceof HTMLSelectElement) continue;
+    if (isHTMLTag(otherElement, "select")) continue;
     if (otherElement.textContent?.trim() !== "") return true;
   }
 
@@ -256,7 +257,7 @@ function recurse(
   currentDepth = 1,
 ) {
   // if "document" is passed in, it will also pick up "<html>" causing the query to run twice.
-  if (container instanceof Document) {
+  if (isDocument(container)) {
     container = container.documentElement;
   }
 
@@ -268,7 +269,7 @@ function recurse(
 
   // Accounts for if the container houses a textNode
   if (
-    container instanceof HTMLElement &&
+    isHTMLElement(container) &&
     container.shadowRoot != undefined &&
     container.shadowRoot.mode !== "closed"
   ) {

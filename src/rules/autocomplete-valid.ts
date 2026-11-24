@@ -1,5 +1,6 @@
 import { AccessibilityError } from "../scanner.js";
 import { querySelectorAll } from "../utils.js";
+import { isHTMLTag } from "../utils/dom.js";
 
 const id = "autocomplete-valid";
 const text =
@@ -152,7 +153,7 @@ export default function autocompleteValid(
     }
 
     if (
-      el instanceof HTMLInputElement &&
+      isHTMLTag(el, "input") &&
       excludedInputTypes.has(el.type.toLowerCase())
     ) {
       continue;

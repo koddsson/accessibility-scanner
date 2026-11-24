@@ -1,5 +1,6 @@
 import { AccessibilityError } from "../scanner.js";
 import { querySelectorAll } from "../utils.js";
+import { parentOrHost } from "../utils/dom.js";
 import { getRole } from "../utils/roles.js";
 
 const id = "aria-required-parent";
@@ -32,21 +33,18 @@ function findRequiredParent(
 ): boolean {
   // First check if this element is owned via aria-owns
   if (element.id) {
-    const ownedBy = querySelectorAll(
-      `[aria-owns~="${element.id}"]`,
-      root,
-    ).filter((owner) => {
+    const tree = element.getRootNode() as ParentNode;
+    const owners = tree.querySelectorAll(
+      `[aria-owns~="${CSS.escape(element.id)}"]`,
+    );
+    for (const owner of owners) {
       const ownerRole = getRole(owner);
-      return ownerRole && requiredParents.includes(ownerRole);
-    });
-
-    if (ownedBy.length > 0) {
-      return true;
+      if (ownerRole && requiredParents.includes(ownerRole)) return true;
     }
   }
 
   // Then check the DOM hierarchy
-  let current: Element | null = element.parentElement;
+  let current: Element | null = parentOrHost(element);
   while (current && current !== root.parentElement) {
     // Check if this element has one of the required parent roles
     const currentRole = getRole(current);
@@ -68,7 +66,7 @@ function findRequiredParent(
       return false;
     }
 
-    current = current.parentElement;
+    current = parentOrHost(current);
   }
   return false;
 }

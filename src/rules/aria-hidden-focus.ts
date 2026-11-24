@@ -1,5 +1,6 @@
 import { AccessibilityError } from "../scanner.js";
 import { querySelectorAll, isVisible } from "../utils.js";
+import { isHTMLElement, isHTMLTag } from "../utils/dom.js";
 
 const id = "aria-hidden-focus";
 const text = "aria-hidden elements do not contain focusable elements";
@@ -56,7 +57,7 @@ export default function ariaHiddenFocus(
       // Skip elements that are not truly focusable for practical purposes.
 
       // 1) Skip if candidate is not an HTMLElement (defensive).
-      if (!(candidate instanceof HTMLElement)) continue;
+      if (!isHTMLElement(candidate)) continue;
 
       // 2) Skip if explicitly hidden via inline style display:none (matches other rules' behavior).
       if (!isVisible(candidate)) continue;
@@ -72,13 +73,13 @@ export default function ariaHiddenFocus(
       // Use hasAttribute to detect presence like <input disabled />
       if (candidate.hasAttribute("disabled")) continue;
       if (
-        (candidate instanceof HTMLInputElement && candidate.disabled) ||
-        (candidate instanceof HTMLButtonElement && candidate.disabled) ||
-        (candidate instanceof HTMLSelectElement && candidate.disabled) ||
-        (candidate instanceof HTMLTextAreaElement && candidate.disabled) ||
-        (candidate instanceof HTMLOptionElement && candidate.disabled) ||
-        (candidate instanceof HTMLOptGroupElement && candidate.disabled) ||
-        (candidate instanceof HTMLFieldSetElement && candidate.disabled)
+        (isHTMLTag(candidate, "input") && candidate.disabled) ||
+        (isHTMLTag(candidate, "button") && candidate.disabled) ||
+        (isHTMLTag(candidate, "select") && candidate.disabled) ||
+        (isHTMLTag(candidate, "textarea") && candidate.disabled) ||
+        (isHTMLTag(candidate, "option") && candidate.disabled) ||
+        (isHTMLTag(candidate, "optgroup") && candidate.disabled) ||
+        (isHTMLTag(candidate, "fieldset") && candidate.disabled)
       ) {
         continue;
       }

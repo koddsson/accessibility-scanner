@@ -1,6 +1,7 @@
 // https://dequeuniversity.com/rules/axe/4.11/th-has-data-cells?application=RuleDescription
 import { AccessibilityError } from "../scanner.js";
 import { querySelectorAll } from "../utils.js";
+import { isHTMLTag } from "../utils/dom.js";
 
 const id = "th-has-data-cells";
 const text =
@@ -83,10 +84,7 @@ function hasDataCells(
   const scope = header.getAttribute("scope");
 
   // For th elements in an HTML table, check if there are data cells in the same row/column
-  if (
-    header instanceof HTMLTableCellElement &&
-    table instanceof HTMLTableElement
-  ) {
+  if (isHTMLTag(header, "td", "th") && isHTMLTag(table, "table")) {
     const row = header.parentElement as HTMLTableRowElement;
     if (!row) return false;
 

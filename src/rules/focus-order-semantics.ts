@@ -1,5 +1,6 @@
 import { AccessibilityError } from "../scanner.js";
 import { querySelectorAll } from "../utils.js";
+import { isHTMLElement } from "../utils/dom.js";
 
 const id = "focus-order-semantics";
 const text =
@@ -127,7 +128,7 @@ function isScrollableOverflow(value: string): boolean {
 }
 
 function isScrollableRegion(element: Element): boolean {
-  if (!(element instanceof HTMLElement)) return false;
+  if (!isHTMLElement(element)) return false;
   const computed = globalThis.getComputedStyle(element);
   return (
     isScrollableOverflow(computed.overflowY) ||
@@ -139,7 +140,7 @@ function isScrollableRegion(element: Element): boolean {
  * Check if an element is in the focus order
  */
 function isInFocusOrder(element: Element): boolean {
-  if (!(element instanceof HTMLElement)) return false;
+  if (!isHTMLElement(element)) return false;
 
   // Check tabindex attribute
   const tabindex = element.getAttribute("tabindex");

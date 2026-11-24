@@ -1,11 +1,12 @@
 import { expect } from "@open-wc/testing";
+import { cleanup, render } from "../../render.js";
 import { scan } from "../../../../src/scanner.js";
 
-const parser = new DOMParser();
-
 describe("[0ssw9k]Scrollable content can be reached with sequential focus navigation", function () {
-  it.skip("Failed Example 1 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/0ssw9k/5fa34d0a7eea03109cd12c0e7c21fce793c268db.html)", async () => {
-    const document = parser.parseFromString(`<!DOCTYPE html>
+  afterEach(cleanup);
+
+  it("Failed Example 1 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/0ssw9k/5fa34d0a7eea03109cd12c0e7c21fce793c268db.html)", async () => {
+    const document = await render(`<!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>Failed Example 1</title>

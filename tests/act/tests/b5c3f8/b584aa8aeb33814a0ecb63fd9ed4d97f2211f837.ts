@@ -1,11 +1,12 @@
 import { expect } from "@open-wc/testing";
+import { cleanup, render } from "../../render.js";
 import { scan } from "../../../../src/scanner.js";
 
-const parser = new DOMParser();
-
 describe("[b5c3f8]HTML page has lang attribute", function () {
+  afterEach(cleanup);
+
   it("Inapplicable Example 1 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/b5c3f8/b584aa8aeb33814a0ecb63fd9ed4d97f2211f837.svg)", async () => {
-    const document = parser.parseFromString(`<svg xmlns="http://www.w3.org/2000/svg" lang="en">
+    const document = await render(`<svg xmlns="http://www.w3.org/2000/svg" lang="en">
     <text>
         The quick brown fox jumps over the lazy dog.
     </text>

@@ -1,5 +1,6 @@
 import { AccessibilityError } from "../scanner.js";
 import { querySelectorAll } from "../utils.js";
+import { isHTMLTag } from "../utils/dom.js";
 
 const id = "form-field-multiple-labels";
 const text = "Ensures form field does not have multiple label elements";
@@ -23,7 +24,7 @@ export default function (element: Element): AccessibilityError[] {
   }
 
   for (const element of elements) {
-    if (element instanceof HTMLInputElement && element.type === "hidden") {
+    if (isHTMLTag(element, "input") && element.type === "hidden") {
       continue;
     }
 
@@ -41,7 +42,7 @@ export default function (element: Element): AccessibilityError[] {
     let hasParentLabel = false;
     let parentElement = element.parentElement;
     while (parentElement) {
-      if (parentElement instanceof HTMLLabelElement) {
+      if (isHTMLTag(parentElement, "label")) {
         hasParentLabel = true;
         break;
       }

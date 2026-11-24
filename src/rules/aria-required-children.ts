@@ -1,6 +1,7 @@
 import { AccessibilityError } from "../scanner.js";
 import { querySelector, querySelectorAll } from "../utils.js";
 import { getRole } from "../utils/roles.js";
+import { isHTMLElement } from "../utils/dom.js";
 
 const id = "aria-required-children";
 const text = "Certain ARIA roles must contain particular children";
@@ -12,7 +13,7 @@ function isInsideSeparateA11yTree(node: Element, container: Element): boolean {
   while (cur && cur !== container) {
     const role = cur.getAttribute("role");
     const isLive = cur.hasAttribute("aria-live");
-    const isInteractive = cur instanceof HTMLElement && cur.tabIndex === 0;
+    const isInteractive = isHTMLElement(cur) && cur.tabIndex === 0;
 
     if (
       isLive ||

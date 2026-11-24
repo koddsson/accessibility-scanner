@@ -3,6 +3,8 @@
  * https://www.w3.org/TR/WCAG21/#contrast-minimum
  */
 
+import { parentOrHost } from "./dom.js";
+
 export interface RGB {
   r: number;
   g: number;
@@ -544,12 +546,6 @@ function getCanvasColor(document: Document): RGB {
   return view.matchMedia("(prefers-color-scheme: dark)").matches
     ? DARK_CANVAS
     : LIGHT_CANVAS;
-}
-
-function parentOrHost(element: Element): Element | null {
-  if (element.parentElement) return element.parentElement;
-  const root = element.getRootNode();
-  return root instanceof ShadowRoot ? root.host : null;
 }
 
 /**

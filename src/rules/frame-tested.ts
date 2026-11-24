@@ -1,5 +1,6 @@
 import { AccessibilityError } from "../scanner.js";
 import { querySelectorAll } from "../utils.js";
+import { isHTMLElement } from "../utils/dom.js";
 
 const id = "frame-tested";
 const text =
@@ -26,8 +27,7 @@ export default function frameTested(element: Element): AccessibilityError[] {
   for (const frame of frames) {
     // Skip hidden frames (aria-hidden or display:none)
     if (frame.getAttribute("aria-hidden") === "true") continue;
-    if (frame instanceof HTMLElement && frame.style.display === "none")
-      continue;
+    if (isHTMLElement(frame) && frame.style.display === "none") continue;
 
     // Check if we can access the frame's content document
     try {

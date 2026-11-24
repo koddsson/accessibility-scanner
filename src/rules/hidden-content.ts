@@ -1,4 +1,5 @@
 import { AccessibilityError } from "../scanner.js";
+import { isHTMLElement } from "../utils/dom.js";
 
 const id = "hidden-content";
 const text = "Informs users about hidden content.";
@@ -15,7 +16,7 @@ export default function hiddenContent(element: Element): AccessibilityError[] {
     const hasAriaHidden = el.getAttribute("aria-hidden") === "true";
 
     // For HTML elements, also check hidden attribute and inline styles
-    if (el instanceof HTMLElement) {
+    if (isHTMLElement(el)) {
       const hasHiddenAttribute = el.hasAttribute("hidden");
       const hasDisplayNone = el.style.display === "none";
       const hasVisibilityHidden = el.style.visibility === "hidden";
