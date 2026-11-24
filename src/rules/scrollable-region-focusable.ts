@@ -116,12 +116,18 @@ function isScrollable(element: Element): boolean {
     return false;
   }
 
-  // Check if content actually overflows
-  const hasOverflowingContent =
-    element.scrollHeight > element.clientHeight ||
-    element.scrollWidth > element.clientWidth;
+  // Scrolling that only reveals the element's own padding hides no content.
+  const horizontalPadding =
+    Number.parseFloat(computed.paddingLeft) +
+    Number.parseFloat(computed.paddingRight);
+  const verticalPadding =
+    Number.parseFloat(computed.paddingTop) +
+    Number.parseFloat(computed.paddingBottom);
 
-  return hasOverflowingContent;
+  return (
+    element.scrollHeight - element.clientHeight > verticalPadding ||
+    element.scrollWidth - element.clientWidth > horizontalPadding
+  );
 }
 
 const replacedContentSelector =
