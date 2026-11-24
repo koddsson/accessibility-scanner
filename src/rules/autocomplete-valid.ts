@@ -158,6 +158,13 @@ export default function autocompleteValid(
       continue;
     }
 
+    if (
+      el.matches(":disabled") ||
+      el.getAttribute("aria-disabled") === "true"
+    ) {
+      continue;
+    }
+
     // Validate the autocomplete value
     if (!isValidAutocomplete(autocompleteAttr)) {
       errors.push({

@@ -34,6 +34,9 @@ function getTexts(element: Element): string[] {
   return [...labels, ...alts];
 }
 
+const hiddenSelector =
+  "[hidden], [style*='display: none' i], [style*='display:none' i]";
+
 export default function (element: Element): AccessibilityError[] {
   const errors = [];
   const elements = querySelectorAll("[lang]", element);
@@ -42,11 +45,15 @@ export default function (element: Element): AccessibilityError[] {
   }
 
   for (const element of elements) {
+    if (element.getAttribute("lang") === "") continue;
+
     const firstTextNode = document
       .createNodeIterator(element, NodeFilter.SHOW_TEXT, (node) => {
         if ((node as Text).wholeText.trim() === "")
           return NodeFilter.FILTER_REJECT;
         const parentElement = node.parentElement;
+        if (parentElement?.closest(hiddenSelector))
+          return NodeFilter.FILTER_REJECT;
         const closestLangElement = parentElement?.closest("[lang]");
         return closestLangElement?.isSameNode(element)
           ? NodeFilter.FILTER_ACCEPT

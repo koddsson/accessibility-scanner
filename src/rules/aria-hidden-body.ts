@@ -6,7 +6,7 @@ const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 export function ariaHiddenBody(element_: Element): AccessibilityError[] {
   const element = element_.ownerDocument.body;
-  if (element.getAttribute("aria-hidden") === "true") {
+  if (element?.getAttribute("aria-hidden") === "true") {
     return [
       {
         id,

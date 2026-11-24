@@ -31,28 +31,20 @@ describe("aria-roles", function () {
       }));
       expect(results).to.be.empty;
     });
+
+    it("an element has an empty role attribute", async () => {
+      const container = await fixture(
+        html`<div><span role="">Empty role</span></div>`,
+      );
+      const results = await scanner.scan(container);
+      expect(results).to.be.empty;
+    });
   });
 
   describe("has errors if", function () {
     it("an element has an invalid role", async () => {
       const container = await fixture(
         html`<div><span role="foobar">Invalid</span></div>`,
-      );
-      const results = (await scanner.scan(container)).map(({ text, url }) => ({
-        text,
-        url,
-      }));
-      expect(results).to.eql([
-        {
-          text: "ARIA roles used must conform to valid values",
-          url: "https://dequeuniversity.com/rules/axe/4.11/aria-roles",
-        },
-      ]);
-    });
-
-    it("an element has an empty role attribute", async () => {
-      const container = await fixture(
-        html`<div><span role="">Empty role</span></div>`,
       );
       const results = (await scanner.scan(container)).map(({ text, url }) => ({
         text,

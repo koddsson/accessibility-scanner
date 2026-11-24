@@ -5,7 +5,7 @@ const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 function parseContent(content: string): Record<string, string> {
   const object: Record<string, string> = {};
   for (const pair of content.split(",")) {
-    const [key, value] = pair.split("=");
+    const [key, value = ""] = pair.split("=");
     object[key.trim().toLowerCase()] = value.trim().toLowerCase();
   }
   return object;

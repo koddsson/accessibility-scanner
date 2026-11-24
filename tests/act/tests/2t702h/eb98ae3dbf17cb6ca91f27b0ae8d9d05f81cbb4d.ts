@@ -1,0 +1,31 @@
+import { expect } from "@open-wc/testing";
+import { scan } from "../../../../src/scanner.js";
+
+const parser = new DOMParser();
+
+describe("[2t702h]Summary element has non-empty accessible name", function () {
+  it("Inapplicable Example 2 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/2t702h/eb98ae3dbf17cb6ca91f27b0ae8d9d05f81cbb4d.html)", async () => {
+    const document = parser.parseFromString(`<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Inapplicable Example 2</title>
+</head>
+<body>
+	<details>
+		<div>
+			<summary></summary>
+		</div>
+		<p>This is a website. We are available 24/7.</p>
+	</details>
+</body>
+</html>`, 'text/html');
+
+    const results = (await scan(document.body)).map(({ text, url, needsReview }) => {
+      return { text, url, needsReview };
+    });
+
+    const expectedUrls = ["https://dequeuniversity.com/rules/axe/4.11/summary-name"];
+    const relevant = results.filter(r => expectedUrls.includes(r.url) && !r.needsReview);
+    expect(relevant).to.be.empty;
+  });
+});

@@ -28,12 +28,19 @@ export default function (element: Element): AccessibilityError[] {
     // Check for aria-labelledby
     if (labelledByIsValid(frameElement)) continue;
 
-    // If none of the above, it's an error
+    const role = frameElement.getAttribute("role")?.trim();
+    const tabindex = Number.parseInt(
+      frameElement.getAttribute("tabindex") ?? "",
+    );
+    const needsReview =
+      role === "none" || role === "presentation" || tabindex < 0;
+
     errors.push({
       id,
       element: frameElement,
       text,
       url,
+      needsReview,
     });
   }
 

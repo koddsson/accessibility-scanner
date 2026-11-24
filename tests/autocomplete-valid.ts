@@ -296,11 +296,25 @@ describe("autocomplete-valid", function () {
     expect(results).to.be.empty;
   });
 
-  it("checks aria-hidden and disabled fields", async function () {
+  it("skips disabled fields", async function () {
+    const form = await fixture(html`
+      <form>
+        <input type="text" autocomplete="bad-token" disabled />
+        <input type="text" autocomplete="bad-token" aria-disabled="true" />
+        <fieldset disabled>
+          <input type="text" autocomplete="bad-token" />
+        </fieldset>
+      </form>
+    `);
+
+    const results = await scanner.scan(form);
+    expect(results).to.be.empty;
+  });
+
+  it("checks aria-hidden fields", async function () {
     const form = await fixture(html`
       <form>
         <input type="text" autocomplete="invalid-value" aria-hidden="true" />
-        <input type="text" autocomplete="bad-token" disabled />
       </form>
     `);
 
@@ -309,10 +323,6 @@ describe("autocomplete-valid", function () {
     });
 
     expect(results).to.eql([
-      {
-        text: "Ensure the autocomplete attribute is correct and suitable for the form field",
-        url: "https://dequeuniversity.com/rules/axe/4.11/autocomplete-valid",
-      },
       {
         text: "Ensure the autocomplete attribute is correct and suitable for the form field",
         url: "https://dequeuniversity.com/rules/axe/4.11/autocomplete-valid",
