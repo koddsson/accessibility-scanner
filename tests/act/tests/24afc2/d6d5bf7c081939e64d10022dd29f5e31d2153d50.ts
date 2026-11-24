@@ -5,7 +5,7 @@ import { scan } from "../../../../src/scanner.js";
 describe("[24afc2]Important letter spacing in style attributes is wide enough", function () {
   afterEach(cleanup);
 
-  it.skip("Passed Example 6 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/24afc2/d6d5bf7c081939e64d10022dd29f5e31d2153d50.html)", async () => {
+  it("Passed Example 6 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/24afc2/d6d5bf7c081939e64d10022dd29f5e31d2153d50.html)", async () => {
     const document = await render(`<!DOCTYPE html>
 <html lang="en">
 <head>

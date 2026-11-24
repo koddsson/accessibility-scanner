@@ -8,10 +8,10 @@ Implementation status against the [ACT Rules Community Group](https://act-rules.
 
 The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines/act/implementations/) only counts a rule as "consistently implemented" when the implementation passes every published ACT test case for it. By that measure:
 
-- **32** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
-- **15** more rules pass at least one test case but not all.
+- **35** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
+- **12** more rules pass at least one test case but not all.
 - **53 / 88** ACT rules have some scanner implementation, even if untested.
-- **685 / 1211** ACT test cases (57%) are exercised against the scanner.
+- **698 / 1211** ACT test cases (58%) are exercised against the scanner.
 
 | Implemented | ACT Rule                                                                                                                                         | WCAG                | axe-core rule(s)                                                          | Test cases |
 | :---------- | :----------------------------------------------------------------------------------------------------------------------------------------------- | :------------------ | :------------------------------------------------------------------------ | :--------- |
@@ -68,9 +68,9 @@ The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines
 | ❌          | [9eb3f6](https://act-rules.github.io/rules/9eb3f6) — Image filename is accessible name for image                                                 | 1.1.1               | —                                                                         | —          |
 | ✅          | [23a2a8](https://act-rules.github.io/rules/23a2a8) — Image has non-empty accessible name                                                         | 1.1.1               | `image-alt`, `role-img-alt`                                               | 18 / 18    |
 | ✅          | [e88epe](https://act-rules.github.io/rules/e88epe) — Image not in the accessibility tree is decorative                                           | 1.1.1               | `decorative-image`                                                        | 16 / 20    |
-| ✅          | [24afc2](https://act-rules.github.io/rules/24afc2) — Important letter spacing in style attributes is wide enough                                 | 1.4.12              | `avoid-inline-spacing`                                                    | 15 / 19    |
-| ✅          | [78fd32](https://act-rules.github.io/rules/78fd32) — Important line height in style attributes is wide enough                                    | 1.4.12              | `avoid-inline-spacing`                                                    | 19 / 24    |
-| ✅          | [9e45ec](https://act-rules.github.io/rules/9e45ec) — Important word spacing in style attributes is wide enough                                   | 1.4.12              | `avoid-inline-spacing`                                                    | 15 / 19    |
+| ✅          | [24afc2](https://act-rules.github.io/rules/24afc2) — Important letter spacing in style attributes is wide enough                                 | 1.4.12              | `avoid-inline-spacing`                                                    | 19 / 19    |
+| ✅          | [78fd32](https://act-rules.github.io/rules/78fd32) — Important line height in style attributes is wide enough                                    | 1.4.12              | `avoid-inline-spacing`                                                    | 24 / 24    |
+| ✅          | [9e45ec](https://act-rules.github.io/rules/9e45ec) — Important word spacing in style attributes is wide enough                                   | 1.4.12              | `avoid-inline-spacing`                                                    | 19 / 19    |
 | ✅          | [c487ae](https://act-rules.github.io/rules/c487ae) — Link has non-empty accessible name                                                          | 2.4.4, 2.4.9, 4.1.2 | `area-alt`, `link-name`                                                   | 18 / 28    |
 | ❌          | [5effbb](https://act-rules.github.io/rules/5effbb) — Link in context is descriptive                                                              | 2.4.4, 2.4.9        | —                                                                         | 0 / 18     |
 | ❌          | [aizyf1](https://act-rules.github.io/rules/aizyf1) — Link is descriptive                                                                         | 2.4.9               | —                                                                         | 0 / 12     |

@@ -234,36 +234,10 @@ const skippedExamples = [
   // [ye5d6e] bypass: skip link targets repeated content, scanner can't distinguish content areas
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/ye5d6e/91f4c9b8d66b5a30867b3eb329701acc604d79b9.html",
 
-  // [24afc2] avoid-inline-spacing: requires computed font-size to evaluate px values
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/24afc2/43f8fe88b8e7365db7aa251b263b5d00c7a47ae9.html",
-  // [24afc2] avoid-inline-spacing: inherited px spacing with different child font-size requires computed styles
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/24afc2/cabfcae45afac141b38fd9cac2e07a64fb6b9896.html",
-  // [24afc2] avoid-inline-spacing: parent !important overridden by child !important requires cascade analysis
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/24afc2/d6d5bf7c081939e64d10022dd29f5e31d2153d50.html",
 
-  // [9e45ec] avoid-inline-spacing: requires computed font-size to evaluate px values
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/9e45ec/2a2a14cc9bcb3fa7983e22f160ce9eeb6b832a8c.html",
-  // [9e45ec] avoid-inline-spacing: inherited px spacing with different child font-size requires computed styles
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/9e45ec/15905a239d6755102be6a60aa152ad963d5b1dbb.html",
-  // [9e45ec] avoid-inline-spacing: parent !important overridden by child !important requires cascade analysis
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/9e45ec/8d2baed183149375922c23a9a5f42b52b627d713.html",
 
-  // [78fd32] avoid-inline-spacing: requires computed font-size to evaluate px values
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/78fd32/203a13b314695fc2abc6163b3ac7940ab1c4a9ed.html",
-  // [78fd32] avoid-inline-spacing: inherited px spacing with different child font-size requires computed styles
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/78fd32/78034759a1086c7ffa8037b6e6e2327ece4a19d7.html",
-  // [78fd32] avoid-inline-spacing: parent !important overridden by child !important requires cascade analysis
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/78fd32/9280b9961f4e24943080fabb67c041b65036f69c.html",
 
   // --- Inapplicable examples the scanner flags because it cannot render or load content ---
-  // [24afc2] avoid-inline-spacing: text positioned off-screen is not visible, which needs layout to detect
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/24afc2/88d6ea5706ed8ae188caa166879c381e64e5077a.html",
-  // [9e45ec] avoid-inline-spacing: text positioned off-screen is not visible, which needs layout to detect
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/9e45ec/a8f0c6682763e4ca7db824dc145a23067a3eb889.html",
-  // [78fd32] avoid-inline-spacing: text positioned off-screen is not visible, which needs layout to detect
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/78fd32/81be0f6c00496f3c2d70071c8f73b292ba282bfc.html",
-  // [78fd32] avoid-inline-spacing: single-line text inside a horizontally scrolling container needs layout to detect
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/78fd32/bc3e59c1292a265135ed7043d2cdcaa62cdfac66.html",
   // [80f0bf] no-autoplay-audio: video file has no audio track, which needs media inspection
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/80f0bf/7d3d7214d9fca81a8a09a819665871a474f85548.html",
   // [eac66b] video-caption: video file has no audio track, which needs media inspection

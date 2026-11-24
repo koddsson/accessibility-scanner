@@ -5,7 +5,7 @@ import { scan } from "../../../../src/scanner.js";
 describe("[78fd32]Important line height in style attributes is wide enough", function () {
   afterEach(cleanup);
 
-  it.skip("Passed Example 7 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/78fd32/78034759a1086c7ffa8037b6e6e2327ece4a19d7.html)", async () => {
+  it("Passed Example 7 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/78fd32/78034759a1086c7ffa8037b6e6e2327ece4a19d7.html)", async () => {
     const document = await render(`<!DOCTYPE html>
 <html lang="en">
 <head>

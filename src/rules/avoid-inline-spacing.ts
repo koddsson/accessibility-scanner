@@ -164,6 +164,82 @@ function hasVisibleTextContent(element: Element): boolean {
   return (element.textContent || "").trim().length > 0;
 }
 
+function hasInlineDeclaration(element: Element, property: string): boolean {
+  const style = element.getAttribute("style");
+  if (!style) return false;
+  return parseDeclarations(style).some((decl) => decl.property === property);
+}
+
+function isOverridden(
+  textElement: Element,
+  declaringElement: Element,
+  property: string,
+): boolean {
+  let current: Element | null = textElement;
+  while (current && current !== declaringElement) {
+    if (hasInlineDeclaration(current, property)) return true;
+    current = current.parentElement;
+  }
+  return false;
+}
+
+function getTextRects(element: Element): DOMRect[] {
+  const rects: DOMRect[] = [];
+  for (const node of element.childNodes) {
+    if (node.nodeType !== 3 || !node.textContent?.trim()) continue;
+    const range = element.ownerDocument.createRange();
+    range.selectNodeContents(node);
+    rects.push(...range.getClientRects());
+  }
+  return rects.filter((rect) => rect.width > 0 && rect.height > 0);
+}
+
+function countLines(rects: DOMRect[]): number {
+  return new Set(rects.map((rect) => Math.round(rect.top))).size;
+}
+
+type Outcome = "pass" | "fail" | "review";
+
+/**
+ * Evaluate a spacing declaration against the text it actually applies to,
+ * using computed styles. Returns `undefined` when the element is not rendered.
+ * Text on a single line has no line spacing yet, so a tight line-height there
+ * only needs review.
+ */
+function evaluateWhenRendered(
+  element: Element,
+  property: string,
+): Outcome | undefined {
+  const view = element.ownerDocument.defaultView;
+  if (!view || !element.isConnected) return undefined;
+
+  let outcome: Outcome = "pass";
+  const candidates = [element, ...element.querySelectorAll("*")];
+  for (const candidate of candidates) {
+    if (isOverridden(candidate, element, property)) continue;
+
+    const rects = getTextRects(candidate);
+    const onScreen = rects.filter((rect) => rect.bottom > 0 && rect.right > 0);
+    if (onScreen.length === 0) continue;
+
+    const computed = view.getComputedStyle(candidate);
+    const fontSize = Number.parseFloat(computed.fontSize);
+    const spacing = Number.parseFloat(computed.getPropertyValue(property));
+    const tooTight =
+      !fontSize ||
+      Number.isNaN(spacing) ||
+      spacing / fontSize < THRESHOLDS[property] - 0.001;
+    if (!tooTight) continue;
+
+    if (property === "line-height" && countLines(onScreen) < 2) {
+      outcome = "review";
+      continue;
+    }
+    return "fail";
+  }
+  return outcome;
+}
+
 export default function (element: Element): AccessibilityError[] {
   const errors: AccessibilityError[] = [];
 
@@ -187,6 +263,7 @@ export default function (element: Element): AccessibilityError[] {
 
     const declarations = parseDeclarations(styleAttr);
     let hasViolation = false;
+    let needsReview = false;
 
     for (const property of Object.keys(THRESHOLDS)) {
       const winningValue = getWinningImportantValue(declarations, property);
@@ -195,14 +272,22 @@ export default function (element: Element): AccessibilityError[] {
       // Passthrough keywords don't restrict user overrides
       if (PASSTHROUGH_KEYWORDS.has(winningValue)) continue;
 
-      if (isBelowThreshold(property, winningValue)) {
+      const outcome =
+        evaluateWhenRendered(el, property) ??
+        (isBelowThreshold(property, winningValue) ? "fail" : "pass");
+      if (outcome === "fail") {
         hasViolation = true;
+        needsReview = false;
         break;
+      }
+      if (outcome === "review") {
+        hasViolation = true;
+        needsReview = true;
       }
     }
 
     if (hasViolation) {
-      errors.push({ id, element: el, text, url });
+      errors.push({ id, element: el, text, url, needsReview });
     }
   }
 

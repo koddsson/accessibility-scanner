@@ -43,9 +43,44 @@ describe("avoid-inline-spacing", function () {
       );
     });
 
-    it("has !important letter-spacing with px value (cannot evaluate without font-size)", async () => {
+    it("has !important letter-spacing with px value below threshold for the font size", async () => {
       const container = await fixture(
-        html`<p style="letter-spacing: 2px !important">Text content</p>`,
+        html`<p style="font-size: 20px; letter-spacing: 2px !important">
+          Text content
+        </p>`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.have.lengthOf(1);
+    });
+
+    it("has !important line-height below threshold on wrapped text", async () => {
+      const container = await fixture(
+        html`<p style="line-height: 1.2 !important; width: 60px">
+          Text content that wraps onto several lines
+        </p>`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.have.lengthOf(1);
+      expect(results[0].needsReview).to.not.be.true;
+    });
+
+    it("needs review for tight !important line-height on a single line", async () => {
+      const container = await fixture(
+        html`<p style="line-height: 1.2 !important">Text content</p>`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.have.lengthOf(1);
+      expect(results[0].needsReview).to.be.true;
+    });
+
+    it("has inherited !important spacing that is too tight for a child's font size", async () => {
+      const container = await fixture(
+        html`<div style="font-size: 10px; letter-spacing: 2px !important">
+          <p style="font-size: 20px">Text content</p>
+        </div>`,
       );
       const results = await scanner.scan(container);
 
@@ -203,6 +238,28 @@ describe("avoid-inline-spacing", function () {
         html`<div>
           <p>First paragraph</p>
           <p>Second paragraph</p>
+        </div>`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.be.empty;
+    });
+
+    it("has !important letter-spacing with px value wide enough for the font size", async () => {
+      const container = await fixture(
+        html`<p style="font-size: 16px; letter-spacing: 2px !important">
+          Text content
+        </p>`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.be.empty;
+    });
+
+    it("has a tight !important value that a child overrides", async () => {
+      const container = await fixture(
+        html`<div style="letter-spacing: 0.1em !important">
+          <p style="letter-spacing: 0.2em !important">Text content</p>
         </div>`,
       );
       const results = await scanner.scan(container);
