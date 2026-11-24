@@ -39,6 +39,17 @@ describe("label-content-name-mismatch", function () {
   });
 
   describe("has no errors if", function () {
+    it("the visible text is rendered in an icon font", async () => {
+      const container = await fixture(
+        html`<button style="font-family: 'Material Icons'" aria-label="Find">
+          search
+        </button>`,
+      );
+      const results = await scanner.scan(container);
+
+      expect(results).to.be.empty;
+    });
+
     it("aria-label exactly matches visible text", async () => {
       const container = await fixture(
         html`<a href="https://act-rules.github.io/" aria-label="ACT rules"

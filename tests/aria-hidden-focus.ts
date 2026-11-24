@@ -79,6 +79,20 @@ await fixture(html`<div id="violation7" aria-hidden="true">
 ];
 
 describe("aria-hidden-focus", async function () {
+  it("passes a focus sentinel that moves focus elsewhere", async () => {
+    const container = await fixture(html`<div>
+      <button>First control</button>
+      <div aria-hidden="true"><a href="#">Focus sentinel</a></div>
+    </div>`);
+    const first = container.querySelector("button")!;
+    container.querySelector("a")!.addEventListener("focus", () => {
+      first.focus();
+    });
+
+    expect(await scanner.scan(container)).to.be.empty;
+    expect(document.activeElement).to.not.equal(first);
+  });
+
   for (const el of passes) {
     it(el.outerHTML, async () => {
       const results = (await scanner.scan(el)).map(({ text, url }) => {

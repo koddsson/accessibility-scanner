@@ -189,6 +189,23 @@ describe("object-alt", function () {
     ]);
   });
 
+  it("object element showing its fallback content passes", async () => {
+    const container = await fixture(html`
+      <div>
+        <object data="/invalid/url/index.html">
+          <span>Fallback content</span>
+        </object>
+      </div>
+    `);
+    const fallback = container.querySelector("span")!;
+    for (let attempt = 0; attempt < 40; attempt++) {
+      if (fallback.getClientRects().length > 0) break;
+      await new Promise((resolve) => setTimeout(resolve, 50));
+    }
+
+    expect(await scanner.scan(container)).to.be.empty;
+  });
+
   it("works with shadow dom", async () => {
     class MyEl extends HTMLElement {
       constructor() {

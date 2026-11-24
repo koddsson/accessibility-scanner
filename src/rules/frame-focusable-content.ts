@@ -97,6 +97,11 @@ function hasFocusableContent(element: Element): boolean {
   return false;
 }
 
+function hidesContent(frame: Element): boolean {
+  if (!frame.isConnected || !frame.ownerDocument.defaultView) return false;
+  return frame.clientWidth <= 1 || frame.clientHeight <= 1;
+}
+
 export default function frameFocusableContent(
   element_: Element,
 ): AccessibilityError[] {
@@ -118,6 +123,7 @@ export default function frameFocusableContent(
     }
 
     if (frame.closest("[inert]")) continue;
+    if (hidesContent(frame)) continue;
 
     const modal = frame.ownerDocument.querySelector("dialog:modal");
     if (modal && !modal.contains(frame)) continue;
