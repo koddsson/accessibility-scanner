@@ -24,10 +24,16 @@ const passes = [
   ),
   await fixture(html`<a href="#" id="pass6" role="button"></a>`),
   await fixture(html`<a href="#" id="pass7" role="tab"></a>`),
+  await fixture(html`<a id="pass8"></a>`),
 ];
 
 const violations = [
   await fixture(html`<a href="#" id="violation1"></a>`),
+  await fixture(
+    html`<a href="#" role="doc-biblioref" id="violation-dpub"
+      ><img src="logo.png" alt=""
+    /></a>`,
+  ),
   await fixture(
     html`<a href="#" id="violation2" aria-labelledby="nonexistent"></a>`,
   ),
@@ -64,8 +70,8 @@ describe("link-has-non-empty-accessible-name", async function () {
 
       expect(results).to.eql([
         {
-          text: "Link has non-empty accessible name",
-          url: "https://act-rules.github.io/rules/c487ae",
+          text: "Links must have discernible text",
+          url: "https://dequeuniversity.com/rules/axe/4.11/link-name",
         },
       ]);
     });
