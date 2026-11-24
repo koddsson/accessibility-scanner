@@ -409,7 +409,7 @@ export const validAriaAttributesWithRole: Record<string, string[]> = {
   "aria-required": [
     "checkbox", "combobox", "gridcell", "listbox", "radiogroup", "spinbutton",
     "textbox", "tree", "columnheader", "rowheader", "searchbox", "select",
-    "treegrid",
+    "switch", "treegrid",
   ],
   "aria-rowcount": ["grid", "table", "treegrid"],
   "aria-rowindex": ["cell", "row", "columnheader", "gridcell", "rowheader"],

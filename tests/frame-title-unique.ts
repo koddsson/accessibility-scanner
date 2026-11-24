@@ -9,9 +9,9 @@ describe("frame-title-unique", function () {
     it("iframes have unique titles", async () => {
       const container = await fixture(html`
         <div>
-          <iframe title="Frame 1" src="about:blank"></iframe>
-          <iframe title="Frame 2" src="about:blank"></iframe>
-          <iframe title="Frame 3" src="about:blank"></iframe>
+          <iframe title="Frame 1" src="about:blank#1"></iframe>
+          <iframe title="Frame 2" src="about:blank#2"></iframe>
+          <iframe title="Frame 3" src="about:blank#3"></iframe>
         </div>
       `);
 
@@ -22,8 +22,8 @@ describe("frame-title-unique", function () {
     it("frames have unique titles", async () => {
       const container = await fixture(html`
         <div>
-          <iframe title="Frame 1" src="about:blank"></iframe>
-          <iframe title="Frame 2" src="about:blank"></iframe>
+          <iframe title="Frame 1" src="about:blank#4"></iframe>
+          <iframe title="Frame 2" src="about:blank#5"></iframe>
         </div>
       `);
 
@@ -34,9 +34,9 @@ describe("frame-title-unique", function () {
     it("mixed iframes and frames have unique titles", async () => {
       const container = await fixture(html`
         <div>
-          <iframe title="IFrame 1" src="about:blank"></iframe>
-          <iframe title="Frame 1" src="about:blank"></iframe>
-          <iframe title="IFrame 2" src="about:blank"></iframe>
+          <iframe title="IFrame 1" src="about:blank#6"></iframe>
+          <iframe title="Frame 1" src="about:blank#7"></iframe>
+          <iframe title="IFrame 2" src="about:blank#8"></iframe>
         </div>
       `);
 
@@ -47,8 +47,8 @@ describe("frame-title-unique", function () {
     it("frames don't have title attributes", async () => {
       const container = await fixture(html`
         <div>
-          <iframe src="about:blank"></iframe>
-          <iframe src="about:blank"></iframe>
+          <iframe src="about:blank#9"></iframe>
+          <iframe src="about:blank#10"></iframe>
         </div>
       `);
 
@@ -59,8 +59,8 @@ describe("frame-title-unique", function () {
     it("frames have empty titles", async () => {
       const container = await fixture(html`
         <div>
-          <iframe title="" src="about:blank"></iframe>
-          <iframe title="" src="about:blank"></iframe>
+          <iframe title="" src="about:blank#11"></iframe>
+          <iframe title="" src="about:blank#12"></iframe>
         </div>
       `);
 
@@ -71,8 +71,8 @@ describe("frame-title-unique", function () {
     it("only one frame has a title", async () => {
       const container = await fixture(html`
         <div>
-          <iframe title="Unique Title" src="about:blank"></iframe>
-          <iframe src="about:blank"></iframe>
+          <iframe title="Unique Title" src="about:blank#13"></iframe>
+          <iframe src="about:blank#14"></iframe>
         </div>
       `);
 
@@ -85,13 +85,25 @@ describe("frame-title-unique", function () {
       // so "Title" and " Title " are considered the same
       const container = await fixture(html`
         <div>
-          <iframe title="Title" src="about:blank"></iframe>
-          <iframe title="  Title  " src="about:blank"></iframe>
+          <iframe title="Title" src="about:blank#15"></iframe>
+          <iframe title="  Title  " src="about:blank#16"></iframe>
         </div>
       `);
 
       const results = await scanner.scan(container);
       expect(results).to.have.lengthOf(2);
+    });
+
+    it("frames with the same title load the same document", async () => {
+      const container = await fixture(html`
+        <div>
+          <iframe title="Same Title" src="about:blank#same"></iframe>
+          <iframe title="Same Title" src="about:blank#same"></iframe>
+        </div>
+      `);
+
+      const results = await scanner.scan(container);
+      expect(results).to.be.empty;
     });
   });
 
@@ -99,8 +111,8 @@ describe("frame-title-unique", function () {
     it("two iframes have the same title", async () => {
       const container = await fixture(html`
         <div>
-          <iframe title="Duplicate Title" src="about:blank"></iframe>
-          <iframe title="Duplicate Title" src="about:blank"></iframe>
+          <iframe title="Duplicate Title" src="about:blank#17"></iframe>
+          <iframe title="Duplicate Title" src="about:blank#18"></iframe>
         </div>
       `);
 
@@ -124,8 +136,8 @@ describe("frame-title-unique", function () {
     it("two frames have the same title", async () => {
       const container = await fixture(html`
         <div>
-          <iframe title="Same Title" src="about:blank"></iframe>
-          <iframe title="Same Title" src="about:blank"></iframe>
+          <iframe title="Same Title" src="about:blank#19"></iframe>
+          <iframe title="Same Title" src="about:blank#20"></iframe>
         </div>
       `);
 
@@ -149,9 +161,9 @@ describe("frame-title-unique", function () {
     it("multiple iframes have the same title", async () => {
       const container = await fixture(html`
         <div>
-          <iframe title="Common Title" src="about:blank"></iframe>
-          <iframe title="Common Title" src="about:blank"></iframe>
-          <iframe title="Common Title" src="about:blank"></iframe>
+          <iframe title="Common Title" src="about:blank#21"></iframe>
+          <iframe title="Common Title" src="about:blank#22"></iframe>
+          <iframe title="Common Title" src="about:blank#23"></iframe>
         </div>
       `);
 
@@ -162,9 +174,9 @@ describe("frame-title-unique", function () {
     it("mixed iframes and frames have the same title", async () => {
       const container = await fixture(html`
         <div>
-          <iframe title="Shared Title" src="about:blank"></iframe>
-          <iframe title="Shared Title" src="about:blank"></iframe>
-          <iframe title="Shared Title" src="about:blank"></iframe>
+          <iframe title="Shared Title" src="about:blank#24"></iframe>
+          <iframe title="Shared Title" src="about:blank#25"></iframe>
+          <iframe title="Shared Title" src="about:blank#26"></iframe>
         </div>
       `);
 
@@ -175,10 +187,10 @@ describe("frame-title-unique", function () {
     it("some frames have duplicate titles while others are unique", async () => {
       const container = await fixture(html`
         <div>
-          <iframe title="Unique 1" src="about:blank"></iframe>
-          <iframe title="Duplicate" src="about:blank"></iframe>
-          <iframe title="Duplicate" src="about:blank"></iframe>
-          <iframe title="Unique 2" src="about:blank"></iframe>
+          <iframe title="Unique 1" src="about:blank#27"></iframe>
+          <iframe title="Duplicate" src="about:blank#28"></iframe>
+          <iframe title="Duplicate" src="about:blank#29"></iframe>
+          <iframe title="Unique 2" src="about:blank#30"></iframe>
         </div>
       `);
 
@@ -189,10 +201,10 @@ describe("frame-title-unique", function () {
     it("multiple sets of duplicate titles", async () => {
       const container = await fixture(html`
         <div>
-          <iframe title="Group A" src="about:blank"></iframe>
-          <iframe title="Group A" src="about:blank"></iframe>
-          <iframe title="Group B" src="about:blank"></iframe>
-          <iframe title="Group B" src="about:blank"></iframe>
+          <iframe title="Group A" src="about:blank#31"></iframe>
+          <iframe title="Group A" src="about:blank#32"></iframe>
+          <iframe title="Group B" src="about:blank#33"></iframe>
+          <iframe title="Group B" src="about:blank#34"></iframe>
         </div>
       `);
 

@@ -124,11 +124,8 @@ const rulesToIgnore = [
   "c249d5", // Device motion based changes to the content can be disabled - requires device motion events
 
   // --- Not implemented - accessible name computation not yet fully supported ---
-  "7d6734", // SVG element with explicit role has non-empty accessible name - not implemented
 
   // --- Not implemented - ARIA rules not yet fully supported ---
-  "5c01ea", // ARIA state or property is permitted - not implemented
-  "307n5z", // Element with presentational children has no focusable content - not implemented
   "kb1m8s", // ARIA global properties not used where prohibited - not implemented
 
   // --- Not implemented - link and form rules ---
@@ -153,7 +150,6 @@ const rulesToIgnore = [
   "b40fd1", // Document has a landmark with non-repeated content - bypass impl doesn't cover landmarks
   "ebe86a", // Focusable element has no keyboard trap via non-standard navigation - not implemented
   "fd26cf", // Video element visual-only content is media alternative for text - not implemented
-  "4b1c6c", // Iframe elements with identical accessible names have equivalent purpose - not implemented
   "b49b2e", // Heading is descriptive - not implemented, requires human judgment
   "9bd38c", // Content has alternative for visual reference - not implemented, requires human judgment
   "efbfc7", // Text content that changes automatically can be paused, stopped or hidden - not implemented

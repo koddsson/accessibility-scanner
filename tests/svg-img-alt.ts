@@ -16,6 +16,8 @@ const passes = [
   `<svg role="graphics-symbol" title="Alternative text"></svg>`,
   `<div><div id="label2">Alternative text</div><svg role="graphics-document" aria-labelledby="label2"></svg></div>`,
   `<div><div id="label3">Alternative text</div><svg role="graphics-symbol" aria-labelledby="label3"></svg></div>`,
+  `<svg role="img"><title>Alternative text</title></svg>`,
+  `<svg><circle role="graphics-symbol" aria-label="Alternative text"></circle></svg>`,
 ];
 
 // Test cases that should fail (violations)
@@ -27,6 +29,9 @@ const violations = [
   await fixture(html`<svg role="graphics-document"></svg>`),
   await fixture(html`<svg role="graphics-document" aria-label=""></svg>`),
   await fixture(html`<svg role="graphics-symbol"></svg>`),
+  await fixture(
+    html`<svg><circle role="graphics-symbol" cx="5" cy="5" r="4"></circle></svg>`,
+  ),
   await fixture(html`<svg role="graphics-symbol" title=""></svg>`),
 ];
 
