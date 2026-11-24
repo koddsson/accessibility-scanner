@@ -129,6 +129,11 @@ function getInputImplicitRole(element: Element): string | undefined {
   }
 }
 
+const focusableSelector =
+  "a[href], button, input:not([type=hidden]), select, textarea, [tabindex]";
+
+const rolelessSelector = "audio, video";
+
 export function ariaAllowedAttr(element_: Element): AccessibilityError[] {
   const errors: AccessibilityError[] = [];
   for (const element of querySelectorAll("*", element_)) {
@@ -136,14 +141,20 @@ export function ariaAllowedAttr(element_: Element): AccessibilityError[] {
       element.tagName === "INPUT"
         ? getInputImplicitRole(element)
         : implicitRoles[element.tagName];
-    const effectiveRole = element.getAttribute("role") || implicitRole;
-    if (!effectiveRole) continue;
+    const explicitRole = element.getAttribute("role");
+    const ignoresPresentationalRole =
+      (explicitRole === "none" || explicitRole === "presentation") &&
+      element.matches(focusableSelector);
+    const effectiveRole = ignoresPresentationalRole
+      ? implicitRole
+      : explicitRole || implicitRole;
+    if (!effectiveRole && !element.matches(rolelessSelector)) continue;
 
     for (const attribute of element.attributes) {
       if (!attribute.name.startsWith("aria-")) continue;
       const allowedRoles = validAriaAttributesWithRole[attribute.name];
       if (!allowedRoles) continue;
-      if (!allowedRoles.includes(effectiveRole)) {
+      if (!effectiveRole || !allowedRoles.includes(effectiveRole)) {
         errors.push({ id, element, text, url });
         break;
       }

@@ -22,6 +22,12 @@ const passes = [
   await fixture(
     html`<div role="radio" id="pass10"><span tabindex="0">pass</span></div>`,
   ),
+  await fixture(html`<button id="pass12"><a>no href</a></button>`),
+  await fixture(
+    html`<div role="menuitemcheckbox" aria-checked="true" id="pass13">
+      <input type="checkbox" disabled checked />
+    </div>`,
+  ),
 ];
 
 const violations = [
@@ -45,13 +51,23 @@ const violations = [
       <button aria-hidden="true" tabindex="-1">not really hidden</button>
     </div>`,
   ),
+  await fixture(
+    html`<span role="img" aria-label="art" id="fail6"
+      ><a href="#">link</a></span
+    >`,
+  ),
+  await fixture(
+    html`<div role="menuitemcheckbox" aria-checked="true" id="fail7">
+      <input type="checkbox" checked />
+    </div>`,
+  ),
 
   // Ignored
   // await fixture(html`<a id="ignored1" href="foo.html">ignored</a>`),
   // await fixture(html`<span id="ignored2">ignored</span>`),
 ];
 
-describe.only("nested-interactive", async function () {
+describe("nested-interactive", async function () {
   for (const el of passes) {
     it(el.outerHTML, async () => {
       const results = (await scanner.scan(el)).map(({ text, url }) => {

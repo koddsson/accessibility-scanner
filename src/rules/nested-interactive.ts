@@ -6,7 +6,7 @@ const text = "Interactive controls must not be nested";
 const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
 const interactiveSelector = [
-  "a",
+  "a[href]",
   "input",
   "button",
   "[role=button]",
@@ -15,12 +15,30 @@ const interactiveSelector = [
   "[role=radio]",
 ].join(",");
 
+const presentationalChildrenSelector = [
+  "a",
+  interactiveSelector,
+  "[role=img]",
+  "[role=math]",
+  "[role=menuitemcheckbox]",
+  "[role=menuitemradio]",
+  "[role=meter]",
+  "[role=option]",
+  "[role=progressbar]",
+  "[role=scrollbar]",
+  "[role=separator]",
+  "[role=slider]",
+  "[role=switch]",
+].join(",");
+
 export default function nestedInteractive(
   element: Element,
 ): AccessibilityError[] {
   const errors = [];
-  const elements = [...querySelectorAll(interactiveSelector, element)];
-  if (element.matches(interactiveSelector)) {
+  const elements = [
+    ...querySelectorAll(presentationalChildrenSelector, element),
+  ];
+  if (element.matches(presentationalChildrenSelector)) {
     elements.push(element as HTMLImageElement);
   }
 
@@ -30,6 +48,7 @@ export default function nestedInteractive(
       element,
     );
     for (const nestedInteractiveElement of nestedInteractiveElements) {
+      if (nestedInteractiveElement.matches(":disabled")) continue;
       errors.push({
         id,
         element: nestedInteractiveElement,
