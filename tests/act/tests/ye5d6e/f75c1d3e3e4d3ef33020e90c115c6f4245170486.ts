@@ -5,7 +5,7 @@ import { scan } from "../../../../src/scanner.js";
 describe("[ye5d6e]Document has an instrument to move focus to non-repeated content", function () {
   afterEach(cleanup);
 
-  it.skip("Passed Example 5 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/ye5d6e/f75c1d3e3e4d3ef33020e90c115c6f4245170486.html)", async () => {
+  it("Passed Example 5 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/ye5d6e/f75c1d3e3e4d3ef33020e90c115c6f4245170486.html)", async () => {
     const document = await render(`<!DOCTYPE html>
 <html lang="en">
 	<head>

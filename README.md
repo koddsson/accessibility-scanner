@@ -8,10 +8,10 @@ Implementation status against the [ACT Rules Community Group](https://act-rules.
 
 The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines/act/implementations/) only counts a rule as "consistently implemented" when the implementation passes every published ACT test case for it. By that measure:
 
-- **40** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
-- **7** more rules pass at least one test case but not all.
+- **43** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
+- **4** more rules pass at least one test case but not all.
 - **53 / 88** ACT rules have some scanner implementation, even if untested.
-- **712 / 1211** ACT test cases (59%) are exercised against the scanner.
+- **724 / 1211** ACT test cases (60%) are exercised against the scanner.
 
 | Implemented | ACT Rule                                                                                                                                         | WCAG                | axe-core rule(s)                                                          | Test cases |
 | :---------- | :----------------------------------------------------------------------------------------------------------------------------------------------- | :------------------ | :------------------------------------------------------------------------ | :--------- |
@@ -29,15 +29,15 @@ The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines
 | ✅          | [80f0bf](https://act-rules.github.io/rules/80f0bf) — Audio or video element avoids automatically playing audio                                   | 1.4.2               | `no-autoplay-audio`                                                       | 6 / 8      |
 | ❌          | [4c31df](https://act-rules.github.io/rules/4c31df) — Audio or video element that plays automatically has a control mechanism                     | —                   | —                                                                         | 0 / 11     |
 | ❌          | [aaa1bf](https://act-rules.github.io/rules/aaa1bf) — Audio or video element that plays automatically has no audio that lasts more than 3 seconds | —                   | —                                                                         | 0 / 7      |
-| ✅          | [3e12e1](https://act-rules.github.io/rules/3e12e1) — Block of repeated content is collapsible                                                    | —                   | `bypass`                                                                  | 4 / 8      |
+| ✅          | [3e12e1](https://act-rules.github.io/rules/3e12e1) — Block of repeated content is collapsible                                                    | —                   | `bypass`                                                                  | 8 / 8      |
 | ✅          | [97a4e1](https://act-rules.github.io/rules/97a4e1) — Button has non-empty accessible name                                                        | 4.1.2               | `aria-command-name`, `button-name`, `input-button-name`                   | 17 / 17    |
-| ✅          | [cf77f2](https://act-rules.github.io/rules/cf77f2) — Bypass Blocks of Repeated Content                                                           | 2.4.1               | `bypass`                                                                  | 10 / 14    |
+| ✅          | [cf77f2](https://act-rules.github.io/rules/cf77f2) — Bypass Blocks of Repeated Content                                                           | 2.4.1               | `bypass`                                                                  | 14 / 14    |
 | ❌          | [9bd38c](https://act-rules.github.io/rules/9bd38c) — Content has alternative for visual reference                                                | 1.3.3               | —                                                                         | 0 / 21     |
 | ❌          | [7677a9](https://act-rules.github.io/rules/7677a9) — Device motion based changes to the content can also be created from the user interface      | 2.5.4               | —                                                                         | 0 / 6      |
 | ❌          | [c249d5](https://act-rules.github.io/rules/c249d5) — Device motion based changes to the content can be disabled                                  | 2.5.4               | —                                                                         | 0 / 5      |
 | ✅          | [b40fd1](https://act-rules.github.io/rules/b40fd1) — Document has a landmark with non-repeated content                                           | —                   | `bypass`                                                                  | 0 / 8      |
-| ✅          | [ye5d6e](https://act-rules.github.io/rules/ye5d6e) — Document has an instrument to move focus to non-repeated content                            | —                   | `bypass`                                                                  | 10 / 12    |
-| ✅          | [047fe0](https://act-rules.github.io/rules/047fe0) — Document has heading for non-repeated content                                               | —                   | `bypass`                                                                  | 11 / 14    |
+| ✅          | [ye5d6e](https://act-rules.github.io/rules/ye5d6e) — Document has an instrument to move focus to non-repeated content                            | —                   | `bypass`                                                                  | 12 / 12    |
+| ✅          | [047fe0](https://act-rules.github.io/rules/047fe0) — Document has heading for non-repeated content                                               | —                   | `bypass`                                                                  | 13 / 14    |
 | ❌          | [oj04fd](https://act-rules.github.io/rules/oj04fd) — Element in sequential focus order has visible focus                                         | 2.4.7               | —                                                                         | 0 / 9      |
 | ✅          | [46ca7f](https://act-rules.github.io/rules/46ca7f) — Element marked as decorative is not exposed                                                 | —                   | `presentation-role-conflict`                                              | 10 / 10    |
 | ✅          | [6cfa84](https://act-rules.github.io/rules/6cfa84) — Element with aria-hidden has no content in sequential focus navigation                      | 4.1.2               | `aria-hidden-focus`                                                       | 15 / 15    |

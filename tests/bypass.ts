@@ -183,6 +183,53 @@ describe("bypass", function () {
       expect(results).to.be.empty;
     });
 
+    it("page only has a heading inside navigation", async () => {
+      const container = await fixture(html`
+        <div>
+          <nav>
+            <h2>Chapters</h2>
+            <a href="/chapter-2">Chapter 2</a>
+          </nav>
+          <div><p>Content</p></div>
+        </div>
+      `);
+
+      const results = await scanner.scan(
+        container.ownerDocument.documentElement,
+      );
+      expect(results).to.have.lengthOf(1);
+      expect(results[0].needsReview).to.be.true;
+    });
+
+    it("page has a skip link that targets repeated content", async () => {
+      const container = await fixture(html`
+        <div>
+          <a href="#about">Skip to main content</a>
+          <aside><p id="about">About this site</p></aside>
+          <div><p>Content</p></div>
+        </div>
+      `);
+
+      const results = await scanner.scan(
+        container.ownerDocument.documentElement,
+      );
+      expect(results).to.have.lengthOf(1);
+    });
+
+    it("page has a heading in an article header", async () => {
+      const container = await fixture(html`
+        <article>
+          <header><h2>Article title</h2></header>
+          <p>Content</p>
+        </article>
+      `);
+
+      const results = await scanner.scan(
+        container.ownerDocument.documentElement,
+      );
+      expect(results).to.be.empty;
+    });
+
     it("page has skip link without accessible text", async () => {
       const container = await fixture(html`
         <html>

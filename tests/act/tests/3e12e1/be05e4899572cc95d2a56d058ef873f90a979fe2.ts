@@ -5,7 +5,7 @@ import { scan } from "../../../../src/scanner.js";
 describe("[3e12e1]Block of repeated content is collapsible", function () {
   afterEach(cleanup);
 
-  it.skip("Passed Example 3 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/3e12e1/be05e4899572cc95d2a56d058ef873f90a979fe2.html)", async () => {
+  it("Passed Example 3 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/3e12e1/be05e4899572cc95d2a56d058ef873f90a979fe2.html)", async () => {
     const document = await render(`<!DOCTYPE html>
 <html>
 	<head>

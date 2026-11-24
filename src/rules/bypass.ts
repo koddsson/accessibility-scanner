@@ -5,6 +5,17 @@ const id = "bypass";
 const text = "Page must have means to bypass repeated blocks";
 const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
+const repeatedContentSelector =
+  'nav, aside, [role="navigation"], [role="complementary"], [role="banner"], [role="contentinfo"]';
+const sectioningSelector =
+  'article, aside, main, nav, section, [role="main"], [role="article"]';
+
+function isInRepeatedContent(element: Element): boolean {
+  if (element.closest(repeatedContentSelector)) return true;
+  const pageSection = element.closest("header, footer");
+  return pageSection !== null && !pageSection.closest(sectioningSelector);
+}
+
 /**
  * Checks if the page has at least one mechanism to bypass navigation.
  * According to WCAG 2.4.1, acceptable bypass mechanisms include:
@@ -42,7 +53,7 @@ export default function (element: Element): AccessibilityError[] {
     const targetId = href.slice(1);
     const target = doc.querySelector(`#${CSS.escape(targetId)}`);
 
-    if (target && hasAccessibleText(link)) {
+    if (target && !isInRepeatedContent(target) && hasAccessibleText(link)) {
       // Check if this is early in the document (one of the first 3 links)
       const linkIndex = allLinks.indexOf(link);
       if (linkIndex < 3) {
@@ -69,7 +80,9 @@ export default function (element: Element): AccessibilityError[] {
   const headings = [
     ...querySelectorAll("h1, h2, h3, h4, h5, h6", doc.body || element),
     ...querySelectorAll('[role="heading"]', doc.body || element),
-  ].filter((h) => h.getAttribute("aria-hidden") !== "true");
+  ].filter(
+    (h) => h.getAttribute("aria-hidden") !== "true" && !isInRepeatedContent(h),
+  );
   if (headings.length > 0) {
     // At least one heading provides a navigation mechanism for assistive technology
     return [];
@@ -82,6 +95,7 @@ export default function (element: Element): AccessibilityError[] {
       element: doc.documentElement,
       text,
       url,
+      needsReview: true,
     },
   ];
 }
