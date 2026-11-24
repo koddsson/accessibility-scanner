@@ -127,9 +127,7 @@ const rulesToIgnore = [
   "7d6734", // SVG element with explicit role has non-empty accessible name - not implemented
 
   // --- Not implemented - ARIA rules not yet fully supported ---
-  "4e8ab6", // Element with role attribute has required states and properties - not implemented
   "5c01ea", // ARIA state or property is permitted - not implemented
-  "6a7281", // ARIA state or property has valid value - not implemented
   "307n5z", // Element with presentational children has no focusable content - not implemented
   "kb1m8s", // ARIA global properties not used where prohibited - not implemented
 
@@ -155,7 +153,6 @@ const rulesToIgnore = [
   "b40fd1", // Document has a landmark with non-repeated content - bypass impl doesn't cover landmarks
   "ebe86a", // Focusable element has no keyboard trap via non-standard navigation - not implemented
   "fd26cf", // Video element visual-only content is media alternative for text - not implemented
-  "73f2c2", // Autocomplete attribute has valid value - not implemented in ACT test format
   "4b1c6c", // Iframe elements with identical accessible names have equivalent purpose - not implemented
   "b49b2e", // Heading is descriptive - not implemented, requires human judgment
   "9bd38c", // Content has alternative for visual reference - not implemented, requires human judgment

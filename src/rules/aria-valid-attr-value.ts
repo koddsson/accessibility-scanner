@@ -6,6 +6,10 @@ const id = "aria-valid-attr-value";
 export const text = "ARIA attributes must conform to valid values";
 export const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
+function isDecimal(value: string): boolean {
+  return value.trim() !== "" && Number.isFinite(Number(value));
+}
+
 function valid(element: Element, attribute: string, info: Info) {
   // Special case `aria-errormessage`.
   if (
@@ -56,13 +60,11 @@ function valid(element: Element, attribute: string, info: Info) {
     }
     return true;
   } else if (info.type === "nmtokens") {
-    if (!info.values?.includes(value)) {
-      return false;
-    }
+    const tokens = value.trim().split(/\s+/);
+    return tokens.every((token) => info.values?.includes(token));
+  } else if (info.type === "decimal" && isDecimal(value)) {
     return true;
-  } else if (info.type === "decimal" && !isNaN(Number.parseFloat(value))) {
-    return true;
-  } else if (info.type === "int" && !isNaN(Number.parseInt(value))) {
+  } else if (info.type === "int" && /^[+-]?\d+$/.test(value.trim())) {
     if (info.minValue != undefined) {
       return info.minValue <= Number.parseInt(value);
     }

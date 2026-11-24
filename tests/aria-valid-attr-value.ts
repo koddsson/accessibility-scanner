@@ -101,6 +101,9 @@ const passes = [
   await fixture(html`<div aria-relevant="removals" id="pass94">hi</div>`),
   await fixture(html`<div aria-relevant="text" id="pass95">hi</div>`),
   await fixture(html`<div aria-relevant="all" id="pass96">hi</div>`),
+  await fixture(
+    html`<div aria-relevant="text removals" id="pass-relevant-tokens">hi</div>`,
+  ),
   await fixture(html`<div aria-required="true" id="pass97">hi</div>`),
   await fixture(html`<div aria-required="false" id="pass98">hi</div>`),
   await fixture(html`<div aria-selected="true" id="pass99">hi</div>`),
@@ -287,6 +290,16 @@ const violations = [
   await fixture(html`<div aria-pressed="stuff" id="violation25">hi</div>`),
   await fixture(html`<div aria-readonly="stuff" id="violation26">hi</div>`),
   await fixture(html`<div aria-relevant="stuff" id="violation27">hi</div>`),
+  await fixture(
+    html`<div aria-relevant="text stuff" id="violation-relevant-tokens">
+      hi
+    </div>`,
+  ),
+  await fixture(
+    html`<div role="gridcell" aria-rowindex="2.5" id="violation-rowindex">
+      hi
+    </div>`,
+  ),
   await fixture(html`<div aria-required="stuff" id="violation28">hi</div>`),
   await fixture(html`<div aria-selected="stuff" id="violation29">hi</div>`),
   await fixture(html`<div aria-setsize="stuff" id="violation30">hi</div>`),

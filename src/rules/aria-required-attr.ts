@@ -11,7 +11,6 @@ type Role =
   | "meter"
   | "radio"
   | "scrollbar"
-  | "seperator"
   | "slider"
   | "switch";
 
@@ -38,8 +37,6 @@ const roleToRequiredStatesAndPropertiesMaps: Record<Role, AriaAttribute[]> = {
   meter: ["aria-valuenow"],
   radio: ["aria-checked"],
   scrollbar: ["aria-controls", "aria-valuenow"],
-  // If focusable
-  seperator: ["aria-valuenow"],
   slider: ["aria-valuenow"],
   switch: ["aria-checked"],
 };
@@ -47,6 +44,9 @@ const roleToRequiredStatesAndPropertiesMaps: Record<Role, AriaAttribute[]> = {
 const id = "aria-required-attr";
 const text = "Required ARIA attributes must be provided";
 const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
+
+const focusableSeparatorSelector =
+  "[role=separator][tabindex]:not([aria-valuenow])";
 
 export function ariaRequiredAttr(element: Element): AccessibilityError[] {
   const errors = [];
@@ -59,6 +59,10 @@ export function ariaRequiredAttr(element: Element): AccessibilityError[] {
 
   const elements = querySelectorAll(selector, element);
   if (element.matches(selector)) elements.push(element);
+
+  const separators = querySelectorAll(focusableSeparatorSelector, element);
+  if (element.matches(focusableSeparatorSelector)) separators.push(element);
+  elements.push(...separators);
 
   for (const element of elements) {
     errors.push({
