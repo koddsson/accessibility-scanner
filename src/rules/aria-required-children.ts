@@ -82,6 +82,52 @@ const requiredChildrenRoles: Record<string, string[]> = {
   treegrid: ["rowgroup", "row"],
 };
 
+const menuGroupRoles = [
+  "menuitemradio",
+  "menuitem",
+  "menuitemcheckbox",
+  "separator",
+];
+
+const groupChildrenRoles: Record<string, string[]> = {
+  listbox: ["option"],
+  menu: menuGroupRoles,
+  menubar: menuGroupRoles,
+  tree: ["treeitem"],
+};
+
+function findDisallowedOwned(container: Element, allowed: string[]): Element[] {
+  return querySelectorAll("*", container).filter((child) => {
+    const childRole = getRole(child);
+    if (!childRole) return false;
+    const transparent =
+      childRole === "presentation" ||
+      childRole === "none" ||
+      childRole === "generic";
+    if (transparent) return false;
+    if (
+      isInsideSeparateA11yTree(child, container) ||
+      isInsideInterveningSemanticRole(child, container)
+    )
+      return false;
+    if (
+      child.hasAttribute("aria-hidden") &&
+      child.getAttribute("aria-hidden") !== "false"
+    )
+      return false;
+    return !allowed.includes(childRole);
+  });
+}
+
+function findOwnedWithRole(container: Element, role: string): Element[] {
+  return querySelectorAll("*", container).filter(
+    (child) =>
+      getRole(child) === role &&
+      !isInsideSeparateA11yTree(child, container) &&
+      !isInsideInterveningSemanticRole(child, container),
+  );
+}
+
 const reviewEmptyRoles = new Set([
   "grid",
   "list",
@@ -157,30 +203,10 @@ export default function ariaRequiredChildren(
       );
     });
 
-    // Identify forbidden role-bearing descendants: those with a role that is not
-    // one of the allowed child roles for this parent. Ignore transparent roles
-    // (presentation/none/generic), nodes inside separate a11y trees, and
-    // elements that are aria-hidden.
-    const forbidden = querySelectorAll("*", parent).filter((child) => {
-      const childRole = getRole(child);
-      if (!childRole) return false;
-      const transparent =
-        childRole === "presentation" ||
-        childRole === "none" ||
-        childRole === "generic";
-      if (transparent) return false;
-      if (
-        isInsideSeparateA11yTree(child, parent) ||
-        isInsideInterveningSemanticRole(child, parent)
-      )
-        return false;
-      if (
-        child.hasAttribute("aria-hidden") &&
-        child.getAttribute("aria-hidden") !== "false"
-      )
-        return false;
-      return !requiredChildrenRoles[parentRole].includes(childRole);
-    });
+    const forbidden = findDisallowedOwned(
+      parent,
+      requiredChildrenRoles[parentRole],
+    );
 
     const ownedElements: Element[] = [];
     const ariaOwns = parent.getAttribute("aria-owns")?.split(" ") || [];
@@ -233,7 +259,7 @@ export default function ariaRequiredChildren(
           ownedElement.getAttribute("aria-hidden") !== "false"
         )
       ) {
-        (forbidden as Element[]).push(ownedElement);
+        forbidden.push(ownedElement);
       }
 
       const ownedForbiddenDescendants = querySelectorAll(
@@ -256,7 +282,21 @@ export default function ariaRequiredChildren(
         return !requiredChildrenRoles[parentRole].includes(childRole);
       });
       for (const f of ownedForbiddenDescendants) {
-        (forbidden as Element[]).push(f);
+        forbidden.push(f);
+      }
+    }
+
+    const groupRoles = groupChildrenRoles[parentRole];
+    if (groupRoles) {
+      const allowedInGroup = [...groupRoles, "group"];
+      const groups = children.filter((child) => getRole(child) === "group");
+      for (const group of groups) {
+        forbidden.push(...findDisallowedOwned(group, allowedInGroup));
+        groups.push(
+          ...findOwnedWithRole(group, "group").filter(
+            (nested) => !groups.includes(nested),
+          ),
+        );
       }
     }
 
