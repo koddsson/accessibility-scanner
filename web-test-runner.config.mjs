@@ -7,11 +7,21 @@ import { junitReporter } from "@web/test-runner-junit-reporter";
 
 import { verboseReporter } from "./verbose-test-reporter.js";
 
+const actAssetPrefix = "/WAI/content-assets/wcag-act-rules/test-assets/";
+
 const browsers = [playwrightLauncher({ product: "chromium" })];
 
 const config = {
   nodeResolve: true,
-  files: ["tests/**/*.ts", "tests/**/*.js"],
+  files: ["tests/**/*.ts", "tests/**/*.js", "!tests/act/assets/**"],
+  middleware: [
+    function serveActAssets(context, next) {
+      if (context.url.startsWith(actAssetPrefix)) {
+        context.url = `/tests/act/assets/${context.url.slice(actAssetPrefix.length)}`;
+      }
+      return next();
+    },
+  ],
   plugins: [esbuildPlugin({ ts: true, target: "esnext" })],
   browsers,
   reporters: [verboseReporter()],

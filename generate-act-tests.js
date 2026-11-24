@@ -173,9 +173,6 @@ const ignoredExamples = [
 // (which omit the test entirely), these remain visible as pending work.
 const skippedExamples = [
 
-  // [047fe0] bypass/heading: heading is moved off-screen by the shared ACT stylesheet, which the harness cannot load
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/047fe0/81d501e52085d9e5712e241bdd24708e7cb4a301.html",
-
 
   // [eac66b] video-caption: scanner can't detect text transcript as alternative to captions
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/eac66b/47dd719ce35a9aef8dddd58fc3b1c08956d92889.html",

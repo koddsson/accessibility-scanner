@@ -16,6 +16,13 @@ function isInRepeatedContent(element: Element): boolean {
   return pageSection !== null && !pageSection.closest(sectioningSelector);
 }
 
+function isOffScreen(element: Element): boolean {
+  const view = element.ownerDocument.defaultView;
+  if (!view || !element.isConnected) return false;
+  const rect = element.getBoundingClientRect();
+  return rect.bottom + view.scrollY < 0 || rect.right + view.scrollX < 0;
+}
+
 /**
  * Checks if the page has at least one mechanism to bypass navigation.
  * According to WCAG 2.4.1, acceptable bypass mechanisms include:
@@ -81,7 +88,10 @@ export default function (element: Element): AccessibilityError[] {
     ...querySelectorAll("h1, h2, h3, h4, h5, h6", doc.body || element),
     ...querySelectorAll('[role="heading"]', doc.body || element),
   ].filter(
-    (h) => h.getAttribute("aria-hidden") !== "true" && !isInRepeatedContent(h),
+    (h) =>
+      h.getAttribute("aria-hidden") !== "true" &&
+      !isInRepeatedContent(h) &&
+      !isOffScreen(h),
   );
   if (headings.length > 0) {
     // At least one heading provides a navigation mechanism for assistive technology

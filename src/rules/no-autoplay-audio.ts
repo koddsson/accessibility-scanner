@@ -30,7 +30,10 @@ function durationFromMediaFragment(src: string | null): number | null {
 function getEffectiveDuration(
   el: HTMLAudioElement | HTMLVideoElement,
 ): number | null {
-  if (el.duration > 0 && !isNaN(el.duration)) return el.duration;
+  if (el.duration > 0 && !isNaN(el.duration)) {
+    const fragment = durationFromMediaFragment(el.currentSrc);
+    return fragment === null ? el.duration : Math.min(el.duration, fragment);
+  }
 
   const srcs: string[] = [];
   const ownSrc = el.getAttribute("src");
