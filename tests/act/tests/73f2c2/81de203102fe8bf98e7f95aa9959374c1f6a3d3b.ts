@@ -1,11 +1,12 @@
 import { expect } from "@open-wc/testing";
+import { cleanup, render } from "../../render.js";
 import { scan } from "../../../../src/scanner.js";
 
-const parser = new DOMParser();
-
 describe("[73f2c2]`autocomplete` attribute has valid value", function () {
+  afterEach(cleanup);
+
   it("Failed Example 4 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/73f2c2/81de203102fe8bf98e7f95aa9959374c1f6a3d3b.html)", async () => {
-    const document = parser.parseFromString(`<!DOCTYPE html>
+    const document = await render(`<!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>Failed Example 4</title>

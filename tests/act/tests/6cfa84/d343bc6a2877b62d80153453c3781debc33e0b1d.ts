@@ -1,11 +1,12 @@
 import { expect } from "@open-wc/testing";
+import { cleanup, render } from "../../render.js";
 import { scan } from "../../../../src/scanner.js";
 
-const parser = new DOMParser();
-
 describe("[6cfa84]Element with aria-hidden has no content in sequential focus navigation", function () {
+  afterEach(cleanup);
+
   it.skip("Passed Example 4 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/6cfa84/d343bc6a2877b62d80153453c3781debc33e0b1d.html)", async () => {
-    const document = parser.parseFromString(`<!DOCTYPE html>
+    const document = await render(`<!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>Passed Example 4</title>

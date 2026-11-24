@@ -1,11 +1,12 @@
 import { expect } from "@open-wc/testing";
+import { cleanup, render } from "../../render.js";
 import { scan } from "../../../../src/scanner.js";
 
-const parser = new DOMParser();
-
 describe("[4e8ab6]Element with role attribute has required states and properties", function () {
+  afterEach(cleanup);
+
   it("Passed Example 6 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/4e8ab6/8122ef64b86fcd30dadeea664029af028382d1b4.html)", async () => {
-    const document = parser.parseFromString(`<!DOCTYPE html>
+    const document = await render(`<!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>Passed Example 6</title>

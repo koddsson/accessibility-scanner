@@ -1,11 +1,12 @@
 import { expect } from "@open-wc/testing";
+import { cleanup, render } from "../../render.js";
 import { scan } from "../../../../src/scanner.js";
 
-const parser = new DOMParser();
-
 describe("[cf77f2]Bypass Blocks of Repeated Content", function () {
+  afterEach(cleanup);
+
   it("Passed Example 10 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/cf77f2/7fdb66e34b6c6b106fd371183e682721c3735031.html)", async () => {
-    const document = parser.parseFromString(`<!DOCTYPE html>
+    const document = await render(`<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<title>The Three Kingdoms, Chapter 1</title>

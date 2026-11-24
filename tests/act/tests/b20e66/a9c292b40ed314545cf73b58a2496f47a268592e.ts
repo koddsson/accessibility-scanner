@@ -1,11 +1,12 @@
 import { expect } from "@open-wc/testing";
+import { cleanup, render } from "../../render.js";
 import { scan } from "../../../../src/scanner.js";
 
-const parser = new DOMParser();
-
 describe("[b20e66]Links with identical accessible names have equivalent purpose", function () {
+  afterEach(cleanup);
+
   it("Failed Example 5 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/b20e66/a9c292b40ed314545cf73b58a2496f47a268592e.html)", async () => {
-    const document = parser.parseFromString(`<!DOCTYPE html>
+    const document = await render(`<!DOCTYPE html>
 <html lang="en">
 	<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 		<a href="https://act-rules.github.io/" aria-label="ACT rules">

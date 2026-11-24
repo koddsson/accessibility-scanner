@@ -1,12 +1,13 @@
 import { expect } from "@open-wc/testing";
+import { cleanup, render } from "../../render.js";
 import { scan, allRules } from "../../../../src/scanner.js";
 import errorMessage from "../../../../src/rules/error-message.js";
 
-const parser = new DOMParser();
-
 describe("[36b590]Error message describes invalid form field value", function () {
+  afterEach(cleanup);
+
   it("Failed Example 2 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/36b590/a51e05dc7b64d927ff25bc493bb0aa069c963d29.html)", async () => {
-    const document = parser.parseFromString(`<!DOCTYPE html>
+    const document = await render(`<!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>Failed Example 2</title>

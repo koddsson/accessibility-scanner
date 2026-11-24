@@ -1,5 +1,6 @@
 import { AccessibilityError } from "../scanner.js";
 import { querySelectorAll, isVisible } from "../utils.js";
+import { isHTMLTag } from "../utils/dom.js";
 
 const id = "frame-focusable-content";
 const text = "Frames with focusable content must not have tabindex=-1";
@@ -34,10 +35,7 @@ function hasFocusableContent(element: Element): boolean {
   }
 
   // For iframes and frames, we need to check their content
-  if (
-    element instanceof HTMLIFrameElement ||
-    element instanceof HTMLFrameElement
-  ) {
+  if (isHTMLTag(element, "iframe", "frame")) {
     try {
       const srcdoc = element.getAttribute("srcdoc");
       const contentDocument =
@@ -120,6 +118,9 @@ export default function frameFocusableContent(
     }
 
     if (frame.closest("[inert]")) continue;
+
+    const modal = frame.ownerDocument.querySelector("dialog:modal");
+    if (modal && !modal.contains(frame)) continue;
 
     // Check if the frame has focusable content
     if (hasFocusableContent(frame)) {

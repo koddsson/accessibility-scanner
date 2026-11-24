@@ -1,11 +1,12 @@
 import { expect } from "@open-wc/testing";
+import { cleanup, render } from "../../render.js";
 import { scan } from "../../../../src/scanner.js";
 
-const parser = new DOMParser();
-
 describe("[ye5d6e]Document has an instrument to move focus to non-repeated content", function () {
+  afterEach(cleanup);
+
   it("Passed Example 6 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/ye5d6e/20d2b672d6e08fe0803a643368c8cf174e412273.html)", async () => {
-    const document = parser.parseFromString(`<!DOCTYPE html>
+    const document = await render(`<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<title>The Three Kingdoms, Chapter 1</title>

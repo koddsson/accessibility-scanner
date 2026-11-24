@@ -1,11 +1,12 @@
 import { expect } from "@open-wc/testing";
+import { cleanup, render } from "../../render.js";
 import { scan } from "../../../../src/scanner.js";
 
-const parser = new DOMParser();
-
 describe("[bf051a]HTML page `lang` attribute has valid language tag", function () {
+  afterEach(cleanup);
+
   it("Failed Example 1 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/bf051a/b7a35f8080e756776877bca013a910dafde8ef73.html)", async () => {
-    const document = parser.parseFromString(`<!DOCTYPE html>
+    const document = await render(`<!DOCTYPE html>
 <html lang="em-US"></html>`, 'text/html');
 
     const results = (await scan(document.body)).map(({ text, url, needsReview }) => {

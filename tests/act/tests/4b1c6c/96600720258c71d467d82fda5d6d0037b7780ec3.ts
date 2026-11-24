@@ -1,11 +1,12 @@
 import { expect } from "@open-wc/testing";
+import { cleanup, render } from "../../render.js";
 import { scan } from "../../../../src/scanner.js";
 
-const parser = new DOMParser();
-
 describe("[4b1c6c]Iframe elements with identical accessible names have equivalent purpose", function () {
+  afterEach(cleanup);
+
   it("Passed Example 9 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/4b1c6c/96600720258c71d467d82fda5d6d0037b7780ec3.html)", async () => {
-    const document = parser.parseFromString(`<!DOCTYPE html>
+    const document = await render(`<!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>Passed Example 9</title>

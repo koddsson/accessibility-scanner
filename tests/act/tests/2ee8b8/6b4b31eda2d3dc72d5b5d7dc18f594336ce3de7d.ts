@@ -1,11 +1,12 @@
 import { expect } from "@open-wc/testing";
+import { cleanup, render } from "../../render.js";
 import { scan } from "../../../../src/scanner.js";
 
-const parser = new DOMParser();
-
 describe("[2ee8b8]Visible label is part of accessible name", function () {
+  afterEach(cleanup);
+
   it("Passed Example 10 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/2ee8b8/6b4b31eda2d3dc72d5b5d7dc18f594336ce3de7d.html)", async () => {
-    const document = parser.parseFromString(`<!DOCTYPE html>
+    const document = await render(`<!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>Passed Example 10</title>

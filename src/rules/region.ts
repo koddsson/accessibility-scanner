@@ -1,5 +1,6 @@
 import { AccessibilityError } from "../scanner.js";
 import { querySelectorAll } from "../utils.js";
+import { isHTMLElement, isHTMLTag } from "../utils/dom.js";
 
 const id = "region";
 const text = "All page content should be contained by landmarks";
@@ -42,7 +43,7 @@ const exemptTags = new Set([
 
 function isElementHidden(el: Element): boolean {
   if (el.getAttribute("aria-hidden") === "true") return true;
-  if (el instanceof HTMLElement) {
+  if (isHTMLElement(el)) {
     if (el.style.display === "none") return true;
     if (el.style.visibility === "hidden") return true;
     if (el.hidden) return true;
@@ -74,10 +75,10 @@ function hasVisibleContent(el: Element): boolean {
 
   // Form controls and images are content elements
   if (
-    el instanceof HTMLInputElement ||
-    el instanceof HTMLSelectElement ||
-    el instanceof HTMLTextAreaElement ||
-    el instanceof HTMLButtonElement ||
+    isHTMLTag(el, "input") ||
+    isHTMLTag(el, "select") ||
+    isHTMLTag(el, "textarea") ||
+    isHTMLTag(el, "button") ||
     tag === "img" ||
     tag === "video" ||
     tag === "audio" ||

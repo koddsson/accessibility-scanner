@@ -5,6 +5,7 @@ import {
   labelledByIsValid,
   labelReadableText,
 } from "../utils.js";
+import { isHTMLTag } from "../utils/dom.js";
 
 const id = "select-name";
 const text = "select element must have an accessible name";
@@ -25,10 +26,7 @@ export default function (element: Element): AccessibilityError[] {
     if (label && labelReadableText(label)) continue;
 
     const parentElement = element.parentElement;
-    if (
-      parentElement instanceof HTMLLabelElement &&
-      labelReadableText(parentElement)
-    )
+    if (isHTMLTag(parentElement, "label") && labelReadableText(parentElement))
       continue;
 
     if (element.getAttribute("aria-label")) continue;

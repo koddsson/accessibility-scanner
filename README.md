@@ -8,17 +8,17 @@ Implementation status against the [ACT Rules Community Group](https://act-rules.
 
 The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines/act/implementations/) only counts a rule as "consistently implemented" when the implementation passes every published ACT test case for it. By that measure:
 
-- **30** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
-- **17** more rules pass at least one test case but not all.
+- **32** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
+- **15** more rules pass at least one test case but not all.
 - **53 / 88** ACT rules have some scanner implementation, even if untested.
-- **682 / 1211** ACT test cases (56%) are exercised against the scanner.
+- **685 / 1211** ACT test cases (57%) are exercised against the scanner.
 
 | Implemented | ACT Rule                                                                                                                                         | WCAG                | axe-core rule(s)                                                          | Test cases |
 | :---------- | :----------------------------------------------------------------------------------------------------------------------------------------------- | :------------------ | :------------------------------------------------------------------------ | :--------- |
 | ✅          | [73f2c2](https://act-rules.github.io/rules/73f2c2) — `autocomplete` attribute has valid value                                                    | 1.3.5               | `autocomplete-valid`                                                      | 30 / 30    |
 | ✅          | [5f99a7](https://act-rules.github.io/rules/5f99a7) — ARIA attribute is defined in WAI-ARIA                                                       | 1.3.1, 4.1.2        | `aria-valid-attr`                                                         | 8 / 8      |
 | ❌          | [kb1m8s](https://act-rules.github.io/rules/kb1m8s) — ARIA global properties not used where prohibited                                            | 1.3.1               | —                                                                         | 0 / 9      |
-| ✅          | [ff89c9](https://act-rules.github.io/rules/ff89c9) — ARIA required context role                                                                  | 1.3.1               | `aria-required-parent`                                                    | 14 / 15    |
+| ✅          | [ff89c9](https://act-rules.github.io/rules/ff89c9) — ARIA required context role                                                                  | 1.3.1               | `aria-required-parent`                                                    | 15 / 15    |
 | ✅          | [bc4a75](https://act-rules.github.io/rules/bc4a75) — ARIA required owned elements                                                                | 1.3.1               | `aria-required-children`                                                  | 24 / 24    |
 | ✅          | [6a7281](https://act-rules.github.io/rules/6a7281) — ARIA state or property has valid value                                                      | 1.3.1, 4.1.2        | `aria-valid-attr-value`                                                   | 21 / 21    |
 | ✅          | [5c01ea](https://act-rules.github.io/rules/5c01ea) — ARIA state or property is permitted                                                         | 1.3.1, 4.1.2        | `aria-allowed-attr`                                                       | 17 / 17    |
@@ -84,7 +84,7 @@ The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines
 | ✅          | [8fc3b6](https://act-rules.github.io/rules/8fc3b6) — Object element rendering non-text content has non-empty accessible name                     | 1.1.1               | `object-alt`                                                              | 17 / 18    |
 | ✅          | [b33eff](https://act-rules.github.io/rules/b33eff) — Orientation of the page is not restricted using CSS transforms                              | 1.3.4               | `css-orientation-lock`                                                    | 0 / 13     |
 | ✅          | [674b10](https://act-rules.github.io/rules/674b10) — Role attribute has valid value                                                              | 1.3.1, 4.1.2        | `aria-roles`                                                              | 11 / 11    |
-| ✅          | [0ssw9k](https://act-rules.github.io/rules/0ssw9k) — Scrollable content can be reached with sequential focus navigation                          | 2.1.1, 2.1.3        | `scrollable-region-focusable`                                             | 13 / 15    |
+| ✅          | [0ssw9k](https://act-rules.github.io/rules/0ssw9k) — Scrollable content can be reached with sequential focus navigation                          | 2.1.1, 2.1.3        | `scrollable-region-focusable`                                             | 15 / 15    |
 | ✅          | [2t702h](https://act-rules.github.io/rules/2t702h) — Summary element has non-empty accessible name                                               | 4.1.2               | `summary-name`                                                            | 12 / 12    |
 | ✅          | [7d6734](https://act-rules.github.io/rules/7d6734) — SVG element with explicit role has non-empty accessible name                                | 1.1.1               | `svg-img-alt`                                                             | 10 / 10    |
 | ✅          | [d0f69e](https://act-rules.github.io/rules/d0f69e) — Table header cell has assigned cells                                                        | 1.3.1               | `th-has-data-cells`                                                       | 16 / 16    |

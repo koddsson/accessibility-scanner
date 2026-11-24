@@ -1,11 +1,12 @@
 import { expect } from "@open-wc/testing";
+import { cleanup, render } from "../../render.js";
 import { scan } from "../../../../src/scanner.js";
 
-const parser = new DOMParser();
-
 describe("[8fc3b6]Object element rendering non-text content has non-empty accessible name", function () {
+  afterEach(cleanup);
+
   it("Passed Example 2 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/8fc3b6/dd651de8f984bc2bc5d791eceedf16e70cca0cdc.html)", async () => {
-    const document = parser.parseFromString(`<!DOCTYPE html>
+    const document = await render(`<!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>Passed Example 2</title>

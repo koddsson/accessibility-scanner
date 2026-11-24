@@ -1,11 +1,12 @@
 import { expect } from "@open-wc/testing";
+import { cleanup, render } from "../../render.js";
 import { scan } from "../../../../src/scanner.js";
 
-const parser = new DOMParser();
-
 describe("[de46e4]Element with lang attribute has valid language tag", function () {
+  afterEach(cleanup);
+
   it("Failed Example 9 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/de46e4/50e733e0c505a556fc53e6265eb5b432823570f7.html)", async () => {
-    const document = parser.parseFromString(`<!DOCTYPE html>
+    const document = await render(`<!DOCTYPE html>
 <html lang="lb">
 	<body>
 		<p lang="i-lux">Lëtzebuerg ass e Land an Europa.</p>

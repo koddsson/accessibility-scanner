@@ -1,4 +1,5 @@
 import { AccessibilityError } from "../scanner.js";
+import { isCSSMediaRule, isCSSStyleRule } from "../utils/dom.js";
 
 const id = "css-orientation-lock";
 const text =
@@ -41,14 +42,11 @@ function checkCSSRules(
 
   for (const rule of rules) {
     // Check media rules with orientation queries
-    if (
-      rule instanceof CSSMediaRule &&
-      isOrientationMediaQuery(rule.media.mediaText)
-    ) {
+    if (isCSSMediaRule(rule) && isOrientationMediaQuery(rule.media.mediaText)) {
       // Check rules within the media query for orientation-locking transforms
       for (const innerRule of rule.cssRules) {
         if (
-          innerRule instanceof CSSStyleRule &&
+          isCSSStyleRule(innerRule) &&
           hasOrientationLockingTransform(innerRule)
         ) {
           return innerRule;

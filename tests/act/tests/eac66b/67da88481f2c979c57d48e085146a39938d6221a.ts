@@ -1,11 +1,12 @@
 import { expect } from "@open-wc/testing";
+import { cleanup, render } from "../../render.js";
 import { scan } from "../../../../src/scanner.js";
 
-const parser = new DOMParser();
-
 describe("[eac66b]Video element auditory content has accessible alternative", function () {
+  afterEach(cleanup);
+
   it("Failed Example 1 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/eac66b/67da88481f2c979c57d48e085146a39938d6221a.html)", async () => {
-    const document = parser.parseFromString(`<!DOCTYPE html>
+    const document = await render(`<!DOCTYPE html>
 <html lang="en">
 	<video src="/WAI/content-assets/wcag-act-rules/test-assets/perspective-video/perspective-video.mp4" controls></video>
 </html>`, 'text/html');

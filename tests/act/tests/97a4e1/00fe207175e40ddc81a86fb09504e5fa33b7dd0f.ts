@@ -1,11 +1,12 @@
 import { expect } from "@open-wc/testing";
+import { cleanup, render } from "../../render.js";
 import { scan } from "../../../../src/scanner.js";
 
-const parser = new DOMParser();
-
 describe("[97a4e1]Button has non-empty accessible name", function () {
+  afterEach(cleanup);
+
   it("Passed Example 6 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/97a4e1/00fe207175e40ddc81a86fb09504e5fa33b7dd0f.html)", async () => {
-    const document = parser.parseFromString(`<!DOCTYPE html>
+    const document = await render(`<!DOCTYPE html>
 <html>
 	<style>
 		.notInPage {

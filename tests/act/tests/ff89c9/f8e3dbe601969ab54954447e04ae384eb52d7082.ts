@@ -1,11 +1,12 @@
 import { expect } from "@open-wc/testing";
+import { cleanup, render } from "../../render.js";
 import { scan } from "../../../../src/scanner.js";
 
-const parser = new DOMParser();
-
 describe("[ff89c9]ARIA required context role", function () {
-  it.skip("Failed Example 4 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/ff89c9/f8e3dbe601969ab54954447e04ae384eb52d7082.html)", async () => {
-    const document = parser.parseFromString(`<!DOCTYPE html>
+  afterEach(cleanup);
+
+  it("Failed Example 4 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/ff89c9/f8e3dbe601969ab54954447e04ae384eb52d7082.html)", async () => {
+    const document = await render(`<!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>Failed Example 4</title>

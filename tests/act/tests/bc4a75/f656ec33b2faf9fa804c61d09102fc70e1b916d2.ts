@@ -1,11 +1,12 @@
 import { expect } from "@open-wc/testing";
+import { cleanup, render } from "../../render.js";
 import { scan } from "../../../../src/scanner.js";
 
-const parser = new DOMParser();
-
 describe("[bc4a75]ARIA required owned elements", function () {
+  afterEach(cleanup);
+
   it("Failed Example 5 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/bc4a75/f656ec33b2faf9fa804c61d09102fc70e1b916d2.html)", async () => {
-    const document = parser.parseFromString(`<!DOCTYPE html>
+    const document = await render(`<!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>Failed Example 5</title>

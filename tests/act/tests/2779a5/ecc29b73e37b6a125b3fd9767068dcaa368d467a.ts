@@ -1,11 +1,12 @@
 import { expect } from "@open-wc/testing";
+import { cleanup, render } from "../../render.js";
 import { scan } from "../../../../src/scanner.js";
 
-const parser = new DOMParser();
-
 describe("[2779a5]HTML page has non-empty title", function () {
+  afterEach(cleanup);
+
   it("Inapplicable Example 1 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/2779a5/ecc29b73e37b6a125b3fd9767068dcaa368d467a.svg)", async () => {
-    const document = parser.parseFromString(`<svg xmlns="http://www.w3.org/2000/svg">
+    const document = await render(`<svg xmlns="http://www.w3.org/2000/svg">
   <title>This is an SVG</title>
 </svg>`, 'image/svg+xml');
 

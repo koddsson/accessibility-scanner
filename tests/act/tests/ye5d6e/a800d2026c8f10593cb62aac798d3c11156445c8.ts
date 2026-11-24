@@ -1,11 +1,12 @@
 import { expect } from "@open-wc/testing";
+import { cleanup, render } from "../../render.js";
 import { scan } from "../../../../src/scanner.js";
 
-const parser = new DOMParser();
-
 describe("[ye5d6e]Document has an instrument to move focus to non-repeated content", function () {
+  afterEach(cleanup);
+
   it("Passed Example 4 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/ye5d6e/a800d2026c8f10593cb62aac798d3c11156445c8.html)", async () => {
-    const document = parser.parseFromString(`<!DOCTYPE html>
+    const document = await render(`<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<link rel="stylesheet" href="/WAI/content-assets/wcag-act-rules/test-assets/bypass-blocks-cf77f2/styles.css" />

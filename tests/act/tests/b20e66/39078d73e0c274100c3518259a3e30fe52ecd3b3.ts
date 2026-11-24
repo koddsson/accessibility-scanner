@@ -1,11 +1,12 @@
 import { expect } from "@open-wc/testing";
+import { cleanup, render } from "../../render.js";
 import { scan } from "../../../../src/scanner.js";
 
-const parser = new DOMParser();
-
 describe("[b20e66]Links with identical accessible names have equivalent purpose", function () {
+  afterEach(cleanup);
+
   it("Passed Example 8 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/b20e66/39078d73e0c274100c3518259a3e30fe52ecd3b3.html)", async () => {
-    const document = parser.parseFromString(`<!DOCTYPE html>
+    const document = await render(`<!DOCTYPE html>
 <html lang="en">
 	<span
 		role="link"

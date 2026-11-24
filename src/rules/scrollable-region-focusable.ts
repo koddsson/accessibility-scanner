@@ -1,5 +1,6 @@
 import { AccessibilityError } from "../scanner.js";
 import { querySelectorAll } from "../utils.js";
+import { isHTMLElement } from "../utils/dom.js";
 
 const id = "scrollable-region-focusable";
 const text =
@@ -10,7 +11,7 @@ const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
  * Check if an element is focusable via keyboard
  */
 function isFocusable(element: Element): boolean {
-  if (!(element instanceof HTMLElement)) return false;
+  if (!isHTMLElement(element)) return false;
 
   // Check if element is explicitly made focusable via tabindex
   const tabindex = element.getAttribute("tabindex");
@@ -92,7 +93,7 @@ function hasFocusableDescendants(element: Element): boolean {
  * Check if an element is scrollable
  */
 function isScrollable(element: Element): boolean {
-  if (!(element instanceof HTMLElement)) return false;
+  if (!isHTMLElement(element)) return false;
 
   // Skip certain elements that shouldn't be checked
   const tagName = element.tagName.toLowerCase();
@@ -123,6 +124,16 @@ function isScrollable(element: Element): boolean {
   return hasOverflowingContent;
 }
 
+const replacedContentSelector =
+  "img, svg, picture, video, audio, canvas, iframe, object, embed, input, select, textarea, button";
+
+function hasContent(element: Element): boolean {
+  return (
+    Boolean(element.textContent?.trim()) ||
+    element.querySelector(replacedContentSelector) !== null
+  );
+}
+
 export default function scrollableRegionFocusable(
   element: Element,
 ): AccessibilityError[] {
@@ -132,7 +143,7 @@ export default function scrollableRegionFocusable(
   const allElements = querySelectorAll("*", element);
 
   // Add the element itself if it's an HTMLElement
-  if (element instanceof HTMLElement) {
+  if (isHTMLElement(element)) {
     allElements.unshift(element);
   }
 
@@ -141,6 +152,8 @@ export default function scrollableRegionFocusable(
     if (!isScrollable(el)) {
       continue;
     }
+
+    if (!hasContent(el)) continue;
 
     // Check if the scrollable element is keyboard accessible
     const isKeyboardAccessible = isFocusable(el) || hasFocusableDescendants(el);

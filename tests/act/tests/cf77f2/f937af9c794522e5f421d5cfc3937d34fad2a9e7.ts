@@ -1,11 +1,12 @@
 import { expect } from "@open-wc/testing";
+import { cleanup, render } from "../../render.js";
 import { scan } from "../../../../src/scanner.js";
 
-const parser = new DOMParser();
-
 describe("[cf77f2]Bypass Blocks of Repeated Content", function () {
+  afterEach(cleanup);
+
   it.skip("Passed Example 11 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/cf77f2/f937af9c794522e5f421d5cfc3937d34fad2a9e7.html)", async () => {
-    const document = parser.parseFromString(`<!DOCTYPE html>
+    const document = await render(`<!DOCTYPE html>
 <html>
 	<head>
 		<script src="/WAI/content-assets/wcag-act-rules/test-assets/bypass-blocks-cf77f2/toggle-display.js"></script>
