@@ -5,7 +5,7 @@ import { scan } from "../../../../src/scanner.js";
 describe("[e88epe]Image not in the accessibility tree is decorative", function () {
   afterEach(cleanup);
 
-  it.skip("Passed Example 3 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/e88epe/57982b4d5dad90f3f2c06d5e0233694c46842bd0.html)", async () => {
+  it("Passed Example 3 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/e88epe/57982b4d5dad90f3f2c06d5e0233694c46842bd0.html)", async () => {
     const document = await render(`<!DOCTYPE html>
 <html lang="en">
 <head>

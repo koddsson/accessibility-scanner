@@ -47,7 +47,7 @@ export default function decorativeImage(
       hasNonEmptyAlt || hasAriaLabel || hasAriaLabelledby || hasTitle;
 
     if (hasMeaningfulContent) {
-      errors.push({ id, element: img, text, url });
+      errors.push({ id, element: img, text, url, needsReview: true });
     }
   }
 
