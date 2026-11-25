@@ -199,6 +199,17 @@ describe("frame-focusable-content", function () {
       expect(results).to.be.empty;
     });
 
+    it("iframe with tabindex=-1 is too small to show its content", async () => {
+      const container = await fixture(html`
+        <iframe tabindex="-1" width="1" height="1" srcdoc="<a href='#'>Link</a>"></iframe>
+      `);
+
+      const iframe = (container.querySelector('iframe') || container) as HTMLIFrameElement;
+      await waitForIframeLoad(iframe);
+
+      expect(await scanner.scan(container)).to.be.empty;
+    });
+
     it("iframe with tabindex=-1 contains only disabled form controls", async () => {
       const container = await fixture(html`
         <iframe tabindex="-1" srcdoc="<button disabled>Click me</button>"></iframe>

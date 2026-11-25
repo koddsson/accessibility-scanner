@@ -18,6 +18,8 @@ export async function render(
   document.body.append(frame);
   frames.push(frame);
   await loaded;
+  // Fallback content of a failed <object> only renders a task after load.
+  await new Promise((resolve) => setTimeout(resolve, 0));
   return frame.contentDocument!;
 }
 

@@ -5,7 +5,7 @@ import { scan } from "../../../../src/scanner.js";
 describe("[2ee8b8]Visible label is part of accessible name", function () {
   afterEach(cleanup);
 
-  it.skip("Passed Example 6 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/2ee8b8/efa9543339cdad5412c7719b266a633a29ce149e.html)", async () => {
+  it("Passed Example 6 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/2ee8b8/efa9543339cdad5412c7719b266a633a29ce149e.html)", async () => {
     const document = await render(`<!DOCTYPE html>
 <html lang="en">
 <head>

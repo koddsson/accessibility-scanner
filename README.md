@@ -8,10 +8,10 @@ Implementation status against the [ACT Rules Community Group](https://act-rules.
 
 The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines/act/implementations/) only counts a rule as "consistently implemented" when the implementation passes every published ACT test case for it. By that measure:
 
-- **36** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
-- **11** more rules pass at least one test case but not all.
+- **39** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
+- **8** more rules pass at least one test case but not all.
 - **53 / 88** ACT rules have some scanner implementation, even if untested.
-- **708 / 1211** ACT test cases (58%) are exercised against the scanner.
+- **711 / 1211** ACT test cases (59%) are exercised against the scanner.
 
 | Implemented | ACT Rule                                                                                                                                         | WCAG                | axe-core rule(s)                                                          | Test cases |
 | :---------- | :----------------------------------------------------------------------------------------------------------------------------------------------- | :------------------ | :------------------------------------------------------------------------ | :--------- |
@@ -40,7 +40,7 @@ The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines
 | ✅          | [047fe0](https://act-rules.github.io/rules/047fe0) — Document has heading for non-repeated content                                               | —                   | `bypass`                                                                  | 11 / 14    |
 | ❌          | [oj04fd](https://act-rules.github.io/rules/oj04fd) — Element in sequential focus order has visible focus                                         | 2.4.7               | —                                                                         | 0 / 9      |
 | ✅          | [46ca7f](https://act-rules.github.io/rules/46ca7f) — Element marked as decorative is not exposed                                                 | —                   | `presentation-role-conflict`                                              | 10 / 10    |
-| ✅          | [6cfa84](https://act-rules.github.io/rules/6cfa84) — Element with aria-hidden has no content in sequential focus navigation                      | 4.1.2               | `aria-hidden-focus`                                                       | 14 / 15    |
+| ✅          | [6cfa84](https://act-rules.github.io/rules/6cfa84) — Element with aria-hidden has no content in sequential focus navigation                      | 4.1.2               | `aria-hidden-focus`                                                       | 15 / 15    |
 | ✅          | [de46e4](https://act-rules.github.io/rules/de46e4) — Element with lang attribute has valid language tag                                          | 3.1.2               | `valid-lang`                                                              | 19 / 19    |
 | ✅          | [307n5z](https://act-rules.github.io/rules/307n5z) — Element with presentational children has no focusable content                               | 4.1.2               | `nested-interactive`                                                      | 12 / 12    |
 | ✅          | [4e8ab6](https://act-rules.github.io/rules/4e8ab6) — Element with role attribute has required states and properties                              | 1.3.1, 4.1.2        | `aria-required-attr`                                                      | 16 / 16    |
@@ -62,7 +62,7 @@ The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines
 | ❌          | [c4a8a4](https://act-rules.github.io/rules/c4a8a4) — HTML page title is descriptive                                                              | 2.4.2               | —                                                                         | 0 / 7      |
 | ✅          | [cae760](https://act-rules.github.io/rules/cae760) — Iframe element has non-empty accessible name                                                | 4.1.2               | `frame-title`                                                             | 11 / 11    |
 | ✅          | [4b1c6c](https://act-rules.github.io/rules/4b1c6c) — Iframe elements with identical accessible names have equivalent purpose                     | 4.1.2               | `frame-title-unique`                                                      | 23 / 23    |
-| ✅          | [akn7bn](https://act-rules.github.io/rules/akn7bn) — Iframe with interactive elements is not excluded from tab-order                             | 2.1.1, 2.1.3        | `frame-focusable-content`                                                 | 9 / 10     |
+| ✅          | [akn7bn](https://act-rules.github.io/rules/akn7bn) — Iframe with interactive elements is not excluded from tab-order                             | 2.1.1, 2.1.3        | `frame-focusable-content`                                                 | 10 / 10    |
 | ❌          | [qt1vmo](https://act-rules.github.io/rules/qt1vmo) — Image accessible name is descriptive                                                        | 1.1.1               | —                                                                         | 0 / 16     |
 | ✅          | [59796f](https://act-rules.github.io/rules/59796f) — Image button has non-empty accessible name                                                  | 1.1.1, 4.1.2        | `input-image-alt`                                                         | 12 / 12    |
 | ❌          | [9eb3f6](https://act-rules.github.io/rules/9eb3f6) — Image filename is accessible name for image                                                 | 1.1.1               | —                                                                         | —          |
@@ -101,7 +101,7 @@ The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines
 | ❌          | [d7ba54](https://act-rules.github.io/rules/d7ba54) — Video element visual-only content has audio track alternative                               | —                   | —                                                                         | 0 / 5      |
 | ❌          | [ee13b5](https://act-rules.github.io/rules/ee13b5) — Video element visual-only content has transcript                                            | 1.2.1, 1.3.1        | —                                                                         | 0 / 8      |
 | ❌          | [fd26cf](https://act-rules.github.io/rules/fd26cf) — Video element visual-only content is media alternative for text                             | —                   | —                                                                         | 0 / 7      |
-| ✅          | [2ee8b8](https://act-rules.github.io/rules/2ee8b8) — Visible label is part of accessible name                                                    | 2.5.3               | `label-content-name-mismatch`                                             | 35 / 36    |
+| ✅          | [2ee8b8](https://act-rules.github.io/rules/2ee8b8) — Visible label is part of accessible name                                                    | 2.5.3               | `label-content-name-mismatch`                                             | 36 / 36    |
 | ❌          | [59br37](https://act-rules.github.io/rules/59br37) — Zoomed text node is not clipped with CSS overflow                                           | 1.4.4               | —                                                                         | 0 / 14     |
 
 

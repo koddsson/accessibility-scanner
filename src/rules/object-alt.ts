@@ -5,6 +5,13 @@ const id = "object-alt";
 const text = "<object> elements must have alternative text";
 const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
 
+function showsFallbackContent(object: HTMLObjectElement): boolean {
+  if (!object.isConnected || !object.ownerDocument.defaultView) return false;
+  return [...object.children].some(
+    (child) => child.getClientRects().length > 0,
+  );
+}
+
 export default function (element: Element): AccessibilityError[] {
   const errors = [];
   const elements = querySelectorAll("object", element) as HTMLObjectElement[];
@@ -25,6 +32,8 @@ export default function (element: Element): AccessibilityError[] {
     // Check if element has role="presentation" or role="none"
     const role = element.getAttribute("role");
     if (role === "presentation" || role === "none") continue;
+
+    if (showsFallbackContent(element)) continue;
 
     errors.push({
       id,

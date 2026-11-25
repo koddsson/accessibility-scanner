@@ -173,8 +173,9 @@ const ignoredExamples = [
 // (which omit the test entirely), these remain visible as pending work.
 const skippedExamples = [
 
-  // [6cfa84] aria-hidden-focus: focus sentinel relies on JS to redirect focus, scanner can't evaluate script behavior
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/6cfa84/d343bc6a2877b62d80153453c3781debc33e0b1d.html",
+  // [8fc3b6] object-alt: the object's data is a shared ACT asset the harness cannot load, so it shows its fallback
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/8fc3b6/a2525d7f2db0db246df0a702416606c56085a17a.html",
+
 
   // [eac66b] video-caption: scanner can't detect text transcript as alternative to captions
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/eac66b/47dd719ce35a9aef8dddd58fc3b1c08956d92889.html",
@@ -195,8 +196,6 @@ const skippedExamples = [
   // [80f0bf] no-autoplay-audio: scanner can't detect JavaScript-based control mechanisms
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/80f0bf/29ea904ef03f14401a7b43a5ffc9b30271697bc7.html",
 
-  // [2ee8b8] label-content-name-mismatch: scanner cannot detect icon fonts (requires CSS rendering)
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/2ee8b8/efa9543339cdad5412c7719b266a633a29ce149e.html",
 
   // [047fe0] bypass/heading: scanner can't distinguish repeated vs non-repeated content areas
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/047fe0/4e34cac08353c5383b8743bffada2aaf3a780149.html",
@@ -231,10 +230,6 @@ const skippedExamples = [
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/80f0bf/7d3d7214d9fca81a8a09a819665871a474f85548.html",
   // [eac66b] video-caption: video file has no audio track, which needs media inspection
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/eac66b/4663502bcb6da984af2f46bbc105cb5b70d5a2b2.html",
-  // [8fc3b6] object-alt: object fails to load and shows its fallback content, which needs resource loading
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/8fc3b6/25b2c00b86322f15c0cbb376b58b342fff916f62.html",
-  // [akn7bn] frame-focusable-content: 1x1 iframe hides its content, which needs layout to detect
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/akn7bn/63cd20ec8886f4c59ff54f406a0e5933847bce75.html",
 ];
 
 // ACT rules where the scanner rule requires the document element (not body)

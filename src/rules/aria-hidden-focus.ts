@@ -20,6 +20,27 @@ const focusableSelector = [
   "[tabindex]",
 ].join(",");
 
+// Dispatches synthetic events so the probe never moves focus onto the candidate itself.
+function redirectsFocus(candidate: HTMLElement): boolean {
+  const document = candidate.ownerDocument;
+  const view = document.defaultView;
+  if (!view || !candidate.isConnected) return false;
+
+  const previous = document.activeElement;
+  candidate.dispatchEvent(new view.FocusEvent("focus"));
+  candidate.dispatchEvent(new view.FocusEvent("focusin", { bubbles: true }));
+
+  const current = document.activeElement;
+  if (current === previous || current === candidate) return false;
+
+  if (isHTMLElement(previous) && previous !== document.body) {
+    previous.focus({ preventScroll: true });
+  } else if (isHTMLElement(current)) {
+    current.blur();
+  }
+  return true;
+}
+
 export default function ariaHiddenFocus(
   element_: Element,
 ): AccessibilityError[] {
@@ -87,6 +108,8 @@ export default function ariaHiddenFocus(
       // 5) Skip if tabindex is -1 (programmatically removed from tab order).
       const tabindex = candidate.getAttribute("tabindex");
       if (tabindex === "-1") continue;
+
+      if (redirectsFocus(candidate)) continue;
 
       // If we reach here, candidate is considered a focusable control that would be exposed despite
       // its ancestor being aria-hidden="true" — this is a violation.

@@ -39,6 +39,7 @@ const styledProperties = [
   "clip-path",
   "width",
   "height",
+  "font-family",
 ] as const;
 
 function parseDeclarations(block: string): StyleMap {
@@ -221,8 +222,16 @@ function isClippedOutOfView(style: StyleMap): boolean {
  * from the accessibility tree but still rendered on screen, so it forms part
  * of the visible label.
  */
-function getVisibleInnerText(node: Node): string {
+const iconFontPattern = /icon|symbols|awesome|icomoon/i;
+
+function usesIconFont(style: StyleMap): boolean {
+  const primaryFamily = (style["font-family"] ?? "").split(",")[0];
+  return iconFontPattern.test(primaryFamily);
+}
+
+function getVisibleInnerText(node: Node, iconFont = false): string {
   if (node.nodeType === Node.TEXT_NODE) {
+    if (iconFont) return " ";
     return (node.textContent ?? "").replaceAll(/\s+/g, " ");
   }
 
@@ -242,17 +251,17 @@ function getVisibleInnerText(node: Node): string {
   if (style.opacity && Number.parseFloat(style.opacity) === 0) return " ";
   if (isClippedOutOfView(style)) return " ";
 
-  const inner = getChildrenVisibleInnerText(element);
+  const inner = getChildrenVisibleInnerText(element, usesIconFont(style));
   if (display === "table-cell" || display === "table-row") return ` ${inner} `;
   if (display === "table-caption" || hasBlockOuterDisplay(display))
     return `\n${inner}\n`;
   return inner;
 }
 
-function getChildrenVisibleInnerText(node: Node): string {
+function getChildrenVisibleInnerText(node: Node, iconFont = false): string {
   let result = "";
   for (const child of node.childNodes) {
-    result += getVisibleInnerText(child);
+    result += getVisibleInnerText(child, iconFont);
   }
   return result;
 }

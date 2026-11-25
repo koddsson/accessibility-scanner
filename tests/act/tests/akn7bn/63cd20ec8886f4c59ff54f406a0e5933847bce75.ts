@@ -5,7 +5,7 @@ import { scan } from "../../../../src/scanner.js";
 describe("[akn7bn]Iframe with interactive elements is not excluded from tab-order", function () {
   afterEach(cleanup);
 
-  it.skip("Inapplicable Example 3 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/akn7bn/63cd20ec8886f4c59ff54f406a0e5933847bce75.html)", async () => {
+  it("Inapplicable Example 3 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/akn7bn/63cd20ec8886f4c59ff54f406a0e5933847bce75.html)", async () => {
     const document = await render(`<!DOCTYPE html>
 <html lang="en">
 <head>
