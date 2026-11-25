@@ -108,6 +108,7 @@ export default function noAutoplayAudio(
         element: el,
         text,
         url,
+        needsReview: true,
       });
     }
   }
@@ -121,6 +122,7 @@ export default function noAutoplayAudio(
         element: el,
         text,
         url,
+        needsReview: true,
       });
     }
   }

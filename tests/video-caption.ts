@@ -5,6 +5,14 @@ import videoCaptions from "../src/rules/video-caption.js";
 const scanner = new Scanner([videoCaptions]);
 
 describe("video-caption", function () {
+  it("reports a missing captions track as needing review", async () => {
+    const container = await fixture(html`<video></video>`);
+    const results = await scanner.scan(container);
+
+    expect(results).to.have.lengthOf(1);
+    expect(results[0].needsReview).to.be.true;
+  });
+
   it("video elements without a track return errors", async () => {
     const container = await fixture(html`<video></video>`);
     const results = (await scanner.scan(container)).map(({ text, url }) => {

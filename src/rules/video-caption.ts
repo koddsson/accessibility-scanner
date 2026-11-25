@@ -19,6 +19,7 @@ export default function (element: Element): AccessibilityError[] {
         element,
         text,
         url,
+        needsReview: true,
       });
     }
 
@@ -29,6 +30,7 @@ export default function (element: Element): AccessibilityError[] {
           element,
           text,
           url,
+          needsReview: true,
         });
       }
     }

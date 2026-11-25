@@ -5,6 +5,14 @@ import noAutoplayAudio from "../src/rules/no-autoplay-audio.js";
 const scanner = new Scanner([noAutoplayAudio]);
 
 describe("no-autoplay-audio", function () {
+  it("reports autoplay without native controls as needing review", async () => {
+    const container = await fixture(html`<audio autoplay></audio>`);
+    const results = await scanner.scan(container);
+
+    expect(results).to.have.lengthOf(1);
+    expect(results[0].needsReview).to.be.true;
+  });
+
   it("audio element with autoplay and no controls returns error", async () => {
     const container = await fixture(html`<audio autoplay></audio>`);
     const results = (await scanner.scan(container)).map(({ text, url }) => {

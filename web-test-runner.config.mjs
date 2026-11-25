@@ -25,6 +25,8 @@ const config = {
   plugins: [esbuildPlugin({ ts: true, target: "esnext" })],
   browsers,
   reporters: [verboseReporter()],
+  // ACT examples that load real video can take several seconds to reach "load".
+  testFramework: { config: { timeout: 10_000 } },
   filterBrowserLogs(log) {
     if (
       typeof log.args[0] === "string" &&

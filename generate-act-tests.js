@@ -172,32 +172,10 @@ const ignoredExamples = [
 // document what the scanner doesn't handle yet.  Unlike ignoredExamples
 // (which omit the test entirely), these remain visible as pending work.
 const skippedExamples = [
-
-
-  // [eac66b] video-caption: scanner can't detect text transcript as alternative to captions
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/eac66b/47dd719ce35a9aef8dddd58fc3b1c08956d92889.html",
-
-  // [e88epe] decorative-image: scanner flags role="none" with non-empty alt as a contradiction;
-  // ACT considers this passed when the image is actually decorative (requires visual judgment)
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/e88epe/57982b4d5dad90f3f2c06d5e0233694c46842bd0.html",
-
-  // [e88epe] decorative-image: scanner cannot detect non-decorative content from image src alone
+  // [e88epe] decorative-image: whether these images are decorative is a visual judgment the scanner cannot make
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/e88epe/e5b8fa7ab66409e7b52b335a8b6aebe11fd78635.html",
-
-  // [e88epe] decorative-image: scanner does not analyse SVG visual content
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/e88epe/0d0061ffdf406f0d9b21aaa00f5d557e4137e0b2.html",
-
-  // [e88epe] decorative-image: scanner does not analyse canvas visual content
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/e88epe/6d108d00cc7a54f66547f02d7e7606342b11f801.html",
-
-  // [80f0bf] no-autoplay-audio: scanner can't detect JavaScript-based control mechanisms
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/80f0bf/29ea904ef03f14401a7b43a5ffc9b30271697bc7.html",
-
-  // --- Inapplicable examples the scanner flags because it cannot render or load content ---
-  // [80f0bf] no-autoplay-audio: video file has no audio track, which needs media inspection
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/80f0bf/7d3d7214d9fca81a8a09a819665871a474f85548.html",
-  // [eac66b] video-caption: video file has no audio track, which needs media inspection
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/eac66b/4663502bcb6da984af2f46bbc105cb5b70d5a2b2.html",
 ];
 
 // ACT rules where the scanner rule requires the document element (not body)

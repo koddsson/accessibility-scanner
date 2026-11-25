@@ -5,7 +5,7 @@ import { scan } from "../../../../src/scanner.js";
 describe("[80f0bf]Audio or video element avoids automatically playing audio", function () {
   afterEach(cleanup);
 
-  it.skip("Inapplicable Example 2 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/80f0bf/7d3d7214d9fca81a8a09a819665871a474f85548.html)", async () => {
+  it("Inapplicable Example 2 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/80f0bf/7d3d7214d9fca81a8a09a819665871a474f85548.html)", async () => {
     const document = await render(`<!DOCTYPE html>
 <html lang="en">
 <head>
