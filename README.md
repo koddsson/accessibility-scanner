@@ -8,10 +8,10 @@ Implementation status against the [ACT Rules Community Group](https://act-rules.
 
 The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines/act/implementations/) only counts a rule as "consistently implemented" when the implementation passes every published ACT test case for it. By that measure:
 
-- **35** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
-- **12** more rules pass at least one test case but not all.
+- **36** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
+- **11** more rules pass at least one test case but not all.
 - **53 / 88** ACT rules have some scanner implementation, even if untested.
-- **698 / 1211** ACT test cases (58%) are exercised against the scanner.
+- **708 / 1211** ACT test cases (58%) are exercised against the scanner.
 
 | Implemented | ACT Rule                                                                                                                                         | WCAG                | axe-core rule(s)                                                          | Test cases |
 | :---------- | :----------------------------------------------------------------------------------------------------------------------------------------------- | :------------------ | :------------------------------------------------------------------------ | :--------- |
@@ -71,7 +71,7 @@ The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines
 | ✅          | [24afc2](https://act-rules.github.io/rules/24afc2) — Important letter spacing in style attributes is wide enough                                 | 1.4.12              | `avoid-inline-spacing`                                                    | 19 / 19    |
 | ✅          | [78fd32](https://act-rules.github.io/rules/78fd32) — Important line height in style attributes is wide enough                                    | 1.4.12              | `avoid-inline-spacing`                                                    | 24 / 24    |
 | ✅          | [9e45ec](https://act-rules.github.io/rules/9e45ec) — Important word spacing in style attributes is wide enough                                   | 1.4.12              | `avoid-inline-spacing`                                                    | 19 / 19    |
-| ✅          | [c487ae](https://act-rules.github.io/rules/c487ae) — Link has non-empty accessible name                                                          | 2.4.4, 2.4.9, 4.1.2 | `area-alt`, `link-name`                                                   | 18 / 28    |
+| ✅          | [c487ae](https://act-rules.github.io/rules/c487ae) — Link has non-empty accessible name                                                          | 2.4.4, 2.4.9, 4.1.2 | `area-alt`, `link-name`                                                   | 28 / 28    |
 | ❌          | [5effbb](https://act-rules.github.io/rules/5effbb) — Link in context is descriptive                                                              | 2.4.4, 2.4.9        | —                                                                         | 0 / 18     |
 | ❌          | [aizyf1](https://act-rules.github.io/rules/aizyf1) — Link is descriptive                                                                         | 2.4.9               | —                                                                         | 0 / 12     |
 | ❌          | [fd3a94](https://act-rules.github.io/rules/fd3a94) — Links with identical accessible names and same context serve equivalent purpose             | 2.4.4, 2.4.9        | —                                                                         | 0 / 24     |

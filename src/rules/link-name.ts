@@ -7,9 +7,9 @@ import {
   labelledByIsValid,
 } from "../utils.js";
 
-const id = "c487ae";
-const url = `https://act-rules.github.io/rules/${id}`;
-const text = "Link has non-empty accessible name";
+const id = "link-name";
+const url = `https://dequeuniversity.com/rules/axe/4.11/${id}`;
+const text = "Links must have discernible text";
 
 export default function (element_: Element): AccessibilityError[] {
   const errors = [];
@@ -19,7 +19,7 @@ export default function (element_: Element): AccessibilityError[] {
   }
   for (const element of elements) {
     if (!isVisible(element)) continue;
-    if (element.hasAttribute("role") && !hasLinkRole(element)) continue;
+    if (!hasLinkRole(element)) continue;
 
     if (
       element.hasAttribute("aria-label") &&

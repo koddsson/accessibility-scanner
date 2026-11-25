@@ -5,7 +5,7 @@ import { scan } from "../../../../src/scanner.js";
 describe("[c487ae]Link has non-empty accessible name", function () {
   afterEach(cleanup);
 
-  it.skip("Failed Example 2 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/c487ae/633d9136ef3e040b7653b287651c65e4302fe417.html)", async () => {
+  it("Failed Example 2 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/c487ae/633d9136ef3e040b7653b287651c65e4302fe417.html)", async () => {
     const document = await render(`<!DOCTYPE html>
 <html lang="en">
 <head>
