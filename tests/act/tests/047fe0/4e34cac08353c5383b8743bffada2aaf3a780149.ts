@@ -5,7 +5,7 @@ import { scan } from "../../../../src/scanner.js";
 describe("[047fe0]Document has heading for non-repeated content", function () {
   afterEach(cleanup);
 
-  it.skip("Failed Example 4 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/047fe0/4e34cac08353c5383b8743bffada2aaf3a780149.html)", async () => {
+  it("Failed Example 4 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/047fe0/4e34cac08353c5383b8743bffada2aaf3a780149.html)", async () => {
     const document = await render(`<!DOCTYPE html>
 <html>
 	<head>

@@ -5,7 +5,7 @@ import { scan } from "../../../../src/scanner.js";
 describe("[cf77f2]Bypass Blocks of Repeated Content", function () {
   afterEach(cleanup);
 
-  it.skip("Passed Example 8 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/cf77f2/1c8d17ef6a69be1bbc5b28f432d2b7192e0f65c9.html)", async () => {
+  it("Passed Example 8 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/cf77f2/1c8d17ef6a69be1bbc5b28f432d2b7192e0f65c9.html)", async () => {
     const document = await render(`<!DOCTYPE html>
 <html lang="en">
 	<head>

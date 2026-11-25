@@ -173,6 +173,8 @@ const ignoredExamples = [
 // (which omit the test entirely), these remain visible as pending work.
 const skippedExamples = [
 
+  // [047fe0] bypass/heading: heading is moved off-screen by the shared ACT stylesheet, which the harness cannot load
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/047fe0/81d501e52085d9e5712e241bdd24708e7cb4a301.html",
   // [8fc3b6] object-alt: the object's data is a shared ACT asset the harness cannot load, so it shows its fallback
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/8fc3b6/a2525d7f2db0db246df0a702416606c56085a17a.html",
 
@@ -195,35 +197,6 @@ const skippedExamples = [
 
   // [80f0bf] no-autoplay-audio: scanner can't detect JavaScript-based control mechanisms
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/80f0bf/29ea904ef03f14401a7b43a5ffc9b30271697bc7.html",
-
-
-  // [047fe0] bypass/heading: scanner can't distinguish repeated vs non-repeated content areas
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/047fe0/4e34cac08353c5383b8743bffada2aaf3a780149.html",
-  // [047fe0] bypass/heading: page has no repeated content so rule is inapplicable, but scanner flags it
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/047fe0/4f112d2707661d579bb0e364ef6241ea6217d3e8.html",
-  // [047fe0] bypass/heading: heading hidden via CSS (off-screen class), scanner can't detect computed styles
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/047fe0/81d501e52085d9e5712e241bdd24708e7cb4a301.html",
-
-  // [3e12e1] bypass/collapsible: JS-based toggle mechanism requires script execution (DOMParser limitation)
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/3e12e1/fa30de1d9c2d3a313f7f18bc4e2cf6843ea10a89.html",
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/3e12e1/01ade7567b9b4be243f4b693e30071596c2f515f.html",
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/3e12e1/be05e4899572cc95d2a56d058ef873f90a979fe2.html",
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/3e12e1/61c51eb3361b472d8bd7cecd205db7bf895f484f.html",
-
-  // [cf77f2] bypass: JS-based skip/toggle mechanism requires script execution (DOMParser limitation)
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/cf77f2/fa30de1d9c2d3a313f7f18bc4e2cf6843ea10a89.html",
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/cf77f2/1c8d17ef6a69be1bbc5b28f432d2b7192e0f65c9.html",
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/cf77f2/f937af9c794522e5f421d5cfc3937d34fad2a9e7.html",
-  // [cf77f2] bypass: page has no semantic landmarks or headings (only div#main), scanner can't detect
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/cf77f2/c039d5c0794751aa5944724b45df214c0e8cc827.html",
-
-  // [ye5d6e] bypass: JS-based skip link (onclick location.assign) requires script execution
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/ye5d6e/f75c1d3e3e4d3ef33020e90c115c6f4245170486.html",
-  // [ye5d6e] bypass: skip link targets repeated content, scanner can't distinguish content areas
-  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/ye5d6e/91f4c9b8d66b5a30867b3eb329701acc604d79b9.html",
-
-
-
 
   // --- Inapplicable examples the scanner flags because it cannot render or load content ---
   // [80f0bf] no-autoplay-audio: video file has no audio track, which needs media inspection
