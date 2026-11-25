@@ -173,6 +173,9 @@ const ignoredExamples = [
 // (which omit the test entirely), these remain visible as pending work.
 const skippedExamples = [
 
+  // [8fc3b6] object-alt: the object's data is a shared ACT asset the harness cannot load, so it shows its fallback
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/8fc3b6/a2525d7f2db0db246df0a702416606c56085a17a.html",
+
 
   // [eac66b] video-caption: scanner can't detect text transcript as alternative to captions
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/eac66b/47dd719ce35a9aef8dddd58fc3b1c08956d92889.html",
