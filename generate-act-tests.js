@@ -175,6 +175,8 @@ const skippedExamples = [
 
   // [047fe0] bypass/heading: heading is moved off-screen by the shared ACT stylesheet, which the harness cannot load
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/047fe0/81d501e52085d9e5712e241bdd24708e7cb4a301.html",
+  // [8fc3b6] object-alt: the object's data is a shared ACT asset the harness cannot load, so it shows its fallback
+  "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/8fc3b6/a2525d7f2db0db246df0a702416606c56085a17a.html",
 
 
   // [eac66b] video-caption: scanner can't detect text transcript as alternative to captions
