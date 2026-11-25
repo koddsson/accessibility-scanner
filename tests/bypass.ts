@@ -216,6 +216,21 @@ describe("bypass", function () {
       expect(results).to.have.lengthOf(1);
     });
 
+    it("page only has a heading positioned off-screen", async () => {
+      const container = await fixture(html`
+        <div>
+          <h1 style="position: absolute; top: -999px">Page title</h1>
+          <p>Content</p>
+        </div>
+      `);
+
+      const results = await scanner.scan(
+        container.ownerDocument.documentElement,
+      );
+      expect(results).to.have.lengthOf(1);
+      expect(results[0].needsReview).to.be.true;
+    });
+
     it("page has a heading in an article header", async () => {
       const container = await fixture(html`
         <article>

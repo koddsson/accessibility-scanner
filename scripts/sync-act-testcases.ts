@@ -1,5 +1,12 @@
-import { writeFile, readFile, mkdir, access } from "node:fs/promises";
+import {
+  writeFile,
+  readFile,
+  readdir,
+  mkdir,
+  access,
+} from "node:fs/promises";
 import { constants } from "node:fs";
+import { dirname } from "node:path";
 
 const SOURCE_URL =
   "https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases.json";
@@ -81,4 +88,72 @@ if (missing.length > 0) {
   console.log(`Downloaded ${missing.length} fixture${missing.length === 1 ? "" : "s"}.`);
 } else {
   console.log("All fixtures already present.");
+}
+
+// ACT examples load shared assets by absolute path. The test runner serves
+// them from ASSETS_DIR; media files there are git-ignored because of their size.
+const ASSET_PREFIX = "/WAI/content-assets/wcag-act-rules/test-assets/";
+const ASSET_PATTERN = new RegExp(`${ASSET_PREFIX}[^"'\\s)>#?]+`, "g");
+const ASSETS_DIR = "./tests/act/assets";
+const CRAWLED_EXTENSIONS = new Set(["html", "css", "js"]);
+
+function extensionOf(path: string): string {
+  const name = path.slice(path.lastIndexOf("/") + 1);
+  return name.includes(".") ? name.slice(name.lastIndexOf(".") + 1) : "";
+}
+
+function assetPathsIn(source: string): string[] {
+  return (source.match(ASSET_PATTERN) ?? []).filter(
+    (path) => extensionOf(path) !== "",
+  );
+}
+
+const pending = new Set<string>();
+for (const name of await readdir(FIXTURES_DIR)) {
+  const source = await readFile(`${FIXTURES_DIR}/${name}`, "utf8");
+  for (const path of assetPathsIn(source)) pending.add(path);
+}
+
+const seen = new Set<string>();
+let downloadedAssets = 0;
+const unavailableAssets: string[] = [];
+
+async function syncAsset(path: string): Promise<string[]> {
+  const target = `${ASSETS_DIR}/${path.slice(ASSET_PREFIX.length)}`;
+  const crawl = CRAWLED_EXTENSIONS.has(extensionOf(path));
+
+  const existing = await readFile(target).catch(() => null);
+  if (existing) return crawl ? assetPathsIn(existing.toString("utf8")) : [];
+
+  const res = await fetch(`https://www.w3.org${path}`);
+  if (!res.ok) {
+    unavailableAssets.push(path);
+    return [];
+  }
+  const body = Buffer.from(await res.arrayBuffer());
+  await mkdir(dirname(target), { recursive: true });
+  await writeFile(target, body);
+  downloadedAssets++;
+  return crawl ? assetPathsIn(body.toString("utf8")) : [];
+}
+
+while (pending.size > 0) {
+  const batch = [...pending].slice(0, FIXTURE_DOWNLOAD_CONCURRENCY);
+  for (const path of batch) {
+    pending.delete(path);
+    seen.add(path);
+  }
+  const discovered = await Promise.all(batch.map((path) => syncAsset(path)));
+  for (const path of discovered.flat()) {
+    if (!seen.has(path)) pending.add(path);
+  }
+}
+
+console.log(
+  downloadedAssets > 0
+    ? `Downloaded ${downloadedAssets} shared asset${downloadedAssets === 1 ? "" : "s"}.`
+    : "All shared assets already present.",
+);
+if (unavailableAssets.length > 0) {
+  console.log(`Not available upstream: ${unavailableAssets.join(", ")}`);
 }

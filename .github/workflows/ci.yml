@@ -31,6 +31,14 @@ jobs:
         with:
           node-version: 22
       - run: npm ci
+      - name: Cache ACT media assets
+        uses: actions/cache@v6
+        with:
+          path: |
+            tests/act/assets/**/*.mp4
+            tests/act/assets/**/*.webm
+            tests/act/assets/**/*.mp3
+          key: act-media-v1
       - name: Sync ACT testcases and fixtures from upstream
         run: npm run sync:testcases
       - name: Regenerate ACT test files
@@ -50,6 +58,6 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A testcases.json README.md tests/act/fixtures tests/act/tests
+          git add -A testcases.json README.md tests/act/fixtures tests/act/tests tests/act/assets
           git commit -m "Sync ACT testcases and regenerate tests / README"
           git push origin "HEAD:${BRANCH}"

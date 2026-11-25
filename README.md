@@ -8,10 +8,10 @@ Implementation status against the [ACT Rules Community Group](https://act-rules.
 
 The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines/act/implementations/) only counts a rule as "consistently implemented" when the implementation passes every published ACT test case for it. By that measure:
 
-- **42** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
-- **5** more rules pass at least one test case but not all.
+- **44** ACT rules pass every generated test case (W3C "consistent implementation" criterion).
+- **3** more rules pass at least one test case but not all.
 - **53 / 88** ACT rules have some scanner implementation, even if untested.
-- **723 / 1211** ACT test cases (60%) are exercised against the scanner.
+- **725 / 1211** ACT test cases (60%) are exercised against the scanner.
 
 | Implemented | ACT Rule                                                                                                                                         | WCAG                | axe-core rule(s)                                                          | Test cases |
 | :---------- | :----------------------------------------------------------------------------------------------------------------------------------------------- | :------------------ | :------------------------------------------------------------------------ | :--------- |
@@ -37,7 +37,7 @@ The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines
 | ❌          | [c249d5](https://act-rules.github.io/rules/c249d5) — Device motion based changes to the content can be disabled                                  | 2.5.4               | —                                                                         | 0 / 5      |
 | ✅          | [b40fd1](https://act-rules.github.io/rules/b40fd1) — Document has a landmark with non-repeated content                                           | —                   | `bypass`                                                                  | 0 / 8      |
 | ✅          | [ye5d6e](https://act-rules.github.io/rules/ye5d6e) — Document has an instrument to move focus to non-repeated content                            | —                   | `bypass`                                                                  | 12 / 12    |
-| ✅          | [047fe0](https://act-rules.github.io/rules/047fe0) — Document has heading for non-repeated content                                               | —                   | `bypass`                                                                  | 13 / 14    |
+| ✅          | [047fe0](https://act-rules.github.io/rules/047fe0) — Document has heading for non-repeated content                                               | —                   | `bypass`                                                                  | 14 / 14    |
 | ❌          | [oj04fd](https://act-rules.github.io/rules/oj04fd) — Element in sequential focus order has visible focus                                         | 2.4.7               | —                                                                         | 0 / 9      |
 | ✅          | [46ca7f](https://act-rules.github.io/rules/46ca7f) — Element marked as decorative is not exposed                                                 | —                   | `presentation-role-conflict`                                              | 10 / 10    |
 | ✅          | [6cfa84](https://act-rules.github.io/rules/6cfa84) — Element with aria-hidden has no content in sequential focus navigation                      | 4.1.2               | `aria-hidden-focus`                                                       | 15 / 15    |
@@ -81,7 +81,7 @@ The W3C [ACT implementations report](https://www.w3.org/WAI/standards-guidelines
 | ✅          | [bisz58](https://act-rules.github.io/rules/bisz58) — Meta element has no refresh delay (no exception)                                            | 2.2.1, 2.2.4, 3.2.5 | `meta-refresh-no-exceptions`                                              | 13 / 13    |
 | ✅          | [b4f0c3](https://act-rules.github.io/rules/b4f0c3) — Meta viewport allows for zoom                                                               | 1.4.10, 1.4.4       | `meta-viewport`                                                           | 16 / 16    |
 | ❌          | [ffbc54](https://act-rules.github.io/rules/ffbc54) — No keyboard shortcut uses only printable characters                                         | 2.1.4               | —                                                                         | 0 / 10     |
-| ✅          | [8fc3b6](https://act-rules.github.io/rules/8fc3b6) — Object element rendering non-text content has non-empty accessible name                     | 1.1.1               | `object-alt`                                                              | 17 / 18    |
+| ✅          | [8fc3b6](https://act-rules.github.io/rules/8fc3b6) — Object element rendering non-text content has non-empty accessible name                     | 1.1.1               | `object-alt`                                                              | 18 / 18    |
 | ✅          | [b33eff](https://act-rules.github.io/rules/b33eff) — Orientation of the page is not restricted using CSS transforms                              | 1.3.4               | `css-orientation-lock`                                                    | 0 / 13     |
 | ✅          | [674b10](https://act-rules.github.io/rules/674b10) — Role attribute has valid value                                                              | 1.3.1, 4.1.2        | `aria-roles`                                                              | 11 / 11    |
 | ✅          | [0ssw9k](https://act-rules.github.io/rules/0ssw9k) — Scrollable content can be reached with sequential focus navigation                          | 2.1.1, 2.1.3        | `scrollable-region-focusable`                                             | 15 / 15    |

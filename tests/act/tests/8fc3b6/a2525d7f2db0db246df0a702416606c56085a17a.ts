@@ -5,7 +5,7 @@ import { scan } from "../../../../src/scanner.js";
 describe("[8fc3b6]Object element rendering non-text content has non-empty accessible name", function () {
   afterEach(cleanup);
 
-  it.skip("Failed Example 5 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/8fc3b6/a2525d7f2db0db246df0a702416606c56085a17a.html)", async () => {
+  it("Failed Example 5 (https://www.w3.org/WAI/content-assets/wcag-act-rules/testcases/8fc3b6/a2525d7f2db0db246df0a702416606c56085a17a.html)", async () => {
     const document = await render(`<!DOCTYPE html>
 <html lang="en">
 <head>

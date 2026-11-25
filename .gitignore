@@ -1,3 +1,6 @@
 node_modules/
 dist/
 coverage/
+tests/act/assets/**/*.mp4
+tests/act/assets/**/*.webm
+tests/act/assets/**/*.mp3
